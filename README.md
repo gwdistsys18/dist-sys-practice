@@ -1,7 +1,7 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-Name: Qi Bao (G23090430)<br>
+Name: Qi Bao <br>
 Github Name: [C91CBQ](https://github.com/C91CBQ)
 
 ## Check List
