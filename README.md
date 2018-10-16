@@ -12,10 +12,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - The major things about this tutorial:
     1. The network on the mininet VM needs to be set up as follows before the VM can be used:<br>
         auto eth0<br>
-        iface eth0 inet dhcp
-        auto eth1
-        iface eth1 inet dhcp
-        
+        iface eth0 inet dhcp<br>
+        auto eth1<br>
+        iface eth1 inet dhcp<br>
+        <br>
         Here, eth0 is a host-only adapter and eth1 is the NAT adapter. However, this setting won't change even if the roles do.
     2. There is a separate article laying out how to set up the mininet VM (hyperlinked in the tutorial). Ignore that procedure completely. Ideally, the mininet VM needs only the following changes:
         a. Addition of a second NAT nic
