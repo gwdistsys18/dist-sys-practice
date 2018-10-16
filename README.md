@@ -10,8 +10,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   
 > Using OpenDaylight and Mininet
   - The major things about this tutorial:
-    1. The network on the mininet VM needs to be set up as follows before the VM can be used:
-        auto eth0
+    1. The network on the mininet VM needs to be set up as follows before the VM can be used:<br>
+        auto eth0<br>
         iface eth0 inet dhcp
         auto eth1
         iface eth1 inet dhcp
