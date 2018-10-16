@@ -18,8 +18,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
         <br>
         Here, eth0 is a host-only adapter and eth1 is the NAT adapter. However, this setting won't change even if the roles do.
     2. There is a separate article laying out how to set up the mininet VM (hyperlinked in the tutorial). Ignore that procedure completely. Ideally, the mininet VM needs only the following changes:
-        a. Addition of a second NAT nic
-        b. Setting changes pursuant to 1
+        1. Addition of a second NAT nic
+        2. Setting changes pursuant to 1
     3. The XQuartz X11 has to installed for Mac users and needs a log out/log in to make it the default X11 handler.
     
   - Apart from the above, the tutorial is simple enough to follow.
