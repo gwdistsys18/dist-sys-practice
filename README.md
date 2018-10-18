@@ -2,7 +2,7 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## SDN and NFV
-### Introduction to SDN 
+### Introduction to SDN (Studied for one hour)
 * [Introduction to SDN](https://www.youtube.com/watch?v=DiChnu_PAzA) The big goal of SDN is to make the network open and programmable. For example, if companies want to custom some network features, they can program their needs as applications based on SDN. The SDN architecture is the following:
 
 ![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/SDN_Model.png)
@@ -28,7 +28,7 @@ Finally, SDN controller can be designed as a hierarchy,
 
 ![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/hierarchy_SDN.png)
 
-### SDN simulation with OpenDaylight and Mininet    
+### SDN simulation with OpenDaylight and Mininet (Studied four hours)   
 
 OpenDaylight is a popular open-source SDN controller platform. Its architecuture can be found [here](https://wiki.opendaylight.org/view/OpenDaylight_Controller:Architectural_Framework).      
 
