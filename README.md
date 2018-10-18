@@ -3,7 +3,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## SDN and NFV
 ### Introduction to SDN (Studied for one hour)
-* [Introduction to SDN](https://www.youtube.com/watch?v=DiChnu_PAzA) The big goal of SDN is to make the network open and programmable. For example, if companies want to custom some network features, they can program their needs as applications based on SDN. The SDN architecture is the following:
+* [Introduction to SDN](https://www.youtube.com/watch?v=DiChnu_PAzA) The big goal of SDN is to make the network open and programmable. For example, if companies want to custom some network features, such as to control the packet flow in different path, they can program their needs as applications based on SDN. The SDN architecture is the following:
 
 ![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/SDN_Model.png)
 
