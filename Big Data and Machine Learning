@@ -19,4 +19,14 @@ Video:
     Distributed system four key problems: bandwith limit, application complexity, high chance failure.
 
 QwikLab:
- 
+   First, create a S3 bucket which is used to store the sample data and output.
+   second, create a cluster which is used to process data.
+   Thirs, assign jobs to the cluster.
+        create hive table.
+        read files ( ingest), write the results to the Hive table ( store)
+        submit a hiveQL to retrive something from the hive table. ( process).
+        write the query results to S3 bucket.( access).
+        download the results to my computer.
+   Learned how to launch a cluster, create a S3 bucket. And get familiar with the process in which the 
+   Amazon EMR use the hadoop to process big data.
+  
