@@ -1,1 +1,22 @@
 text here
+Video:
+    Hadoop Introduction
+    hadoop: framework for distributed process of large data.
+    Four phase in data process: ingest, process,analyze, access.
+    1. data are transfer to Hadoop from various data sources such as local files, relational dtabases, systems.
+    2. data is stored and processed
+    3. data is processing with processing models.
+    4.  data is accessible to users.( Web interface or something else)
+    Four key advantange: reliable, economical, scalable, flexible
+    12 key components in Hadoop ecosystem:
+        Data ingestion: sqoop ( transfer data between hadoop and relational databses servers.
+        , flume (event data, streaming data).  
+        Dara process: Hadoop mapReduce, Spark, Yarn, HDFS( for storing data. HBase, NoSQL..
+        data analysis: pig, impala, hive.
+        data access: cloudera search, hue.
+        other: Oozie( workflow or coordination system. manage the Hadoop jobs.)
+        Hbase( random, real-time, read/write access to your data).     
+    Distributed system four key problems: bandwith limit, application complexity, high chance failure.
+
+QwikLab:
+ 
