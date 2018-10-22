@@ -47,7 +47,10 @@ A container includes an application and all of its dependencies. It shares the k
 and runs as an isolated process in user space on the host OS.  
 Docker daemon - The background service running on the host that manages building, running and distributing Docker containers.  
 Docker client - The command line tool that allows the user to interact with the Docker daemon.  
-Docker Store - Store is, among other things, a registry of Docker images.  
+Docker Store - Store is, among other things, a registry of Docker images.    
+  
+-Video: What are Containers?(https://www.youtube.com/watch?v=EnJ7qX9fkcU)
+The container is used to cover a multitude things, is a sandbox of processes.  
 
 ## Area 2
 > Include notes here about each of the links
