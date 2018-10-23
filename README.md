@@ -98,7 +98,7 @@ Ingest -> Processing -> Analyze -> Access.
   In this stage, the data can be accessed by Hue or Cloudera Search 
 ### QwikLab: Analyze Big Data with Hadoop (studied 2 hours) 
 
-Following ![this](https://awseducate.qwiklabs.com/focuses/19?parent=catalog) instruction, we can creat a Hadoop cluster to perform a simple log analysis job on Hadoop.          
+Following [this](https://awseducate.qwiklabs.com/focuses/19?parent=catalog) instruction, we can creat a Hadoop cluster to perform a simple log analysis job on Hadoop.          
 First, you need a creat a S3 storage, where the result will be put.         
 Then, you need to creat a EMR service running a Hive script task on Hadoop. In detial, you need to add a Step on EMR service. EMR will run the Step automatically and put the result on S3 which you created in the previous step.          
 Finally, you can download the result file, named with "000000_0" to your local computer.           
