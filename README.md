@@ -48,5 +48,54 @@ There are 2 points to pay attention to during the configuration process:
 [Introduction to Hadoop](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) Since the data is explosion in today’s society, a powful, reliable, easy-use distributed system is urged need. But there are three challenges in a distributed system:    
 * High chances of system failure
 * Limit on bandwidth
-* High programming complexity
+* High programming complexity   
+
+Hadoop is such an excellent distributed system which can resolve these chanllanges. Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models.   
+
+Hadoop has the following characteristics:   
+* Economical – Ordinary computer can be used to process data 
+* Reliable – data is copied among different machines
+* Scalable – easy to scale, both horizontally and veritically
+* Flexiable – can store data with structural type or non-structural type
+
+Hadoop ecosystem include three components: Data processing, Resource management, and distributed file system.  
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/hadoop_component.jpg.png)    
+
+For each component, it has several implementation products.    
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/hadoop_ecosystem.jpg.png)   
+
+We discuss each of these components:    
+* HDFS: it is a storage layer for Hadoop, which is suitable for the distributed storage and processing. HDFS provides a streaming access to file system data, including file permission and authentication. HDFS uses command interface to interact with Hadoop.    
+* Hbase is a NO-SQL database based on Hadoop. compared to HDFS, it can dynamically change data in Hbase. Data in HDFS is static and cannot be changed. Hbase is mainly used when you need random, real-time, read/write access to your data.    
+* Sqoop is a tool designed to transfer data between Hadoop and relational database servers. It is used to import data from relational database such as, Oracle and MySQL to HDFS and export data from HDFS to relational databases.    
+* Introduce a concept: event data    
+Event data includes streaming data, sensor data or log files.    
+
+  Flume is a distributed service to collect the event data can transfer it to the HDFS, It is ideally suited for event data from multiple system.     
+* After the event data is transferred to the HDFS, it will be processed. One of framework that processes data is Spark. Spark is a opensource clustering computing framework.Compared to the Hadoop MapReduce which is disk-based paradigm, it is 100 times faster performance based in memory paradigm. Spark can run on Hadoop cluster, and process data in HDFS.        
+* Mapreduce is another data processing framework, which is the original Hadoop processing engine. It is an extensive, commonly used, and mature fault tolerance framework.      
+* After the data is processed, it is analyzed. This can be done by a dataflow system- Pig. Pig can convert pig script to Map-reduce code, saving time for users to write map-reduce code. It is also best for ad-hoc queries like join and filter.     
+* Impala is another tool for analyzing data. It is a high-performance SQL engine which runs on Hadoop cluster. Impala is good at interactive analysis, which has a very low latency.     
+Impala supports a dialect of SQL, so data on HDFS is model as a database table.     
+* You can also analyze data with Hive, It is similar as Impala, best for data processing and ETL. Hive execute queries using MapReduce. Users do not need write low-level Mapreduce code. Hive is suitable for structured data.    
+* After the data is analyzed, it is ready for users to access. Cloudera Search is real-time access product. It enables non-technical users to search and explore data stored in or ingested into Hadoop and HBase. Users do not need SQL or programming skills to use Cloudera Search.      
+* Oozie is a workflow or coordination system that you can use to manage the Hadoop jobs.      
+* Hue is a Hadoop user experience, which is an open source web interface for analyzing data with Hadoop. You can upload and explore data.     
+
+#### Big data processing
+
+There are four steps for data processing:    
+Ingest -> Processing -> Analyze -> Access.     
+* Ingest   
+  Data is ingested or transferred into Hadoop as various sources, such as relational databases, systems, or local files, such as   Sqoop   transfers RDBMS data to HDFS data; Flume transfer event data into HDFS data. 
+* Processing    
+  In this stage, data is stored and processed. Data is stored into HDFS or Hbase (NO-SQL database). Spark or Map-reduce perform the data   processing 
+* Analyze    
+  In this stage, data is processed with Hive, Pig or Impala.
+* Access    
+  In this stage, the data can be accessed by Hue or Cloudera Search 
+
+
 
