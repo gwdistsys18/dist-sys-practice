@@ -1,7 +1,7 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## SDN and NFV
+## Area 1 - SDN and NFV
 ### Introduction to SDN (Studied for one hour)
 * [Introduction to SDN](https://www.youtube.com/watch?v=DiChnu_PAzA) The big goal of SDN is to make the network open and programmable. For example, if companies want to custom some network features, such as to control the packet flow in different path, they can program their needs as applications based on SDN. The SDN architecture is the following:
 
@@ -43,5 +43,10 @@ From this topology, we can see the OpenDaylight plays the role of a SDN controle
 There are 2 points to pay attention to during the configuration process:   
 * You need to run VirtualBox as Administrator, otherwise, the dhcp of VirtuaBox cannot get a dynamic IP address for eth0. 
 * You need to select a proper Network adepter for NAT mode. I select PCNet FAST III because it is supported by nearly all operating systems out of the box.
-## Area 2
-> Include notes here about each of the links
+## Area 2 - Big Data and Machine Learning
+### Hadoop Introducation (Studied for 1 hour) 
+[Introduction to Hadoop](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) Since the data is explosion in today’s society, a powful, reliable, easy-use distributed system is urged need. But there are three challenges in a distributed system:    
+* High chances of system failure
+* Limit on bandwidth
+* High programming complexity
+
