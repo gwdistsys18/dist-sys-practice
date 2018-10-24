@@ -3,9 +3,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Docker and Containers
 1. Why Docker? (10min)
-* Docker
+* Docker (containerization) is becoming more popular
+* Containerization can reduce cost and complexity
 2. DevOps Docker Beginners Guide (45min)
-* Docker
+* Docker image is a snapshot of a Docker container (can be obtained from Docker Store)
+* Docker container is a running instance of a Docker image
+* Use `docker run -it` to run the container under interactive mode
+* The change in one container will not affect the image or other containers
 3. What are Containers? (18min)
 * Container
 4. VMs Versus Containers (8min)
@@ -27,7 +31,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 12. Learn more about Kubernetes on your own (30min)
 * Kubernetes
 13. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them (90min)
-* Docker on EC2
+* //TODO
 
 ## Cloud Web Applications
 1. AWS Tutorial: Launch a VM (15min)
