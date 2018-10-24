@@ -31,6 +31,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Cloud Web Applications
 1. AWS Tutorial: Launch a VM (15min)
-* What is ec2
+* Choose the EC2 instance with the proper computation power and storage on AWS console
+* Choose the right OS (linux distribution) for the EC2
+* How to create a key pair for SSH login
+* How to terminate the EC2 instance
 2. QwikLab: Intro to S3 (12min)
-* What is s3
+* S3 stands for Simple Storage Service, which provides online storage
+* User can manage the permission on each object, or change the permission of the entire bucket by editing the bucket policy
+* S3 can store different version of each object by enabling versioning
+
