@@ -5,4 +5,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 > Include notes here about each of the links
 
 ## Cloud Web Applications
-> Include notes here about each of the links
+1. AWS Tutorial: Launch a VM (15min)
+* What is ec2
+2. QwikLab: Intro to S3 (12min)
+* What is s3
