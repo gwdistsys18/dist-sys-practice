@@ -25,7 +25,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Bind mount can mount a directory from host to a container (easier file modification)
 * Use `--publish` flag to map a host port to a port inside a container
 6. Doing more with Docker Images (30min)
-* Docker images
+* Use `docker container commit` to create a new image from the change inside a docker container
+* Dockerfiles can be used to build images
+* The layer structure inside a docker image (skip all unmodified steps during building process)
 7. VMs Versus Containers Deep Dive (9min)
 * VMs vs Containers
 8. Docker Networking (30min)
