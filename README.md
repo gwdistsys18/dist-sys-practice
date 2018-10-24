@@ -29,9 +29,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Dockerfiles can be used to build images
 * The layer structure inside a docker image (skip all unmodified steps during building process)
 7. VMs Versus Containers Deep Dive (9min)
-* VMs vs Containers
+* VMs generally have larger size than containers
+* VM has slower booting time
+* It's harder for a process to penetrate through the sandbox of container
 8. Docker Networking (30min)
-* Docker networking
+* `docker network inspect` will show the information of current networks on the Docker host in json format
+* Use NAT for network between outside and container
 9. Swarm Mode Introduction (30min)
 * Swarm
 10. Kubernetes vs Swarm (4min)
