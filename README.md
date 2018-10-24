@@ -36,9 +36,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * `docker network inspect` will show the information of current networks on the Docker host in json format
 * Use NAT for network between outside and container
 9. Swarm Mode Introduction (30min)
-* Swarm
+* Compose controls multiple containers on a single system, while Swarm Mode also provides multi-host networking and other features such as load-balancing
+* Swarm Mode is made up by containers acting as worker nodes or manager nodes
+* A stack is made of several services (one or more containers)
+* Use `docker service scale` to add more replicas to a service
 10. Kubernetes vs Swarm (4min)
-* Kubernetes vs Swarm
+* ???
 11. Kubernetes in 5 Minutes (5min)
 * Kubernetes
 12. Learn more about Kubernetes on your own (30min)
