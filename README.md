@@ -11,7 +11,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Use `docker run -it` to run the container under interactive mode
 * The change in one container will not affect the image or other containers
 3. What are Containers? (18min)
-* Container
+* The container is based on cgroups and process namespace of Linux
+* The Docker image has a tree structure, which speeds up the rebuild process after any changes
+* Structure of Docker (Host, daemon, volume, etc.)
 4. VMs Versus Containers (8min)
 * VMs vs Containers
 5. Docker Intro (20min)
