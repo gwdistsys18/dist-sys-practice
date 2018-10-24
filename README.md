@@ -15,9 +15,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * The Docker image has a tree structure, which speeds up the rebuild process after any changes
 * Structure of Docker (Host, daemon, volume, etc.)
 4. VMs Versus Containers (8min)
-* VMs vs Containers
+* Containers are more "lightweight" and have faster booting time
+* VM provides better isolation
+* Containers can pack up all its dependencies (require less dependencies on OS level)
 5. Docker Intro (20min)
-* Docker
+* Use `docker container run --detach` to keep a container running in the background
+* Use `docker exec` to execute a command inside a running container
+* Docker images can be built from Docker files
+* Bind mount can mount a directory from host to a container (easier file modification)
+* Use `--publish` flag to map a host port to a port inside a container
 6. Doing more with Docker Images (30min)
 * Docker images
 7. VMs Versus Containers Deep Dive (9min)
