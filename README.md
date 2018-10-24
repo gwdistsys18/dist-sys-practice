@@ -25,5 +25,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - Apart from the above, the tutorial is simple enough to follow.
   - The wireshark packet capturing of the openflow packets as guided in the tutorial did not work for me. Maybe, I will revisit the issue at a later time.
 
+> OpenNetVM NFV Platform
+  - Roughly same as covered in class.
+  - Can't remember if the reason for using dockers to run the NFs or the fact that dockers add so little overhead was discussed in class.
+  - The comparison with ClickOS is also informative.
+  - Speed comparison of different NF configurations is informative.
+
 ## Area 2
 > Include notes here about each of the links
