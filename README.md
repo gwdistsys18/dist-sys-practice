@@ -2,7 +2,7 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Area 1
-### 1.[Introduction to SDN](https://www.youtube.com/watch?v=DiChnu_PAzA)(done in 30 mins).
+### 1. [Introduction to SDN](https://www.youtube.com/watch?v=DiChnu_PAzA)(done in 30 minutes).
 + Big picture: make network open and programmable.
 + Pretty much like computer system model which contains three levels: low level hardware, operation system, high level applications.
 + SND model change the middle layer to Network Operating System (SDN controller).
@@ -17,12 +17,36 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 + Separate to different regions and each has a SDN controller.
 + SDN controllers can be designed in hierarchy. 
 
-### 2. [Tutorial: Using the OpenDaylight SDN Controller with the Mininet Network Emulator](http://www.brianlinkletter.com/using-the-opendaylight-sdn-controller-with-the-mininet-network-emulator/)
+### 2. [Tutorial: Using the OpenDaylight SDN Controller with the Mininet Network Emulator](http://www.brianlinkletter.com/using-the-opendaylight-sdn-controller-with-the-mininet-network-emulator/) (done around 2 hours)
 + Set up mininet network simulator in virtual box. (the virtual box change the menu a bit so the host-only networks are in 'file' menu). We need two networks for the virtual machine. On connect to the NAT and the other on should connect to the host which is my laptop.
 + The Ubuntu img with mininet which is provided by the author is not usable. I got the latest version of mininet VM and it works fine.
 + The OpenDaylight tutorial is not so correct. I used openjdk-8-jre-headless then everything worked out.
 + When testing the mininet along with OpenDaylight. More attention should be paid on the ip addresses.
 + It takes a really long time for the Yang data structure to came out.
+
+### 3. [Video: OpenNetVM NFV platform](https://www.youtube.com/watch?v=7FoZywcxbYg) (done in 30 minutes)
++ SDN: focus on the control plane of the network. (How to router a package.)
++ Send the first package to the SDN server and SDN server will return a rule.
++ NFV: focus on the data plane. (How to process a package.)
++ The main idea is how to run the NFVs run as fast as the hardware do. (NFV can provide more flexibility)
++ Software-base Networking: SDN + NFV
++ Operating systems are very bad on processing large amount of packages.
++ Network hardware: Fast, expensive, inflexible.
++ We can hide most of the complexity of the system for example providing TCP, UDP layers.
++ For Linux package processing, the package copy and interrupts could be very high.
++ DPDK: make the package data from the NIC goes direct to a user space buffer. (using a special driver)
++ Using polling instead of interrupts.
++ Key idea of OpenNetVM: get data from NIC direct to a user level shared memory. With no copy.
++ Using share memory (ring buffers) to avoid locking
++ SDN controller provides a high level set of possible rules, the NF choose a specific one to use.
+
+### 4. [Usenix Conference](https://www.youtube.com/watch?v=la5kzNhqhGs)
++ Direct packet I/O options: sockets (flexible, portable but slow), memory mapped buffer (efficient if no mbufs/skbufs), within the kernel (fast but could be dangerous), custom library (tied to vendor hardware).
++ The bottle neck of network stack: system calls, device programming, complex mbufs (mbuf has very different structures), data copy and mem_alloc
++ Netmap provides security and some level isolation.
++ The policy which ring associated to which core is decided by the user.
++ Using a shared memory region for all interfaces which means 0 copy, which reduce the copy overheads.
++ Using batch to reduce the number of system calls used.
 
 ## Area 2
 > Include notes here about each of the links
