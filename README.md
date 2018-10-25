@@ -12,5 +12,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 > [Video: What are Containers? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/WhatAreContainer.pdf) 25 min
 
 > [Video: VMs Versus Containers? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/VM%20%26%20Container.png) 15 min
+
+>  [Lab: Docker Intro Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/DockerIntro.pdf) 100 min
 ## Area 2
 > Include notes here about each of the links
