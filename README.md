@@ -36,5 +36,13 @@ Docker is a new method to run certain applications on a host sever. There are se
 2. Consume less resource. According to the way that Docker runs on a host OS, when add a container onto Docker, it does not required a entire OS environment. Instead, it only package all dependency that current container is needed and deployed. In this way docker save a lot of resource and almost can be regarded as a single application.
 3. Isolation for both host machine and different containers. For instance, if I want to deploy a service on server that one required Python 3 and one required Python 2.7. If I run the two applications on host OS I will have to configure both Python 2.7 and Python 3.7 with a lot of configuration problems such as path and specific dependency. On the other hand, if I use docker I can write two dockerfiles and create two containers. It is isolated and will not influence the host machine.
 
+### Intermediate Level - Video: What are Containers? 
+
+**Structure of Docker.**
+
+![](./Resource/Docker.png)
+
+Container is based on specific Docker image. The Image is made up of multiple layers and store packages and dependency that is needed for Docker container. Based on that, container runs in the Docker host. Container includes the system and file that could support the application that runs in a container. If user want to modify or communicate with the application, it is actually modify or communicate with the container.  
+
 ## Area 2
 > Include notes here about each of the links
