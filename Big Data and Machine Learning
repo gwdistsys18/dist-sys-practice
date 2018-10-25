@@ -35,4 +35,12 @@ Intermediate Level:
 Data storage
     QwikLab: Intro to S3 
     I have do this lab in thel beginner level of "Cloud Web Application".
+    QwikLab: Intro to Amazon Redshift
+    This lab step me through
+        1. the launching of a Amazon Redshift
+        2. Connecting the Pgweb to the Redshift cluster such that we can communicate with the Redshift cluster.
+        3. Create a table in the Redshift cluster.
+        4. load the data from an Amazon S3 bucket to the cluster.( by SQL query)
+        5. Make some queries from the Pgweb to the Redshift.
     
+        
