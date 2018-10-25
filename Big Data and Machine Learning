@@ -42,5 +42,9 @@ Data storage
         3. Create a table in the Redshift cluster.
         4. load the data from an Amazon S3 bucket to the cluster.( by SQL query)
         5. Make some queries from the Pgweb to the Redshift.
-    
+
+Big Data Analysis
+Video: Short AWS Machine Learning Overview
+    AWS can help to develop Machine learning application in three layers: Framework, platform, application service.
+   
         
