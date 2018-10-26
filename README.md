@@ -46,5 +46,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
      - Hue (Access): (Hadoop User Experience) Web interface for Hadoop which allows uplaoding of data, runing queries, etc
 
 #### QwikLab: Analyze Big Data with Hadoop
- - notes
+ - Applications installed by default on EMR cluster:
+   - Apache Hadoop - big data processing
+   - Ganglia - manages cluster
+   - Tez - execution engine (as opposed to map/reduce)
+   - Hive - abstration layer running on Hadoop.  Allows SQL queries
+   - HUE (Hadoop User Experience) - GUI that runs on top of Hadoop services
+   - Pig - abstraction layer that allows queries via the Pig scripting language
+ - To run things in our EMR cluster, we add a 'step'.  We provide things like "Input" and "Arguments" to an EMR step.
+ - We can add a 'Hive' step which involves parsing data into our Hadoop cluster, generating a Hive query, and writing the results to our designated output (in this case an S3 bucket)
+ 
 ### Intermediate Courses:
