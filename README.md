@@ -25,7 +25,7 @@ Docker is a computer program that performs operating-system-level virtualization
 
 * [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
 
-![](../lab screenshots files/屏幕快照 2018-10-26 12.54.04.png)
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-26%2012.54.04.png?raw=true)
 > Include notes here about each of the links
 
 ## Area 2
