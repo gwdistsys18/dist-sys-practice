@@ -1,9 +1,7 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Area 1
-
-### Docker and Container
+## Docker and Container
 
 Beginner Level:
 
@@ -272,8 +270,20 @@ To create a new service and expose it to external traffic we’ll use the expose
 kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
 ```
 
-label creation: `kubectl label pod $POD_NAME app=v1` `app=v1` is the label.
+label creation: `kubectl label pod $POD_NAME app=v1`. `app=v1` is the label.
 
+Using the abstraction of srvices to expose pods to the outside world. We
+can scale very quickly
+
+![Scaling Diagram](https://d33wubrfki0l68.cloudfront.net/30f75140a581110443397192d70a4cdb37df7bfc/b5f56/docs/tutorials/kubernetes-basics/public/images/module_05_scaling2.svg)
+
+To list your deployments use the get deployments command: `kubectl get deployments`
+To scale `kubectl scale deployments/<name> --replicas=4`, you use labels to access the desired application
+
+To get info use `kubectl describe <kind>/<name>`
+
+To perform a rolling update use: `kubectl set image deployments/<name> <name>=<url>:<version>`
+To rollback: `kubectl rollout undo deployments/<name>`
 
 ## Area 2
 > Include notes here about each of the links
