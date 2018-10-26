@@ -32,7 +32,7 @@ QwikLab:
 
 
 Intermediate Level:
-Data storage
+1. data storage
     QwikLab: Intro to S3 
     I have do this lab in thel beginner level of "Cloud Web Application".
     QwikLab: Intro to Amazon Redshift
@@ -43,8 +43,14 @@ Data storage
         4. load the data from an Amazon S3 bucket to the cluster.( by SQL query)
         5. Make some queries from the Pgweb to the Redshift.
 
-Big Data Analysis
+2. Big Data Analysis
 Video: Short AWS Machine Learning Overview
     AWS can help to develop Machine learning application in three layers: Framework, platform, application service.
+AWS Tutorial: Analyze Big Data with Hadoop
+    This tutorial is similar to the "QwikLab: Analyze Big Data with Hadoop" in the beginner level, but more specifically on the configuration
+    of cluster.
+
+3. Machine Learning Models:
    
+
         
