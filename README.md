@@ -44,34 +44,35 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
    - These are more application level dependencies (i.e. OS versions, app level dependencies, etc)
    
 #### Lab: Docker Intro
- - Docker container's are note deleted by default after exiting.  they exist in an exited state.  to see them you run the command '''docker container ls --all'''.
+ - Docker container's are note deleted by default after exiting.  they exist in an exited state.  to see them you run the command ```docker container ls --all```.
    - Note: A containers hostname is the same as it's container ID
- - To run an interactive bash shell: docker container run --interactive --tty --rm ubuntu bash
-   - note the --rm tells docker to delete the container after it exits
+ - To run an interactive bash shell: ```docker container run --interactive --tty --rm ubuntu bash```
+   - note the ```--rm``` tells docker to delete the container after it exits
    - run 'ps' inside the ubuntu container, and you will see that there are literally only 2 processses running.  bash, and your ps command.  If you spend a lot of time on linux, it seems very unusual to see literally only 2 processes running.  I guess this is the use major argument for containers.  I can run a bash shell without all the other OS stuff that typically happens on a full Ubunutu OS
  - A note about Kernels:  containers need to share the same kernel as their hosts.  in other words, linux containers can not run on a windows docker host, and windows containers cannot run on linux hosts.
- - Command to spin up a MySQL container: docker container run --datach --name mydb -e MYSQL_ROOT_PASSWORD=<password> mysql:latest
-   - Wow, that was easy.  --detach runs it in background.
- - Run docker container logs mydb to see the logs from our mysql container
- - Run docker container top mydb to see what processes are running in our mysql container
+ - Command to spin up a MySQL container: ```docker container run --datach --name mydb -e MYSQL_ROOT_PASSWORD=<password> mysql:latest```
+   - Wow, that was easy.  ```--detach``` runs it in background.
+ - Run ```docker container logs mydb``` to see the logs from our mysql container
+ - Run ```docker container top mydb``` to see what processes are running in our mysql container
  - A little bit about Docker files:
-  - These are files that tell docker how to create containers
-  - FROM lines specify a base image to use (e.g., the webserver nginx)
-   - Example: FROM nginx:latest
-  - COPY lines tells docker to move files from the host into somewhere inside the FROM base image
-   - Example: COPY index.html /usr/sahre/nginx/html
-  - EXPOSE lines tell which ports to open in our container
-   - EXPOSE 80 443
-  - CMD lines specify commands to be run inside the container once it's started
-   - CMD ["nginx", "-g", "daemon off;"]
- - Now if we have a docker file, we can build the corresponding image with the command docker imabe build --tage <name_of_image> <location of dockerfile>
-  - and finally you can run your newly created container with the typical docker container run command specifying the name of the image you just created
- - Now if you are done with your container and don't care about it at all, you can force it to die with docker container rm --force <container_name> (if you care about it, you may want to call 'stop' first before the previous ocmmand)
+   - These are files that tell docker how to create containers
+   - FROM lines specify a base image to use (e.g., the webserver nginx)
+    - Example: ```FROM nginx:latest```
+   - COPY lines tells docker to move files from the host into somewhere inside the FROM base image
+    - Example: ```COPY index.html /usr/sahre/nginx/html```
+   - EXPOSE lines tell which ports to open in our container
+    - Example: ```EXPOSE 80 443```
+   - CMD lines specify commands to be run inside the container once it's started
+    - Exampler: ```CMD ["nginx", "-g", "daemon off;"]```
+ - Now if we have a docker file, we can build the corresponding image with the command ```docker imabe build --tage <name_of_image> <location of dockerfile>```
+ - and finally you can run your newly created container with the typical ```docker container run``` command specifying the name of the image you just created
+ - Now if you are done with your container and don't care about it at all, you can force it to die with ```docker container rm --force <container_name>``` (if you care about it, you may want to call 'stop' first before the previous ocmmand)
  - Now - what about if you want to modify an application without maving to stop it, rebuild the image, and then re-deploy it/  Docker provides the 'bind' functionality for just that
    - adding 'bind' to your run commmand will bind a location inside the docker continaer with a location on your local host filesystem.  Then, when you update a file in what appears to be your local filesystem, the container file will be updated as well.  This allos you to swap out, for example. HTML files in a running container hosting a website.
  - Once you update the running container, you will probably want to persist those changes in the image file  To do that, simply rebuild the imaage with the updated files with the standard docker image build command
- - Finally, you can push any container images you create to your own personal Docker Hub with the docker image push <<dockerID>/<containerId> command
-   - Note - you will need to login with docker login before you can do this (and need to have a docker account obviously)
+ - Finally, you can push any container images you create to your own personal Docker Hub with the ```docker image push <<dockerID>/<containerId>``` command
+   - Note - you will need to login with ```docker login``` before you can do this (and need to have a docker account obviously)
+   
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
 #### Video: Hadoop Intro
