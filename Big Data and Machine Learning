@@ -53,7 +53,20 @@ AWS Tutorial: Analyze Big Data with Hadoop
 3. Machine Learning Models:
    QwikLab: Intro to Amazon Machine Learning - 45 min
        This lab is not avaible. The website told me that there is no seat because of too much requests.
-       Docs: AWS Machine Learning
+   Docs: AWS Machine Learning
+       This docs introduce the detailed procedure by which developing a machine learning application with AWS. Here are the procedures:
+           Format the train and test data to the required data format. 
+           Store the formatted data in an S3 bucket.
+           Create a ML Datasource in AWS and design a schema for it.
+           Train a ML model and evaluate the model.
+           Make predictions on test data.
+   AWS Tutorial: Build a Machine Learning Model   
+       This tutorial step me through the procedures in which building a machine learning model. Just like what the Docs specifies.
+       
+   
+  
+           
+           
        
 
         
