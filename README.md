@@ -229,6 +229,8 @@ Execute the docker service rm myservice command to remove the service called mys
 
 [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)
 
+Both Kubernetes and Docker Swarm are orquestration tools,
+
 Kubernetes is an open source platform created by Google for container deployment. The idea was to automate deployment operation and scaling factors. It is sold as a production-ready, enterprise-grade, self-healing. This means that the fault-tolenrance of Kubernetes is very high.
 
 Swarm uses a lot of the tools that regular Docker containers use. So that brings a simplicity. But Kubernetes has it's own Command Line Interface (CLI) that is incompatible with Docker.
@@ -237,6 +239,41 @@ Kubernetes itself is more complicate to use because the API is more complex. But
 Intersting Links:
 
 - [Kubernetes vs. Docker Swarm: What’s the Difference?](https://thenewstack.io/kubernetes-vs-docker-swarm-whats-the-difference/)
+- [Kubernetes Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+
+Kubernetes:
+
+![Basic Diagram](https://d33wubrfki0l68.cloudfront.net/99d9808dcbf2880a996ed50d308a186b5900cec9/40b94/docs/tutorials/kubernetes-basics/public/images/module_01_cluster.svg)
+
+Each node has a Kuberlet instance that run in each node to communicate
+with the master node
+
+![Node Diagram](https://d33wubrfki0l68.cloudfront.net/5cb72d407cbe2755e581b6de757e0d81760d5b86/a9df9/docs/tutorials/kubernetes-basics/public/images/module_03_nodes.svgu)
+
+A node is a worker machine in Kubernetes and may be a VM or physical machine, depending on the cluster. Multiple Pods can run on one Node.
+
+To start a `BASH` inside a pod `kubectl exec -ti $POD_NAME bash`.
+POD_NAME is the ID of the pod running inside the node
+
+```bash
+kubectl get - list resources
+kubectl describe - show detailed information about a resource
+kubectl logs - print the logs from a container in a pod
+kubectl exec - execute a command on a container in a pod
+```
+
+A Service routes traffic across a set of Pods. Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application. Discovery and routing among dependent Pods (such as the frontend and backend components in an application) is handled by Kubernetes Services.
+
+![Services Diagram](https://d33wubrfki0l68.cloudfront.net/b964c59cdc1979dd4e1904c25f43745564ef6bee/f3351/docs/tutorials/kubernetes-basics/public/images/module_04_labels.svg)
+
+To create a new service and expose it to external traffic we’ll use the expose command with NodePort as parameter (minikube does not support the LoadBalancer option yet).
+
+```bash
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+```
+
+label creation: `kubectl label pod $POD_NAME app=v1` `app=v1` is the label.
+
 
 ## Area 2
 > Include notes here about each of the links
