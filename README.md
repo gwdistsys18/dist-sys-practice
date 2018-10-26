@@ -1,13 +1,29 @@
 # Distributed Systems Practice
-Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
+Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)  
+  
+# Table of contents
+- [Docker Container](https://github.com/jzhzj/dist-sys-practice#docker-container)  
+	- [Beginner Level](https://github.com/jzhzj/dist-sys-practice#beginner-level)
+		- [Why docker](https://github.com/jzhzj/dist-sys-practice#video-why-docker)  
+		- [DevOps Docker Beginners Guide](https://github.com/jzhzj/dist-sys-practice#lab-devops-docker-beginners-guide)  
+	- [Intermediate Level](https://github.com/jzhzj/dist-sys-practice#intermediate-level)  
+		- [What are Containers?](https://github.com/jzhzj/dist-sys-practice#video-what-are-containers)  
+		- [VMs Versus Containers](https://github.com/jzhzj/dist-sys-practice#video-vms-versus-containers)
+		- [Docker Intro](https://github.com/jzhzj/dist-sys-practice#lab-docker-intro)
+		- [Doing more with Docker Images](https://github.com/jzhzj/dist-sys-practice#lab-doing-more-whith-docker-images)
+		- [VMs Versus Containers Deep Dive](https://github.com/jzhzj/dist-sys-practice#video-vms-versus-containers-deep-dive)
 
 ## Docker Container
 ### Beginner Level
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
-1. Docker is all about speed.
+Time: 13 min   
+
+1. Docker is all about speed.  
 2. Docker is freeing up a lot of tasks, such as keeping existing software updated, keeping it running, fixing its problems, backing it up and so on, which leave us less time to deploy new software.  
 
 #### [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)  
+Time: 1 hr  
+
 Steps:  
   
 1. Installing docker  
@@ -31,7 +47,9 @@ Notes:
 
 ### Intermediate Level
 #### Containers:
-##### [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)
+##### [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)  
+Time: 30 min  
+  
 1. Image Layering  
 	The images are arranged in a hierarchy structure. Let's say, you have an operating system busybox, then sshd and perl running on busybox, and your app at the top layer of the hierarchey structure.
 2. Docker File  
@@ -48,12 +66,16 @@ Notes:
 	A registry is a thing that contains images. You can pull and push from the registry at will.
   
 ##### [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)  
+Time: 10 min. 
+
 1. Where VM lives  
 	VM lives between the phyiscal infrastructure and OS layer. It masks all the details of delegation of the hardware.
 2. Where Docker Container lives  
 	Docker container lives between the OS and your app. The OS can only have the minimum stuffs, but the container has all the OS dependencies for the app running in this container.  
 	
 ##### [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)  
+Time: 50 min  
+
 1. When you already start a container, and you want to execute command, use `docker container exec -it <Command>`
 2. When you want to connect to a new shell process inside an already-running container, you can use `docker container exec -it <Shell>`
 3. Structure of Docker File  
@@ -71,7 +93,9 @@ Be sure to include period (.) at the end of the command.
 	Next: `docker image push <Image name:Version>`  
 	Finally: You can check your newly-pushed Docker images at `https://hb.docker.com/r/<your docker id>/`
   
-##### [Lab: Doing more whith Docker Images](https://training.play-with-docker.com/ops-s1-images/)
+##### [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)  
+Time: 1 hr. 
+
 1. To restart an stopped container  
 	`docker container start CONTAINER_ID` This command just start the container but doesn't show the terminal. Use `docker exec -it CONTANINER_ID SHELL` to show a terminal.  
 2. Commit a modified container  
@@ -102,7 +126,9 @@ Be sure to include period (.) at the end of the command.
 	- Dockerfile - A text file that contains all the commands, in order, needed to build a given image. The [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) page lists the various commands and format details for Dockerfiles.
 	- Volumes - A special Docker container layer that allows data to persist and be shared separately from the container itself. Think of volumes as a way to abstract and manage your persistent data separately from the application itself.
 
-##### [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
+##### [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)  
+Time: 13 min  
+
 1. Size  
 	The size of an image of a VM containing user application and OS kernel can range from hundreds of megabytes to tens of gigabytes.  
 	The size of an image of a container containing the application and all the dependencies that the application requires to run can range from tens of megabytes up to gigtabytes.
@@ -113,7 +139,10 @@ Be sure to include period (.) at the end of the command.
 
 #### Networking and Orchestration:
 
-##### [Lab: Docker Networking]()
+##### [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)  
+Time:  
+
+1. 
 
 ##### [Lab: Swarm Mode Introduction]()
 
