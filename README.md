@@ -83,7 +83,7 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 <none>              <none>              a104f9ae9c37        46 seconds ago      160MB
 ubuntu              latest              14f60031763d        4 days ago          120MB
 ```
-
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/image_creation.png">
 
 
 
