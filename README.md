@@ -22,6 +22,17 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - The ```docker container ls``` command will list all running containers.  (add a ```-a``` flag to see containers run in the past)
  - every container is isolated unless you explicitly tell docker to start a specific container.  Note the container id's returned from the ```docker container ls```.  If you want to start a specific container, use the ```docker container start <container_id>``` command
  - If you want to interact with a running container, you can inject commands via ```docker container execute <container_id> <command>```
+
+### Intermediate Courses:
+#### Video: What are Containers?
+ - Container == Sandbox for a process
+ - Typically, one process per container, and lifecycle of container == lifecycle of process
+ - Containers images have a hierarchy
+ - Dockerfile is basically an environment in a text file.  It is a recipe for building a container image.  Each line can be considered a alyer in the container image hierarchy
+ - Container is packaged with all of it's dependencies.  So when you run a container, no software is actually installed on the host operating system
+ - Registry contains images
+ - Docker host can pull & push images from the Registry (only needs to pull and push diff's between what is on host and what is in the registry)
+ - Docker clients manage container lifecycles, container storage, and container networking via API calls to the Docker host
  
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
@@ -56,4 +67,3 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - To run things in our EMR cluster, we add a 'step'.  We provide things like "Input" and "Arguments" to an EMR step.
  - We can add a 'Hive' step which involves parsing data into our Hadoop cluster, generating a Hive query, and writing the results to our designated output (in this case an S3 bucket)
  
-### Intermediate Courses:
