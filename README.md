@@ -226,6 +226,7 @@ Execute the docker service rm myservice command to remove the service called mys
 `docker service rm <name of service>`
 
 [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)
+
 [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)
 
 Kubernetes is an open source platform created by Google for container deployment. The idea was to automate deployment operation and scaling factors. It is sold as a production-ready, enterprise-grade, self-healing. This means that the fault-tolenrance of Kubernetes is very high.
@@ -233,9 +234,9 @@ Kubernetes is an open source platform created by Google for container deployment
 Swarm uses a lot of the tools that regular Docker containers use. So that brings a simplicity. But Kubernetes has it's own Command Line Interface (CLI) that is incompatible with Docker.
 Kubernetes itself is more complicate to use because the API is more complex. But it's more modular and a more all-in-one solution. Pods provide an easier organization compared to the only service / micro-service based Swarm
 
-Intersting Links: 
+Intersting Links:
 
-- -[Kubernetes vs. Docker Swarm: What’s the Difference?](https://thenewstack.io/kubernetes-vs-docker-swarm-whats-the-difference/)
+- [Kubernetes vs. Docker Swarm: What’s the Difference?](https://thenewstack.io/kubernetes-vs-docker-swarm-whats-the-difference/)
 
 ## Area 2
 > Include notes here about each of the links
