@@ -235,7 +235,7 @@ Kubernetes itself is more complicate to use because the API is more complex. But
 
 Intersting Links: 
 
-- -(Kubernetes vs. Docker Swarm: What’s the Difference?)[https://thenewstack.io/kubernetes-vs-docker-swarm-whats-the-difference/]
+- -[Kubernetes vs. Docker Swarm: What’s the Difference?](https://thenewstack.io/kubernetes-vs-docker-swarm-whats-the-difference/)
 
 ## Area 2
 > Include notes here about each of the links
