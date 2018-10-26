@@ -48,5 +48,47 @@ A place to find and download Docker images.
 
 
 
+### Lab: docker image
+
+#### Image creation from a container
+Let’s start by running an interactive shell in a ubuntu container:
+```
+docker container run -ti ubuntu bash
+```
+for a real world application where you had just installed several packages and run through a number of configuration steps the process could get cumbersome and become quite error prone. Instead, it would be easier to create an image you can share with your team.
+
+To start, we need to get the ID of this container using the ls command (do not forget the -a option as the non running container are not returned by the ls command).
+```
+docker container ls -a
+```
+Before we create our own image, we might want to inspect all the changes we made. Try typing the command
+```
+docker container diff <container ID> 
+```
+for the container you just created. You should see a list of all the files that were added or changed to in the container when you installed figlet. Docker keeps track of all of this information for us. This is part of the layer concept we will explore in a few minutes.
+
+Now, to create an image we need to “commit” this container. Commit creates an image locally on the system running the Docker engine. Run the following command, using the container ID you retrieved, in order to commit the container and create an image out of it.
+
+```
+docker container commit CONTAINER_ID
+```
+That’s it - you have created your first image! Once it has been commited, we can see the newly created image in the list of available images.
+
+```
+docker image ls
+```
+you will see like this:
+```
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+<none>              <none>              a104f9ae9c37        46 seconds ago      160MB
+ubuntu              latest              14f60031763d        4 days ago          120MB
+```
+
+
+
+
+
+
+
 ## Area 2
 > Include notes here about each of the links
