@@ -51,6 +51,9 @@ OpenNetVM is an open source NFV platform developed by GWU cloud Lab. It provides
 
 ![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/openNetVM_architecture.png)
 
+* NF Manager manages all NFs running on containers. It receives packets from NIC and disptaches the packets to the certain NFs according to the specific rules. 
+* NFs recevie packets from NF Manager or from other NFs, then process the packets and deliver them to the next NF or send out of the NIC
+
 It achieves high performance through the following techniques:   
 
 * At the IP layer, OpenNetVM uses DPDK to receive packets and send packets. All packets will bypass the kernel to the userspace, which     can reduce the system interrupts and packets-copy.
@@ -58,6 +61,9 @@ It achieves high performance through the following techniques:
 * DPDK integrates mTCP and mOS. mTCP is a userspace implementation library of TCP stack. You can find its introduction and code from       [here](https://github.com/eunyoung14/mtcp). mOS is a software implementation of Stateful middleboxes library, such as intrusion         detection systems and stateful firewalls, relying on TCP flow management to keep track of on-going network connections. You can find     its introduction and source code from [here](https://github.com/ndsl-kaist/mOS-networking-stack) and [here](https://mos.kaist.edu/)
 
 Based on mTCP and mOS, users can implement any customized NF on OpenNetVM platform, which is highly scalable.
+
+### DPDK Introduction (studied 2 hours) 
+DPDK is the Data Plane Development Kit that consists of libraries to accelerate packet processing running on operation system. It is provided by Intel.   
 
 ## Area 2 - Big Data and Machine Learning
 ### Hadoop Introducation (Studied for 1 hour) 
