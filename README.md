@@ -66,7 +66,7 @@ The advantage of virtual machine is that it could provide a more isolate virtual
 
 **Task 3**: this task shows how to “mount” a local file into Docker and how to update file and then update the image by building a new version of image. This new version of Docker image can be saved via upload this image to Docker Hub. 
 
-When I use some service deployed by Docker containers, I use `docker exec` to get into container and modify files via `vi`.
+When I use some service deployed by Docker containers, I use `docker exec -i -t <CONTAINER_ID> bash` to get into container and modify files via `vi`.
 
 ### Intermediate Level - Lab: Doing more with Docker Images
 
