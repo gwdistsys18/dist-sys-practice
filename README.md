@@ -42,7 +42,23 @@ From this topology, we can see the OpenDaylight plays the role of a SDN controle
 
 There are 2 points to pay attention to during the configuration process:   
 * You need to run VirtualBox as Administrator, otherwise, the dhcp of VirtuaBox cannot get a dynamic IP address for eth0. 
-* You need to select a proper Network adepter for NAT mode. I select PCNet FAST III because it is supported by nearly all operating systems out of the box.
+* You need to select a proper Network adepter for NAT mode. I select PCNet FAST III because it is supported by nearly all operating systems out of the box.   
+
+### OpenNetVM Introduction (studied 2 hours)   
+
+[Video: OpenNetVM NFV platform]( https://www.youtube.com/watch?v=7FoZywcxbYg) 
+OpenNetVM is an open source NFV platform developed by GWU cloud Lab. It provides a NF manager platform which can run a NF chains on it. Each NF needs to register its service id to the OpenNetVM. NFs can run in a docker container. OpenNetVM is suitable and highly efficient for the NF chain services. Its architecture is as the following:   
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/openNetVM_architecture.png)
+
+It achieves high performance through the following techniques:   
+
+* At the IP layer, OpenNetVM uses DPDK to receive packets and send packets. All packets will bypass the kernel to the userspace, which     can reduce the system interrupts and packets-copy.
+* The NIC RX will be shared by all NFs, this can avoid packet-copy among NFs.
+* DPDK integrates mTCP and mOS. mTCP is a userspace implementation library of TCP stack. You can find its introduction and code from       [here](https://github.com/eunyoung14/mtcp). mOS is a software implementation of Stateful middleboxes library, such as intrusion         detection systems and stateful firewalls, relying on TCP flow management to keep track of on-going network connections. You can find     its introduction and source code from [here](https://github.com/ndsl-kaist/mOS-networking-stack) and [here](https://mos.kaist.edu/)
+
+Based on mTCP and mOS, users can implement any customized NF on OpenNetVM platform, which is highly scalable.
+
 ## Area 2 - Big Data and Machine Learning
 ### Hadoop Introducation (Studied for 1 hour) 
 [Introduction to Hadoop](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) Since the data is explosion in today’s society, a powful, reliable, easy-use distributed system is urged need. But there are three challenges in a distributed system:    
