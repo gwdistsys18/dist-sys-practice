@@ -60,7 +60,15 @@ The advantage of virtual machine is that it could provide a more isolate virtual
 
 ### Intermediate Level - Lab: Docker Intro 
 
+**Task 0 &1**: some basic operation of running a docker and execute some Linux command inside a container. Note that Linux containers require the Docker host to be running a Linux kernel.
 
+**Task 2**: basic operation to create a container via Dockerfile. Arguments can be found in Docker documentation pages.
+
+**Task 3**: this task shows how to “mount” a local file into Docker and how to update file and then update the image by building a new version of image. This new version of Docker image can be saved via upload this image to Docker Hub. 
+
+When I use some service deployed by Docker containers, I use `docker exec` to get into container and modify files via `vi`.
+
+### Intermediate Level - Lab: Doing more with Docker Images
 
 ## Area 2
 > Include notes here about each of the links
