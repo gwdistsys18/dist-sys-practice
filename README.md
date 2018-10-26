@@ -3,7 +3,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Docker and Containers
 ### Beginner Level
-[Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
+* [Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 
 This video covers the whys and whats of how the Docker got started, what problems it solves and why should we be learning it.
 Learning docker is really important, like the author said, containers are the nextonce-in-a-decade shift in infrastructure and process that make or break you.
@@ -23,6 +23,9 @@ Docker is a computer program that performs operating-system-level virtualization
 
 5). Docker is the core essence that you need to understand first but once you've moved beyond that you are probably need to use other tools for filling the gaps in your toolset.
 
+* [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
+
+![](../lab screenshots files/屏幕快照 2018-10-26 12.54.04.png)
 > Include notes here about each of the links
 
 ## Area 2
