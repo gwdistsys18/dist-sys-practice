@@ -72,7 +72,29 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Once you update the running container, you will probably want to persist those changes in the image file  To do that, simply rebuild the imaage with the updated files with the standard docker image build command
  - Finally, you can push any container images you create to your own personal Docker Hub with the ```docker image push <<dockerID>/<containerId>``` command
    - Note - you will need to login with ```docker login``` before you can do this (and need to have a docker account obviously)
-   
+
+#### Lab: Doing More with Docker Images
+ - ```docker container diff <container_id>```  shows modifications made to a container (e.g., installed sofware on a ubunutu base image)
+ - docker container commit <container_id> will create a new container image based on the container_id provided
+ - docker image ls to show current docker images (notice newly commited image has no tag
+ - docker image tag <IMAGE_ID> <IMAGE_NAME> to tag the image with <IMAGE_NAME>
+ - Remember from our previous lab that you can also build images with Dockerfiles (see previous section for info on how to do that)
+ - You can also see history of an image with ```docker image history <image_id>```  
+  - This command will show you the base image, as well as the updates performed to it based on your specific Dockerfile inststructions
+ - ```docker image inspect <image_id>``` will show you much more detailed information about an image file such as the layers, drivers, archetcture, and other various metadata
+ 
+#### Video: VMs vs Containers Deepdive
+ - Size:
+  - VM's have everything except physical hardware inside VM image (kernels, efi, OS, etc)
+  - containers may have only application data, or could have entire OS's in them also (like if they built on top of Ubuntu base image)
+ - Isolation:
+  - VMs are secure because they an attacker has to exploit process -> user space -> kernel -> x86 
+  - Container are only as secure as the kernerl they are running on.  If kernel has bug, then all containers running on that kernel have a bug
+ - Boot Time:
+  - VM: 3/4 seconds for system (faster system then I have ever started...), 500 ms for userspace procs
+  - Container: 500 ms for userspace proc
+  
+
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
 #### Video: Hadoop Intro
