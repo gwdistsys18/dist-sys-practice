@@ -147,7 +147,7 @@ In order to publish an image you need to login using `docker login`
 
 To publish : `docker image push <name>:<version>`
 
-[Video: VMs Versus Containers Deep Dive](Video: VMs Versus Containers Deep Dive)
+[Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
 
 3 Misconceptions:
 
