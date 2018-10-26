@@ -34,6 +34,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Docker host can pull & push images from the Registry (only needs to pull and push diff's between what is on host and what is in the registry)
  - Docker clients manage container lifecycles, container storage, and container networking via API calls to the Docker host
  
+#### Video: VMs Versus Containers
+ - VMs
+   - VMs and Hypervisors exist between the OS and Physical level
+   - OS can be slim because VMs are going to have a very standardized virtual driver interface for things like NICs and storage
+   - Hypervisor consequently needs all the drivers to communicate with the actual non-virtualized hardware
+ -Containers
+   - OS can be slim again, but this time that's because dependencies can be moved into the container image itself
+   - These are more application level dependencies (i.e. OS versions, app level dependencies, etc)
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
 #### Video: Hadoop Intro
