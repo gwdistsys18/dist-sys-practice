@@ -1,5 +1,5 @@
 # Distributed Systems Practice
-Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
+Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/), visit [blog](https://1988warren.github.io/dist-sys-practice.github.io) to see all notes.
 
 ## Cloud Web Apps
 
