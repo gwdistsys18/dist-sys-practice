@@ -3,7 +3,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Area 1 - Docker & Containers
 ### Beginner Courses:
-#### Video: Why Docker?
+#### Video: Why Docker? (10 min)
  - Docker is a major infrastructure shift.  Comparable to Mainframe to PC shift in 1990s, Baremteal to Virtual on 2000s, Datacenter to Cloud in 2010s, and finally host to containers currently (aka Docker).
  - Migration is the hard part, however Docker is built with migration in mind.
  - Why Docker?? Docker is all about speed!  Develop faster, build faster, test faster, deploy faster, etc.
@@ -12,7 +12,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Docker is freeing up time typically spent on maintenance
  - Apps can be migrated into containers without code changes.  Containers is simply about optimizing the packaging and running apps.
 
-#### Lab: DevOps Docker Beginners Guide
+#### Lab: DevOps Docker Beginners Guide (1 hour)
  - Container is application abstraction, where as virtual machines are hardware abstraction
  - The Docker Registry is the location Docker looks to pull containers.  In the default case, it is the Docker Store.
  - The ```pull``` command fetches a conainer image from the registry and saves it on your system
@@ -24,7 +24,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - If you want to interact with a running container, you can inject commands via ```docker container execute <container_id> <command>```
 
 ### Intermediate Courses:
-#### Video: What are Containers?
+#### Video: What are Containers? (20 min)
  - Container == Sandbox for a process
  - Typically, one process per container, and lifecycle of container == lifecycle of process
  - Containers images have a hierarchy
@@ -34,7 +34,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Docker host can pull & push images from the Registry (only needs to pull and push diff's between what is on host and what is in the registry)
  - Docker clients manage container lifecycles, container storage, and container networking via API calls to the Docker host
  
-#### Video: VMs Versus Containers
+#### Video: VMs Versus Containers (10 min)
  - VMs
    - VMs and Hypervisors exist between the OS and Physical level
    - OS can be slim because VMs are going to have a very standardized virtual driver interface for things like NICs and storage
@@ -43,7 +43,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
    - OS can be slim again, but this time that's because dependencies can be moved into the container image itself
    - These are more application level dependencies (i.e. OS versions, app level dependencies, etc)
    
-#### Lab: Docker Intro
+#### Lab: Docker Intro (45 min)
  - Docker container's are note deleted by default after exiting.  they exist in an exited state.  to see them you run the command ```docker container ls --all```.
    - Note: A containers hostname is the same as it's container ID
  - To run an interactive bash shell: ```docker container run --interactive --tty --rm ubuntu bash```
@@ -73,7 +73,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Finally, you can push any container images you create to your own personal Docker Hub with the ```docker image push <<dockerID>/<containerId>``` command
    - Note - you will need to login with ```docker login``` before you can do this (and need to have a docker account obviously)
 
-#### Lab: Doing More with Docker Images
+#### Lab: Doing More with Docker Images (30 min)
  - ```docker container diff <container_id>```  shows modifications made to a container (e.g., installed sofware on a ubunutu base image)
  - docker container commit <container_id> will create a new container image based on the container_id provided
  - docker image ls to show current docker images (notice newly commited image has no tag
@@ -83,7 +83,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - This command will show you the base image, as well as the updates performed to it based on your specific Dockerfile inststructions
  - ```docker image inspect <image_id>``` will show you much more detailed information about an image file such as the layers, drivers, archetcture, and other various metadata
  
-#### Video: VMs vs Containers Deepdive
+#### Video: VMs vs Containers Deepdive (10 min)
  - Size:
   - VM's have everything except physical hardware inside VM image (kernels, efi, OS, etc)
   - containers may have only application data, or could have entire OS's in them also (like if they built on top of Ubuntu base image)
@@ -93,8 +93,50 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Boot Time:
   - VM: 3/4 seconds for system (faster system then I have ever started...), 500 ms for userspace procs
   - Container: 500 ms for userspace proc
-  
-
+#### Lab: Docker Networking (1 hour)
+ - ```docker network ls``` shows existing container networks
+ - ```docker network inspect <network>``` shows detailed information about the network selected, such as drivers and connected containers
+ - ```docker info``` will list available network drivers
+ - Bridge Netowkring:
+  - All Docker installations come pre-built with a Bridge network
+  - bridge drive provides single host network (aka only containers running on the host can talk to eachother)
+  - all new containers are connected to the bridge network by default
+ - Port mapping:
+  - Containers can be started with a port mapping which will map a port from docker host to a container running on that host
+  - Example: ```docker run --name web1 -d -p 8080:80 nginx``` will start an nginx web server, and map docker host port 8080 to container port 80 (default port where nginx will listen for connections)
+ - To create a docker swarm: ```docker swarm init --advertise-addr $(hostname -i)```
+  - this will output the command to run on other nodes to join the swarm
+  - ```docker network create -d overlay overnet``` will create an overlay network on the swarm
+  - This network can now be specified when creating services: ```docker service create --name myservice --network overnet --replicas 2 ubuntu sleep infinity```.  Notice the specification of the overlay network, as well as 2 replicas to run on our 2 nodes in our swarm
+ - ```docker service rm <service_name>``` to remove a Docker service
+ - ```docker swarm leave``` to remove a node from a swarm (optional --force)
+ 
+#### Lab: Swarm Mode Introduction (1 hour)
+ - Docker Compose is used to control multiple containers on a single system.
+ - Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. (used more frequently than Compose)
+ - We need a manager first for our swarm: ```docker swarm init --advertise-addr $(hostname -i)```
+  - This does 2 things.  Sets up the manager, and also prints out the command we can use to run on other nodes to join the swarm managed by this manager
+ - A stack is a group of services that are deployed together: multiple containerized components of an application that run in separate instances. 
+ - Each individual service can actually be made up of one or more containers, called tasks and then all the tasks & services together make up a stack.
+ - Docker stack files are basically a text file containig markup which describes your ENTIRE app (pretty cool), including what elements will depend on eachother, how many replicas, what services, etc
+ - You can deploy a docker stack file with: ```docker stack deploy --compose-file=docker-stack.yml voting_stack```
+ - ```docker stack ls``` lists the installed stacks
+ - ```docker stack services <stack_name>``` will list the individual services running in the stack
+ - you can directly scale docker stacks with ```docker service scale voting_stack_vote=5```
+ 
+#### Video: Kubernetes vs. Swarm (5 min)
+ - Swarm - orchestration system (manage containers in production)
+ - Kubernetes - From google, an orchestration system for Docker/Containers 
+ - Swarm & Kubernetes are basically in competition.  Currently - most live products are using Kubernetes
+ - Swarm is simpler than Kubernetes, and built directly into Docker
+ - Reccomendation is to learn Kubernetes because it has more features, and is more widely used
+ 
+#### Video: Kubernetes in 5 minutes (5 minutes..duh)
+ - Kubernetes consists of a Cluster Services node, and worker nodes (Docker hosts)
+ - Kublet software runs on worker nodes
+ - "Desired State Management" is simply the .yaml file designating what we want to run on our cluster
+ - Inside the app.yaml file will designate "pods" which specify what container images a Pod runs, how many replicas, what services, etc
+ - This file is provided to the cluster services, and then Kubernetes figures out how to map the desired state to available infrastructure
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
 #### Video: Hadoop Intro
