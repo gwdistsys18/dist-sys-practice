@@ -196,6 +196,20 @@ Finally, it will give us a operating system counting table
 |Cluster Name     |lab              |
 |Cluster Name     |lab              |
 
+| Cluster DB Props| value           |
+|-----------------|-----------------|
+|Port             |1234             |
+|Publicly Access  |Yes              |
+|Database Name    |labdb            |
+|Master Usernaem  |master           |
+|Encrypted        |No               |
+|JDBC URL         |jdbc:redshift://~|
+|ODBC URL         |Driver={};       |
+|ODBC URL         |Server=~         |
+|ODBC URL         |DB=labdb;UID     |
+|ODBC URL         |PWD=pwd;Port=1234|
+
+
 <a name="introml"></a> 
 # Intro to Amazon Machine Learning
 
