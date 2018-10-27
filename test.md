@@ -180,6 +180,7 @@ Finally, it will give us a operating system counting table
 * Launch cluster to open the Redshift Cluster Creation Wizard
 (Optional: node type, control encryption, VPC)
 * Cluster Properties:
+<!-- Tables -->
 | Properties Name |Properties value |
 |-----------------|-----------------|
 |Cluster Name     |lab              |
