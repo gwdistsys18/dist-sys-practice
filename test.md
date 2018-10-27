@@ -179,7 +179,10 @@ Finally, it will give us a operating system counting table
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
 (Optional: node type, control encryption, VPC)
-* Cluster Properties: 
+* Cluster Properties:
+| Properties Name |Properties value |
+|-----------------|-----------------|
+|Cluster Name     |lab              |
 
 <a name="introml"></a> 
 # Intro to Amazon Machine Learning
