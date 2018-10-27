@@ -286,5 +286,35 @@ To perform a rolling update use: `kubectl set image deployments/<name> <name>=<u
 
 To rollback: `kubectl rollout undo deployments/<name>`
 
-## Area 2
+## Cloud Web Apps
+
+[AWS LAB](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
+
+This lab is a simple way to access AWS Console and launch a simple Free tier EC2 instance with minimal resources. Remember to save the .perm (certificate) in a secure location. Also rememeber to run `chmod 400 mykey.perm` to change write permission and use the `-i` flag for the ssh
+
+[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+
+Amazon Simple Storage Service (Amazon S3) is storage for the internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web.
+
+For this you launch a new S3 instance bucket through the AWS console and then create a new bucket. You can upload objects and be able to set permissions for the access of such information. For this "LAB", we uploaded an image with 2 version and designed a `Bucket Policy`
+
+```Javascript
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1540610210977",
+    "Statement": [
+        {
+            "Sid": "Stmt1540610202751",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": "arn:aws:s3:::mybucket567/*"
+        }
+    ]
+}
+```
+
 > Include notes here about each of the links
