@@ -156,6 +156,7 @@ Docker’s networking subsystem is pluggable, using drivers. Several drivers exi
 
 - bridge : The default network driver. If you don’t specify a driver, this is the type of network you are creating. Bridge networks are usually used when your applications run in standalone containers that need to communicate.
 - host: For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly. host is only available for swarm services.
+- overlay: Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other.
 - macvlan: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
 - none: For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
 
@@ -212,23 +213,6 @@ $ sudo iptables -P FORWARD ACCEPT
 #### overlay networks
 The overlay network driver creates a distributed network among multiple Docker daemon hosts. 
 
-##### initialize a new Swarm
-```
-docker swarm init --advertise-addr $(hostname -i)
-```
-Run a docker node ls to verify that both nodes are part of the Swarm. The ID and HOSTNAME values may be different in your lab. The important thing to check is that both nodes have joined the Swarm and are ready and active.
-
-A host running Docker can proactively initialize a Swarm cluster or join an existing Swarm cluster, so that the host running Docker becomes a node of a Swarm cluster. nodes can be classfied into manager node and worker node.
-
-<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/swarm.png">
-
-A Task is the smallest unit in a Swarm, it's a container. A Service is the collection of tasks, it defines the attributes of tasks, there are two modes of services. 
-
-- replicated services
--  global services
-
-<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service.png">
-
 
 ##### Create an overlay network
 Create a new overlay network called “overnet” by running ```docker network create -d overlay overnet```. Use the docker network ls command to verify the network was created successfully. Use the ```docker network inspect <network> ``` command to view more detailed information about the “overnet” network. 
@@ -242,13 +226,12 @@ docker service create --name myservice \
 ubuntu sleep infinity
 ```
 
-
-
-
+#### access from outside
 
 if you want to run some web applications in the container. To allow external access to these applications, port mapping can be specified with the <font color="#CC3A5C" >-p<font> parameters.
 
 use ``` docker container ls ```  to see the mapping relations between host port and container port, you can use ``` ip:hostPort:containerPort ```  to assign the mapping address, for example ``` $ docker run -d -p 127.0.0.1:5000:5000 training/webapp python app.py ```
+
 
 
 ### Swarm Mode Introduction for IT Pros
@@ -257,6 +240,50 @@ use ``` docker container ls ```  to see the mapping relations between host port 
 * Compose is used to control multiple containers on a single system. Much like the Dockerfile we looked at to build an image, there is a text file that describes the application: which images to use, how many instances, the network connections, etc. But Compose only runs on a single system so while it is useful, we are going to skip Compose1 and go straight to Docker Swarm Mode.
 
 * Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose, but to define and maintain high availability levels, scaling, load balancing, and more. With all this functionality, Swarm mode is used more often in production environments than it’s more simplistic cousin, Compose.
+
+swarm:
+
+A host running Docker can proactively initialize a Swarm cluster or join an existing Swarm cluster, so that the host running Docker becomes a node of a Swarm cluster. nodes can be classfied into manager node and worker node.
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/swarm.png">
+
+- Task:
+
+A task is the smallest unit in a Swarm, it's a container. 
+
+- Service:
+
+A Service is the collection of tasks, it defines the attributes of tasks, there are two modes of services. 
+
+	- replicated services
+	- global services
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service.png">
+
+Stack
+
+A stack is the collection of services.stack file is a yaml file, it defines one or more services and the eviroment arguments, number of containers ...
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service_stack_task.png">
+
+#### initialize a new Swarm
+```
+docker swarm init --advertise-addr $(hostname -i)
+```
+Run a docker node ls to verify that both nodes are part of the Swarm. The ID and HOSTNAME values may be different in your lab. The important thing to check is that both nodes have joined the Swarm and are ready and active.
+
+To add a worker to this swarm, run the following command:
+```
+docker swarm join --token
+```
+#### Show Swarm Members
+```
+docker node ls
+```
+
+
+
+
 
 
 
