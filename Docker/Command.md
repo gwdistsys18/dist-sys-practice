@@ -1,18 +1,30 @@
 ## Command
 
-1. `docker image pull [name]`, the pull command fetches the alpine image from the **Docker Registry** and saves it in our system.
+## Container
 
-2. `docker image ls` is used to see a list of all images on our system.
+### check info
 
-3. `docker container run [image]` is used to run a image from local. If it is not exist in local, **docker engine** goes to its default **Docker Registry**, which is Docker Store, to look for an image named "hello-world". It finds the image there, pulls it down, and then runs it in a contianer.
+1. `docker container ls` shows us all containers that are currently **running**.
+2. `docker container ls -a` shows us all containers that we **ran**.
+3. `docker container diff <container ID>` shows a list of all the files that were added or changed to in the container.
+4. `docker container commit <container ID>` commits the container and create an image out of it.
+
+### run
+
+1. `docker container run <image>` is used to run a image from local. If it is not exist in local, **docker engine** goes to its default **Docker Registry**, which is Docker Store, to look for an image named "hello-world". It finds the image there, pulls it down, and then runs it in a contianer.
 
    this is pretty much just like running a virtual machine, except with a central repository of VM images.
 
    ![](https://training.play-with-docker.com/images/ops-basics-hello-world.svg)
 
-4. `docker container run [image] [command]`  
+2. `docker container [options] run <image> <command> `  
 
    This command is used to run the specified image, execute the command, shutdown the image and sent back to host OS.
+
+   Options:
+
+   * `—detach` will run the container in the background
+   * `—name` will give the continer a name
 
    Example:
 
@@ -30,9 +42,7 @@
 
    * `docker container run -it alpine /bin/sh` let us could use the interactive shell where we could type some commands. Docker has a facility for that by adding a flag to run the container in an interactive terminal.
 
-   * `docker container ls` shows us all containers that are currently **running**.
-
-   * `docker container ls -a` shows us all containers that we **ran**.
+   * `docker container run —interactive —tty —rm ubuntu bash` is used to create a ubuntu container, enter into bash and remove it when exited.
 
      ![](https://training.play-with-docker.com/images/ops-basics-instances.svg)
 
@@ -42,3 +52,12 @@
 
    * `docker container exec <container ID> ls` 
 
+3. `docker container exec` allows us to run a command line inside a container. 
+
+## stop
+
+1. `docker container stop <container>` is used to stop a container.
+
+## remove
+
+1. `docker container rm <container>` could remove a container.
