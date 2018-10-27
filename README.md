@@ -52,6 +52,18 @@ In the demo above, I used the ```docker image pull``` command to download the **
 
 * *Docker Store* - Store is, among other things, a registry of Docker images. You can think of the registry as a directory of all available Docker images. You’ll be using this later in this tutorial.
 
+### Intermediate Level
+
+*Containers Part*:
+
+* [What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) 
+
+Time: 30min
+
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+
+Container images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
+
 > Include notes here about each of the links
 
 ## Area 2
