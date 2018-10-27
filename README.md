@@ -16,7 +16,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Docker Container
 ### Beginner Level
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
-Time: 13 min   
+Time: 15 min   
 
 1. Docker is all about speed.  
 2. Docker is freeing up a lot of tasks, such as keeping existing software updated, keeping it running, fixing its problems, backing it up and so on, which leave us less time to deploy new software.  
@@ -66,7 +66,7 @@ Time: 30 min
 	A registry is a thing that contains images. You can pull and push from the registry at will.
   
 ##### [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)  
-Time: 10 min. 
+Time: 15 min. 
 
 1. Where VM lives  
 	VM lives between the phyiscal infrastructure and OS layer. It masks all the details of delegation of the hardware.
@@ -127,7 +127,7 @@ Time: 1 hr.
 	- Volumes - A special Docker container layer that allows data to persist and be shared separately from the container itself. Think of volumes as a way to abstract and manage your persistent data separately from the application itself.
 
 ##### [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)  
-Time: 13 min  
+Time: 15 min  
 
 1. Size  
 	The size of an image of a VM containing user application and OS kernel can range from hundreds of megabytes to tens of gigabytes.  
@@ -140,17 +140,62 @@ Time: 13 min
 #### Networking and Orchestration:
 
 ##### [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)  
-Time:  
+Time:  1 hr 30 min
 
-1. 
+1. NAT  
+	e.g. Use `docker run --name web1 -d -p 8080:80 nginx` to start a new container running nginx, and map port 8080 on the Docker host to port 80 inside of the container. The traffic that hits the Docker host on port 8080 will be passed on to port 80 inside the container.  
+2. Overlaying Networking  
+	- Initialize a new Swarm: `docker swarm init --advertise-addr $(hostname -i)`  
+	- Make another node join a swarm as a worker  
+	Type this into the second terminal:  
+	`docker swarm join 
+	--token
+SWMTKN-1-69b2x1u2wtjdmot0oqxjw1r2d27f0lbmhfxhvj83chln1l6es5-37ykdpul0vylenefe2439cqpf 10.0.0.5:2377`  
+	- Create an overlay network: `docker network create -d overlay overnet`  
+	- Create a service on both nodes using the overlay network: `docker service create --name myservice 
+--network overnet 
+--replicas 2 
+ubuntu sleep infinity`  
 
-##### [Lab: Swarm Mode Introduction]()
+	>NOTE: All docker container run an embedded DNS server at 127.0.0.11:53  
 
-##### [Video: Kubernetes vs Swarm]()
+##### [Lab: Swarm Mode Introduction]()  
+Time: 1 hr 20 min  
 
-##### [Video: Kubernetes in 5 Minutes]()
+1. Initialize your swarm  
+	Use `docker swarm init --advertise-addr $(hostname -i)`. This will initialize your current host as a manager. Type the output into the host that you want to use as a worker.  
+	
+2. docker-stack.yml file  
+	This YAML file defines our entire stack: the architecture of the services, number of instances, how everything is wired together, how to handle updates to each service. It is the source code for our application design. A few items of particular note:
+	- Near the top of the file you will see the line “services:”. These are the individual application components. In the voting app we have redis, db, vote, result, worker, and visualizer as our services.  
+	- Beneath each service are lines that specify how that service should run:  
+		- _image_ is the same idea from docker file: this is the container image to use for a particular service.  
+		- _Ports_ and _networks_ are mostly self-explanatory although it is worth pointing out that these networks and ports can be privately used within the stack or they can allow external communication to and from a stack.  
+		- Note that some services have a line labeled _replicas_: this indicates the number of instances, or tasks, of this service that the Swarm managers should start when the stack is brought up. The Docker engine is intelligent enough to automatically load balance between multiple replicas using built-in load balancers. (The built-in load balancer can, of course, be swapped out for something else.)  
+3. Deploy stack  
+	Use `docker stack deploy --compose-file=docker-stack.yml voting_stack`  
 
-##### [Kubernetes]()
+4. Scaling an Application  
+	When you want to scale your service, use `docker service scale <Service>=Number`. This command will automatically scale up your service with more tasks. The Docker engine is intelligent enough to automatically load balance between multiple replicas using built-in load balancers.
+	
+4. Terminology  
+	- Stack: Group of interrelated _services_ & depencencies. Orchestrated as a unit. Production applications are one stack, and sometime more.  
+	- Tasks: Atomic unit of a _service_ and scheduling in Docker. One container instance per task.  
+	- Service: A _stack_ component, including a container image, number of replicas (tasks), ports, and update policy.
+
+##### [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)  
+Time: 6 min  
+
+- Swarm is a built-in Orchestration System for manipulating your container on a cluster of host, while Kubernetes is developed by Google.
+- These days Kubernetes is more popular, since Kubernetes has far more features than Swarm.
+
+##### [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)  
+Time: 7 min  
+
+- Kubernetes needs a .yaml file to initialize the Orchestration.
+- Kubernetes like Swarm, it is smart enought to schedule tasks to multiple workers. Even if a worker's gone some time, Kubernetes can reschedule the tasks to other workers.
+
+##### [Kubernetes](https://kubernetes.io)
 
 ##### Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them
 
