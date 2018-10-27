@@ -45,6 +45,8 @@ A place to find and download Docker images.
 |docker images| list all images
 |docker run   | run container
 |docker ps    |list all running containers
+|docker container exec |allows you to run a command inside a container.
+
 
 
 
@@ -84,6 +86,45 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 ubuntu              latest              14f60031763d        4 days ago          120MB
 ```
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/image_creation.png">
+
+
+#### Image creation using a Dockerfile
+
+Instead of creating a static binary image, we can use a file called a Dockerfile to create an image. The final result is essentially the same, but with a Dockerfile we are supplying the instructions for building the image, rather than just the raw binary files. This is useful because it becomes much easier to manage changes, especially as your images get bigger and more complex.
+
+Dockerfiles are powerful because they allow us to manage how an image is built, rather than just managing binaries.
+
+We will use a simple example in this section and build a “hello world” application in Node.js.
+
+creat a file called index.js
+```
+var os = require("os");
+var hostname = os.hostname();
+console.log("hello from " + hostname);
+```
+Create a file named Dockerfile and copy the following content into it
+```
+FROM alpine
+RUN apk update && apk add nodejs
+COPY . /app
+WORKDIR /app
+CMD ["node","index.js"]
+```
+##### docker file:
+* FROM: specifies the base image to use as the starting point for this new image you’re creating. For this example we’re starting from nginx:latest.
+* COPY: copies files from the Docker host into the image, at a known location. In this example, COPY is used to copy two files into the image: index.html. and a graphic that will be used on our webpage.
+* EXPOSE: documents which ports the application uses.
+* CMD: specifies what command to run when a container is started from the image. Notice that we can specify the command, as well as run-time arguments.
+
+build our first image out of this Dockerfile and name it hello:v0.1:
+```
+docker image build -t hello:v0.1 .
+```
+We then start a container to check that our applications runs correctly:
+```
+docker container run hello:v0.1
+```
+
 
 
 
