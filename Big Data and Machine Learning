@@ -62,9 +62,20 @@ AWS Tutorial: Analyze Big Data with Hadoop
            Make predictions on test data.
    AWS Tutorial: Build a Machine Learning Model   
        This tutorial step me through the procedures in which building a machine learning model. Just like what the Docs specifies.
-       
+   Video Tutorial: Overview of AWS SageMaker
+       Maybe the "AWS Tutorial: AWS Sagemaker" should be put before this video, because there are many jardons that you cann't understand
+       well, if you don't practice it first, in this video.
+   AWS Tutorial: AWS SageMaker
+       This tutorial step me through the process in which deploying a machine learning application with AWS SageMaker.
+       1. create an administrator users
+       2. create a S3 bucket for storing the Training and test dataset.
+       3. create a notebook instance and Jupyter notebook. In this notebook, we can user python to
+           dowload the dataset, transform the dataset, store the dataset in a S3 bucket. 
+           Choose an algorithm and train the model. 
+           deploy and validate the model.
+           
+     
    
-  
            
            
        
