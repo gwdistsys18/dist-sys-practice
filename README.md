@@ -32,4 +32,42 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Area 2 SDN and NFV
 > Include notes here about each of the links
 ### Beginner
+1. Introduction to SDN
+	- Use layers to provide increased control of packet flow.
+	- IEEE survey paper is useful.
+	- Allows for a network to be open and programmable.
+	- Operating System Model
+		* Operating System, middle man with core services
+		* South of OS, hardware low level
+		* North of OS, applications higher level
+		* NOS or Network Controller == Operating System
+		* Network forwarding devices == South of OS HW
+		* Network applications == North of OS Apps
+	- Packet processing, use network forwarding device to decide what to
+	do upon reciept of a packet. Contact the SDN controller if already
+	seen packet.
+	- Controller can interact with forwarding devices and provide an
+	abstraction of the whole network to network applications.
+	- Forwarding Devices
+		* Programmable HW switches
+		* Software Switches 
+	- Network OS (SDN Controller)
+		* Topology, inventory, statics services
+		* Host Tracking
+	- Network applications
+		* REST interface
+		* Eventually could be standardized
+	- Can have multiple SDN controllers on one network this allows for
+	thurough partitioning of a system
+	- SDN Controller is usually duplicated many times to allow for load
+	balancing to help provide availability. Controllers can also be 
+	separated by regions.
+	- Control Plane and Data Place
+		* Control plane communicates and send instructions to data plane
+		* Data plane directly handles packet processing using instructions
+		from the control plane
+	- SDN allows for these two planes to be separated and have multiple
+	control planes be unified to help minimize configuration errors.
+	This removes distributed protocols because the controller is logically
+	centralized.
 
