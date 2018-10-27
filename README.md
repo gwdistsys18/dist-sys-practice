@@ -5,6 +5,21 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ### What is container
 A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. Each container can have its own distribution but must share the same host kernel.
 
+### Difference between containers and VM
+One of the characteristics of a virtual machine is that it provides complete isolation in terms of having its own processes, networking, users, etc., which are separate from the host system and other guest systems that may be running alongside it and not visible on the host system or vice-versa. Furthermore, virtual machines can be built to whatever specification is desired with packages pre-installed and configured, of any number of operating systems and operating system vender variants and saved as an image.
+
+How containers differ from virtual machines is that a guest operating system is not installed, and usually consists only the application code and when run, only run the necessary process(es) that one uses the container for. This is because containers are made possible using kernel features of the host operating system and layered file system instead of the aforementioned emulation layer required to run virtual machines. How containers are similar to virtual machines is that they also are stored as images, though a big difference is that container images are much smaller and more portable and feasible to use than virtual machine images for the aforementioned reasons of not requiring an operating system installation as part of the image.
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/VM_contianer.png">
+
+#### advantages of containers
+* Platform independence: Build it once, run it anywhere
+* Effective isolation and resource sharing: containers run on the same server and use the same resources, they do not interact with each other
+* Docker instances are lighter-weight
+* Offer the possibility of horizontal scaling
+* Containers are ultra-consistent
+
+
 
 ### What is docker
 Docker is all about speed. if you don't have containers today, you need to deal with multiple types of applications which may have their own dependencies. Then you need to run them on developer machines and production. It's so complicated.
@@ -33,6 +48,8 @@ A container is a runtime instance of an image--what the image becomes in memory 
 - Images
 
 An image is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files.
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/architecture.png">
 
 ##### Registry
 A place to find and download Docker images.
@@ -126,26 +143,15 @@ docker container run hello:v0.1
 ```
 
 
-### Lab: docker Networking Basics
-* The docker network command is the main command for configuring and managing container networks
-```
-docker network
-```
-* List networks
-Run a docker network ls command to view existing container networks on the current Docker host.
-```
-docker network ls
-```
-*  Inspect a network
-The docker network inspect command is used to view network configuration details. These details include; name, ID, driver, IPAM driver, subnet info, connected containers, and more.
-```
-docker network inspect <network>
-```
-* List network driver plugins
-The docker info command shows a lot of interesting information about a Docker installation.
-```
-docker info
-```
+### Swarm Mode Introduction for IT Pros
+
+#### Docker Compose and Docker Swarm Mode
+* Compose is used to control multiple containers on a single system. Much like the Dockerfile we looked at to build an image, there is a text file that describes the application: which images to use, how many instances, the network connections, etc. But Compose only runs on a single system so while it is useful, we are going to skip Compose1 and go straight to Docker Swarm Mode.
+
+* Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose, but to define and maintain high availability levels, scaling, load balancing, and more. With all this functionality, Swarm mode is used more often in production environments than it’s more simplistic cousin, Compose.
+
+
+
 
 
 ## Area 2
