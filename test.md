@@ -7,8 +7,8 @@
 4. [Introduction to Amazon Redshift](#redshift)
 
 
-
-# Hadoop Introduction (1hour) <a name="Introduction"></a>
+<a name="Introduction"></a>
+# Hadoop Introduction (1hour)
 ### Overgrowing data problem and management:
 - High chances of system failure.
 - Limit on bandwidth.
@@ -114,8 +114,8 @@ A fully integrated data processing platform.
         Provides support to high volume of data and high throughput
         The table can have thousands of columns.
 
-
-# Analyze Big Data with Hadoop (30 mins) <a name="bigdata"></a>
+<a name="bigdata"></a>
+# Analyze Big Data with Hadoop (30 mins) 
 
 ### Task 1: Create an Amazon S3 bucket
 * What is S3? Simple Storage Service is designed to make web-scale computing easier for developers. In my opinion, simple means that we can have more time to deal with other hard tasks and boost the probability of finish a project entirely.
@@ -139,11 +139,9 @@ Use cluster to process log data from Amazon CloudFront which is a web service th
     3. Use HiveQL query to calculate requests by operating system.
 Finally, it will give us a operating system counting table
 ### Task4&5: view result and terminate amazon EMR Cluster 
-#
-#
-#
 
-# Introduction to Amazon Simple Storage Service (S3) (30mins) <a name="S3"></a>
+<a name="S3"></a>
+# Introduction to Amazon Simple Storage Service (S3) (30mins) 
 ### Task 1-3: 
 1. Create bucket.
 2. Upload image file. 
@@ -171,10 +169,8 @@ Finally, it will give us a operating system counting table
 ### Task 5: Explore Versioning:
     Add action “s3:GetObjectVersion” in “Action” will allow access old version of a file.
 
-#
-#
-#
-# Introduction to Amazon Redshift <a name="redshift"></a> 
+<a name="redshift"></a> 
+# Introduction to Amazon Redshift 
 * Amazon Redshift is a data warehouse to analyze data using standard SQL and existing Business Intelligence tools.
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
