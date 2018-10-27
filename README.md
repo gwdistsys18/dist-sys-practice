@@ -12,6 +12,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [Docker Intro](https://github.com/jzhzj/dist-sys-practice#lab-docker-intro)
 		- [Doing more with Docker Images](https://github.com/jzhzj/dist-sys-practice#lab-doing-more-whith-docker-images)
 		- [VMs Versus Containers Deep Dive](https://github.com/jzhzj/dist-sys-practice#video-vms-versus-containers-deep-dive)
+		- [Docker NetWorking](https://github.com/jzhzj/dist-sys-practice#lab-docker-networking)
+		- [Swarm Mode Introduction](https://github.com/jzhzj/dist-sys-practice#lab-swarm-mode-introduction)
+		- [Kubernetes vs Swarm](https://github.com/jzhzj/dist-sys-practice#video-kubernetes-vs-swarm)
+		- [Kubernetes in 5 Minutes](https://github.com/jzhzj/dist-sys-practice#video-kubernetes-in-5-minutes)
+		- [Kubernetes](https://github.com/jzhzj/dist-sys-practice#kubernetes)
+		- [Use Kubernetes to orchestrate docker on a cluster](https://github.com/jzhzj/dist-sys-practice#install-docker-on-a-cluster-of-ec2-vms-and-use-kubernetes-to-orchestrate-them)
+		- [AWS Tutorial: Break a Monolith Application into Microservices](https://github.com/jzhzj/dist-sys-practice#aws-tutorial-break-a-monolith-application-into-microservices)
 
 ## Docker Container
 ### Beginner Level
