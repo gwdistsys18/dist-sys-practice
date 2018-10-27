@@ -181,8 +181,19 @@ Finally, it will give us a operating system counting table
 (Optional: node type, control encryption, VPC)
 * Cluster Properties:
 <!-- Tables -->
-| Properties Name |Properties value |
+| Cluster Props   | value           |
 |-----------------|-----------------|
+|Cluster Name     |lab              |
+|Cluster Type     |Single Noed      |
+|Node type        |dc2.large        |
+|Nodes            |1                |
+|Zone             |us-east-1e       |
+|Created Time     |*                |
+|Maintenance Track|Current          |
+|VPC ID           |vpc-*            |
+|VPC sec groups   |defa.redshift-1.0|
+|Cluster Par Group|lab              |
+|Cluster Name     |lab              |
 |Cluster Name     |lab              |
 
 <a name="introml"></a> 
