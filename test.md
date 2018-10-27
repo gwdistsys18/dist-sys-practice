@@ -3,7 +3,7 @@
 # Table of contents
 1. [Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
-3. [Introduction to Amazon Simple Storage Service](#S3)
+3. [Introduction to Amazon Simple Storage Service](#s3)
 4. [Introduction to Amazon Redshift](#redshift)
 
 
