@@ -65,6 +65,11 @@ AWS Tutorial: Analyze Big Data with Hadoop
    Video Tutorial: Overview of AWS SageMaker
        Maybe the "AWS Tutorial: AWS Sagemaker" should be put before this video, because there are many jardons that you cann't understand
        well, if you don't practice it first, in this video.
+       This vedeo use four examples to illustrate what we can do with AWS Sagemaker:
+           1. We just need to offer the trainning and testing data, and then use AWS sagemaker to complete all the other jobs.
+           2. We can also use the environment that AWS sagemaker provide to train the model.
+           3. We can also write the algorithm by ourself and train the model.
+           4. We can create our own machine learning algorithm. And just use AWS Sagemaker to deploy that model.
    AWS Tutorial: AWS SageMaker
        This tutorial step me through the process in which deploying a machine learning application with AWS SageMaker.
        1. create an administrator users
