@@ -126,9 +126,26 @@ docker container run hello:v0.1
 ```
 
 
-
-
-
+### Lab: docker Networking Basics
+* The docker network command is the main command for configuring and managing container networks
+```
+docker network
+```
+* List networks
+Run a docker network ls command to view existing container networks on the current Docker host.
+```
+docker network ls
+```
+*  Inspect a network
+The docker network inspect command is used to view network configuration details. These details include; name, ID, driver, IPAM driver, subnet info, connected containers, and more.
+```
+docker network inspect <network>
+```
+* List network driver plugins
+The docker info command shows a lot of interesting information about a Docker installation.
+```
+docker info
+```
 
 
 ## Area 2
