@@ -140,7 +140,7 @@ Use cluster to process log data from Amazon CloudFront which is a web service th
 Finally, it will give us a operating system counting table
 ### Task4&5: view result and terminate amazon EMR Cluster 
 
-<a name="S3"></a>
+<a name="s3"></a>
 # Introduction to Amazon Simple Storage Service (S3) (30mins) 
 ### Task 1-3: 
 1. Create bucket.
