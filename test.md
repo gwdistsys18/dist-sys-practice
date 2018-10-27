@@ -2,12 +2,13 @@
 
 # Table of contents
 1. [Introduction](#introduction)
-2. [Some paragraph](#paragraph1)
-    1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+2. [Analyze Big Data with Hadoop](#bigdata)
+3. [Introduction to Amazon Simple Storage Service](#S3)
+4. [Introduction to Amazon Redshift](#redshift)
 
 
-# Hadoop Introduction (1hour)
+
+# Hadoop Introduction (1hour) <a name="Introduction"></a>
 ### Overgrowing data problem and management:
 - High chances of system failure.
 - Limit on bandwidth.
@@ -114,7 +115,7 @@ A fully integrated data processing platform.
         The table can have thousands of columns.
 
 
-# Analyze Big Data with Hadoop (30 mins)
+# Analyze Big Data with Hadoop (30 mins) <a name="bigdata"></a>
 
 ### Task 1: Create an Amazon S3 bucket
 * What is S3? Simple Storage Service is designed to make web-scale computing easier for developers. In my opinion, simple means that we can have more time to deal with other hard tasks and boost the probability of finish a project entirely.
@@ -141,7 +142,8 @@ Finally, it will give us a operating system counting table
 #
 #
 #
-# Intro to S3
+
+# Introduction to Amazon Simple Storage Service (S3) (30mins) <a name="S3"></a>
 ### Task 1-3: 
 1. Create bucket.
 2. Upload image file. 
@@ -172,7 +174,7 @@ Finally, it will give us a operating system counting table
 #
 #
 #
-# Intro to Amazon Redshift <a name="introduction"></a>
+# Introduction to Amazon Redshift <a name="redshift"></a> 
 * Amazon Redshift is a data warehouse to analyze data using standard SQL and existing Business Intelligence tools.
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
