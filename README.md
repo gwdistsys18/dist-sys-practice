@@ -63,7 +63,200 @@ It achieves high performance through the following techniques:
 Based on mTCP and mOS, users can implement any customized NF on OpenNetVM platform, which is highly scalable.
 
 ### DPDK Introduction (studied 2 hours) 
-DPDK is the Data Plane Development Kit that consists of libraries to accelerate packet processing running on operation system. It is provided by Intel.   
+DPDK is the Data Plane Development Kit that consists of libraries to accelerate packet processing running on operating system. It is provided by Intel.     
+
+Traditional packets processing in Linux is as the following procedure:    
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/linux_packet_processing.png)
+
+We can see the traditional packets processing model has two problems:    
+* Each packet will go to the kernel, at least 2 times of copy for each packet.
+* Each packet will produce a system interrupt, which decrease the throughput and the operating system efficiency. 
+
+So DPDK proposes a new way that delivers packets bypassing the kernel, the procedure like the following:    
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/DPDK_packet_processing.png)
+
+DPDK has the following characteristics:     
+* DPDK uses Hugepage to increase the hit rate and to eliminate the pressure on the TLB 
+* DPDK supports CPU affinity, which EAL can assign execution units to specific cores. 
+* DPDK uses PMD to poll the RX and TX. A Poll Mode Driver (PMD) consists of APIs, provided through the BSD driver running in userspace.   This driver makes DPDK accesses the RX and TX descriptors directly without any interrupts, which improves the sending and receiving       packets efficiency in userspace. 
+* Compared to Netmap, DPDK does not feature a transparent NIC driver for the kernel. DPDK use a UIO userspace driver to enable access to   PCI hardware. The NIC drivers are provided by DPDK and run in application processes. 
+* DPDK also uses mmap to map NIC ring to userspace, reduce packets-copy.
+ 
+You can learn more from [here]( https://doc.dpdk.org/guides/index.html)   
+
+### Netmap Introduction (studied 4 hours)
+Similar to DPDK, Netmap is another userspace library to deliver packets to applications bypassing the kernel, reducing packet-copy and system interrupts.    
+Netmap has the following characteristics:    
+* Packet buffers are preallocated, saving the cost of per-packet allocations and deallocations
+* Using mmap to map packet buffers to user applications, decreasing data-copy costs.
+* Not tied to a specific device or hardware features, more compatible.  
+* When a program requests to put an interface in netmap mode, the NIC is disconnected from the host stack, the program gains the ability   to exchange packets with the NIC and the host stack separately. Moreover, the transitional system call, such as select/poll are still   can be used for synchronization. 
+* Compared to Linux kernel, which handles the entire packet in the kernel space, and the DPDK, which processes the packet entirely in     user space, netmap combines both of them. The system calls only perform the initial packet arriving check for packet buffers, and then   the packet processing is done in userspace. 
+* In addition to the "hardware" shadow rings, each card in netmap mode exposes two additional rings that connect to the host stack.       Packets coming from the stack are put in an RX ring where they can be processed in the same way as those coming from the network.       Similarly, packets written to the additional TX ring are passed up to the host stack when the ioctl(fd, NIOCTXSYNC) is invoked
+* netmap uses batch processing to optimize the performance.
+
+You can learn more from [here]( http://info.iet.unipi.it/~luigi/papers/20110815-sigcomm-poster.pdf), [here]( http://info.iet.unipi.it/~luigi/netmap/), and [here]( http://info.iet.unipi.it/~luigi/papers/20120503-netmap-atc12.pdf)
+
+[This]( https://www.net.in.tum.de/publications/papers/gallenmueller_ancs2015.pdf) article is discussing the comparison between Netmap and DPDK.
+
+### Practice 1 – Run DPDK sample application (skeleton) (studied 3 hours)
+I applied three physic machines from [NSF CloudLab]( https://cloudlab.us/), the original topology of the three machine is as the following:
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/Network_topology.png)
+
+The ip address are the following:     
+node1 - eth2: 192.168.1.1    
+node2 – eth1: 192.168.1.2    
+node2 - eth3: 192.68.1.3    
+node3 – eth2: 192.168.1.4   
+
+I ping node3 in node1, there is no response. So I need to run the DPDK sample application- skeleton on node2 to forward the packets on bi-direction. Skeleton is a simple packet forwarding application based on DPDK. It just forwards packets from one NIC port to another NIC port, and vice versa.      
+
+But before you install DPDK library, you first need to check if your system and hardware support DPDK. Please do the following prepares:
+1. Check if your NIC is supported by Intel DPDK with the following command:            
+```bash
+lspci | awk '/net/ {print $1}' | xargs -i% lspci -ks % 
+```
+
+You can compare the NIC type with the [supported NIC list]( http://core.dpdk.org/supported/)    
+
+2. Check if your kernel is supported by Intel DPDK with the following command:       
+```
+uname -a
+```
+Your kernel version must be higher than 2.6.33. 
+
+3. Check if your kernel supports UIO            
+```
+locate uio
+```
+4. Install Numa development library   
+```
+apt-get install libnuma-dev
+```
+5. Disable ASLR   
+The multi-process feature requires that the exact same hugepage memory mappings be present in all applications. The Linux security feature - Address-Space Layout Randomization (ASLR) can interfere with this mapping, so it may be necessary to disable this feature in order to reliably run multi-process applications. So using the following command to disable ASLR:    
+
+```
+sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"
+```
+6. Bind driver to NIC   
+NIC ports that are to be used by a DPDK application must be bound to the uio_pci_generic, igb_uio or vfio-pci module before the application is run. First, using the following script to check your NIC port status and its driver information: 
+
+```
+/local/onvm/openNetVM/dpdk/usertools/dpdk-devbind.py --status
+```
+You will see the information like the following:
+```
+0000:01:00.0 'I350 Gigabit Network Connection 1521' if=eth0 drv=igb unused=igb_uio *Active*
+0000:01:00.1 'I350 Gigabit Network Connection 1521' if=eth2 drv=igb unused=igb_uio
+0000:06:00.0 '82599ES 10-Gigabit SFI/SFP+ Network Connection 10fb' if=eth1 drv=ixgbe unused=igb_uio
+0000:06:00.1 '82599ES 10-Gigabit SFI/SFP+ Network Connection 10fb' if=eth3 drv=ixgbe unused=igb_uio *Active*
+
+Other Network devices
+=====================
+<none>
+
+Crypto devices using DPDK-compatible driver
+===========================================
+<none>
+
+Crypto devices using kernel driver
+==================================
+<none>
+
+Other Crypto devices
+====================
+<none>
+
+Eventdev devices using DPDK-compatible driver
+=============================================
+<none>
+
+Eventdev devices using kernel driver
+====================================
+<none>
+
+Other Eventdev devices
+======================
+<none>
+
+Mempool devices using DPDK-compatible driver
+============================================
+<none>
+
+Mempool devices using kernel driver
+===================================
+<none>
+
+Other Mempool devices
+=====================
+<none>
+```
+If you want to use eth1 and eth3, you need to replace its driver with igb_uio. But before you modify the driver for a NIC port, make sure it is not active, otherwise, it will be failed with the following error:   
+```
+Routing table indicates that interface 0000:06:00.0 is active. Not modifying
+```
+So you must stop it, then replace the driver. Using the following command to stop eth3 and replace its driver:    
+
+```
+ifconfig down eth3
+/local/onvm/openNetVM/dpdk/usertools/dpdk-devbind.py --bind=igb_uio eth3
+/local/onvm/openNetVM/dpdk/usertools/dpdk-devbind.py --bind=igb_uio eth1
+
+```
+After (after you successfully bind at least a pair of ports to igb driver, eth1, eth3 on node2 will be disappeared from ifconfig output as these network interfaces are no longer controlled by the kernel. That means that the traffic coming through the interfaces controlled by igb driver should be handled with custom programmed data plane that the dpdk application (like l2fwd) implements.   
+
+After doing the above steps, you can install DPDK library according to [this](https://doc.dpdk.org/guides/linux_gsg/index.html) instructions.    
+
+Then go the /dpdk/examples/skeleton to run skeleton by the following command:    
+```
+sudo ./basicfwd -l 1 -n 4
+```
+You will see the following information:
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/basicfwd.png)
+
+Now ping node3 in node1 again, you will respond from node3:   
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/ping1.png)
+
+### Practice 2 – Run OpenNetVM with Speed Tester (studied 1 hours)
+You need to install OpenNetVM according to [this]( https://github.com/sdnfv/openNetVM/blob/develop/docs/Install.md) instructions.    
+Then start the OpenNetVM manager   
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/NF_Manager.png)
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/NF_manager2.png)
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/NF_Manager3.png)
+
+This indicates the OpenNetVM manager has successfully started.       
+Then start the Speed Tester NF:   
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/speed_test_NF.png)
+
+The OpenNetVM manager will display the following information:    
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/NF_Manager4.png)   
+
+Means NF 1 rx received 1287413664 packets.    
+The NF 1 displayed the following information:   
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/Speed_test_NF2.png)
+
+Means NF1 sends 41561305 packets per-second.
+
+### Practice 3 – Run OpenNetVM with bridge NF (studied 2 hours)
+Terminates both OpenNetVM manager and speed tester NF first. Then restart OpenNetVM manager and bridge NF according to the following command:   
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/bridge.png)
+
+Then ping node3 from node1, we get the following information:    
+
+![](https://github.com/lyuxiaosu/dist-sys-practice/blob/master/ping2.png)
+
+This means the bridge NF forwards packets between node1 and node3.
 
 ## Area 2 - Big Data and Machine Learning
 ### Hadoop Introducation (Studied for 1 hour) 
