@@ -182,16 +182,16 @@ Finally, it will give us a operating system counting table
 * Cluster Properties: 
 
 <a name="introml"></a> 
-#Intro to Amazon Machine Learning
+# Intro to Amazon Machine Learning
 
 <a name="buildml"></a> 
-#Build a Machine Learning Model
+# Build a Machine Learning Model
 
 <a name="segmaker"></a> 
-#AWS SageMaker
+# AWS SageMaker
 
 <a name="app"></a> 
-#Build a Serverless Real-Time Data Processing APP
+# Build a Serverless Real-Time Data Processing APP
 
 
 
