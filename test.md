@@ -5,6 +5,10 @@
 2. [Analyze Big Data with Hadoop](#bigdata)
 3. [Introduction to Amazon Simple Storage Service](#s3)
 4. [Introduction to Amazon Redshift](#redshift)
+5. [Intro to Amazon Machine Learning](#introml)
+6. [Build a Machine Learning Model](#buildml)
+7. [AWS SageMaker](#segmaker)
+8. [Build a Serverless Real-Time Data Processing APP](#app)
 
 
 <a name="Introduction"></a>
@@ -177,12 +181,16 @@ Finally, it will give us a operating system counting table
 (Optional: node type, control encryption, VPC)
 * Cluster Properties: 
 
+<a name="introml"></a> 
 #Intro to Amazon Machine Learning
 
+<a name="buildml"></a> 
 #Build a Machine Learning Model
 
+<a name="segmaker"></a> 
 #AWS SageMaker
 
+<a name="app"></a> 
 #Build a Serverless Real-Time Data Processing APP
 
 
