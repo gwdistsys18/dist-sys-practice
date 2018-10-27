@@ -67,13 +67,19 @@ A place to find and download Docker images.
 
 
 
-### Lab: docker image
+### Docker image
 
 #### Image creation from a container
 Let’s start by running an interactive shell in a ubuntu container:
 ```
 docker container run -ti ubuntu bash
 ```
+<font color="#CC3A5C">-t</font>: Allocate a pseudo-TTY
+
+<font color="#CC3A5C">-i</font>: Keep STDIN open even if not attached
+
+start a stopped container: ```docker container start ```, stop a running container: ```docker container stop```, get into a container: ```docker attach id ``` or ```docker exec -it id bash```(exit will not make container stop) 
+
 for a real world application where you had just installed several packages and run through a number of configuration steps the process could get cumbersome and become quite error prone. Instead, it would be easier to create an image you can share with your team.
 
 To start, we need to get the ID of this container using the ls command (do not forget the -a option as the non running container are not returned by the ls command).
@@ -141,6 +147,108 @@ We then start a container to check that our applications runs correctly:
 ```
 docker container run hello:v0.1
 ```
+
+### Docker networking
+
+#### Network drivers
+
+Docker’s networking subsystem is pluggable, using drivers. Several drivers exist by default, and provide core networking functionality:
+
+- bridge : The default network driver. If you don’t specify a driver, this is the type of network you are creating. Bridge networks are usually used when your applications run in standalone containers that need to communicate.
+- host: For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly. host is only available for swarm services.
+- macvlan: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
+- none: For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
+
+#### bridge networks
+In terms of Docker, a bridge network uses a software bridge which allows containers connected to the same bridge network to communicate, while providing isolation from containers which are not connected to that bridge network. 
+
+Differences between user-defined bridges and the default bridge
+- User-defined bridges provide better isolation and interoperability between containerized applications.
+- User-defined bridges provide automatic DNS resolution between containers.
+- Containers can be attached and detached from user-defined networks on the fly.
+- Each user-defined network creates a configurable bridge.
+- Linked containers on the default bridge network share environment variables.
+
+##### Manage a user-defined bridge
+
+Use the ```docker network create```  command to create a user-defined bridge network. Use the ```docker network rm```  command to remove a user-defined bridge network.
+```
+$ docker network create my-net
+```
+
+##### Connect a container to a user-defined bridge
+
+When you create a new container, you can specify one or more ```--network ``` flags. This example connects a Nginx container to the my-net network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the my-net network has access to all ports on the my-nginx container, and vice versa.
+
+```
+$ docker create --name my-nginx \
+  --network my-net \
+  --publish 8080:80 \
+  nginx:latest
+```
+
+To connect a running container to an existing user-defined bridge, use the ```docker network connect ```  command.
+
+```
+$ docker network connect my-net my-nginx
+```
+
+If you do not specify a network using the ```--network flag```, and you do specify a network driver, your container is connected to the default bridge network by default. Containers connected to the default bridge network can communicate, but only by IP address, unless they are linked using the legacy ```--link```  flag.
+
+
+##### Enable forwarding from Docker containers to the outside world
+By default, traffic from containers connected to the default bridge network is not forwarded to the outside world. To enable forwarding, you need to change two settings. These are not Docker commands and they affect the Docker host’s kernel.
+
+1.Configure the Linux kernel to allow IP forwarding.
+```
+$ sysctl net.ipv4.conf.all.forwarding=1
+```
+
+2.Change the policy for the iptables FORWARD policy from DROP to ACCEPT.
+```
+$ sudo iptables -P FORWARD ACCEPT
+```
+
+#### overlay networks
+The overlay network driver creates a distributed network among multiple Docker daemon hosts. 
+
+##### initialize a new Swarm
+```
+docker swarm init --advertise-addr $(hostname -i)
+```
+Run a docker node ls to verify that both nodes are part of the Swarm. The ID and HOSTNAME values may be different in your lab. The important thing to check is that both nodes have joined the Swarm and are ready and active.
+
+A host running Docker can proactively initialize a Swarm cluster or join an existing Swarm cluster, so that the host running Docker becomes a node of a Swarm cluster. nodes can be classfied into manager node and worker node.
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/swarm.png">
+
+A Task is the smallest unit in a Swarm, it's a container. A Service is the collection of tasks, it defines the attributes of tasks, there are two modes of services. 
+
+- replicated services
+-  global services
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service.png">
+
+
+##### Create an overlay network
+Create a new overlay network called “overnet” by running ```docker network create -d overlay overnet```. Use the docker network ls command to verify the network was created successfully. Use the ```docker network inspect <network> ``` command to view more detailed information about the “overnet” network. 
+
+##### Create a service
+Now that we have a Swarm initialized and an overlay network. it’s time to create a service that uses the network.
+```
+docker service create --name myservice \
+--network overnet \
+--replicas 2 \
+ubuntu sleep infinity
+```
+
+
+
+
+
+if you want to run some web applications in the container. To allow external access to these applications, port mapping can be specified with the <font color="#CC3A5C" >-p<font> parameters.
+
+use ``` docker container ls ```  to see the mapping relations between host port and container port, you can use ``` ip:hostPort:containerPort ```  to assign the mapping address, for example ``` $ docker run -d -p 127.0.0.1:5000:5000 training/webapp python app.py ```
 
 
 ### Swarm Mode Introduction for IT Pros
