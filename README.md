@@ -5,7 +5,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 > https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23
 
 
-###why docker,why now?
+### why docker,why now?
 company shift
 dot cloud to docker inc
 containers are the next once-in-a-decade shift in infrastructure and process that mak or break you
@@ -19,7 +19,7 @@ now host to container(serverless)
 
 like all these shifts, migrating is the hard part, and docker is focused on the migration experience
 
-###what will docker do for me?
+### what will docker do for me?
 
 
 
