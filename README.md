@@ -15,5 +15,23 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * New versions of a file can be uploaded and will display by default; additional permissions must be given to view old versions
   
 
-## Area 2
-> Include notes here about each of the links
+## Area 2: Big Data and Machine Learning
+* Video: Hadoop Intro (took ~15 minutes)
+  * Distributed systems are used to deal with the data explosion
+  * Hadoop is a framework inspired by a Google technical document to make distributed data processing easier
+  * Hadoop is economical, reliable, scalable, and flexible
+  * Traditional systems have data going to a program, while with Hadoop the program goes to the data
+  * Hadoop has 12 components:
+    * HDFS (Hadoop Distirbuted File System) is a storage layer for Hadoop
+    * HBase is a NoSQL database that stores data in HDFS
+    * Sqoop transfers data between Hadoop and relational database servers
+    * Flume ingests streaming data
+    * Spark is a cluster computing framework
+    * Hadoop MapReduce is the original processing engine but is losing ground to Spark
+    * Pig is a dataflow system primarily used for analytics that converts pig script to Map-Reduce code
+    * Impala is a high-performance SQL engine with low latency
+    * Hive is similar to Impala but is good for data processing
+    * Cloudera Search enables non-technical users to search and explore data
+    * Oozie is a workflow or coodination system used to manage Hadoop jobs
+    * Hue (Hadoop User Experience) is a web interface for Hadoop
+  * These components help with the four stages of big data processing: ingest, processing, analyze, and access
