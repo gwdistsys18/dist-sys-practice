@@ -113,7 +113,7 @@ Time: 60 min
 
 LAMP is an archetypal model of web service stacks, named as an acronym of the names of its original four open-source components: the GNU/Linux operating system, the Apache HTTP Server, the MySQL relational database management system, and the PHP programming language(from Wikipedia).
 
-Step 1: Prepare the LAMP Server
+Part One: Prepare the LAMP Server
 
 1. Connect to your instance.   
 	It seems instance is one of the core components of AWS. An EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Instance types comprise varying combinations of CPU, memory, storage, and networking capacity.  
@@ -135,6 +135,21 @@ Step 1: Prepare the LAMP Server
 
 	I tried several times till the success of the test. The problem is the security rules. The security group you are using contains a rule to allow HTTP (port 80) traffic. 
 	
-	
+Part Two: Test Your LAMP Server
 
+1. Create a PHP file in the Apache document root.   
+	
+2. In a web browser, type the URL of the file that you just created. This URL is the public DNS address of your instance followed by a forward slash and the file name.
+	Notes: It is "http://", not "https://".
+
+3. Delete the phpinfo.php file.
+	Notes: security reasons.
+
+Part Three: Secure the Database Server
+
+The default installation of the MariaDB server has several features that are great for testing and development, but they should be disabled or removed for production servers.
+
+1. Start the MariaDB server.   
+	
+2. Run mysql_secure_installation.
 
