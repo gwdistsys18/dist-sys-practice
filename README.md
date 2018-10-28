@@ -344,7 +344,15 @@ After this modification, the `api` service will have 0 desired task.
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/closeapi.png)
 
-## Area 2
+Finally, the microservices has deployed on cluster. A sample image is this:
 
-> Include notes here about each of the links
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Sample.png)
+
+Finally, one congratuation message can be obtained. 
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Final.png)
+
+## Area 2 - Cloud Web Apps
+
+
 
