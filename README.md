@@ -4,7 +4,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Docker and Containers
 > Include notes here about each of the links
 
--Video: Why docker?(https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
+-Video: Why docker?(https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)(15min)  
 In the video, we can know that docker was released in 2013, as an open-source object by docker company.  
 The appearance of docker makes a huge shift in ecosystem.  
 The real benefit of using docker is all about speed, develop faster, build faster, test, deploy, update and recover faster!  
@@ -14,7 +14,7 @@ even run on different operating systems. It's complicated, but the way the conta
 It allow you to package the same way regardless of your operating systems and distribute the system without setup.  
 It makes a lot of pain problems around the software lifecycle much easier to deal with.  
 
--Lab: DevOps Docker Beginners Guide(https://training.play-with-docker.com/ops-s1-hello/)  
+-Lab: DevOps Docker Beginners Guide(https://training.play-with-docker.com/ops-s1-hello/)(45min)  
 In this lab, I have learned about how to run a popular, free, lightweight container   
 and explore the basics of how containers work, how the Docker Engine executes and isolates containers from each other.  
 Get some basic knowledge about what is images and the basic commands in docker and how to use them.  
@@ -49,20 +49,34 @@ Docker daemon - The background service running on the host that manages building
 Docker client - The command line tool that allows the user to interact with the Docker daemon.  
 Docker Store - Store is, among other things, a registry of Docker images.    
   
--Video: What are Containers?(https://www.youtube.com/watch?v=EnJ7qX9fkcU)
+-Video: What are Containers?(https://www.youtube.com/watch?v=EnJ7qX9fkcU)(25min)
 The container is used to cover a multitude things, is a sandbox of processes.  
 sandbox--own namespace, cgroups(restrict what the process able to do).  
 Container image: a binary representation, notion of parent-child relationship.  
 all of the dependencies pretty much above the kernel are packaged inside of the container.  
 you can run any number of different versions of applications all on the single operating system.  
 
--Video: VMs Versus Containers(https://www.youtube.com/watch?v=L1ie8negCjc)  
+-Video: VMs Versus Containers(https://www.youtube.com/watch?v=L1ie8negCjc)(15min)  
 in VMs: the interface between operating system and physical machine   
 a virtual hardware layer exists in the virtual infrastructure, is contains NICs, storage interface have to talk to(drives need).  
 hypervisor is responsible for interacting with NIC, storage, agents and kernel modules.  
 in Container: the docker engine in operating system, operating system dependencies and the application itself-image.  
 
--Lab: Docker Intro(https://training.play-with-docker.com/beginner-linux/)  
+-Lab: Docker Intro(https://training.play-with-docker.com/beginner-linux/)(1hour)  
+how to clone a repo from github in docker.  
+how to run a single task, interactive ubuntu container and background mysql container in Alpine Linux container.  
+how to build images and run a custom application using docker.  
+what is bind mount and how to modify a running website.  
+how to update and push images.  
+
+-Lab: Doing more with Docker Images(https://training.play-with-docker.com/ops-s1-images/)(1hour)
+how to create image in docker: 2ways.
+create a image from container, add all the libraries and binaries in it and then commit it in order to create an image.  
+create image using dockerfile: We created two files: our application code (index.js) is a simple bit of javascript code  
+that prints out a message. And the Dockerfile is the instructions for Docker engine to create our custom container.  
+what is image layers and how to use inspect command to inspect particular details about the image.  
+
+-Video: VMs Versus Containers Deep Dive(https://www.youtube.com/watch?v=PoiXuVnSxfE)()  
 
 
 ## Area 2
