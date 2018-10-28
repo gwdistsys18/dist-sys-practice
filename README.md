@@ -27,8 +27,9 @@ fewer CPU's
 multible averge cpu utilization
 
 ***tips:docker project arre open-source, have a party in the march for celebrating docker releasing and we have soort of party with birthday cake and have fun and have workshops***
+
 spent 20 min
-***
+---
 
 >[Lab: Devops Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
 
@@ -64,9 +65,10 @@ use alpine as a train container
  but can not find hello.txt because each container is isolated.
 docker users take advantage of this feature not only for security, but to test the effects of making application changes. Isolation allows users to quickly create separate, isolated test copies of an application or service and have them run side-by-side without interfering with one another. In fact, there is a whole lifecycle where users take their changes and move them up to production using this basic concept and the built-in capabilities of Docker Enteprise.
 ***if we want use the last container, we can use docker container start <id> tor restart and then use doceker exec <id> ls to find that***
+
 **spend 2 hour**
 
-
+---
 
  
  
