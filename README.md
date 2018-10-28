@@ -172,7 +172,9 @@ Long-Term Storage
 - Benefits of using Amazon S3 to store static assets such as pictures and videos:
 
     S3 is pay-as-you-go 
+    
     S3 is highly available: You don't need to run any servers
+    
     S3 is highly durable: Your data is duplicated across three data centres, so it is more resilient to failure
     S3 is highly scalable: It can handle massive volumes of requests. If you served content from Amazon EC2, you'd have to scale-out to meet requests
     S3 has in-built security at the object, bucket and user level.
