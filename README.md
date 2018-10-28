@@ -352,18 +352,26 @@ Finally, one congratuation message can be obtained.
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Final.png)
 
+### Writeup of this level
+
+In this Intermediate Level, the basic comparison between Docker container and virtual machine is provided. Generally speaking, based on the different approach that containers and virtual machines that share hardware, kernel, dependency, the speed, size, and isolation between these two method of virtualization is quite different. Virtual machine has better isolation that can not be overwhelmed by container, while container is much more faster, flexible, and quite easy to deploy on different Linux system.
+
+Also, one example was provided in this section. Deploy Monolith application and break it into microservices. This instance shows how Docker images can be built and deploy services onto a cloud platform. The most notable point during implementing this example is that the flexibility of this kind of image service. Only one simple configuration file can tell the server how to deploy the service and quickly turn the service on and up running. The convenience is quietly needed when there is a large amount of servers are required to deploy same services. It is very fast, duplicable, and efficient.
+
 ## Area 2 - Cloud Web Apps
 
 ### Beginner Level -  Intro to S3 & Instance
 
-This section introduce the basic set up of the AWS S3 and Instance. Truly simple. 
+This section introduce the basic set up of the AWS S3 and Instance. It tells how to create a Instance and a S3 Truly simple. 
 
 I’ve been using a VM that is hosted on DigitalOcean for couple of months. And several service was running on this virtual machine, including a RSS server that is running by several docker containers. 
 
-Here are some sample pictures.
+Here are some sample pictures. Note that due to the privacy concern I removed some sensitive messages.
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/dockersamples.png)
 
-
+Containers that runs on my virtual machine. 
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/rss.png)
+
+This is the RSS server that runs on my virtual machine. This service use `postgresql`as database. As for connection, it use the port mapping to setup the connection to the Internet. It can be reached via IP address with specific port.
