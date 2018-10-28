@@ -205,9 +205,7 @@ aws cloudformation deploy \
    —capabilities CAPABILITY_NAMED_IAM
 ```
 
-
-
-
+Wait couple of minutes to create Amazon ECS cluster.
 
 ## Area 2
 
