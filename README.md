@@ -86,7 +86,7 @@ WORKDIR /app
 CMD ["node","index.js"]
 ```
 
-In this Dockerfiel, these things were done:
+In this Dockerfile, these things were done:
 
 1. Import alpine Docker image.
 2. Update `apt-get`and install nodejs.
