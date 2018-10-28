@@ -8,6 +8,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	it acknowledged that Docker and containerization in general is a
 	trend that many people are moving towards due to it's ease in setup
 	and the speed associated with spinning up a new container.
+
 2. DevOps Docker Beginners Guide - 45 min
 	- This tutorial started with a few simple commands and explained what
 	docker is doing when those commands are run.
@@ -46,6 +47,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	- Docker uses an image tree to track what's needed to be fetched
 	from the docker store
 	- Volumes persist data beyond the lifecycle of the container
+
 2. VMs Versus Containers - 8 min
 	- Hypervisor has to be extremely complex to support level of
 	abstraction the VM expects
@@ -54,14 +56,73 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	user level execution, and VMs need the OS/kernel to make smart 
 	decisions about how to abstract the hw.
 	- VMware employees like to defend virtualisation 
-3. Docker intro
-	-
+
+3. Docker intro - 30 min
+	- Containers share a kernel so it needs to be the same on a system
+	that's running multiple containers
+	- Containers have multiple use cases, running a single command,
+	running something in the background and existing as an interactive
+	shell
+	- When configuring a container that will eventually be exported as
+	an image interactive containers can be useful
+	- Docker files are sort of like the spec for how to build the image
+	and eventually the container
+	- Building and launching a website feels pretty cool inside of a demo
+	- Container deployability and speed are clearly demonstrated in this 
+
+4. Doing More With Docker Images - 45 min
+	- Docker images can be created from an existing machine that has any
+	amount of customization on it
+	- Saving the state of a docker container in a image is as easy as
+	writing the command "commit". This can then be used to create any
+	number of additional images with the same packages and config
+	- A Dockerfile seems like the best way to build a container
+	- Dockerfiles track changes really well while images are just a
+	bunch of binary data representing some state.
+
+5. VMs Versus Containers Deep Dive - 9 min
+	- Containers while they contain all of the dependencies needed to
+	run an application are far smaller than an equivalent VM
+	- Containers are less secure than a VM because containers are as
+	secure as the containr sandbox and the kernel 
+	- VMs are far slower to boot up an application than a container
+		* A VM needs POST->kernel->init->process 
+		* A container needs sandbox->process
+
+6. Docker Networking
+
+7. Swarm Mode Instruction
+
+8. Kubernetes VS. Swarm - 4 min
+	- Comparison of orchestration systems
+	- Swarm is Dockers version of kubernetes and since its build in
+	it is simpler than kubernetes
+
+9. Kubernetes - 5 min
+	- Cluster services helps to manage a cluster
+	- Workers are container hosts with a "kublet" process
+	- Yaml spec for config about cluster
+		* pod config - group of containers running the same image
+		* replica - how many of this pod
+	- Cluster services manages scheduling the right number of pods
+	according to the spec
+	- This is across any number of workers this is because workers
+	can have multiple containers
+	- Cluster services also handles when workers go down
+
+10. Kubernetes++
+
+11. Docker in Cluster of EC2 Instances using Kubernetes to Orchestrate
+
+Bring it all together:
+
 
 ## Area 2 Cloud Web Apps
 ### Beginner
 1. AWS: Launch A VM - 15 min
 	- Starting a EC2 instance seems fairly straight forward. 
 	- Download a key pair and use the public url to ssh in.
+
 2. Lab: Intro to S3 - 30 min
 	- This lab was slightly more involved than the first.
 	- Creating an S3 instance and interacting with it is
