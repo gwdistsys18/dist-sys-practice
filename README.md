@@ -19,8 +19,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [AWS Tutorial: Deploy a Scalable Node.js Web App](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Deploy-a-Scalable-Nodejs-Web-App)  
 		- [QwikLab: Intro to AWS Lambda ](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-AWS-Lambda)  
 		- [QwikLab: Intro to Amazon API Gateway](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-Amazon-API-Gateway)  
-		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
-		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [AWS Tutorial: Build a Serverless Web Application](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Build-a-Serverless-Web-Application)  
+		- [AWS Tutorial: Build a Modern Web Application](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Build-a-Modern-Web-Application)  
 		
 
 
@@ -279,13 +279,45 @@ Time: 30 min
 #### [QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog)  
 Time: 35 min   
 
-   This lab demonstrates AWS Lambda by creating a serverless image thumbnail application.
+   This lab create a simple FAQ micro-service. The micro-service will return a JSON object containing a random question and answer pair using an Amazon API Gateway endpoint that invokes an AWS Lambda function. 
    
-1. Create the Amazon S3 Buckets.   
+   The idea of a microservices architecture is to take a large, complex system and break it down into independent, decoupled services that are easy to manage and extend. This enables developers to meet their key design goals like extensibility, extendibility, availability and maintainability.
+   
+   Representational state transfer (REST) refers to architectures that follow six constraints: Client–server architecture, Statelessness, Cacheability, Layered system, Code on demand (optional), Uniform interface.
+   
+1. Create a Lambda Function.   
 
 	This create two Amazon S3 buckets -- one for input and one for output.  
    
-2. Create an AWS Lambda Function.
+2. Test the Lambda function.
+
+
+#### [AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card)  
+Time: 120 min   
+
+   This lab create a simple FAQ micro-service. The micro-service will return a JSON object containing a random question and answer pair using an Amazon API Gateway endpoint that invokes an AWS Lambda function. 
+
+1. Create a Lambda Function.   
+
+	This create two Amazon S3 buckets -- one for input and one for output.  
+   
+2. Test the Lambda function.
+
+
+
+
+#### [AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)  
+Time: 150 min   
+
+   This lab create a simple FAQ micro-service. The micro-service will return a JSON object containing a random question and answer pair using an Amazon API Gateway endpoint that invokes an AWS Lambda function. 
+
+1. Create a Lambda Function.   
+
+	This create two Amazon S3 buckets -- one for input and one for output.  
+   
+2. Test the Lambda function.
+
+
 
 
 
