@@ -72,10 +72,17 @@ Time: 30 min
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
 Time: 1 hr 
 
-- Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces. 
- 
-	1. Create a Bucket
-    	Every object in Amazon S3 is stored in a bucket
+ Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces. 
+1. Running your first container  
+	Firstly, log into a docker sandbox environment. Type: "docker container run hello-world" to run the fist container. Container is different to VM in that A container is an application abstraction;  
+  
+2. Docker Image
+	The pull command fetches the alpine image from the Docker registry and saves it in our system.
+
+
+1. Create a Bucket
+    	
+	Every object in Amazon S3 is stored in a bucket
   
   2. Upload an Object to the Bucket
   
