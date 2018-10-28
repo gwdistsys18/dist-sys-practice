@@ -5,10 +5,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 # Docker
 ## Time spend
 ### Beginner level
-Video: Why Docker? -- 50 min
+Video: Why Docker? -- 50 min  
 Lab: DevOps Docker Beginners Guide -- 180 min
 ### Intermediate Level
-Video: What are Containers? -- 100 min
+Video: What are Containers? -- 100 min  
+Video: VMs Versus Containers -- 90min
 
 
 
@@ -182,6 +183,26 @@ The client talks to the daemon. help user to manipulate docker host and configur
 Expose APIs to the client to make the client able to manipulate docker host.
 #### Volume
 A persistent area of storage inside the docker host to persist all data beyond the lifecycle of the container.
+# Virtual Machine vs. Container
+## VM
+![Virtue Machine Architecture](https://github.com/PerryApple/dist-sys-practice/blob/master/VM.jpg?raw=true)
 
+This is the architecture of the virtue machine. Between the virtue machine operating system and the physical infrastructure, there is a hypervisor and virtue machine interface. 
+
+#### Virtue machine
+The OS which is running inside the virtue machine talks to a virtual hardware layer. The virtue machine provide limited number of NICs, storage and other resources to the operation system. This makes the guest OS pretty simple.  
+  
+Also, you can size your virtue machine depending on the application workload and how big the guest OS is. You don't need to use all resourse provided by the physical infrastructure.
+
+#### Hypervisor
+It is responsible for interacting with all different types of **NICs** from all different types of hardware. As well as the **storage, agents that monitor physical hardware, and kernel modules**.
+
+## Container
+![container](https://github.com/PerryApple/dist-sys-practice/blob/master/Container.jpg?raw=true)
+The docker engine is loaded in the OS. One big benefit of containers is it can pack up dependencies the application needs from the OS in one container. The OS which runs containers is simple, because of all OS dependencies are packed up in the docker container. Unlike the VM, you don't need to install and config all dependencies the application needs in the operating system. Moreover, only one basic OS is needed, and you can run all sorts of containers above it. This saves a lot of resourses.
+
+## Combination of VM and container
+![VM&Container](https://github.com/PerryApple/dist-sys-practice/blob/master/VM&Container.jpg?raw=true)
+Load the hypervisor technology into the basic operating system. By doing this, the basic OS will see all resourses provided by the physical infrastructure. A better strategy is having a hypervisor and virtue machine between the physical infrastructure and the basic operating system. The docker host operating system (AKA the basic OS) will interact with the virtue machine level and the hypervisor will mask all the other hardware the OS not needed.
 ## Area 2
 > Include notes here about each of the links
