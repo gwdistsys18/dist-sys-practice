@@ -40,5 +40,8 @@ Docker client - The command line tool that allows the user to interact with the 
 Docker Store - Store is, among other things, a registry of Docker images.  
   
 ### Intermediate Level
+#### Countainers  
+* [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) (30 min)  
+a
 ## Area 2
 > Include notes here about each of the links
