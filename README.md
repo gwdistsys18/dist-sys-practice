@@ -17,7 +17,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [S3 versus an EC2 VM](https://github.com/JackTedo/dist-sys-practice#S3-versus-an-EC2-VM)  
 		- [QwikLab: Intro to DynamoDB](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-DynamoDB)  
 		- [AWS Tutorial: Deploy a Scalable Node.js Web App](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Deploy-a-Scalable-Nodejs-Web-App)  
-		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [QwikLab: Intro to AWS Lambda ](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-AWS-Lambda )  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		
@@ -221,25 +221,44 @@ Time: 60 min
    This tutorial is about how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB. Using Elastic Beanstalk, you can simply upload your code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring. Elastic Beanstalk automatically scales your application up and down based on your application's specific need using easily adjustable Auto Scaling settings. Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models.
    
 1. Prerequisites.   
-	This tuturial uses sample application source bundle from GitHub: eb-node-express-sample-v1.1.zip..  
+
+	This tuturial uses sample application source bundle from GitHub: eb-node-express-sample-v1.1.zip.  
   
 2. Launch an Elastic Beanstalk Environment
+
 	Elastic Beanstalk creates and manages severals resources.
    
 3. Add Permissions to Your Environment's Instances
+
 	The application runs on one or more EC2 instances behind a load balancer, serving HTTP requests from the Internet. When it receives a request that requires it to use AWS services, the application uses the permissions of the instance it runs on to access those services. 
    
 4. Deploy the Sample Application
 
 5. Create a DynamoDB Table
+
 	Notes: When you create a table outside of Elastic Beanstalk, it is completely independent of Elastic Beanstalk and your Elastic Beanstalk environments, and will not be terminated by Elastic Beanstalk. 
 
 6. Update the Application's Configuration Files
+
 	Update the configuration files in the application source to use the nodejs-tutorial table instead of creating a new one. 
 
 7. Configure Your Environment for High Availability
+
     Configure the environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web servers in your environment from being a single point of failure, and to allow you to deploy changes without taking your site out of service. 
     
+    
 8. Cleanup
+
 	Elastic Beanstalk terminates all AWS resources associated with your environment, such as Amazon EC2 instances, database instances, load balancers, security groups, and alarms. 
 
+
+
+#### [QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog)  
+Time: 30 min   
+
+   This lab demonstrates AWS Lambda by creating a serverless image thumbnail application.
+   
+1. Create the Amazon S3 Buckets.   
+
+	This create two Amazon S3 buckets -- one for input and one for output.  
+   
