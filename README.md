@@ -18,7 +18,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [QwikLab: Intro to DynamoDB](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-DynamoDB)  
 		- [AWS Tutorial: Deploy a Scalable Node.js Web App](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Deploy-a-Scalable-Nodejs-Web-App)  
 		- [QwikLab: Intro to AWS Lambda ](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-AWS-Lambda)  
-		- [QwikLab: Intro to Amazon API Gateway](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-Amazon API-Gateway)  
+		- [QwikLab: Intro to Amazon API Gateway](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-Amazon-API-Gateway)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		
