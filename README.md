@@ -2,7 +2,7 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 # Table of contents
-- [Docker Container](https://github.com/JackTedo/dist-sys-practice/#docker-container)  
+- [Docker Container](https://github.com/JackTedo/dist-sys-practice/#docker-container1)  
 	- [Beginner Level: Docker Container](https://github.com/JackTedo/dist-sys-practice/#beginner-level-docker-container)
 		- [Why docker](https://github.com/JackTedo/dist-sys-practice/#video-why-docker)  
 		- [DevOps Docker Beginners Guide](https://github.com/JackTedo/dist-sys-practice/#lab-devops-docker-beginners-guide)  
