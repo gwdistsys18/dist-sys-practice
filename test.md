@@ -220,12 +220,26 @@ Finally, it will give us a operating system counting table
 * Then use SQL command to create a table in Redshift which contains name, address and details about the type of music that user likes.
 
 ### Task 4-5: Load Sample Data from Amazon S3 and Data processing
-* Amazon Redshift can import data from Amazon S3. Various file formats are supported, fiexd-length fields, comma-separated values(CSV) and custom delimiters. The data for this lab is pipe-separated(|)
+* Amazon Redshift can import data from Amazon S3. Various file formats are supported, fiexd-length fields, comma-separated values(CSV) and custom delimiters. The data for this lab is pipe-separated.
 * Use SQL Query to load and show Data in Redshift.
-* Analyze data with Query
+* Analyze data with Query.
 
 <a name="introml"></a> 
 # Intro to Amazon Machine Learning
+### Task 1: Uploading Training Data
+* Upload restaurant.data to a S3 bucket
+* Features in order: age, gender, budget, price, cuisine_type, rating
+
+### Task 2-3: Create a Datasouce
+* Does the first line in your CSV contain the column names? Yes, which is the feature names in order.
+* Use "age, gender, budget, price, cuisine_type" as input data set and "rating" as label.
+* AWS also allow custom ML model with recipe.
+
+### Task 4: Evaluate an ML Model
+* In the learning task, 70% of data is used to training and 30% of data is used to validate and test.
+* The AWS provided ML model is multclass classification.
+* The result will be visualized by confusion matrix. In the confusion matrix, the rows represent the true values and the columns represent the predicted values. 
+![](https://s3.amazonaws.com/data357/ConfusionMatrix.PNG)
 
 <a name="buildml"></a> 
 # Build a Machine Learning Model
