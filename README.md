@@ -137,6 +137,29 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - "Desired State Management" is simply the .yaml file designating what we want to run on our cluster
  - Inside the app.yaml file will designate "pods" which specify what container images a Pod runs, how many replicas, what services, etc
  - This file is provided to the cluster services, and then Kubernetes figures out how to map the desired state to available infrastructure
+ 
+#### Break a Monolith Application into Microservices (4 hours)
+ - In this project we take a NodeJS monolithic application and deploy it with Docker on AWS
+ - Our application has three main components: a Users services, a Threads service, and a Posts service
+ - First, we will deploy a single container running all of these services.  Then we will redeploy the same app where each service is running in its own independent container
+ - We utilize Amazon ECR (Elastic Container Registry) for managing docker deployments
+  - Note: You will need Docker and AWS CLI installed on your workstation in order to do the demo 
+ - After forking the Github repository, you can use Amazon ECR to add the repository.  Amazon ECR is a Docker container registry.  By Adding our code to the registry, we can use Docker to create container images
+ - We will use CloudFormation and provide it a Docker stack file (See previous notes for what a Docker stack is).  Basically this is a markup document which describes a recipe for building a containerized application
+ - We build the docker image locally, tag it, and push it to the ECR registry
+ - We will now use Amazon ECS (Elastic Container Service) to spin up our docker containers on EC2 instances
+ - We utilize the CloudFormation service to create a ECS cluster.  This service takes an markup text file as input which specifies how the cluster should be built.
+ - Next, we have to build and run a task definition which describes how our application containers get deployed across our cluster
+ - Finally, we can configure the load balancer in a typical fashion, add a listener for our service, and at this point it should be accessble via the internet.
+ - Now, we have our monolith application running, we want to break it into three seperate services.  The github project for this demo provides us with an additional 3 docker repositories which comprises each service individually inside it's own NodeJS application
+ - In order to use this, we need to basically repeat the previous steps, but this time do everything in pairs of 3's for each of the individual services.
+ - So, we first must add the repositories to ECR, build and tag the docker images for all three microservices
+ - We will now write and run 3 new task definitions within ECS for each of our three microservices (note that our existing monolith application will remain running on our cluster)
+ - Our microservices are now deployed on the same cluster, but the traffic through our load balancer is still going to our monolith.
+ - We can now update the load balancer, and edit the target groups.  There are a few ways to do this, but if we want to maintain traffic to the monolith, we should add new target groups, 1 for each of our new services
+ - We also need to add 3 new listeners, but we will leave the original listener in tact
+ - Now we can deploy our microservices, and turn off our other applications
+ 
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
 #### Video: Hadoop Intro
