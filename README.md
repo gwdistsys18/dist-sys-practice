@@ -197,7 +197,7 @@ docker push [account-id].dkr.ecr.[region].amazonaws.com/api:latest
 
 Architecture overview (from AWS page):
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Monolith-Architecture.png)
+![](./Resource/Monolith-Architecture.png)
 
 Run the following command:
 
@@ -213,9 +213,9 @@ Wait couple of minutes to create Amazon ECS cluster.
 
 After this process completed, it should be like the following picture.
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/service.png)
+![](./Resource/service.png)
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/instance.png)
+![](./Resource/instance.png)
 
 #### Write task definition
 
@@ -248,7 +248,7 @@ The listener checks for incoming connection requests to ALB created previously.
 
 Create this listener. It should look like this:
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Listener.png)
+![](./Resource/Listener.png)
 
 #### Deploy the Monolith as Service
 
@@ -266,15 +266,15 @@ Save and then all select next until create this service.
 
 After this service is created, this service can be reached from outside by the domain that is given by AWS. Find this domain under EC2 -> Load Balance page and try to connect Monolith by domain.
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Receive.png)
+![](./Resource/Receive.png)
 
 Note that "Ready to receive requests" is the signal of success.
 
 Some parts of Monolith:
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/user.png)
+![](./Resource/user.png)
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/user.png)
+![](./Resource/user.png)
 
 #### Break the Monolith into micro service 
 
@@ -293,13 +293,13 @@ Steps:
 
 After these images were pushed, it should look like this:
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/posts.png)
+![](./Resource/posts.png)
 
 #### Deploy Microservices
 
 Architecture overview (from AWS webpage):
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Monolith Containers_6-switching-traffic.png)
+![](./Resource/Monolith Containers_6-switching-traffic.png)
 
 #### Deploy Microservices
 
@@ -312,7 +312,7 @@ Architecture overview (from AWS webpage):
 
 After the deployment, it should be like this:
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/4services.png)
+![](./Resource/4services.png)
 
 #### Break the Monolith into micro service 
 
@@ -342,15 +342,15 @@ Steps:
 
 After this modification, the `api` service will have 0 desired task.
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/closeapi.png)
+![](./Resource/closeapi.png)
 
 Finally, the microservices has deployed on cluster. A sample image is this:
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Sample.png)
+![](./Resource/Sample.png)
 
 Finally, one congratuation message can be obtained. 
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Final.png)
+![](./Resource/Final.png)
 
 ### Writeup of this level
 
@@ -368,10 +368,10 @@ I’ve been using a VM that is hosted on DigitalOcean for couple of months. And 
 
 Here are some sample pictures. Note that due to the privacy concern I removed some sensitive messages.
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/dockersamples.png)
+![](./Resource/dockersamples.png)
 
 Containers that runs on my virtual machine. 
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/rss.png)
+![](./Resource/rss.png)
 
 This is the RSS server that runs on my virtual machine. This service use `postgresql`as database. As for connection, it use the port mapping to setup the connection to the Internet. It can be reached via IP address with specific port.
