@@ -1,8 +1,43 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-[TOC]
+Table of Contents
+=================
 
+   * [Distributed Systems Practice](#distributed-systems-practice)
+      * [Docker and Containers](#docker-and-containers)
+         * [1. What is container](#1-what-is-container)
+         * [2. Difference between containers and VM](#2-difference-between-containers-and-vm)
+            * [2.1 advantages of containers](#21-advantages-of-containers)
+         * [3. What is docker](#3-what-is-docker)
+         * [4. Docker Architecture](#4-docker-architecture)
+            * [4.1 Clent](#41-clent)
+            * [4.2 Docker Host](#42-docker-host)
+            * [4.3 Registry](#43-registry)
+         * [5. Docker Command Line](#5-docker-command-line)
+         * [6. Docker image](#6-docker-image)
+            * [6.1 Image creation from a container](#61-image-creation-from-a-container)
+            * [6.2 Image creation using a Dockerfile](#62-image-creation-using-a-dockerfile)
+               * [docker file](#docker-file)
+         * [7. Docker networking](#7-docker-networking)
+            * [7.1 Network drivers](#71-network-drivers)
+            * [7.2 Bridge networks](#72-bridge-networks)
+               * [Manage a user-defined bridge](#manage-a-user-defined-bridge)
+               * [Connect a container to a user-defined bridge](#connect-a-container-to-a-user-defined-bridge)
+               * [Enable forwarding from Docker containers to the outside world](#enable-forwarding-from-docker-containers-to-the-outside-world)
+            * [7.3 Overlay networks](#73-overlay-networks)
+               * [Create an overlay network](#create-an-overlay-network)
+               * [Create a service](#create-a-service)
+            * [7.4 Access from outside](#74-access-from-outside)
+         * [8. Swarm Mode Introduction for IT Pros](#8-swarm-mode-introduction-for-it-pros)
+            * [8.1 Docker Compose and Docker Swarm Mode](#81-docker-compose-and-docker-swarm-mode)
+            * [8.2 Swarm](#82-swarm)
+            * [8.3 Initialize a new Swarm](#83-initialize-a-new-swarm)
+            * [8.4 Show Swarm Members](#84-show-swarm-members)
+         * [9. Kubernetes](#9-kubernetes)
+      * [Cloud Web Apps](#cloud-web-apps)
+
+      
 
 ## Docker and Containers
 ### 1. What is container
@@ -164,7 +199,7 @@ Docker’s networking subsystem is pluggable, using drivers. Several drivers exi
 - macvlan: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
 - none: For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
 
-#### 7.2 bridge networks
+#### 7.2 Bridge networks
 In terms of Docker, a bridge network uses a software bridge which allows containers connected to the same bridge network to communicate, while providing isolation from containers which are not connected to that bridge network. 
 
 Differences between user-defined bridges and the default bridge
@@ -214,7 +249,7 @@ $ sysctl net.ipv4.conf.all.forwarding=1
 $ sudo iptables -P FORWARD ACCEPT
 ```
 
-#### 7.3 overlay networks
+#### 7.3 Overlay networks
 The overlay network driver creates a distributed network among multiple Docker daemon hosts. 
 
 
@@ -230,7 +265,7 @@ docker service create --name myservice \
 ubuntu sleep infinity
 ```
 
-#### 7.4 access from outside
+#### 7.4 Access from outside
 
 if you want to run some web applications in the container. To allow external access to these applications, port mapping can be specified with the <font color="#CC3A5C" >-p<font> parameters.
 
