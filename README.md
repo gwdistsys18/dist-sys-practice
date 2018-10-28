@@ -2,7 +2,7 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Area 1: Docker and Containers
-### Beginning level - Video: Why Docker?
+### Beginning level - Why Docker?
 
 > Docker is focus on the migration experience, all about speed.
 
@@ -14,7 +14,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Do not need to change the code or make special application/environment for containers.
 * Compare to virtual machine, it’s faster and consume less resource. 
 
-### Beginning level - Lab: DevOps Docker Beginners Guide
+### Beginning level - DevOps Docker Beginners Guide
 
 #### First Alpine Linux Containers
 
@@ -36,7 +36,7 @@ Docker is a new method to run certain applications on a host sever. There are se
 2. Consume less resource. According to the way that Docker runs on a host OS, when add a container onto Docker, it does not required a entire OS environment. Instead, it only package all dependency that current container is needed and deployed. In this way docker save a lot of resource and almost can be regarded as a single application.
 3. Isolation for both host machine and different containers. For instance, if I want to deploy a service on server that one required Python 3 and one required Python 2.7. If I run the two applications on host OS I will have to configure both Python 2.7 and Python 3.7 with a lot of configuration problems such as path and specific dependency. On the other hand, if I use docker I can write two Dockerfile and create two containers. It is isolated and will not influence the host machine.
 
-### Intermediate Level - Video: What are Containers? 
+### Intermediate Level - What are Containers? 
 
 **Structure of Docker.**
 
@@ -44,7 +44,7 @@ Docker is a new method to run certain applications on a host sever. There are se
 
 Container is based on specific Docker image. The Image is made up of multiple layers and store packages and dependency that is needed for Docker container. Based on that, container runs in the Docker host. Container includes the system and file that could support the application that runs in a container. If user want to modify or communicate with the application, it is actually modify or communicate with the container.  
 
-### Intermediate Level - Video: VMs Versus Containers 
+### Intermediate Level - VMs Versus Containers 
 
 **The comparison between VMs and Containers.**
 
@@ -58,7 +58,7 @@ Docker container share the hardware with host machine. Container can  package up
 
 The advantage of virtual machine is that it could provide a more isolate virtual system, since it does not share hardware as Docker does. Hence, if upcoming job requires isolation such as virus test, then virtual machine still is the only choice.
 
-### Intermediate Level - Lab: Docker Intro 
+### Intermediate Level - Docker Intro 
 
 **Task 0 &1**: some basic operation of running a docker and execute some Linux command inside a container. Note that Linux containers require the Docker host to be running a Linux kernel.
 
@@ -68,7 +68,7 @@ The advantage of virtual machine is that it could provide a more isolate virtual
 
 When I use some service deployed by Docker containers, I use `docker exec -i -t <CONTAINER_ID> bash` to get into container and modify files via `vi`.
 
-### Intermediate Level - Lab: Doing more with Docker Images
+### Intermediate Level - Doing more with Docker Images
 
 This lab introduce the Dockerfile and how to modify the file in image.
 
@@ -101,7 +101,7 @@ A Docker image is built up from a series of layers. Each **layer** represents an
 
 Use `docker image inspect` can inspect the layers version of the Docker. If one modify was implemented, then one layer will be added, and a record will show when inspect the Docker image. The method that used to identify each layer is using `sha256`. 
 
-### Intermediate Level - Video: VMs Versus Containers Deep Dive
+### Intermediate Level - VMs Versus Containers Deep Dive
 
 A deeper comparison between virtual machine and Docker container.
 
@@ -119,7 +119,7 @@ A deeper comparison between virtual machine and Docker container.
 3. Docker is not as isolated as virtual machine. Containers share the kernel, and attackers can intrude kernel if a kernel bug is known by attacker. Although this kind of bug is rare, but it is still a easier way compare to virtual machine. 
 4. Docker container is faster than virtual machine when starting. The main reason is that container only takes two steps when start the process. First one is kernel operation that setting up the process sandbox, and the other one is starting the application itself.
 
-### Intermediate Level -  Lab: Docker Networking
+### Intermediate Level - Docker Networking
 
 This lab introduce the Docker networking. 
 
@@ -135,9 +135,10 @@ docker info
 
 If a container runs a network service such as NGINX, the this service can be reached from outside by port mapping. A specific port can be assigned to the container’s service port. For instance, `-p 8080:80` assign all traffic to port 8080 on host OS to container’s 80 port.
 
-### Intermediate Level -  Lab: Swarm Mode Introduction for IT Pros
+### Intermediate Level - Swarm Mode Introduction for IT Pros
 
 Swarm mode is for natively managing a cluster of Docker Engines. When trying to set up da cluster via Docker, then this is the best (and official) tool to manager these containers.
 
 ## Area 2
 > Include notes here about each of the links
+
