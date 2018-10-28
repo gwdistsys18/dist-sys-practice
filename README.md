@@ -70,8 +70,10 @@ Time: 30 min
 
 	
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
-Time: 15 min   
+Time: 1 hr  
 
+1. Running your first container  
+	Firstly, log into a docker sandbox environment. Type: "docker container run hello-world" to run the fist container. Container
 	 
 Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces.
 
