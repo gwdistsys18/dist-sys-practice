@@ -41,8 +41,28 @@ Docker Store - Store is, among other things, a registry of Docker images.
   
 ### Intermediate Level
 #### Countainers  
-* [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) (30 min)  
+* [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) (25 min)  
 
-a
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/countainer.png)  
+  
+One process per container.  
+The container process is completely tied in with the lifecycle of the container itself. When you start the container, it starts the container process. when the container process exits, the container ends.  
+Container image is very simply a binary representation, a bunch of bits on a filesystem somewhere.  
+The images are arranged in a image hierarchy.  
+A dockerfile is basically an environment in a text file.  
+The start of a docker file is "From". "From" is the parent image where this docker file is inheriting from. 
+We could create image from a container.  
+A container is packaged with all of its dependencies.
+Registry is a thing that contains images. You can pull and push from the registry at will.  
+Volume is a persistent area of storage. Container will have or may have a volume if it wants to persist any data beyond the lifecycle of the container.  
+  
+* [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc) (10 min)  
+
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/vm.png)  
+Keep OS simple. Less overhead.  
+You can size it however you want.  
+Hypervisor: It has to be responsible for interacting with all different types of NICs from all different types of hardware.  
+A large benefit of containers is the ability to package up a lot of dependencies the App needs from the OS in one container.  
+
 ## Area 2
 > Include notes here about each of the links
