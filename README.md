@@ -51,6 +51,19 @@ Docker Store - Store is, among other things, a registry of Docker images.
   
 -Video: What are Containers?(https://www.youtube.com/watch?v=EnJ7qX9fkcU)
 The container is used to cover a multitude things, is a sandbox of processes.  
+sandbox--own namespace, cgroups(restrict what the process able to do).  
+Container image: a binary representation, notion of parent-child relationship.  
+all of the dependencies pretty much above the kernel are packaged inside of the container.  
+you can run any number of different versions of applications all on the single operating system.  
+
+-Video: VMs Versus Containers(https://www.youtube.com/watch?v=L1ie8negCjc)  
+in VMs: the interface between operating system and physical machine   
+a virtual hardware layer exists in the virtual infrastructure, is contains NICs, storage interface have to talk to(drives need).  
+hypervisor is responsible for interacting with NIC, storage, agents and kernel modules.  
+in Container: the docker engine in operating system, operating system dependencies and the application itself-image.  
+
+-Lab: Docker Intro(https://training.play-with-docker.com/beginner-linux/)  
+
 
 ## Area 2
 > Include notes here about each of the links
