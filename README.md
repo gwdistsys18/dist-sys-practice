@@ -8,7 +8,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [DevOps Docker Beginners Guide](https://github.com/JackTedo/dist-sys-practice/#lab-devops-docker-beginners-guide)  
 
 - [Cloud Web Apps](https://github.com/JackTedo/dist-sys-practice/#Cloud-Web-Apps)  
-	- [Beginner Level: Cloud Web Apps](https://github.com/JackTedo/dist-sys-practice/#Beginner-Level:-Cloud-Web-Apps)
+	- [Beginner Level: Cloud Web Apps](https://github.com/JackTedo/dist-sys-practice/#Beginner-Levels:-Cloud-Web-Apps)
 		- [AWS Tutorial: Launch a VM](https://github.com/JackTedo/dist-sys-practice/#AWS-Tutorial:-Launch-a-VM )  
 		- [QwikLab: Intro to S3](https://github.com/JackTedo/dist-sys-practice/#QwikLab:-Intro-to-S3)  
 	- [Intermediate Level](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Cloud-Web-Apps)  
@@ -42,7 +42,7 @@ Time: 1 hr
 	This is a critical security concept in the world of Docker containers! Even though each docker container run command used the same alpine image, each execution was a separate, isolated container. Each container has a separate filesystem and runs in a different namespace; by default a container has no way of interacting with other containers, even those from the same image.
 	
 ## Cloud Web Apps
-### Beginner Level: Cloud Web Apps
+### Beginner Levels: Cloud Web Apps
 #### [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)  
 Time: 30 min   
 
