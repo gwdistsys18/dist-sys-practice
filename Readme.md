@@ -275,7 +275,8 @@ age | job | marital | education | default | housing | loan | contact | month | d
 * Real-time predictions will give us the prediction result directly
 * The cost of batch prediction is 0.1$/1000prediction. To be honest, the model construction and prediction for 42000 messages will only takes few minutes on my computer. We should be care about it since it is expensive.
 * There are three columns of the batch prediction result: trueLabel, bestAnswer and score. It is due to that I select the banking.csv to batch predict.
-* In my model,
+* In my model, the score larger than 0.35 will be taken as 1 and the score smaller or equal than 0.35 will be taken as 0.
+
 
 	
 
