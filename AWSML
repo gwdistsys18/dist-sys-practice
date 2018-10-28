@@ -7,8 +7,9 @@
 4. [Introduction to Amazon Redshift](#redshift)
 5. [Intro to Amazon Machine Learning](#introml)
 6. [Build a Machine Learning Model](#buildml)
-7. [AWS SageMaker](#segmaker)
-8. [Build a Serverless Real-Time Data Processing APP](#app)
+7. [AWS SageMaker Overview](#viewsegmaker)
+8. [AWS SageMaker](#segmaker)
+9. [Build a Serverless Real-Time Data Processing APP](#app)
 
 
 <a name="Introduction"></a>
@@ -277,9 +278,40 @@ age | job | marital | education | default | housing | loan | contact | month | d
 * There are three columns of the batch prediction result: trueLabel, bestAnswer and score. It is due to that I select the banking.csv to batch predict.
 * In my model, the score larger than 0.35 will be taken as 1 and the score smaller or equal than 0.35 will be taken as 0.
 
-
+<a name="viewsegmaker"></a> 
+# AWS Overviwe of SageMaker
+* The most important things I believe is that you can use your own scripts to train your model.
+### What is SageMaker?
+* Amazon SageMaker enables you to build, train, and deploy machine learning models quickly and easily while taking care of the heavy lifting of machine learning.
+	* Build: Provides hosted Jupyter notebooks that require no setup and allows to start processing the training dataset & developing algorithms immediately.
+	* Train: One-click, on-demand distributed training with built-in model tuning that can automatically adjust hundreds of different combinations of algorithm parameters for greater, speed, accuracy, and data-throughput.
+	* Deploy: An elastic, secure, and scalable environment to host your models, with one-click deployment.
+### Overview
+* Notebook instance: Explore AWS data in your notebooks, and use algorithms to create models via training jobs.
+* Jobs(training): Track training jobs at your desk or remotely. Leverage high-performance AWS algorithms.
+* Models(host and repository)
+: Create models for hosting from job outputs, or import externally trained models into Amazon SegaMaker.
+* Endpoint(deploy): Deploy endpoints for developers to use in production. A/B Test model variants via an endpoint.
+### SageMaker tutorial
+* Create notebook instance
+	* There may have some bugs if Data and Instance not live in the same region in a S3 bucket.
+* e.g Training the XGBoost model
+	* Images hosted in different regions.
+	* ResourceConfig: size of the training instance used to deploy model
+	* HyperParameters: such as "max_depth", "eta", "gamma" etc.
+		* p.s You call something a 'hyperparameter' if it cannot be learned within the estimator directly. 
+	* Use API to train single or multiple instances.
+		* e.g sm.create_training_job(**single_machine_job_params)
+* In the job menu, you will see the progress information here.
+* Then hosted the model in SageMaker for prediction and it is hosted in a container.
+	* Grab some information from train model.
+	* Build endpoint configuration.
+	* You can also build multiple model to do the a/b testing("two-sample hypothesis testing).
+* Test and get error rate and confusion matrix.
+* You can also use model trained outside in SageMaker.
+* After laiding all files, scripts and libraries you need to write a docker file and build a container.
+* Create repository and push container to ECR(Elastic Container Registry). 
 	
-
 	
 
 <a name="segmaker"></a> 
