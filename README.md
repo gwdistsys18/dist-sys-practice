@@ -205,7 +205,7 @@ Run the following command:
 aws cloudformation deploy \
    —template-file infrastructure/ecs.yml \
    —region <region> \
-   —stack-name Nodejs-Microservices \
+   —stack-name BreakTheMonolith-Demo \
    —capabilities CAPABILITY_NAMED_IAM
 ```
 
