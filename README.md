@@ -15,7 +15,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Install-a-LAMP-Web-Server-on-Amazon-Linux-2)  
 		- [S3 versus an EC2 VM](https://github.com/JackTedo/dist-sys-practice#S3-versus-an-EC2-VM)  
-		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [QwikLab: Intro to DynamoDB](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-DynamoDB)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
@@ -195,5 +195,25 @@ Long-Term Storage
     You would need to install and configure the software on the EC2 instance(s) to manage security, content serving, monitoring, etc.
     
 
+#### [QwikLab: Intro to DynamoDB](https://awseducate.qwiklabs.com/focuses/23?parent=catalog)  
+Time: 20 min   
+
+
+Amazon DynamoDB is a fully managed proprietary NoSQL database service that supports key-value and document data structures and is offered by Amazon.com as part of the Amazon Web Services portfolio. DynamoDB exposes a similar data model to and derives its name from Dynamo, but has a different underlying implementation(from Wikipedia).
+
+1. Create a new table.   
+	In AWS management console, select Service, then select DynamoDB. Create new table.  
+  
+2. Add Data
+
+3. Modify an existing item
+
+4. Query the table
+
+5. Delete the table
+
+	Amazon DynamoDB is very good to be used as a cloud db.
+	
+	
 
 
