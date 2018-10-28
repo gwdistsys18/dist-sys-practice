@@ -266,10 +266,20 @@ age | job | marital | education | default | housing | loan | contact | month | d
 	* In our prediction, True positive rate is 4% and false positive rate is 1.8%, which means that the precision is 69.0%. At the same time, the false nengative rate is 7% which means that the recall rate is 36.4%.
 	* In the score threshold model, the prediction is based on the cut-off number. Although I can not see the algorithm inside AWS calssification model, it is believable that this image shows the distribution of data base on their prediction values with sigmoid function.
 	![](https://s3.amazonaws.com/hadoop357/explore-screenshot-v1.png)
+	* Generally speaking, the score setting is based on the client demand. If they have a lots of money and is willing to invest with high risk may be they can select a lower score to reduce the false negative rate but increase true positive rate while maintain the accuracy in a acceptable level.
+	![](https://s3.amazonaws.com/hadoop357/eva.PNG)
 	
+### Task 5: Use the model
+* record format: comma spilt
+	* 32,services,divorced,basic.9y,no,unknown,yes,cellular,dec,mon,110,1,11,0,nonexistent,-1.8,94.465,-36.1,0.883,5228.1
+* Real-time predictions will give us the prediction result directly
+* The cost of batch prediction is 0.1$/1000prediction. To be honest, the model construction and prediction for 42000 messages will only takes few minutes on my computer. We should be care about it since it is expensive.
+* There are three columns of the batch prediction result: trueLabel, bestAnswer and score. It is due to that I select the banking.csv to batch predict.
+* In my model,
+
 	
 
-
+	
 
 <a name="segmaker"></a> 
 # AWS SageMaker
