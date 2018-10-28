@@ -101,7 +101,23 @@ A Docker image is built up from a series of layers. Each **layer** represents an
 
 Use `docker image inspect` can inspect the layers version of the Docker. If one modify was implemented, then one layer will be added, and a record will show when inspect the Docker image. The method that used to identify each layer is using `sha256`. 
 
+### Intermediate Level - Video: VMs Versus Containers Deep Dive
 
+A deeper comparison between virtual machine and Docker container.
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/DeepCompare.png)
+
+**Pros and cons of virtual machine:**
+1.  Virtual machine has to contain the kernel and user space of host system, hence, the size of virtual machine is larger than Docker container.
+2.  Virtual machine has a better isolation. It create a boundary outside the x86 platform. This means the whole system, including the init system and BIOS and EFI subsystem is running in a sandbox.
+3.  Virtual machine has to start the kernel and subsystem just like a real machine start, hence it takes more time comparing to Docker container. The start time of virtual machine including x86 post, EFI check, then kernel boot and init startup, finally process runs. Use some optimization, the start rime can be reduced. 
+
+**Pros and cons of Docker container:**
+
+1. It has smaller size since container only contain the process it self and the dependency files.
+2. Container image contains the user space, therefore it will take larger space. 
+3. Docker is not as isolated as virtual machine. Containers share the kernel, and attackers can intrude kernel if a kernel bug is known by attacker. Although this kind of bug is rare, but it is still a easier way compare to virtual machine. 
+4. Docker container is faster than virtual machine when starting. The main reason is that container only takes two steps when start the process. First one is kernel operation that setting up the process sandbox, and the other one is starting the application itself.
 
 ## Area 2
 > Include notes here about each of the links
