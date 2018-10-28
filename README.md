@@ -139,7 +139,7 @@ If a container runs a network service such as NGINX, the this service can be rea
 
 Swarm mode is for natively managing a cluster of Docker Engines. When trying to set up da cluster via Docker, then this is the best (and official) tool to manager these containers.
 
-### Intermediate Level - Kubernetes vs Swarm
+### Intermediate Level - Kubernetes
 
 Kubernetes is an open-source container-orchestration system for automating deployment, scaling and management of containerized applications. It can work with Docker.
 
@@ -147,9 +147,9 @@ Kubernetes is an open-source container-orchestration system for automating deplo
 
 Kubernetes architecture diagram (from wikipedia).
 
+Kubernetes can run and manage couple of “workers” that runs on a certain server by a configuration file. This file was received by API that Kubernetes cluster services provides. And then, based on this configuration file, it can deploy serval workers with replica.
 
-
-
+If one replica pod is dead or dropped, the Kubernetes service will instantiate the existing one as the dropped worker. 
 
 ## Area 2
 > Include notes here about each of the links
