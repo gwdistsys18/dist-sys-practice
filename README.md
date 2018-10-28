@@ -71,26 +71,17 @@ Time: 30 min
 	
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
 Time: 1 hr  
-
-1. Running your first container  
-	Firstly, log into a docker sandbox environment. Type: "docker container run hello-world" to run the fist container. Container
-	 
-Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces.
-
-1: Create a Bucket
+	Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces.  
+	1: Create a Bucket
 	Every object in Amazon S3 is stored in a bucket
-	
-2: Upload an Object to the Bucket
+	2: Upload an Object to the Bucket
 	An object can be any kind of file: a text file, a photo, a video, a zip file, etc. Add an object to Amazon S3 to let it available in network with permission.
-
-3: Make Your Object Public
+	3: Make Your Object Public
 Configure permissions on your object so that it is publicly accessible. The object is private by default.
-
-4: Create a Bucket Policy
+	4: Create a Bucket Policy
 Bucket Policy is a set of permissions associated with an Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
-
-5: Explore Versioning
-Versioning is a means of keeping multiple variants of an object in the same bucket. You can use versioning to preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. With versioning you can easily recover from both unintended user actions and application failures.
+	5: Explore Versioning
+	Versioning is a means of keeping multiple variants of an object in the same bucket. You can use versioning to preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. With versioning you can easily recover from both unintended user actions and application failures.
 
 
 ### Intermediate Level: Cloud Web Apps
