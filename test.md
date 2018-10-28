@@ -253,8 +253,22 @@ Finally, it will give us a operating system counting table
 age | job | marital | education | default | housing | loan | contact | month | day_of_week | duration | campaign | pdays | previous | poutcome | emp_var_rate | cons_price_idx | cons_conf_idx | euribor3m | nr_employed
 * Label: Y = [0,1]
 
-### Task 2: Create a Training Datasource
+### Task 2-3: Create a Training Datasource and Create an ML Model
 * Use [Amazon Machine Learning](https://console.aws.amazon.com/machinelearning/.) 
+* Link the input data with banking.csv which is uploaded in S3 bucket
+* There are three types of data: Numeric, Categorical, Binary
+* Use a binary classification model
+
+### Task 4: Review the ML Model's Predictive Performance and Set a Score Threshold
+* During evaluation, Amazon ML computed an industry-standard quality metric, called the Area Under a Curve (AUC) metric, that expresses the performance quality of your ML model.
+* Review the AUC metric:
+	* In the label set, 11% of it is 'yes' and the other is 'no'.
+	* In our prediction, True positive rate is 4% and false positive rate is 1.8%, which means that the precision is 69.0%. At the same time, the false nengative rate is 7% which means that the recall rate is 36.4%.
+	* In the score threshold model, the prediction is based on the cut-off number. Although I can not see the algorithm inside AWS calssification model, it is believable that this image shows the distribution of data base on their prediction values with sigmoid function.
+	![](https://s3.amazonaws.com/hadoop357/explore-screenshot-v1.png)
+	
+	
+
 
 
 <a name="segmaker"></a> 
