@@ -111,6 +111,30 @@ Time: 10 min
 Time: 60 min   
 
 
+LAMP is an archetypal model of web service stacks, named as an acronym of the names of its original four open-source components: the GNU/Linux operating system, the Apache HTTP Server, the MySQL relational database management system, and the PHP programming language(from Wikipedia).
 
+Step 1: Prepare the LAMP Server
+
+1. Connect to your instance.   
+	It seems instance is one of the core components of AWS. An EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Instance types comprise varying combinations of CPU, memory, storage, and networking capacity.  
+  
+2. perform a quick software update on your instance.
+	It seems that we need to update the instance every time. Why no automatical update?
+	
+3. Install latest versions of the LAMP MariaDB and PHP packages for Amazon Linux 2. 
+
+4. install the Apache web server, MariaDB, and PHP software packages. 
+
+5. Start the Apache web server.
+
+6.  Use the systemctl command to configure the Apache web server to start at each system boot.
+
+7. Add a security rule.
+
+8. Test your web server.
+
+	I tried several times till the success of the test. The problem is the security rules. The security group you are using contains a rule to allow HTTP (port 80) traffic. 
+	
+	
 
 
