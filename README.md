@@ -4,7 +4,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Table of Contents
 
->All elapsed time contains material studying and note writing.
+> All elapsed time contains material studying and note writing.
 
 * [Docker and Containers](#Docker-and-Containers)
   * [Beginer Level](#Beginner-Level-mastery-of-Docker)
@@ -19,20 +19,43 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ### **Beginner Level mastery of Docker**
 
-1. Video: Why Docker? -- elapsed time: 10 mins for video, 10 mins for readme file structure
+1. Video: Why Docker? -- elapsed time: 20 mins
     * Docker is an opensource project released in 2013. It is a shift in frastructure that will affect whole IT related asepct.
     * Recap:
-      * 90's: Mainframe to PC
-      * 00's: Beramental to Virtual
-      * 10's: Datacenter to Cloud
-      * Now: Host to Container (Serverless)
+        * 90's: Mainframe to PC
+        * 00's: Beramental to Virtual
+        * 10's: Datacenter to Cloud
+        * Now: Host to Container (Serverless)
     * Migration is hard. But Docker is focused on the migration experience because it was created for developer but system administers.
     * Fastest growing technology.
     * Docker make whole ecosystem of IT faster.
     * Applications runs in different enviorments. Docker allow users to get rid of different enviorments.
     * Docker frees maintains resources such that engineers have more time to innovate.
 
-2. Lab: DevOps Docker Beginners Guide -- elapsed time: 30 mins
+2. Lab: DevOps Docker Beginners Guide -- elapsed time: 40 mins
+
+    * Run first container
+
+        * > docker container run hello-world
+
+            When a docker container command is typed, the docker engine would try to find the image with input name. If fails, it would look for a image from docker registry with the name. Then engine create the image.
+
+    * Docker images
+        * Just like Git workflow, user can pull, push a container image with command like:
+            > docker container pull [name]
+            >
+            > docker container push [name]
+
+        * Run command
+            * Using run command, will excute the container. If there are more commands follows by, them will be executed in the called container's terminal.
+            * The default behavior of it is exit after excute followed command. We can change this by using flags such as [-it]
+
+        * > docker container ls
+
+            ls commmand will list all containers that are running. Using [-a] flag, a list of containers that we ran will be displayed. We can observe that different called containers was ran in different container instance, even they were called with same image.
+
+    * Docker Isolation
+        * If we create a file inside a container, there is no way for accessing it outside of the container. All container has its own namespace and context. This is container isolation.
 
 ### **Intermediate Level mastery of Docker**
 
@@ -47,13 +70,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * **Docker file** is used to tie container abstraction and image together. A docker file is an environment in a textfile starting with "FROM" indicating its parent image. There are any number of configurtion to create a specific docker image, such that can instaniate a container.
 
     * **Docker host**:
-      * Using a *registry* which contains snapshot of images, a docker host can pull and push needed images.
+        * Using a *registry* which contains snapshot of images, a docker host can pull and push needed images.
 
-      * With a *image cache*, a docker host does not need to handle whole image hierarchy but needed image node. There could be replication inside of the cache.
+        * With a *image cache*, a docker host does not need to handle whole image hierarchy but needed image node. There could be replication inside of the cache.
 
-      * *Docker client* communicate with *demnon* inside of docker host though API, enabling container management actions like pull, create, run and commit.
+        * *Docker client* communicate with *demnon* inside of docker host though API, enabling container management actions like pull, create, run and commit.
 
-      * Client can handle *network/storage configuration*. User can port forwarding and create/assign containers' network in network configration. In storage configuration, if user need to persist data beyond life circle of container, he can create a volume for storage.
+        * Client can handle *network/storage configuration*. User can port forwarding and create/assign containers' network in network configration. In storage configuration, if user need to persist data beyond life circle of container, he can create a volume for storage.
 
 2. Video: VMs Versus Containers --elapsed time: 15 mins
 
@@ -67,7 +90,18 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     | Physical hardware   | \                                                                                                                                                                                                                                                    | \                                                                                                                                                                                                                                               |
 
 3. Lab: Docker Intro
+
+    * Run docker containers
+    * package and run a custom app using Docker
+    * Modify a running website
+
 4. Lab: Doing more with Docker Images
+
+    * Image creation from a container
+    * Image creation using a Dockerfile
+    * Image layers
+    * Image Inspection
+
 5. Video: VMs Versus Containers Deep Dive --elapsed time: 15 mins
 
     |                     | VM                                                                                                                                                                                                                                                                                                                        | Container                                                                                                                                                                                                                                                                                                                                                                       |
@@ -79,7 +113,18 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 #### Networking and Orchestration
 
 1. Lab: Docker Networking
+
+    * Networking basics
+    * Bridge Networking
+    * Overlay Networking
+
 2. Lab: Swarm Mode Introduction
+
+    * Initialize Swarm
+    * Show Swarm members
+    * Deploy a stack
+    * Scaling an application
+
 3. Video: Kubernetes vs Swarm --elapsed time: 5 mins
 
     |             | Swarm                                                    | Kubernetes                                            |
@@ -91,15 +136,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 4. Video: Kubernetes in 5 Minutes --elapsed time: 15 mins
     * **Architectural component**:
 
-      * **Kubernetes cluster services**. User feed the cluster services a specific configuration. And cluster services will run the configuration in infrastructure. This component has a set of API that takes charge of communication.
+        * **Kubernetes cluster services**. User feed the cluster services a specific configuration. And cluster services will run the configuration in infrastructure. This component has a set of API that takes charge of communication.
 
-      * **Woker** are container host. It has kuberlet process that runs for communicating with kubernetes services.
+        * **Woker** are container host. It has kuberlet process that runs for communicating with kubernetes services.
 
     * **Use case**:
 
-      * *Feed* desired state file(.yaml file) to kubernetes cluster services. It is a deployment file containing two fundanmental parts:1)Pod. There could be a running container. Thus, it needs to specify container image(s) and 2)Replica specify the number of needed image.
+        * *Feed* desired state file(.yaml file) to kubernetes cluster services. It is a deployment file containing two fundanmental parts:1)Pod. There could be a running container. Thus, it needs to specify container image(s) and 2)Replica specify the number of needed image.
 
-      * Kubernetes cluster services will try to *schedule* feeding Pod and checking. If one of a worker *die*, the kubernetes cluster services will reschedule new place for instantiating lost Pod and Replica.
+        * Kubernetes cluster services will try to *schedule* feeding Pod and checking. If one of a worker *die*, the kubernetes cluster services will reschedule new place for instantiating lost Pod and Replica.
 
 5. Learn more about Kubernetes on your own
 6. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them
