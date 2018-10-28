@@ -276,7 +276,24 @@ Some parts of Monolith:
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/user.png)
 
-#### Break the Monolith
+#### Break the Monolith into micro service 
+
+**Why Microservices?**
+1. Isolation of Crashes
+2. Isolation for Security
+3. Independent Scaling
+4. Development Velocity
+
+Steps:
+
+1. Create three different repositories under ECS repositories.
+2. Under local environment (where git repo is cloned), run three command that create 3 different images. For instance,  `docker build -t posts ./posts`
+3. Tag images that just build.
+4. Push them to the corresponding repository.
+
+After these images were pushed, it should look like this:
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/posts.png)
 
 
 
