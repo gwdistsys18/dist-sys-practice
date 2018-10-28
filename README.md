@@ -145,6 +145,12 @@ Kubernetes is an open-source container-orchestration system for automating deplo
 
 ![Kubernetes architecture diagram (from wikipedia)](./Resource/Kubernetes.png)
 
+Kubernetes architecture diagram (from wikipedia).
+
+
+
+
+
 ## Area 2
 > Include notes here about each of the links
 
