@@ -229,7 +229,16 @@ The task definition tells Amazon ECS how to deploy application containers across
 
 Then add and create the task.
 
+#### Configure the Application Load Balancer: Target Group 
 
+The Application Load Balancer (ALB) lets service accept incoming traffic. The ALB automatically routes traffic to container instances running on cluster using them as a target group. This required set up group.
+
+1. Navigate to the Target Group section of the EC2 Console.
+2. Select Create target group.
+3. Configure the Target Group (do not modify defaults if they are not specified here): Name = api, Protocol = HTTP, Port = 80, VPC = select the VPC that is created in Load Balancer page.
+4. Advanced health check settings: Healthy threshold = 2 Unhealthy threshold = 2 Timeout = 5 Interval = 6.
+
+Create Target Group.
 
 ## Area 2
 
