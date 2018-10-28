@@ -26,9 +26,12 @@ reduction in VM cosets
 fewer CPU's
 multible averge cpu utilization
 
+***spent 20 min***
+
 ***tips:docker project arre open-source, have a party in the march for celebrating docker releasing and we have soort of party with birthday cake and have fun and have workshops***
 
-spent 20 min
+
+
 ---
 
 >[Lab: Devops Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
