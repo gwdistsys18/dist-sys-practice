@@ -6,11 +6,15 @@
 * Baremental to Virtual in 00's
 * Datacenter to Cloud in 10's
 
+
+
 ## What is Container
 
 A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 
 Containers also reduce management overhead. Because they share a common operating system, only a single operating system needs care and feeding for bug fixes, patches, and so on. This concept is similar to what we experience with hypervisor hosts: fewer management points but slightly higher fault domain. In short, containers are lighter weight and more portable than VMs. 
+
+
 
 ## What are VMs
 
@@ -21,6 +25,16 @@ Before containers showed up, we used to use VMs to host our application. With VM
 ## Vitual Machines VS Containers
 
 Virtual machines and containers differ in several ways, but the primary difference is that containers provide a way to virtualize an OS so that multiple workloads can run on a single OS instance. With VMs, the hardware is being virtualized to run multiple OS instances. Containers’ speed, agility, and portability make them yet another tool to help streamline software development.
+
+1. Size
+
+2. Isolation
+
+   In VMs, each vm has a bundle of EFI, Kernel + INIT, user space, and it is a sandbox.
+
+   In containers, it is not secure enough
+
+3. Boot time
 
 ![](https://cdn-images-1.medium.com/max/2000/1*xNGfejkg9pQ16orB7VAIjA.png)
 
