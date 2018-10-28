@@ -81,7 +81,21 @@ AWS Tutorial: Analyze Big Data with Hadoop
            
    Bring it all together:
    Build a Serverless Real-Time Data Processing App
-   
+       This tutarial is awesome! I learned a lot from this tutorial. Basically I know how to build a serverless data processing 
+       application and I also understand some concepts in AWS.
+       The architecture is showed in Figure_1.
+       First, build a data stream with Amazon Kinesis. Use command line clients to produce data to and catch data from
+       this data stream.
+       Second, build a Kinesis application to process data and Kinesis data stream to output the processed data.
+       Third, build a Lambda function to process the data stream and write the result to DynamoDB table.
+       Fourth, create a Amazon Kinesis Data firehose delivery stream to deliver the data from kinesis stream
+       to S3 bucket. Then we can use the Amazon Athena to query the data files in that S3 bucket.
+       
+       
+       
+       
+       
+       
    
            
            
