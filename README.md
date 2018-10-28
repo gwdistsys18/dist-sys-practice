@@ -68,6 +68,30 @@ A container is a standard unit of software that packages up code and all its dep
 
 Container images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
 
+* [VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc) 
+
+Time: 15min
+
+![]()
+
+Both containers and VMs have benefits and drawbacks, and the ultimate decision will depend on your specific needs, but there are some general rules of thumb.
+
+* VMs are a better choice for running apps that require all of the operating system’s resources and functionality, when you need to run multiple applications on servers, or have a wide variety of operating systems to manage.
+
+* Containers are a better choice when your biggest priority is maximizing the number of applications running on a minimal number of servers.
+
+| **VMS** | **Containers** |
+| :------: | :------: |
+| Heavyweight | Lightweight |
+| Limited performance | Native performance |
+| Each VM runs in its own OS | All containers share the host |
+| Hardware-level virtulization | OS virtualization |
+| Startup time in minutes | Startup time in milliseconds |
+| Allocates required memory | Requires less memory space |
+| Fully isolated and hence more secure | Process-level isolation, possibly less secure |
+
+With the current state of virtualization technology, the flexibility of VMs and the minimal resource requirements of containers work together to provide environments with maximum functionality.
+
 > Include notes here about each of the links
 
 ## Area 2
