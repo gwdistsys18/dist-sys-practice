@@ -217,6 +217,18 @@ After this process completed, it should be like the following picture.
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/instance.png)
 
+#### Write task definition
+
+The task definition tells Amazon ECS how to deploy application containers across the cluster.
+
+1. Navigate to the ‘Task Definitions’ menu on the left side of the Amazon ECS console.
+2. Select Create new Task Definition.
+3. Task Definition Name = api.
+4. Select Add Container.
+5. Specify the following parameters: Container name = api image = [account-id].dkr.ecr.[region].amazonaws.com/api:v1, Memory = Hard limit: 256 Port mappings = Host port:0, Container port:3000
+
+Then add and create the task.
+
 
 
 ## Area 2
