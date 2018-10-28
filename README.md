@@ -1,18 +1,21 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+[TOC]
+
+
 ## Docker and Containers
-### What is container
+### 1. What is container
 A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. Each container can have its own distribution but must share the same host kernel.
 
-### Difference between containers and VM
+### 2. Difference between containers and VM
 One of the characteristics of a virtual machine is that it provides complete isolation in terms of having its own processes, networking, users, etc., which are separate from the host system and other guest systems that may be running alongside it and not visible on the host system or vice-versa. Furthermore, virtual machines can be built to whatever specification is desired with packages pre-installed and configured, of any number of operating systems and operating system vender variants and saved as an image.
 
 How containers differ from virtual machines is that a guest operating system is not installed, and usually consists only the application code and when run, only run the necessary process(es) that one uses the container for. This is because containers are made possible using kernel features of the host operating system and layered file system instead of the aforementioned emulation layer required to run virtual machines. How containers are similar to virtual machines is that they also are stored as images, though a big difference is that container images are much smaller and more portable and feasible to use than virtual machine images for the aforementioned reasons of not requiring an operating system installation as part of the image.
 
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/VM_contianer.png">
 
-#### advantages of containers
+#### 2.1 advantages of containers
 * Platform independence: Build it once, run it anywhere
 * Effective isolation and resource sharing: containers run on the same server and use the same resources, they do not interact with each other
 * Docker instances are lighter-weight
@@ -21,18 +24,19 @@ How containers differ from virtual machines is that a guest operating system is 
 
 
 
-### What is docker
+### 3. What is docker
 Docker is all about speed. if you don't have containers today, you need to deal with multiple types of applications which may have their own dependencies. Then you need to run them on developer machines and production. It's so complicated.
 
 Containers allow you to package same way, run and test same way regardless of OS and setups.
 
 A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 
-### Docker Architecture
-##### Clent
+### 4. Docker Architecture
+
+#### 4.1 Clent
 You could describe Docker as a client server application. The daemon is the server, and the CLI is 1 of many clients. There’s also a number of third party clients.
 
-##### Docker Host
+#### 4.2 Docker Host
 - Docker deamon
     
 The Docker daemon is a service that runs on your host operating system. It currently only runs on Linux because it depends on a number of Linux kernel features, but there are a few ways to run Docker on MacOS and Windows too.
@@ -51,10 +55,10 @@ An image is an executable package that includes everything needed to run an appl
 
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/architecture.png">
 
-##### Registry
+#### 4.3 Registry
 A place to find and download Docker images.
 
-### Docker Command Line
+### 5. Docker Command Line
 |command      | function
 |-------------|----------------
 |docker pull  |get images
@@ -67,9 +71,9 @@ A place to find and download Docker images.
 
 
 
-### Docker image
+### 6. Docker image
 
-#### Image creation from a container
+#### 6.1 Image creation from a container
 Let’s start by running an interactive shell in a ubuntu container:
 ```
 docker container run -ti ubuntu bash
@@ -111,7 +115,7 @@ ubuntu              latest              14f60031763d        4 days ago          
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/image_creation.png">
 
 
-#### Image creation using a Dockerfile
+#### 6.2 Image creation using a Dockerfile
 
 Instead of creating a static binary image, we can use a file called a Dockerfile to create an image. The final result is essentially the same, but with a Dockerfile we are supplying the instructions for building the image, rather than just the raw binary files. This is useful because it becomes much easier to manage changes, especially as your images get bigger and more complex.
 
@@ -133,7 +137,7 @@ COPY . /app
 WORKDIR /app
 CMD ["node","index.js"]
 ```
-##### docker file:
+##### docker file
 * FROM: specifies the base image to use as the starting point for this new image you’re creating. For this example we’re starting from nginx:latest.
 * COPY: copies files from the Docker host into the image, at a known location. In this example, COPY is used to copy two files into the image: index.html. and a graphic that will be used on our webpage.
 * EXPOSE: documents which ports the application uses.
@@ -148,9 +152,9 @@ We then start a container to check that our applications runs correctly:
 docker container run hello:v0.1
 ```
 
-### Docker networking
+### 7. Docker networking
 
-#### Network drivers
+#### 7.1 Network drivers
 
 Docker’s networking subsystem is pluggable, using drivers. Several drivers exist by default, and provide core networking functionality:
 
@@ -160,7 +164,7 @@ Docker’s networking subsystem is pluggable, using drivers. Several drivers exi
 - macvlan: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
 - none: For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
 
-#### bridge networks
+#### 7.2 bridge networks
 In terms of Docker, a bridge network uses a software bridge which allows containers connected to the same bridge network to communicate, while providing isolation from containers which are not connected to that bridge network. 
 
 Differences between user-defined bridges and the default bridge
@@ -210,7 +214,7 @@ $ sysctl net.ipv4.conf.all.forwarding=1
 $ sudo iptables -P FORWARD ACCEPT
 ```
 
-#### overlay networks
+#### 7.3 overlay networks
 The overlay network driver creates a distributed network among multiple Docker daemon hosts. 
 
 
@@ -226,7 +230,7 @@ docker service create --name myservice \
 ubuntu sleep infinity
 ```
 
-#### access from outside
+#### 7.4 access from outside
 
 if you want to run some web applications in the container. To allow external access to these applications, port mapping can be specified with the <font color="#CC3A5C" >-p<font> parameters.
 
@@ -234,14 +238,14 @@ use ``` docker container ls ```  to see the mapping relations between host port 
 
 
 
-### Swarm Mode Introduction for IT Pros
+### 8. Swarm Mode Introduction for IT Pros
 
-#### Docker Compose and Docker Swarm Mode
+#### 8.1 Docker Compose and Docker Swarm Mode
 * Compose is used to control multiple containers on a single system. Much like the Dockerfile we looked at to build an image, there is a text file that describes the application: which images to use, how many instances, the network connections, etc. But Compose only runs on a single system so while it is useful, we are going to skip Compose1 and go straight to Docker Swarm Mode.
 
 * Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose, but to define and maintain high availability levels, scaling, load balancing, and more. With all this functionality, Swarm mode is used more often in production environments than it’s more simplistic cousin, Compose.
 
-#### swarm:
+#### 8.2 Swarm
 
 A swarm is a group of machines that are running Docker and joined into a cluster. After that has happened, you continue to run the Docker commands you’re used to, but now they are executed on a cluster by a swarm manager. The machines in a swarm can be physical or virtual. After joining a swarm, they are referred to as nodes.
 
@@ -260,7 +264,7 @@ A swarm is a group of machines that are running Docker and joined into a cluster
 
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service_stack_task.png">
 
-#### initialize a new Swarm
+#### 8.3 Initialize a new Swarm
 ```
 docker swarm init --advertise-addr $(hostname -i)
 ```
@@ -270,13 +274,13 @@ To add a worker to this swarm, run the following command:
 ```
 docker swarm join --token
 ```
-#### Show Swarm Members
+#### 8.4 Show Swarm Members
 ```
 docker node ls
 ```
 
 
-### Kubernetes
+### 9. Kubernetes
 
 Kubernetes helps you make sure those containerized applications run where and when you want, and helps them find the resources and tools they need to work.
 
