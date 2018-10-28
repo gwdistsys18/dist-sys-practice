@@ -258,6 +258,9 @@ Then ping node3 from node1, we get the following information:
 
 This means the bridge NF forwards packets between node1 and node3.
 
+### Complete one of the “Good First Issue” bugs/feature requests in the [Issue Tracker](https://github.com/sdnfv/openNetVM/issues)(Spent 2 hours)
+I fixed bug [#27](https://github.com/sdnfv/openNetVM/issues/27) according to the [suggestion](https://github.com/sdnfv/openNetVM/issues/43). This bug will happen when a NIC port supports less than 16 transmit queue. The reason is  that the default TX rings was set by OpenNetVM manager with 16. I choose the second solution in [suggestion](https://github.com/sdnfv/openNetVM/issues/43) that setting the number of NIC TX rings equal to the number of TX threads in the ONVM manager. I have submmitted this modification to the repository.     
+
 ## Area 2 - Big Data and Machine Learning
 ### Hadoop Introducation (Studied for 1 hour) 
 [Introduction to Hadoop](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) Since the data is explosion in today’s society, a powful, reliable, easy-use distributed system is urged need. But there are three challenges in a distributed system:    
