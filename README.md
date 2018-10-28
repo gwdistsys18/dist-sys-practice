@@ -40,13 +40,23 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 + Using share memory (ring buffers) to avoid locking
 + SDN controller provides a high level set of possible rules, the NF choose a specific one to use.
 
-### 4. [Usenix Conference](https://www.youtube.com/watch?v=la5kzNhqhGs)
+### 4. [Usenix Conference: Netmap](https://www.youtube.com/watch?v=la5kzNhqhGs) (done in 1 hour)
 + Direct packet I/O options: sockets (flexible, portable but slow), memory mapped buffer (efficient if no mbufs/skbufs), within the kernel (fast but could be dangerous), custom library (tied to vendor hardware).
 + The bottle neck of network stack: system calls, device programming, complex mbufs (mbuf has very different structures), data copy and mem_alloc
 + Netmap provides security and some level isolation.
 + The policy which ring associated to which core is decided by the user.
 + Using a shared memory region for all interfaces which means 0 copy, which reduce the copy overheads.
 + Using batch to reduce the number of system calls used.
+
+### 5. Install and run some test using dpdk
++ Before compiling dpdk source code, make sure the ubuntu kernel is later than 3.2 and make sure GCC, Cmake, etc is installed.
++ Config and compile dpdk from source code on the server of Cloudlab. 
++ Make install will create a x86_64-native-linux-app file and copy all of the binary files into is. While it will be put into build if using make conifg then make. And this may casue some problems when running other tests.
++ For testing dpdk, I have used a simple test: helloworld which is in dpdk/example/helloworld. 
++ Before compiling helloworld, bind dpdk to the NIC using dpdk_devbind.py.
++ Be sure the environment variables (RTE_SDK and RTE_TARGET) are set correctly.
++ The helloworld has the result below:
++ Before starting the skeleton test, we should bind another NIC port to dpdk. Because skeleton test requires even number of ports. The result of the test likes below.
 
 ## Area 2
 > Include notes here about each of the links
