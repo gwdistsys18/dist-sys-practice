@@ -73,30 +73,22 @@ Time: 30 min
 Time: 1 hr 
 
  Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces. 
-1. Running your first container  
-	Firstly, log into a docker sandbox environment. Type: "docker container run hello-world" to run the fist container. Container is different to VM in that A container is an application abstraction;  
+ 
+1. Create a Bucket  
+	Every object in Amazon S3 is stored in a bucket  
   
-2. Docker Image
-	The pull command fetches the alpine image from the Docker registry and saves it in our system.
+2. Upload an Object to the Bucket
+	An object can be any kind of file: a text file, a photo, a video, a zip file, etc. Add an object to Amazon S3 to let it available in network with permission
 
-
-1. Create a Bucket
-    	
-	Every object in Amazon S3 is stored in a bucket
+3. Make Your Object Public
   
-  2. Upload an Object to the Bucket
-  
-An object can be any kind of file: a text file, a photo, a video, a zip file, etc. Add an object to Amazon S3 to let it available in network with permission.
-
-  3. Make Your Object Public
-  
-Configure permissions on your object so that it is publicly accessible. The object is private by default.
+	Configure permissions on your object so that it is publicly accessible. The object is private by default.
 	
 4. Create a Bucket Policy
 
-Bucket Policy is a set of permissions associated with an Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
+	Bucket Policy is a set of permissions associated with an Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
 
-5: Explore Versioning
+5. Explore Versioning
 	Versioning is a means of keeping multiple variants of an object in the same bucket. You can use versioning to preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. With versioning you can easily recover from both unintended user actions and application failures.
 
 
