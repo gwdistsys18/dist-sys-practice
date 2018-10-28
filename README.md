@@ -211,6 +211,12 @@ aws cloudformation deploy \
 
 Wait couple of minutes to create Amazon ECS cluster.
 
+After this process completed, it should be like the following picture.
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/service.png)
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/instance.png)
+
 
 
 ## Area 2
