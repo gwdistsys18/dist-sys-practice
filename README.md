@@ -3,12 +3,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 # Table of contents
 - [Docker Container](https://github.com/JackTedo/dist-sys-practice/#docker-container)  
-	- [Beginner Level](https://github.com/JackTedo/dist-sys-practice/#beginner-level-docker-container)
+	- [Beginner Level: Docker Container](https://github.com/JackTedo/dist-sys-practice/#beginner-level-docker-container)
 		- [Why docker](https://github.com/JackTedo/dist-sys-practice/#video-why-docker)  
 		- [DevOps Docker Beginners Guide](https://github.com/JackTedo/dist-sys-practice/#lab-devops-docker-beginners-guide)  
 
 - [Cloud Web Apps](https://github.com/JackTedo/dist-sys-practice/#Cloud-Web-Apps)  
-	- [Beginner Level](https://github.com/JackTedo/dist-sys-practice/#beginner-level:-Cloud-Web-Apps)
+	- [Beginner Level: Cloud Web Apps](https://github.com/JackTedo/dist-sys-practice/#beginner-level:-Cloud-Web-Apps)
 		- [AWS Tutorial: Launch a VM](https://github.com/JackTedo/dist-sys-practice/#AWS-Tutorial:-Launch-a-VM )  
 		- [QwikLab: Intro to S3 ](https://github.com/JackTedo/dist-sys-practice/#QwikLab:-Intro-to-S3)  
 	- [Intermediate Level](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Cloud-Web-Apps)  
@@ -17,7 +17,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 
 ## Docker Container
-### Beginner Level
+### Beginner Level: Docker Container
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
 Time: 15 min   
 
