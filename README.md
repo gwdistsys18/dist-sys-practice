@@ -45,7 +45,8 @@ Time: 1 hr
 ### Beginner Level: Cloud Web Apps
 #### [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)  
 Time: 30 min   
-	Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud. AWS calls these virtual machines 'instances'.
+1. Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud. AWS calls these virtual machines 'instances'.
+2. Steps
 	Step 1: Launch an Amazon EC2 Instance
 	Login in and open the Amazon EC2 console, then click Launch Instance to create and configure your virtual machine.
 	Step 2: Configure your Instance
