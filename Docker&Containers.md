@@ -6,11 +6,15 @@
 
 
 <a name="docker"></a>
-# Why Docker? (1hour)
+# Why Docker? 
 ### What is docker?
-* Docker is used to run containers.
+* Docker is a computer program that performs operating-system-level virtualization and is used to run containers.
   * What is container?
-    * container   
+    * A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+
+### Docker is focused on the migration experience
+* Docker is all about speed
+![](file:///C:/Users/Unlimitediw/Desktop/Dist/docker.PNG)
 
 <a name="guide"></a>
-# DevOps Docker Beginners Guide (30 mins) 
+# DevOps Docker Beginners Guide 
