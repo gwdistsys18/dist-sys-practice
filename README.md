@@ -46,6 +46,16 @@ Time: 1 hr
 #### [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)  
 Time: 30 min   
 	Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud. AWS calls these virtual machines 'instances'.
+	Step 1: Launch an Amazon EC2 Instance
+	Login in and open the Amazon EC2 console, then click Launch Instance to create and configure your virtual machine.
+	Step 2: Configure your Instance
+	Important: After you download the MyKeyPair key, you will want to store your key in a secure location. If you lose your key, you won't be able to access your instance. If someone else gets access to your key, they will be able to access your instance. This key will be used in future.
+	Step 3: Connect to your Instance
+	Step 4: Terminate Your Instance
+	You can easily terminate the instance from the EC2 console. In fact, it is a best practice to terminate instances you are no longer using so you don’t keep getting charged for them.
+	Important: I once forgot to terminate the instance and found out later that my account instance usage added up many hours.
+	Summary: This is the basic usage of EC2, not difficulty.
+
 	
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
 Time: 30 min   
