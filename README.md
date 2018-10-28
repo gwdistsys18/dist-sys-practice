@@ -21,8 +21,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
 Time: 15 min   
 
-1. Docker is all about speed.  
-2. Docker is freeing up a lot of tasks, such as keeping existing software updated, keeping it running, fixing its problems, backing it up and so on, which leave us less time to deploy new software.  
+1. Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. Using Docker, you can quickly deploy and scale applications into any environment and know your code will run. 
+2. Amazon ECS uses Docker images in task definitions to launch containers on EC2 instances in your clusters.
 
 #### [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)  
 Time: 1 hr  
@@ -33,10 +33,7 @@ Time: 1 hr
 	> `brew cask install docker` Then launch the Docker app. Click next. It will ask for privileged access. Confirm. A whale icon should appear in the top bar. Click it and wait for "Docker is running" to appear. You should be able to run docker commands now.  
   
 2. Running my first container  
-	Command: `docker conntainer run hello-world`  
-	![Imgur](https://i.imgur.com/NiR3Wan.png)  
-  
-  
+
 Notes:  
 
 1. Containers and images are different concept.  
