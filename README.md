@@ -119,5 +119,25 @@ A deeper comparison between virtual machine and Docker container.
 3. Docker is not as isolated as virtual machine. Containers share the kernel, and attackers can intrude kernel if a kernel bug is known by attacker. Although this kind of bug is rare, but it is still a easier way compare to virtual machine. 
 4. Docker container is faster than virtual machine when starting. The main reason is that container only takes two steps when start the process. First one is kernel operation that setting up the process sandbox, and the other one is starting the application itself.
 
+### Intermediate Level -  Lab: Docker Networking
+
+This lab introduce the Docker networking. 
+
+**The Basic Docker Network Command**
+
+```
+docker network ls
+docker network inspect <network>
+docker info
+```
+
+**NAT for external connectivity**
+
+If a container runs a network service such as NGINX, the this service can be reached from outside by port mapping. A specific port can be assigned to the container’s service port. For instance, `-p 8080:80` assign all traffic to port 8080 on host OS to container’s 80 port.
+
+### Intermediate Level -  Lab: Swarm Mode Introduction for IT Pros
+
+Swarm mode is for natively managing a cluster of Docker Engines. When trying to set up da cluster via Docker, then this is the best (and official) tool to manager these containers.
+
 ## Area 2
 > Include notes here about each of the links
