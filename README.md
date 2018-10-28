@@ -110,7 +110,19 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	can have multiple containers
 	- Cluster services also handles when workers go down
 
-10. Kubernetes++
+10. Kubernetes++ - 60 min
+	- Kubernetes clusters can now be launched using a voice command to
+	the google assistant
+	- Still so new to the point that we don't have a set way of doing things
+	- You can use kubernetes build triggers to build an instance of something
+	when a commit is made to master on a git repo
+	- This is crazy for development, pushing to a repo builds and pushes to a
+	website that reflects changes
+	- If build passes and test passes changes are reflected
+	- The yaml file is checked out automatically from the infrastructure repo
+	and is updated to reflect the new updates
+	- <https://www.youtube.com/watch?v=kOa_llowQ1c>
+	- <https://www.youtube.com/watch?time_continue=4&v=H06qrNmGqyE>
 
 11. Docker in Cluster of EC2 Instances using Kubernetes to Orchestrate
 
