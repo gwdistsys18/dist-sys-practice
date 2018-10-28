@@ -179,8 +179,8 @@ Finally, it will give us a operating system counting table
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
 (Optional: node type, control encryption, VPC)
-* Cluster Properties:
 <!-- Tables -->
+* Cluster Properties: Contains information about the Cluster including: Name, Type, Node Type, number of Nodes, Zone location, Time and version of creation as well as other information
 | Cluster Props   | value           |
 |-----------------|-----------------|
 |Cluster Name     |lab              |
@@ -195,7 +195,8 @@ Finally, it will give us a operating system counting table
 |Cluster Par Group|lab              |
 |Cluster Name     |lab              |
 |Cluster Name     |lab              |
-
+* Cluster Status: Allows you to see the current status of the cluster whether it is available or not and also whether it is currently in Maintenance Mode
+* Cluster Database Properties: Contains information on the Endpoint, which is the DNS address of the cluster, and the port number on which the database accepts connections. These are required when you want to create SQL connections. It also lets you know whether the cluster has a public IP address that can be accessed from the public internet. The JDBC URL and ODBC URL contain the URLs to connect to the cluster via a java database connection or an Oracle database connection client.
 | Cluster DB Props| value           |
 |-----------------|-----------------|
 |Port             |1234             |
@@ -208,7 +209,19 @@ Finally, it will give us a operating system counting table
 |ODBC URL         |Server=~         |
 |ODBC URL         |DB=labdb;UID     |
 |ODBC URL         |PWD=pwd;Port=1234|
+* Backup, Audit Logging and Maintenance: Contains information on how many days the automaated snapshots are retaubedm whether they are automatically copied to another region, and whether logging is enabled on the cluster.
+* Capacity Details: Contains information about the data ware house node type, number of EC2 Compute Units per node, memory, disk storage, I/O performance as well as the processor architecture of the node type.
+* SSH Ingestion Settings: Contains information about the Public Key of the cluster as well as the Public and Private IP addresses of the node.
 
+### Task2-3: Launch Pgweb to Communicate with Redshift cluster and create a Table
+* Any SQL client that supports JDBC or ODBC can be used with Redshift. In this task, Pgweb which provides a friendly SQL interface to Redshift will be used.
+* Use redshift cluster endpoint as host and port and connect on Pgweb.
+* Then use SQL command to create a table in Redshift which contains name, address and details about the type of music that user likes.
+
+### Task 4-5: Load Sample Data from Amazon S3 and Data processing
+* Amazon Redshift can import data from Amazon S3. Various file formats are supported, fiexd-length fields, comma-separated values(CSV) and custom delimiters. The data for this lab is pipe-separated(|)
+* Use SQL Query to load and show Data in Redshift.
+* Analyze data with Query
 
 <a name="introml"></a> 
 # Intro to Amazon Machine Learning
