@@ -43,7 +43,7 @@ Docker Store - Store is, among other things, a registry of Docker images.
 #### Countainers  
 * [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) (25 min)  
 
-![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/countainer.png)  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/container.png)  
   
 One process per container.  
 The container process is completely tied in with the lifecycle of the container itself. When you start the container, it starts the container process. when the container process exits, the container ends.  
@@ -63,6 +63,27 @@ Keep OS simple. Less overhead.
 You can size it however you want.  
 Hypervisor: It has to be responsible for interacting with all different types of NICs from all different types of hardware.  
 A large benefit of containers is the ability to package up a lot of dependencies the App needs from the OS in one container.  
+  
+* [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/) (40 min)  
+
+In this lab, we look at some basic Docker commands and a simple build-ship-run workflow.  
+  
+Run a single task in an Alpine Linux container. The container will start, execute the hostname command, then exit. Containers which do one task and then exit can be very useful. You could build a Docker image that executes a script to configure something. Anyone can execute that task just by running the container - they don’t need the actual scripts or configuration information.  
+  
+Run an interactive Ubuntu container. Linux containers require the Docker host to be running a Linux kernel. Interactive containers are useful when you are putting together your own image. You can run a container and verify all the steps you need to deploy your app, and capture them in a Dockerfile.  
+  
+Run a background MySQL container. Background containers are how you’ll run most applications.  
+  
+Create a simple NGINX website from a Dockerfile.  
+  
+Modify a running website. Mount the source code directory on the local machine into the running container. This will allow any changes made to the files on the host to be immediately reflected in the container. It is called a bind mount.  
+  
+Update the image. To persist the changes you made to the index.html file into the image, you need to build a new version of the image.  
+  
+Test the new version.  
+  
+Push your images to Docker Hub. Docker Hub supports public and private repositories.  
+
 
 ## Area 2
 > Include notes here about each of the links
