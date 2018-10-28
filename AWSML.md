@@ -11,9 +11,8 @@
 8. [AWS SageMaker](#segmaker)
 9. [Build a Serverless Real-Time Data Processing APP](#app)
 
-
 <a name="Introduction"></a>
-# Hadoop Introduction (1hour)
+# Hadoop Introduction (1h)
 ### Overgrowing data problem and management:
 - High chances of system failure.
 - Limit on bandwidth.
@@ -243,7 +242,7 @@ Finally, it will give us a operating system counting table
 ![](https://s3.amazonaws.com/data357/ConfusionMatrix.PNG)
 
 <a name="buildml"></a> 
-# Build a Machine Learning Model
+# Build a Machine Learning Model (1h 15mins)
 
 ### Task 1: Prepare your data
 * Data Resource: [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php)
@@ -279,7 +278,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 * In my model, the score larger than 0.35 will be taken as 1 and the score smaller or equal than 0.35 will be taken as 0.
 
 <a name="viewsegmaker"></a> 
-# AWS Overviwe of SageMaker
+# AWS Overviwe of SageMaker (1h)
 * The most important things I believe is that you can use your own scripts to train your model.
 ### What is SageMaker?
 * Amazon SageMaker enables you to build, train, and deploy machine learning models quickly and easily while taking care of the heavy lifting of machine learning.
