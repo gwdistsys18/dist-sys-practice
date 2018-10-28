@@ -50,9 +50,13 @@ Time: 30 min
 	   
 	
 	Step 1: Launch an Amazon EC2 Instance
+	
 	Login in and open the Amazon EC2 console, then click Launch Instance to create and configure your virtual machine.
+	
 	Step 2: Configure your Instance
+	
 	Important: After you download the MyKeyPair key, you will want to store your key in a secure location. If you lose your key, you won't be able to access your instance. If someone else gets access to your key, they will be able to access your instance. This key will be used in future.
+	
 	Step 3: Connect to your Instance
 	Step 4: Terminate Your Instance
 	You can easily terminate the instance from the EC2 console. In fact, it is a best practice to terminate instances you are no longer using so you don’t keep getting charged for them.
