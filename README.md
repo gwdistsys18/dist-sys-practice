@@ -216,7 +216,7 @@ Time: 1 hr 30 min
 	- kubelet, which communicates with the Kubernetes Master.
 	- kube-proxy, a network proxy which reflects Kubernetes networking services on each node.
 
-##### Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them  
+##### [Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them](https://github.com/jzhzj/dist-sys-practice#install-docker-on-a-cluster-of-ec2-vms-and-use-kubernetes-to-orchestrate-them)  
 Time: 4 hr    
   
 1. Start EC2 instances on AWS  
