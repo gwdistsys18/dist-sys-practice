@@ -238,7 +238,9 @@ The Application Load Balancer (ALB) lets service accept incoming traffic. The AL
 3. Configure the Target Group (do not modify defaults if they are not specified here): Name = api, Protocol = HTTP, Port = 80, VPC = select the VPC that is created in Load Balancer page.
 4. Advanced health check settings: Healthy threshold = 2 Unhealthy threshold = 2 Timeout = 5 Interval = 6.
 
-Create Target Group.
+Create Target Group. It should look like this:
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Listener.png)
 
 ## Area 2
 
