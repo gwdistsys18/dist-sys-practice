@@ -314,6 +314,36 @@ After the deployment, it should be like this:
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/4services.png)
 
+#### Break the Monolith into micro service 
+
+**Why Microservices?**
+1. Isolation of Crashes
+2. Isolation for Security
+3. Independent Scaling
+4. Development Velocity
+
+Steps:
+
+1. Create three different repositories under ECS repositories.
+2. Under local environment (where git repo is cloned), run three command that create 3 different images. For instance,  `docker build -t posts ./posts`
+3. Tag images that just build.
+4. Push them to the corresponding repository.
+
+#### Deploy Microservices
+
+1. Write task definition for each post, users, threads service. It is the same as previous section.
+2. Configure the four application balance load as previous section. Same setting during the configuration process.
+3. Edit listener using “Insert Rule”. Insert rules for each service. For example: `Path = /api/posts* forward to posts`
+4. Deploy each service on Amazon ECS console. This is same as the previous deployment.
+5. Edit listener rule, modify the last rule from forward to `api` to `drop-traffic`
+6. In ECR cluster, update `api` service and modify task number to 0. Then update service.
+
+
+
+After this modification, the `api` service will have 0 desired task.
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/closeapi.png)
+
 ## Area 2
 
 > Include notes here about each of the links
