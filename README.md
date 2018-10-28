@@ -229,7 +229,7 @@ The task definition tells Amazon ECS how to deploy application containers across
 
 Then add and create the task.
 
-#### Configure the Application Load Balancer: Target Group 
+#### Configure the Application Load Balancer: Target Group & Listener
 
 The Application Load Balancer (ALB) lets service accept incoming traffic. The ALB automatically routes traffic to container instances running on cluster using them as a target group. This required set up group.
 
@@ -238,9 +238,47 @@ The Application Load Balancer (ALB) lets service accept incoming traffic. The AL
 3. Configure the Target Group (do not modify defaults if they are not specified here): Name = api, Protocol = HTTP, Port = 80, VPC = select the VPC that is created in Load Balancer page.
 4. Advanced health check settings: Healthy threshold = 2 Unhealthy threshold = 2 Timeout = 5 Interval = 6.
 
-Create Target Group. It should look like this:
+Create Target Group.
+
+The listener checks for incoming connection requests to ALB created previously. 
+
+1. Navigate to the Load Balancer section of the EC2 Console.
+2. Select the checkbox to see the Load Balancer details and add listener.
+3. Select Create Listener: Protocol = HTTP, Port = 80, Forward to = api (the group just created)
+
+Create this listener. It should look like this:
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Listener.png)
+
+#### Deploy the Monolith as Service
+
+Deploy the monolith as a service onto the cluster.
+
+1. Select cluster created in previous step and create service at Clusters’ menu.
+2. Configure the service: Service name = api, Number of tasks = 1
+3. Load balancing: ELB Type = Application Load Balancer, IAM role, select name that cluster created in previous step, Load Balancer ELB name = demo.
+4. Add to Load Balancer
+5. Container to load balance: Listener port = 80:HTTP,  Target group name = select your group: api.
+
+Save and then all select next until create this service.
+
+
+
+After this service is created, this service can be reached from outside by the domain that is given by AWS. Find this domain under EC2 -> Load Balance page and try to connect Monolith by domain.
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Receive.png)
+
+Note that "Ready to receive requests" is the signal of success.
+
+Some parts of Monolith:
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/user.png)
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/user.png)
+
+#### Break the Monolith
+
+
 
 ## Area 2
 
