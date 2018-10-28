@@ -216,6 +216,8 @@ Time: 1 hr 30 min
 	- kubelet, which communicates with the Kubernetes Master.
 	- kube-proxy, a network proxy which reflects Kubernetes networking services on each node.
 
+#### Bring it all together:
+
 ##### [Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them](https://github.com/jzhzj/dist-sys-practice#install-docker-on-a-cluster-of-ec2-vms-and-use-kubernetes-to-orchestrate-them)  
 Time: 4 hr    
   
@@ -264,8 +266,6 @@ Time: 4 hr
 	After `kubeadm init`, run `kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml` to deploy flannel manually. Then type `kubectl get nodes` again.  
 	![Imgur](https://i.imgur.com/WRe2vtn.png)  
 	Now, the `STATUS` of nodes is `Ready`, which means the cluster is ready to work.
-
-#### Bring it all together:
 
 ##### [AWS Tutorial: Break a Monolith Application into Microservices]()
 
