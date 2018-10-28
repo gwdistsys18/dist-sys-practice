@@ -11,5 +11,5 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 7. [Kubernetes](https://github.com/GXwar/dist-sys-practice/blob/master/Docker/Kubernetes.md)
 
 ## Cloud Web Apps
-1. [Launch VM](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud Web App/Launch VM.md)
-2. [S3](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud Web App/S3.md)
+1. [Launch VM](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud%20Web%20App/Launch%20VM.md)
+2. [S3](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud%20Web%20App/S3.md)
