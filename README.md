@@ -176,16 +176,24 @@ Long-Term Storage
     S3 is highly available: You don't need to run any servers
     
     S3 is highly durable: Your data is duplicated across three data centres, so it is more resilient to failure
+    
     S3 is highly scalable: It can handle massive volumes of requests. If you served content from Amazon EC2, you'd have to scale-out to meet requests
+    
     S3 has in-built security at the object, bucket and user level.
+    
 
 - Amazon EC2 instance, and serve the content from the EC2 instance:
 
     You would need to pre-provision storage using Amazon EBS volumes (and you pay for the entire volume even if it isn't all used)
+    
     You would need to Snapshot the EBS volumes to improve durability (EBS Snapshots are stored in Amazon S3, replicated between data centres)
+    
     You would need to scale your EC2 instances (make them bigger, or add more) to handle the workload
+    
     You would need to replicate data between instances if you are running multiple EC2 instances to meet request volumes
+    
     You would need to install and configure the software on the EC2 instance(s) to manage security, content serving, monitoring, etc.
+    
 
 
 
