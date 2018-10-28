@@ -56,6 +56,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 + Before compiling helloworld, bind dpdk to the NIC using dpdk_devbind.py.
 + Be sure the environment variables (RTE_SDK and RTE_TARGET) are set correctly.
 + The helloworld has the result below:
+![helloworld](/src/helloworld.png)
 + Before starting the skeleton test, we should bind another NIC port to dpdk. Because skeleton test requires even number of ports. The result of the test likes below.
 
 ## Area 2
