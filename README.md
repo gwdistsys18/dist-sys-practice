@@ -1,7 +1,7 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)  
   
-# Table of contents
+## Table of contents
 - [Docker Container](https://github.com/jzhzj/dist-sys-practice#docker-container)  
 	- [Beginner Level](https://github.com/jzhzj/dist-sys-practice#beginner-level)
 		- [Why docker](https://github.com/jzhzj/dist-sys-practice#video-why-docker)  
@@ -19,7 +19,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [Kubernetes](https://github.com/jzhzj/dist-sys-practice#kubernetes)
 		- [Use Kubernetes to orchestrate docker on a cluster](https://github.com/jzhzj/dist-sys-practice#install-docker-on-a-cluster-of-ec2-vms-and-use-kubernetes-to-orchestrate-them)
 		- [AWS Tutorial: Break a Monolith Application into Microservices](https://github.com/jzhzj/dist-sys-practice#aws-tutorial-break-a-monolith-application-into-microservices)
+- [Cloud Web Application](https://github.com/jzhzj/dist-sys-practice#cloud-web-application)
+	- [Beginner Level](https://github.com/jzhzj/dist-sys-practice#beginner-level-1)
+		- [Launch a VM](https://github.com/jzhzj/dist-sys-practice#aws-tutorial-launch-a-vm)
+		- [Intro to S3](https://github.com/jzhzj/dist-sys-practice#qwilab-intro-to-s3)
 
+
+  
 ## Docker Container
 ### Beginner Level
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
