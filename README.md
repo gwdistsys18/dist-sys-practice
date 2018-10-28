@@ -14,7 +14,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	- [Intermediate Level](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Cloud-Web-Apps)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Install-a-LAMP-Web-Server-on-Amazon-Linux-2)  
-		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [S3 versus an EC2 VM](https://github.com/JackTedo/dist-sys-practice#S3-versus-an-EC2-VM)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
@@ -152,4 +152,38 @@ The default installation of the MariaDB server has several features that are gre
 1. Start the MariaDB server.   
 	
 2. Run mysql_secure_installation.
+
+
+#### S3 versus an EC2 VM
+
+Time: 30 min   
+
+- Amazon EC2
+
+It's just kind of a regular computer hosted somewhere on one of AWS data-center. And, as part of that it has a hard-drive or local storage. And, it is not permanent in the sense that anything that you want to store long term you don't want to store on the hard-drive of EC2 instance because of scaling-up and scaling-down while adding easy to servers, vice-versa(maintaining Elasticity property). And, so you don't want to have things that you want to keep forever on to the local storage because as you add or remove instances then you can potentially lost that information or lose that data. EC2 is meant to deploy your application on server(using its processing power) and that server serve the contents through the S3 and RDS, respectively. Hence, Amazon EC2 good for any type of processing activity.
+
+- Amazon S3
+
+Amazon S3 stores data as objects in a flat environment (without a hierarchy). Each object (file) in the storage contains a header with an associated sequence of bytes from 0 bytes to 5 TB.  Amazon S3 is a storage platform of AWS. It's specially called large unlimited storage bucket(Limit is very high). So, S3 is perfect place for storing doc, movie, music, apps, pictures, anything you want to store, just dump onto S3. And, it's going to be multiple redundancies and back-up of files that you put there. So, again you are always going to have high availability of any files that you decide to store on S3. 
+Uses of S3:
+Mass storage container
+Long-Term Storage
+
+- Benefits of using Amazon S3 to store static assets such as pictures and videos:
+
+    S3 is pay-as-you-go 
+    S3 is highly available: You don't need to run any servers
+    S3 is highly durable: Your data is duplicated across three data centres, so it is more resilient to failure
+    S3 is highly scalable: It can handle massive volumes of requests. If you served content from Amazon EC2, you'd have to scale-out to meet requests
+    S3 has in-built security at the object, bucket and user level.
+
+- Amazon EC2 instance, and serve the content from the EC2 instance:
+
+    You would need to pre-provision storage using Amazon EBS volumes (and you pay for the entire volume even if it isn't all used)
+    You would need to Snapshot the EBS volumes to improve durability (EBS Snapshots are stored in Amazon S3, replicated between data centres)
+    You would need to scale your EC2 instances (make them bigger, or add more) to handle the workload
+    You would need to replicate data between instances if you are running multiple EC2 instances to meet request volumes
+    You would need to install and configure the software on the EC2 instance(s) to manage security, content serving, monitoring, etc.
+
+
 
