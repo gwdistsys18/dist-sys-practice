@@ -174,6 +174,42 @@ Check if `awscli` is correctly installed:
 
 Then edit the configure your credentials. Note that when trying to add a AWS Access Key ID to the configuration, a new user is required for new login. After create a new user, this user has to edit the permission to access the resource of the root account.
 
+#### Build the Docker Image
+
+Run the following command:
+`aws ecr get-login --no-include-email --region us-east-1`
+
+Copy this entire output, paste, and run it in the terminal. Login Succeeded.
+
+#### Create the Repository
+
+Create a Amazon Elastic Container Registry (Amazon ECR) and save the link.
+
+#### Push image
+
+Run the following command under the `/amazon-ecs-nodejs-microservices/2-containerized/services/api` to build and tag the image:
+```bash
+docker build -t api .
+docker push [account-id].dkr.ecr.[region].amazonaws.com/api:latest
+```
+
+#### Deploy the Monolith
+
+Run the following command:
+
+```bash
+aws cloudformation deploy \
+   —template-file infrastructure/ecs.yml \
+   —region <region> \
+   —stack-name Nodejs-Microservices \
+   —capabilities CAPABILITY_NAMED_IAM
+```
+
+
+
+
+
 ## Area 2
+
 > Include notes here about each of the links
 
