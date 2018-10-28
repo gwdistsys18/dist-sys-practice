@@ -151,6 +151,29 @@ Kubernetes can run and manage couple of “workers” that runs on a certain ser
 
 If one replica pod is dead or dropped, the Kubernetes service will instantiate the existing one as the dropped worker. 
 
+### Intermediate Level -  Break a Monolith Application into Microservices
+
+For convenience, the basic setup was done on my remote VPS. This VPS is running a Ubuntu system and has already running several Docker containers that can be reached via certain ports.
+
+#### Installing the AWS Command Line Interface
+
+Use this command to install `awscli`:
+`pip install awscli --upgrade --user`
+Then adding the AWS CLI Executable to Command Line Path.
+```
+ls -a ~
+vi .profile
+```
+Add this to the end of file: `export PATH=*~/.local/bin*:$PATH`
+
+Load the profile into current session:
+`source ~/.bash_profile`
+
+Check if `awscli` is correctly installed:
+`aws --version`
+
+Then edit the configure your credentials. Note that when trying to add a AWS Access Key ID to the configuration, a new user is required for new login. After create a new user, this user has to edit the permission to access the resource of the root account.
+
 ## Area 2
 > Include notes here about each of the links
 
