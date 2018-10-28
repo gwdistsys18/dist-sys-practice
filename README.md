@@ -70,5 +70,38 @@ When I use some service deployed by Docker containers, I use `docker exec -i -t 
 
 ### Intermediate Level - Lab: Doing more with Docker Images
 
+This lab introduce the Dockerfile and how to modify the file in image.
+
+**Dockerfile**
+
+Dockerfile is a configuration file that contains all the commands, in order, needed to build a given image. As a text file, its size can be eligible compare to Docker container size.
+
+There is a sample Dockerfile that create a new container based on Ubuntu image and execute some commands.
+
+```
+FROM alpine
+RUN apk update && apk add nodejs
+COPY . /app
+WORKDIR /app
+CMD ["node","index.js"]
+```
+
+In this Dockerfiel, these things were done:
+
+1. Import alpine Docker image.
+2. Update `apt-get`and install nodejs.
+3. Copy files from certain directory into container.
+4. Specify the working directory and execute command to run the `index.js`.
+
+**Image layers**
+
+A Docker image is built up from a series of layers. Each **layer** represents an instruction in the image’s Dockerfile. Each **layer** except the last one is read-only. Layers is useful when the files in container was modified. If the file in container was modified and a new container was created based on the modified version of file, Docker recognized some of these layers in previous builds was unmodified, and use a cached version of the layer, rather than pulling down code a second time and running those steps. It is similar to the version control system.
+
+**Image Inspection**
+
+Use `docker image inspect` can inspect the layers version of the Docker. If one modify was implemented, then one layer will be added, and a record will show when inspect the Docker image. The method that used to identify each layer is using `sha256`. 
+
+
+
 ## Area 2
 > Include notes here about each of the links
