@@ -42,7 +42,7 @@ Time: 1 hr
 	This is a critical security concept in the world of Docker containers! Even though each docker container run command used the same alpine image, each execution was a separate, isolated container. Each container has a separate filesystem and runs in a different namespace; by default a container has no way of interacting with other containers, even those from the same image.
 	
 ## Cloud Web Apps
-### Beginner Levels: Cloud Web Apps
+### Beginner Level: Cloud Web Apps
 #### [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)  
 Time: 30 min   
 	Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud. AWS calls these virtual machines 'instances'.
