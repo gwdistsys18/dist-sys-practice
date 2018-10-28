@@ -221,7 +221,7 @@ After this process completed, it should be like the following picture.
 
 The task definition tells Amazon ECS how to deploy application containers across the cluster.
 
-1. Navigate to the ‘Task Definitions’ menu on the left side of the Amazon ECS console.
+1. Find the ‘Task Definitions’ menu on the left side of the Amazon ECS console.
 2. Select Create new Task Definition.
 3. Task Definition Name = api.
 4. Select Add Container.
@@ -295,7 +295,24 @@ After these images were pushed, it should look like this:
 
 ![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/posts.png)
 
+#### Deploy Microservices
 
+Architecture overview (from AWS webpage):
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Monolith Containers_6-switching-traffic.png)
+
+#### Deploy Microservices
+
+1. Write task definition for each post, users, threads service. It is the same as previous section.
+2. Configure the four application balance load as previous section. Same setting during the configuration process.
+3. Edit listener using “Insert Rule”. Insert rules for each service. For example: `Path = /api/posts* forward to posts`
+4. Deploy each service on Amazon ECS console. This is same as the previous deployment.
+
+
+
+After the deployment, it should be like this:
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/4services.png)
 
 ## Area 2
 
