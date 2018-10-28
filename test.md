@@ -179,8 +179,8 @@ Finally, it will give us a operating system counting table
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
 (Optional: node type, control encryption, VPC)
-<!-- Tables -->
 * Cluster Properties: Contains information about the Cluster including: Name, Type, Node Type, number of Nodes, Zone location, Time and version of creation as well as other information
+<!-- Tables -->
 | Cluster Props   | value           |
 |-----------------|-----------------|
 |Cluster Name     |lab              |
@@ -197,6 +197,7 @@ Finally, it will give us a operating system counting table
 |Cluster Name     |lab              |
 * Cluster Status: Allows you to see the current status of the cluster whether it is available or not and also whether it is currently in Maintenance Mode
 * Cluster Database Properties: Contains information on the Endpoint, which is the DNS address of the cluster, and the port number on which the database accepts connections. These are required when you want to create SQL connections. It also lets you know whether the cluster has a public IP address that can be accessed from the public internet. The JDBC URL and ODBC URL contain the URLs to connect to the cluster via a java database connection or an Oracle database connection client.
+<!-- Tables -->
 | Cluster DB Props| value           |
 |-----------------|-----------------|
 |Port             |1234             |
