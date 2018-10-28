@@ -30,6 +30,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - Can't remember if the reason for using dockers to run the NFs or the fact that dockers add so little overhead was discussed in class.
   - The comparison with ClickOS is also informative.
   - Speed comparison of different NF configurations is informative.
+  
+> Install OpenNetVM
+  - This I have done in the GW Nimbus Cluster
 
 ## Area 2
 > Include notes here about each of the links
