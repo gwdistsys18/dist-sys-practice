@@ -244,6 +244,19 @@ Finally, it will give us a operating system counting table
 <a name="buildml"></a> 
 # Build a Machine Learning Model
 
+### Task 1: Prepare your data
+* Data Resource: [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php)
+* Data: 
+	* banking.csv (used for training and validation)
+	* banking-batch.csv (used for test)
+* Features:
+age | job | marital | education | default | housing | loan | contact | month | day_of_week | duration | campaign | pdays | previous | poutcome | emp_var_rate | cons_price_idx | cons_conf_idx | euribor3m | nr_employed
+* Label: Y = [0,1]
+
+### Task 2: Create a Training Datasource
+* Use [Amazon Machine Learning](https://console.aws.amazon.com/machinelearning/.) 
+
+
 <a name="segmaker"></a> 
 # AWS SageMaker
 
