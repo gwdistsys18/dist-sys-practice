@@ -195,6 +195,10 @@ docker push [account-id].dkr.ecr.[region].amazonaws.com/api:latest
 
 #### Deploy the Monolith
 
+Architecture overview (from AWS page):
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/Monolith-Architecture.png)
+
 Run the following command:
 
 ```bash
@@ -206,6 +210,8 @@ aws cloudformation deploy \
 ```
 
 Wait couple of minutes to create Amazon ECS cluster.
+
+
 
 ## Area 2
 
