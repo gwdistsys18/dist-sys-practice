@@ -354,5 +354,16 @@ Finally, one congratuation message can be obtained.
 
 ## Area 2 - Cloud Web Apps
 
+### Beginner Level -  Intro to S3 & Instance
+
+This section introduce the basic set up of the AWS S3 and Instance. Truly simple. 
+
+I’ve been using a VM that is hosted on DigitalOcean for couple of months. And several service was running on this virtual machine, including a RSS server that is running by several docker containers. 
+
+Here are some sample pictures.
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/dockersamples.png)
 
 
+
+![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/rss.png)
