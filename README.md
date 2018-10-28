@@ -218,13 +218,28 @@ Amazon DynamoDB is a fully managed proprietary NoSQL database service that suppo
 #### [AWS Tutorial: Deploy a Scalable Nodejs Web App](https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card)  
 Time: 60 min   
 
-Amazon DynamoDB is a fully managed proprietary NoSQL database service that supports key-value and document data structures and is offered by Amazon.com as part of the Amazon Web Services portfolio. DynamoDB exposes a similar data model to and derives its name from Dynamo, but has a different underlying implementation(from Wikipedia).
-
-1. Create a new table.   
-	In AWS management console, select Service, then select DynamoDB. Create new table.  
+   This tutorial is about how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB. Using Elastic Beanstalk, you can simply upload your code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring. Elastic Beanstalk automatically scales your application up and down based on your application's specific need using easily adjustable Auto Scaling settings. Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models.
+   
+1. Prerequisites.   
+	This tuturial uses sample application source bundle from GitHub: eb-node-express-sample-v1.1.zip..  
   
-2. Add Data
+2. Launch an Elastic Beanstalk Environment
+	Elastic Beanstalk creates and manages severals resources.
+   
+3. Add Permissions to Your Environment's Instances
+	The application runs on one or more EC2 instances behind a load balancer, serving HTTP requests from the Internet. When it receives a request that requires it to use AWS services, the application uses the permissions of the instance it runs on to access those services. 
+   
+4. Deploy the Sample Application
 
+5. Create a DynamoDB Table
+	Notes: When you create a table outside of Elastic Beanstalk, it is completely independent of Elastic Beanstalk and your Elastic Beanstalk environments, and will not be terminated by Elastic Beanstalk. 
 
-AWS Tutorial: Deploy a Scalable Node.js Web App
+6. Update the Application's Configuration Files
+	Update the configuration files in the application source to use the nodejs-tutorial table instead of creating a new one. 
+
+7. Configure Your Environment for High Availability
+    Configure the environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web servers in your environment from being a single point of failure, and to allow you to deploy changes without taking your site out of service. 
+    
+8. Cleanup
+	Elastic Beanstalk terminates all AWS resources associated with your environment, such as Amazon EC2 instances, database instances, load balancers, security groups, and alarms. 
 
