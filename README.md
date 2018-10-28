@@ -241,28 +241,22 @@ use ``` docker container ls ```  to see the mapping relations between host port 
 
 * Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose, but to define and maintain high availability levels, scaling, load balancing, and more. With all this functionality, Swarm mode is used more often in production environments than it’s more simplistic cousin, Compose.
 
-swarm:
+#### swarm:
 
-A host running Docker can proactively initialize a Swarm cluster or join an existing Swarm cluster, so that the host running Docker becomes a node of a Swarm cluster. nodes can be classfied into manager node and worker node.
+A swarm is a group of machines that are running Docker and joined into a cluster. After that has happened, you continue to run the Docker commands you’re used to, but now they are executed on a cluster by a swarm manager. The machines in a swarm can be physical or virtual. After joining a swarm, they are referred to as nodes.
 
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/swarm.png">
 
-- Task:
+- Task: A task is the smallest unit in a Swarm, it's a container. 
 
-A task is the smallest unit in a Swarm, it's a container. 
-
-- Service:
-
-A Service is the collection of tasks, it defines the attributes of tasks, there are two modes of services. 
+- Service: A service is the collection of tasks, it defines the attributes of tasks, there are two modes of services. 
 
 	- replicated services
 	- global services
 
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service.png">
 
-Stack
-
-A stack is the collection of services.stack file is a yaml file, it defines one or more services and the eviroment arguments, number of containers ...
+- Stack: A stack is a group of services that are deployed together: multiple containerized components of an application that run in separate instances. Each individual service can actually be made up of one or more containers, called tasks and then all the tasks & services together make up a stack.
 
 <img src="https://github.com/zhuo95/dist-sys-practice/blob/master/service_stack_task.png">
 
@@ -282,12 +276,11 @@ docker node ls
 ```
 
 
+### Kubernetes
+
+Kubernetes helps you make sure those containerized applications run where and when you want, and helps them find the resources and tools they need to work.
 
 
 
+## Cloud Web Apps
 
-
-
-
-## Area 2
-> Include notes here about each of the links
