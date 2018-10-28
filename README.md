@@ -70,7 +70,8 @@ Time: 30 min
 
 	
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
-Time: 30 min   
+Time: 15 min   
+
 	 
 Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces.
 
