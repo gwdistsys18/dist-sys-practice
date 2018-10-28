@@ -105,7 +105,7 @@ Use `docker image inspect` can inspect the layers version of the Docker. If one 
 
 A deeper comparison between virtual machine and Docker container.
 
-![](/Users/borismirage/Dropbox/Projects/CS6421/dist-sys-practice/Resource/DeepCompare.png)
+![](./Resource/DeepCompare.png)
 
 **Pros and cons of virtual machine:**
 1.  Virtual machine has to contain the kernel and user space of host system, hence, the size of virtual machine is larger than Docker container.
