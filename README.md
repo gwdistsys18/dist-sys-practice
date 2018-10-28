@@ -57,7 +57,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 + Be sure the environment variables (RTE_SDK and RTE_TARGET) are set correctly.
 + The helloworld has the result below:
 ![helloworld](/src/helloworld.png)
-+ Before starting the skeleton test, we should bind another NIC port to dpdk. Because skeleton test requires even number of ports. The result of the test likes below.
++ Before starting the skeleton test, we should bind another NIC port to dpdk. Because skeleton test requires even number of ports. The result of the test would be like below:
+![skeleton](/src/skeleton.png)
 
 ## Area 2
 > Include notes here about each of the links
