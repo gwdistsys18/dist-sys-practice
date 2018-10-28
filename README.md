@@ -4,6 +4,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Docker and Countainers
 #### Beginner Level
 * [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)(15 min)  
+
 History:  
 Mainframe to PC: 90's  
 Baremetal to Virtual: 00's  
@@ -16,6 +17,7 @@ Comtainers reduce the complexity.
 Docker is freeing up a lot of rasks of the maintenance of stuff and allowing us to get more of our time back to innovate.  
   
 * [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)(1 hr)  
+
 In this lab we run a lightweight container and explore the basics of how containers work, how the Docker Engine executes and isolates containers from each other.  
 Hello World:  
 
