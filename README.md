@@ -69,6 +69,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 3. Lab: Docker Intro
 4. Lab: Doing more with Docker Images
 5. Video: VMs Versus Containers Deep Dive --elapsed time: 15 mins
+
     |                     | VM                                                                                                                                                                                                                                                                                                                        | Container                                                                                                                                                                                                                                                                                                                                                                       |
     |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Size                | 1. All in a disk image, including kernel+Init system, userspace programs, and applications.   2. Size is based on the size of user space and application. 3. Range from hundreds of megabytes to tens of gigabytes.                                                                                                       | 1. Size mainly depends on applications in the container. Range from tens of megabytes to gigabytes  2.Smallest: applications can be well containerized--all data are static binary without OS dependency(e.g Go language programs)  3. Largest: applications need userspace tool, a base container could be used to contain application containers  (e.g Ubuntu base container) |
@@ -80,6 +81,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 1. Lab: Docker Networking
 2. Lab: Swarm Mode Introduction
 3. Video: Kubernetes vs Swarm --elapsed time: 5 mins
+
     |             | Swarm                                                    | Kubernetes                                            |
     |-------------|----------------------------------------------------------|-------------------------------------------------------|
     | Description | A built-in orchestration system in docker             |  A popular orchestration system for docker by Google  |
