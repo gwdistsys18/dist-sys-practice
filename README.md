@@ -19,7 +19,9 @@ Docker is freeing up a lot of rasks of the maintenance of stuff and allowing us 
 * [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/) (1 hr)  
 
 In this lab we run a lightweight container and explore the basics of how containers work, how the Docker Engine executes and isolates containers from each other.  
+  
 Hello World:  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/hw.png)
 
 ## Area 2
 > Include notes here about each of the links
