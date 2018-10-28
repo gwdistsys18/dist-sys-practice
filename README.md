@@ -1,16 +1,17 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Area 1 Docker
-Docker basic operator
-docker image ls   [search local image file]
-docker container ls [search running container]
-docker container ls -a [search historical container]
-docker image pull <name> [download image files]
-docker container run <containername> <operator> 
-[run container,return rusult ,close container]
-docker run -it <container name> <operator>
-[run container,get into container,return result,still run container(exit:quit)]
+## Area 1 Docker  
+***Beginner Level:***   
+Docker basic operator  
+__docker image ls__ `[search local image file]`  
+__docker container ls__ `[search running container]`  
+__docker container ls -a__ `[search historical container]`  
+__docker image pull <name>__ `[download image files]`  
+__docker container run <containername> <operator> __  
+`[run container,return rusult ,close container]`    
+__docker run -it <container name> <operator> __ 
+`[run container,get into container,return result,still run container(exit:quit)]`  
 
 echo "hello world" > hello.txt 
 [build hello.txt in current path,write"hello world"](This file in container will remain)
