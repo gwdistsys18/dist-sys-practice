@@ -143,7 +143,7 @@ Swarm mode is for natively managing a cluster of Docker Engines. When trying to 
 
 Kubernetes is an open-source container-orchestration system for automating deployment, scaling and management of containerized applications. It can work with Docker.
 
-![Kubernetes architecture diagram (from wikipedia)](https://en.wikipedia.org/wiki/File:Kubernetes.png)
+![Kubernetes architecture diagram (from wikipedia)](./Resource/Kubernetes.png)
 
 ## Area 2
 > Include notes here about each of the links
