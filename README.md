@@ -71,23 +71,18 @@ Time: 30 min
 	
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
 Time: 1 hr  	  
-Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces.
-2. Steps
-	   
+
 	
-	1: Create a Bucket
+  Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces. 
+  
+  1: Create a Bucket
+    Every object in Amazon S3 is stored in a bucket
+
+  2: Upload an Object to the Bucket
 	
-	Login in and open the Amazon EC2 console, then click Launch Instance to create and configure your virtual machine.
-	
-	Step 2: Configure your Instance
-	
-	
-Amazon S3 is a cloud computing web service offered by Amazon Web Services. Amazon S3 provides object storage through web services interfaces.  
-	1: Create a Bucket
-	Every object in Amazon S3 is stored in a bucket
-	2: Upload an Object to the Bucket
-	An object can be any kind of file: a text file, a photo, a video, a zip file, etc. Add an object to Amazon S3 to let it available in network with permission.
-	3: Make Your Object Public
+   An object can be any kind of file: a text file, a photo, a video, a zip file, etc. Add an object to Amazon S3 to let it available in network with permission.
+
+  3: Make Your Object Public
 Configure permissions on your object so that it is publicly accessible. The object is private by default.
 	4: Create a Bucket Policy
 Bucket Policy is a set of permissions associated with an Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
