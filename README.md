@@ -10,5 +10,20 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Tons of big companies are shifting to Docker (two big case studies: PayPal and MetLife)
   * Big boost in developer productivity and decrease in infrastructure costs
 
+* [Docker Beginner Lab](https://training.play-with-docker.com/ops-s1-hello/)
+  * Understanding how the docker repository works to host images
+    * Docker pulls an image from the docker hub
+  * Docker creates a container from the image, which runs the executable
+  * Docker run (example command: `docker run alpine ls -l`)
+    * Pulls container if necessary (container named `alpine`)
+    * Starts container (container named `alpine`)
+    * Runs executable (executable that is run is `ls -l`)
+  * To use an interactive terminal, use the `-it` argument
+  * `docker container ls` shows all running containers
+  * `docker container ls -a` shows all containers including statuses
+  * Docker containers are isolated from each other
+  * You can start containers and pass commands to them to `exec`
+  
+
 ## Area 2
 > Include notes here about each of the links
