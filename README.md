@@ -36,21 +36,32 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
     * Run first container
 
-        * > docker container run hello-world
+        * First run
+            ```shell
+            docker container run hello-world
+            ```
 
             When a docker container command is typed, the docker engine would try to find the image with input name. If fails, it would look for a image from docker registry with the name. Then engine create the image.
 
     * Docker images
         * Just like Git workflow, user can pull, push a container image with command like:
-            > docker container pull [name]
-            >
-            > docker container push [name]
+
+            ```shell
+            docker container pull [CONTAINER_NAME]
+            ```
+
+            ```shell
+            docker container push [CONTAINER_NAME]
+            ```
 
         * Run command
             * Using run command, will excute the container. If there are more commands follows by, them will be executed in the called container's terminal.
             * The default behavior of it is exit after excute followed command. We can change this by using flags such as [-it]
 
-        * > docker container ls
+        * List command
+            ``` shell
+            docker container ls
+            ```
 
             ls commmand will list all containers that are running. Using [-a] flag, a list of containers that we ran will be displayed. We can observe that different called containers was ran in different container instance, even they were called with same image.
 
@@ -89,18 +100,106 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     | Hypervisor layer | Interact with physical hardware, like hardware NIC, hardware storage.  Have agents that monitor RAID card and hardwares in hypervisor.  Have kernel modules.                                                     | (Optional) Can mask all hardware interface for VM, and container host.                                                                                                                                                                |
     | Physical hardware   | \                                                                                                                                                                                                                                                    | \                                                                                                                                                                                                                                               |
 
-3. Lab: Docker Intro
+3. Lab: Docker Intro --elapsed time: 35 mins
 
     * Run docker containers
-    * package and run a custom app using Docker
-    * Modify a running website
+        User can run containers that have different application running, including single task container, interactive container and background container. Using coressponding flag in run command can make it.
+        * Default:
 
-4. Lab: Doing more with Docker Images
+            ``` shell
+            docker container run [FLAG] [CONTAINER_NAME] [TASK]
+            ```
+
+        * Interactive flag:
+
+            ``` shell
+            docker container run --interactive [FLAG] [CONTAINER_NAME] [TASK]
+            ```
+
+        * Background flag:
+
+            ``` shell
+            docker container run --detach [FLAG] [CONTAINER_NAME] [TASK]
+            ```
+
+    * package and run a custom app using Docker
+        With a dockerfile, user can package customized application as a docker image.
+
+        * Dockerfile syntax
+            * **FROM** specifies the base image to use as the starting point for this new image you’re creating. For this example we’re starting from nginx:latest.
+
+            * **COPY** copies files from the Docker host into the image, at a known location. In this example, COPY is used to copy two files into the image: index.html. and a graphic that will be used on our webpage.
+
+            * **EXPOSE** documents which ports the application uses.
+
+            * **CMD** specifies what command to run when a container is started from the image. Notice that we can specify the command, as well as run-time arguments.
+
+        * Build with dockerfile
+            ```shell
+            docker image build [FLAG] [...]
+            ```
+            Use the command, user would create a new docker image using the instructions in the dockerfile.
+
+    * Modify a running website
+        * Bind mount
+            If we are modifing source code on a running system, it would be nightmare to stop the container, rebuild the image and test new version everytime. 
+
+            ``` shell
+            docker container run \
+            --detach \
+            --publish 80:80 \
+            --name linux_tweet_app \
+            --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html \
+            $DOCKERID/linux_tweet_app:1.0
+            ```
+
+            In the above exampleWith [--mount] flag, user can use bind mount to start an application. It enables mounting source code directory into a running container. The container will react to every change immediately.
+
+        * Modify source and test
+            Let us make change to the source file naming it as [linux_tweet_app:2.0].
+
+            ``` shell
+            docker container run \
+            --detach \
+            --publish 80:80 \
+            --name linux_tweet_app \
+            $DOCKERID/linux_tweet_app:2.0
+            ```
+
+            User can test new version by changing file name.
+
+        * Store image in Docker Hub
+            Docker provides a system called Docker Hub for user to manage their images with version control. It is pretty like Github system workflow.
+
+             ``` shell
+             docker image push [$DOCKERID]/[FILE_NAME]
+             ```
+
+             With push command after login, user can push the assigned image to Docker Hub.
+
+4. Lab: Doing more with Docker Images --elapsed time: 50 mins
 
     * Image creation from a container
+        User can create a image from a existing stopped container with commit command
+        ```shell
+        docker container commit [CONTAINER_ID]
+        ```
+
     * Image creation using a Dockerfile
+        User can create a image using a Dockerfile. It has serval configuration, including FROM, RUN COPY WORKDIR, and CMD. After writing Dockerfile, user can create a image directly using run command
+        ```shell
+        docker container run [IMAGE_NAME]
+        ```
+
     * Image layers
+        After user modified the application running in the container, he can rebuild a new image to test modification. The interesting part during the build procedure is it says "Using cache".
+        Because docker image has hierarchy, some of duplicated image are stored in Docker cache. Docker will recognize difference between new created image between existing ones so that it will use cached version instead of going through all procedure again.
+
     * Image Inspection
+        ```shell
+        docker image inspect [IMAGE_NAME]
+        ```
+        The command allows user to inspect hierarchy tree of a docker image.
 
 5. Video: VMs Versus Containers Deep Dive --elapsed time: 15 mins
 
