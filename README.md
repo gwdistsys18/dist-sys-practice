@@ -18,6 +18,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [QwikLab: Intro to DynamoDB](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-DynamoDB)  
 		- [AWS Tutorial: Deploy a Scalable Node.js Web App](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Deploy-a-Scalable-Nodejs-Web-App)  
 		- [QwikLab: Intro to AWS Lambda ](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-AWS-Lambda )  
+		- [QwikLab: Intro to Amazon API Gateway](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-Amazon API-Gateway)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
 		
@@ -262,3 +263,30 @@ Time: 30 min
 
 	This create two Amazon S3 buckets -- one for input and one for output.  
    
+2. Create an AWS Lambda Function.   
+
+	This create an AWS Lambda function that reads an image from Amazon S3, resizes the image and then stores the new image in Amazon S3.
+   
+3. Test Your Function.   
+
+	This is done by simulating an event with the same information normally sent from Amazon S3 when a new object is uploaded.  
+   
+4. Monitoring and Logging.   
+
+	Monitor AWS Lambda functions to identify problems and view log files to assist in debugging.  
+   
+
+#### [QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog)  
+Time: 35 min   
+
+   This lab demonstrates AWS Lambda by creating a serverless image thumbnail application.
+   
+1. Create the Amazon S3 Buckets.   
+
+	This create two Amazon S3 buckets -- one for input and one for output.  
+   
+2. Create an AWS Lambda Function.
+
+
+
+
