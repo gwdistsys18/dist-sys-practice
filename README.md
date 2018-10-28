@@ -72,7 +72,7 @@ Container images become containers at runtime and in the case of Docker containe
 
 Time: 15min
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2001.53.49.png?raw=true)
 
 Both containers and VMs have benefits and drawbacks, and the ultimate decision will depend on your specific needs, but there are some general rules of thumb.
 
