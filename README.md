@@ -13,6 +13,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [QwikLab: Intro to S3](https://github.com/JackTedo/dist-sys-practice/#QwikLab-Intro-to-S3)  
 	- [Intermediate Level](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Cloud-Web-Apps)  
 		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Install-a-LAMP-Web-Server-on-Amazon-Linux-2)  
+		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		- [Video: Virtualization](https://github.com/JackTedo/dist-sys-practice#Video-Virtualization)  
+		
 
 
 
@@ -89,7 +97,9 @@ Time: 1 hr
 	Bucket Policy is a set of permissions associated with an Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
 
 5. Explore Versioning
+
 	Versioning is a means of keeping multiple variants of an object in the same bucket. You can use versioning to preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. With versioning you can easily recover from both unintended user actions and application failures.
+
 
 
 ### Intermediate Level: Cloud Web Apps
@@ -97,6 +107,10 @@ Time: 1 hr
 Time: 10 min   
 	what are Virtual Machines and how do they run legacy software alongside cutting edge code.
 	
+#### [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)  
+Time: 60 min   
+
+
 
 
 
