@@ -11,7 +11,7 @@ Table of Contents
         * [2.1 advantages of containers](#21-advantages-of-containers)
      * [3. What is docker](#3-what-is-docker)
      * [4. Docker Architecture](#4-docker-architecture)
-        * [4.1 Clent](#41-clent)
+        * [4.1 Client](#41-client)
         * [4.2 Docker Host](#42-docker-host)
         * [4.3 Registry](#43-registry)
      * [5. Docker Command Line](#5-docker-command-line)
@@ -41,7 +41,11 @@ Table of Contents
         * [1.2 Configure your Instance](#12-configure-your-instance)
         * [1.3 Download key pair to securely access your Linux instance using SSH](#13-download-key-pair-to-securely-access-your-linux-instance-using-ssh)
         * [1.4 Connect to your Instance](#14-connect-to-your-instance)
-
+     * [2. Amazon Simple Storage Service(S3)](#2-amazon-simple-storage-services3)
+        * [2.1 Create a bucket](#21-create-a-bucket)
+        * [2.2 Upload an object](#22-upload-an-object)
+        * [2.3 Create a bucket policy](#23-create-a-bucket-policy)
+        * [2.4 Versioning](#24-versioning)
 
 
 ## Docker and Containers
@@ -73,7 +77,7 @@ A Docker container image is a lightweight, standalone, executable package of sof
 
 ### 4. Docker Architecture
 
-#### 4.1 Clent
+#### 4.1 Client
 You could describe Docker as a client server application. The daemon is the server, and the CLI is 1 of many clients. There’s also a number of third party clients.
 
 #### 4.2 Docker Host
@@ -348,4 +352,20 @@ mv ~/Downloads/MyKeyPair.pem ~/.ssh/MyKeyPair.pem
 ssh -i ~/.ssh/MyKeyPair.pem ec2-user@{IP_Address} (ex. ssh -i ~/.ssh/MyKeyPair.pem ec2-user@52.27.212.125)
 ```
 
+### 2. Amazon Simple Storage Service(S3)
 
+#### 2.1 Create a bucket
+
+In the AWS Management Console, on the Services menu, click S3. Click Create bucket then configure.
+
+#### 2.2 Upload an object
+Click Upload to upload an object.
+
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/S3.png">
+
+#### 2.3 Create a bucket policy
+A bucket policy is a set of permissions associated with an Amazon S3 bucket. It can be used to control access to a whole bucket or specific directories within a bucket.
+<img src="https://github.com/zhuo95/dist-sys-practice/blob/master/S3_policy.png">
+
+#### 2.4 Versioning
+Versioning is a means of keeping multiple variants of an object in the same bucket. You can use versioning to preserve, retrieve, and restore every version of every object stored in your S3 bucket.
