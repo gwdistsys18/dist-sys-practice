@@ -190,6 +190,15 @@ My newly-pushed Docker images
 
 [Lab: Doing more with Docker images](https://training.play-with-docker.com/ops-s1-images/)
 
+We will start with the simplest form of image creation, in which we simply commit one of our container instances as an image. Then we will explore a much more powerful and useful method for creating images: the Dockerfile.
+
+We will then see how to get the details of an image through the inspection and explore the filesystem to have a better understanding of what happens under the hood.
+
+**Image creation from a container**
+
+
+
+we can create a container, add all the libraries and binaries in it and then commit it in order to create an image.  We can then use that image just as we would for images pulled down from the Docker Store. 
 
 
 > Include notes here about each of the links
