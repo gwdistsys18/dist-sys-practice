@@ -295,13 +295,40 @@ Time: 35 min
 #### [AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card)  
 Time: 120 min   
 
-   This lab create a simple FAQ micro-service. The micro-service will return a JSON object containing a random question and answer pair using an Amazon API Gateway endpoint that invokes an AWS Lambda function. 
-
-1. Create a Lambda Function.   
-
-	This create two Amazon S3 buckets -- one for input and one for output.  
+   This serverless web application takes me about 4 hours to finish. I almost do it twice to complete it.
    
-2. Test the Lambda function.
+   This lab create a simple serverless web application that enables users to request unicorn rides from the Wild Rydes fleet. 
+   
+   The application will present users with an HTML based user interface for indicating the location where they would like to be picked up and will interface on the backend with a RESTful web service to submit the request and dispatch a nearby unicorn. 
+   
+   The application will also provide facilities for users to register with the service and log in before requesting rides.
+   
+   The application architecture uses AWS Lambda, Amazon API Gateway, Amazon S3, Amazon DynamoDB, and Amazon Cognito.
+   
+   
+ - Module 1. Static Web Hosting
+
+	Architecture Overview:  
+
+	The static web content including HTML, CSS, JavaScript, images and other files will be stored in Amazon S3. Your end users will then access your site using the public website URL exposed by Amazon S3.  
+	
+   
+	Implementation Instructions:
+
+	The static web content including HTML, CSS, JavaScript, images and other files will be stored in Amazon S3. Your end users will then access your site using the public website URL exposed by Amazon S3.  
+	
+   
+   Steps:
+   
+1. Select a Region
+
+	I always use the default region. 
+	
+2. Create an S3 Bucket
+
+	Amazon S3 can be used to host static websites without having to configure or manage any web servers. A new S3 bucket that will be used to host all of the static assets (e.g. HTML, CSS, JavaScript, and image files) for the web application.
+	
+
 
 
 
