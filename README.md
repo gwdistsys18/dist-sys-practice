@@ -24,6 +24,21 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Docker containers are isolated from each other
   * You can start containers and pass commands to them to `exec`
 
+* [What are Containers Video](https://www.youtube.com/watch?v=EnJ7qX9fkcU)
+  * **FILL ME IN**
+
+* [VMs Versus Containers Video](https://www.youtube.com/watch?v=L1ie8negCjc)
+  * **FILL ME IN**
+
+* [Docker Intro Lab ~20 mins](https://training.play-with-docker.com/beginner-linux/)
+  * Introduction was overlapping content from Docker Beginner Lab
+  * `cat /etc/issue` is a good way to tell what you are running on
+  * Committing containers is bad, better to use a repeatable `Dockerfile`
+  * Learned how to start up mysql in the background on a container
+  * Learned how Dockerfiles work and the basic syntax
+  * `stop` gracefully stops container, `rm` permanently removes it, `--force` removes forcefully without shutting down
+  * Learned how to build a new image and push to Docker Hub when you want to update
+
 
 ## Area 2
 > Include notes here about each of the links
