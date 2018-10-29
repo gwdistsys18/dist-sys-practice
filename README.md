@@ -3,7 +3,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Docker and Containers
 ### Beginner Level
-* [Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
+* [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 
 Time: 20 min.
 
@@ -56,7 +56,7 @@ In the demo above, I used the ```docker image pull``` command to download the **
 
 *Containers Part*:
 
-* [What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) 
+* [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU) 
 
 Time: 30min
 
@@ -68,7 +68,7 @@ A container is a standard unit of software that packages up code and all its dep
 
 Container images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
 
-* [VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc) 
+* [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc) 
 
 Time: 15min
 
@@ -91,6 +91,28 @@ Both containers and VMs have benefits and drawbacks, and the ultimate decision w
 | Fully isolated and hence more secure | Process-level isolation, possibly less secure |
 
 With the current state of virtualization technology, the flexibility of VMs and the minimal resource requirements of containers work together to provide environments with maximum functionality.
+
+![Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/#Task_0)
+
+**Task 1: Run some simple Docker containers**
+
+There are different ways to use containers. These include:
+1. **To run a single task:** This could be a shell script or a custom app.
+2. **Interactively:** This connects you to the container similar to the way you SSH into a remote server.
+3. **In the background:** For long-running services like websites and databases.
+
+ **Run a single task in an Alpine Linux container**
+
+Containers which do one task and then exit can be very useful. You could build a Docker image that executes a script to configure something. Anyone can execute that task just by running the container - they don’t need the actual scripts or configuration information.
+
+ **Run an interactive Ubuntu container**
+
+Interactive containers are useful when you are putting together your own image. You can run a container and verify all the steps you need to deploy your app, and capture them in a Dockerfile.
+
+ **Run a background MySQL container**
+
+Background containers are how you’ll run most applications
+
 
 > Include notes here about each of the links
 
