@@ -55,7 +55,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Use `kubectl scale` to scale up the application (create more replicas)
 * Kubernetes automatically rollback to previous version if the new version fails
 13. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them (90min)
-* //TODO
+
+![Screenshot 1](images/screen1.png)
 
 ## Cloud Web Applications
 1. AWS Tutorial: Launch a VM (15min)
