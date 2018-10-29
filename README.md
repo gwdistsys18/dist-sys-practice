@@ -197,6 +197,103 @@ Batch execution: In addition to services, Kubernetes can manage your batch
 and CI workloads, replacing containers that fail, if desired.
 Horizontal scaling: Scale your application up and down with a simple command,  
 with a UI, or automatically based on CPU usage.
+  
+-Lab: Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them(70min)  
+know how to use AWS and EC2, how to create an Amazon EC2 Linux Instance.  
+create a instance: From the console dashboard, choose Launch Instance.  
+Choose an Amazon Machine Image (AMI) page displays a list of basic configurations,  
+called Amazon Machine Images (AMIs), that serve as templates for your instance.  
+Select an HVM version of Amazon Linux 2. Notice that these AMIs are marked "Free tier eligible."  
+On the Choose an Instance Type page, you can select the hardware configuration of your instance.  
+Select the t2.micro type, which is selected by default. Notice that this instance type is eligible for the free tier.  
+Choose Review and Launch to let the wizard complete the other configuration settings for you.  
+On the Review Instance Launch page, under Security Groups, you'll see that the wizard created  
+and selected a security group for you. You can use this security group,  
+or alternatively you can select the security group that you created when getting set up using the following steps:  
+Choose Edit security groups.  
+On the Configure Security Group page, ensure that Select an existing security group is selected.  
+Select your security group from the list of existing security groups, and then choose Review and Launch.  
+On the Review Instance Launch page, choose Launch.  
+When prompted for a key pair, select Choose an existing key pair, then select the key pair that you created when getting set up.  
+Alternatively, you can create a new key pair. Select Create a new key pair,  
+enter a name for the key pair, and then choose Download Key Pair.  
+This is the only chance for you to save the private key file, so be sure to download it.  
+Save the private key file in a safe place. You'll need to provide the name of your key pair  
+when you launch an instance and the corresponding private key each time you connect to the instance.
+A confirmation page lets you know that your instance is launching.  
+Choose View Instances to close the confirmation page and return to the console.
+On the Instances screen, you can view the status of the launch.  
+It can take a few minutes for the instance to be ready so that you can connect to it.  
+Check that your instance has passed its status checks; you can view this information in the Status Checks column.  
+how to connect to your Linux instance using a web browser:  
+You must have Java installed and enabled in the browser.  
+From the Amazon EC2 console, choose Instances in the navigation pane.  
+Select the instance, and then choose Connect.  
+Choose A Java SSH client directly from my browser (Java required).  
+Amazon EC2 automatically detects the public DNS name of your instance and populates Public DNS for you.  
+It also detects the key pair that you specified when you launched the instance.  
+Complete the following, and then choose Launch SSH Client.  
+In User name, enter ec2-user.  
+In Private key path, enter the fully qualified path to your private key (.pem) file, including the key pair name.  
+(Optional) Choose Store in browser cache to store the location of the private key in your browser cache.  
+This enables Amazon EC2 to detect the location of the private key in subsequent browser sessions.  
+If necessary, choose Yes to trust the certificate, and choose Run to run the MindTerm client.  
+If this is your first time running MindTerm, a series of dialog boxes asks you to accept the license agreement,  
+confirm setup for your home directory, and confirm setup of the known hosts directory. Confirm these settings.  
+A dialog prompts you to add the host to your set of known hosts.  
+If you do not want to store the host key information on your local computer, choose No.  
+A window opens and you are connected to your instance.  
+how to terminate your instance:  
+In the navigation pane, choose Instances. In the list of instances, select the instance.  
+Choose Actions, Instance State, Terminate.  
+Choose Yes, Terminate when prompted for confirmation.  
+Amazon EC2 shuts down and terminates your instance. After your instance is terminated,  
+it remains visible on the console for a short while, and then the entry is deleted.  
+
+-Lab: AWS Tutorial: Break a Monolith Application into Microservices(https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/module-two/)
+Amazon Elastic Container Service (Amazon ECS) is a highly scalable,  
+high performance container management service that supports Docker containers  
+and allows you to easily run applications on a managed cluster of Amazon EC2 instances.  
+With simple API calls, you can launch and stop Docker-enabled applications, query the complete state of your cluster,  
+and access many familiar features like security groups, Elastic Load Balancing, EBS volumes, and IAM roles.
+You can use Amazon ECS to schedule the placement of containers across your cluster based on your resource needs  
+and availability requirements. You can also integrate your own scheduler or third-party schedulers  
+to meet business or application specific requirements.  
+There is no additional charge for Amazon Elastic Container Service. You pay for the AWS resources  
+(e.g. EC2 instances or EBS volumes) you create to store and run your application.  
+The task definition tells Amazon ECS how to deploy your application containers across the cluster.  
+The Application Load Balancer (ALB) lets your service accept incoming traffic.  
+The ALB automatically routes traffic to container instances running on your cluster using them as a target group.  
+Check your VPC Name: If this is not your first time using this AWS account, you may have multiple VPCs.  
+It is important to configure your Target Group with the correct VPC.  
+The listener checks for incoming connection requests to your ALB.  
+Why Microservices:  
+Isolation of Crashes: Even the best engineering organizations can and do have fatal crashes in production.  
+In addition to following all the standard best practices for handling crashes gracefully,  
+one approach that can limit the impact of such crashes is building microservices.  
+Good microservice architecture means that if one micro piece of your service is crashing,  
+then only that part of your service will go down. The rest of your service can continue to work properly.  
+Isolation for Security: In a monolithic application if one feature of the application has a security breach,  
+for example a vulnerability that allows remote code execution,  
+then you must assume that an attacker could have gained access to every other feature of the system as well.  
+This can be dangerous if, for example, your avatar upload feature has a security issue  
+which ends up compromising your database with user passwords. Separating features into  
+microservices using Amazon ECS allows you to secure access to AWS resources by giving each service its own IAM role.  
+When microservice best practices are followed, the result is that if an attacker compromises one service,  
+they only gain access to the resources of that service, and cannot horizontally access  
+other resources from other services without breaking into those services as well.
+Independent Scaling: When features are broken out into microservices,  
+then the amount of infrastructure and number of instances used by each microservice class can be scaled up  
+and down independently. This makes it easier to measure the cost of particular feature, identify features  
+that may need to be optimized first, as well as keep performance reliable for other features  
+if one particular feature is going out of control on its resource needs.
+Development Velocity: Microservices lower the risks in development,  
+which can enable a team to build faster. In a monolith, adding a new feature can potentially impact  
+every other feature that the monolith contains. Developers must carefully consider the impact of any code they add,  
+and ensure that they do not break anything. On the other hand, a proper microservice architecture  
+has new code for a new feature going into a new service. Developers can be confident that any code  
+they write will actually not be able to impact the existing code at all unless they explicitly  
+write a connection between two microservices.  
 
 ## Big Data and Machine Learning
 > Include notes here about each of the links  
@@ -209,6 +306,9 @@ Hadoop: allows for distributed processing of large data sets across clusters of 
 four features of hadoop: economical, reliable, scalable and flexible.  
 
 -QwikLab: Analyze Big Data with Hadoop(https://awseducate.qwiklabs.com/focuses/19?parent=catalog)   
+Amazon EMR is a managed service that makes it fast, easy, and cost-effective  
+to run Apache Hadoop and Spark to process vast amounts of data. Amazon EMR also supports powerful and proven Hadoop tools  
+such as Presto, Hive, Pig, HBase, and more.
 know how to use and create an Amazon S3 bucket  
 know how to launch an Amazon EMR cluster  
 
