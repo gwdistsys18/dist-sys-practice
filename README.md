@@ -478,6 +478,85 @@ Time: 150 min
 	With Fargate, you get the control of containers and the flexibility to choose when they run without worrying about provisioning or scaling servers. It offers full control of networking, security, and service to service communication and is natively integrated with AWS services for security, networking, access control, developer tooling, monitoring, and logging.
 	
 	
+	Steps:
+	
+1. Setup Core Infrastructure
+
+	create the core infrastructure environment that the service will use, including the networking infrastructure in Amazon VPC, and the AWS Identity and Access Management Roles that will define the permissions that ECS and our containers will have on top of AWS.
+	
+2. Deploy A Service With AWS Fargate
+
+	Create a Docker container image that contains all of the code and configuration required to run the Mythical Mysfits backend as a microservice API created with Flask.
+	
+3. Automate Deployments using AWS Code Services
+
+	Create a fully managed CI/CD stack that will automatically deliver all of the code changes that you make to your code base to the service you created during the last module..
+	
+
+
+ - Module 3: Store Mysfit Information
+ 
+
+	In this module you will set up Amazon DynamoDB to store the mysfit information in a central database table.  
+
+	Create a table in Amazon DynamoDB, a managed and scalable NoSQL database service on AWS with super fast performance. Rather than have all of the Mysfits be stored in a static JSON file, we will store them in a database to make the websites future more extensible and scalable.
+	
+	
+	Steps:
+	
+1. Create A DynamoDB Table
+
+	To create the table using the AWS CLI, execute the following command in the Cloud9 terminal: "aws dynamodb create-table --cli-input-json file://~/environment/aws-modern-application-workshop/module-3/aws-cli/dynamodb-table.json" 
+	
+2. Add Items To The DynamoDB Table
+
+	To call this API using the provided JSON file, execute the following terminal command:  "aws dynamodb batch-write-item --request-items file://~/environment/aws-modern-application-workshop/module-3/aws-cli/populate-dynamodb.json"
+	
+3. Copy The Updated Flask Service Code
+
+	To copy the new files into your CodeCommit repository directory, execute the following command in the terminal: "cp ~/environment/aws-modern-application-workshop/module-3/app/service/* ~/environment/MythicalMysfitsService-Repository/service/"
+	
+4. Copy The Updated Flask Service Code
+
+	
+5. Update S3
+
+	Need to publish a new index.html page to our S3 bucket so that the new API functionality using query strings to filter responses will be used. 
+	
+
+  - Module 4: Setup User Registration
+	
+	Overview:
+	
+	In order to add some more critical aspects to the Mythical Mysfits website, like allowing users to vote for their favorite mysfit and adopt a mysfit, we need to first have users register on the website. To enable registration and authentication of website users, we will create a User Pool in AWS Cognito - a fully managed user identity management service. 
+	
+
+	Steps:
+1. Create The Cognito User Pool
+
+	To create the Cognito User Pool where all of the Mythical Mysfits visitors will be stored, execute the following CLI command: "aws cognito-idp create-user-pool --pool-name MysfitsUserPool --auto-verified-attributes email"
+
+2. Create A Cognito User Pool Client
+
+	
+3. Create An API Gateway VPC Link
+
+	Create the VPC Link for our upcoming REST API using the following CLI command: "aws apigateway create-vpc-link --name MysfitsApiVpcLink --target-arns REPLACE_ME_NLB_ARN"
+	
+4. Create The REST API Using Swagger
+
+	Execute the following AWS CLI command:  "aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body file://~/environment/aws-modern-application-workshop/module-4/aws-cli/api-swagger.json --fail-on-warnings"
+	
+5. Deploy The API
+
+6. Update the Flask Service Backend
+
+	To accommodate the new functionality to view Mysfit Profiles, like, and adopt them, we have included updated Python code for your backend Flask web service.
+	
+7. Update The Mythical Mysfits Website In S3
+
+
+- Module 5: Capture User Behavior
 
 
 
