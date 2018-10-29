@@ -88,7 +88,7 @@ ubuntu sleep infinity`)
     2. Deploy an application
     3. Expose the app
     4. Scale the number of instances of the application within the minikube cluster
-    5. Update and roll back the application across all scaled instances within the cluster
+    5. Update and roll back the application across all scaled instances within the cluster - rolling back the application was incredibly easy with a single command specifying version
 
 ## Area 2
 > Include notes here about each of the links
