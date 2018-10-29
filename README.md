@@ -105,7 +105,7 @@ With the current state of virtualization technology, the flexibility of VMs and 
 
 [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/#Task_0)
 
-Time: 1 hour
+Time: 60 min
 
 **Task 1: Run some simple Docker containers**
 
@@ -190,6 +190,8 @@ My newly-pushed Docker images
 
 [Lab: Doing more with Docker images](https://training.play-with-docker.com/ops-s1-images/)
 
+Time: 60min
+
 * *Layers* - A Docker image is built up from a series of layers. Each layer represents an instruction in the image’s Dockerfile. Each layer except the last one is read-only.
 
 * *Dockerfile* - A text file that contains all the commands, in order, needed to build a given image. The Dockerfile reference page lists the various commands and format details for Dockerfiles.
@@ -249,6 +251,8 @@ Another important note about layers: each layer is immutable. As an image is cre
 ****
 
 [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
+
+Time: 15 min
 
 Virtual machines and containers differ in several ways, but the primary difference is that containers provide a way to virtualize an OS so that multiple workloads can run on a single OS instance. With VMs, the hardware is being virtualized to run multiple OS instances. Containers’ speed, agility, and portability make them yet another tool to help streamline software development.
 
