@@ -24,6 +24,17 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     
   - Apart from the above, the tutorial is simple enough to follow.
   - The wireshark packet capturing of the openflow packets as guided in the tutorial did not work for me. Maybe, I will revisit the issue at a later time.
+  
+> DPDK Skeleton
+  - Attempt 1: Trying to run on the Nimbus cluster
+    1. Hugepages not reserved
+    2. sudo echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+      OR
+       sudo echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+       throw "Permission Denied" errors
+  - Attempt 2: Trying on the cloudlab server with onvm profile
+        Core 1 Forwarding Packets
+        As per my understanding of the documentation, this means that the NIC is working with DPDK.
 
 > OpenNetVM NFV Platform
   - Roughly same as covered in class.
