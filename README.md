@@ -72,21 +72,200 @@ docker users take advantage of this feature not only for security, but to test t
 **spend 2 hour**
 
 ---
+### [what is a container](https://www.youtube.com/watch?v=EnJ7qX9fkcU)
++ container to some extend is used to cover a multitude of things that's one of the things that i think is a little bit confusing about it so let's start the very most simple the very simplest form of water container is so here*we have an operating system, and for argument's sake let's say that it's Linux, inside operating system you can run processes, processes share an address space they share a process name space they share pretty much everything now that's useful absolutely. you will running all sorts of things inside of all these operating systems. it's designed to do that it's designed to schedule these things and that's all well and good. however waht if you actually want to isolate process from one of the other processes what if you want some kind of sandbox for that process to run. 
++ sandbox is that the process for start has its own process namespace and okay so when you if i were to get a shell into this container i would see just the processes running inside of that container. it has own process name space. we also have c group which allows us to also restrict what this process is able to do. there are certain capabilities there are certain resource limits that we can apply this container and that allows us for a certain degree of isolation when it's combined with the process namespace and that's the most fundamental notion of the runtime definition of a container.
++ one process per containers that a container is used in the docker sense and in most cases that you will see the container process is actually completely tied in with the lifecycle of the container itself. *the container process when the container process exits the container ends*
++ container can run the instances of image
+
++ docker host used to save imagem to make sure image's safe. also designed to be able to configure the infrastructure inside of this docker host as well so it's not only container lifecycle management but it is also able to do network configuration and storage configuration so what i mean by network and storage configuration well inside of thi docker. host docker will set up certain kinds of networking right.
++ volume is very simply a persistent area of storage so container will have or may have a volume if it wants to persist any data beyond the lifecycle of the container.
+spent 30 min
+
+---
+### [containers and vms - a practical comparson](https://www.youtube.com/watch?v=L1ie8negCjc)
+
++ supervisor: interact different types of NIC cards from all different types of hardware right same thing from a storage perspective
++ keeps this operating system in effect pretty simple
++ you can size it
++ container can package up all those dependencies as a part of the docker file where that container image runs
++ VM through hypervisor to create virtual hardware eviroment and then run operating system
++ container  through namespace and Cgroup to divide a new environment based on a same kernel.
+spent 30 min
+
+---
+### [docker intro](https://training.play-with-docker.com/beginner-linux/)
++Run a single task in an Alpine Linux container(same in Lab: Devops Docker Beginners Guide)
+
++ run an interactive ubuntu container
+interactive says you want an interactive session.
+tty allocates a pseudo-tty.
+rm tells Docker to go ahead and remove the container when it’s done executing.
+The first two parameters allow you to interact with the Docker container same as (-it).
+
+
+ + Run a background MySQL container 
+  
+  docker container run \
+ --detach \
+ --name mydb \
+ -e MYSQL_ROOT_PASSWORD=my-secret-pw \
+ mysql:latest
+--detach will run the container in the background.
+--name will name it mydb.
+-e will use an environment variable to specify the root password (NOTE: This should never be done in production).
+You can check what’s happening in your containers by using a couple of built-in Docker commands: docker container logs and docker container top
+
++ build a simple website image
+
+  Make sure you’re in the linux_tweet_app directory.
+  Display the contents of the Dockerfile.
+  In order to make the following commands more copy/paste friendly, export an environment variable containing your DockerID (if you don’t have a DockerID you can get one for free via Docker Cloud).
+
+You will have to manually type this command as it requires your unique DockerID.
+
+export DOCKERID=<your docker id>
+  Use the docker image build command to create a new Docker image using the instructions in the Dockerfile.
+  
+  Use the docker container run command to start a new container from the image you created.
+
+As this container will be running an NGINX web server, we’ll use the --publish flag to publish port 80 inside the container onto port 80 on the host. This will allow traffic coming in to the Docker host on port 80 to be directed to port 80 in the container. The format of the --publish flag is host_port:container_port.
+
+ docker container run \
+ --detach \
+ --publish 80:80 \
+ --name linux_tweet_app \
+ $DOCKERID/linux_tweet_app:1.0
+Any external traffic coming into the server on port 80 will now be directed into the container on port 80.
+
+In a later step you will see how to map traffic from two different ports - this is necessary when two containers use the same port to communicate since you can only expose the port once on the host.
+
+Click here to load the website which should be running.
+
+Once you’ve accessed your website, shut it down and remove it.
+
+
+
++ Modify a running website
+use vi to modify index 
++ update the image
+ docker container run \
+ --detach \
+ --publish 80:80 \
+ --name linux_tweet_app \
+ $DOCKERID/linux_tweet_app:2.0
+ update so fast, because juset update changes
+ can run both version by different port
+ 
++ push your images to docker hub
+after login, you can use docker image push to submit your image to your docker hub
+  spent 1 hours
+ ---
+ ### [doing more with docker images](https://training.play-with-docker.com/ops-s1-images/)
++ Image creation from a container
+ 1. create a new container
+ 2. build your own operating system(can you docker container idff <id> to see what changes)
+ 3. commit
+ 4. docker image tag to change the image's name
++ Image creation using a Dockerfile
+  
+ 1. write a code file
+ 2. write a dockfile as script
+ 3. use docker image build to change the image
+ 4. pull 
+ 
+ ---
+ ### [Lightboard VMs vs. Containers: Advanced Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
+ +containers in VM can be complimentary as containers can run in side virtual machines in a virtual machine everythingbut the hardware is comprised inside the disk image that makes up the virtual  machine meaning the inside of this image we have the kernel the init system the user space programs and the application themselves. this depending on the size of the user space and the applicatioon can range from hundreds of megabytes to tens of gigabytes in a container depending on the type the application we have inside it. the size can range from tens of megabytes up to gigabytes.
+ + if e have applications that lend themself very well being containerized like golang applications we might have containers that are very small in size even in the single digists digits of megabytes if we have traditional application we may end up with containers that are as big as virtual machines disk images.
++ in a VM the process of isolation is very straightforward because what we have is we have boundaries that are created outside the X86 platform meaning that every process included in the kernel the init system and even the bias or the efi subsystem a running inside a sandbox. 
++ VM include process user space kernel+ INIT and EFI, but container just include process.
+
+---
+
+### [Docker Networking Hands-on Lab](https://training.play-with-docker.com/docker-networking-hol/)
++ The docker network command is the main command for configuring and managing container networks. Run the docker network command from the first terminal.
++ Run a docker network ls command to view existing container networks on the current Docker host.
++ The docker network inspect command is used to view network configuration details. These details include; name, ID, driver, IPAM driver, subnet info, connected containers, and more.
++ Every clean installation of Docker comes with a pre-built network called bridge. Verify this with the docker network ls
++ Install the brctl command and use it to list the Linux bridges on your Docker host. You can do this by running sudo apt-get install bridge-utils.
++ Then, list the bridges on your Docker host, by running brctl show.
++ You can also use the ip a command to view details of the docker0 bridge.
++ Create a new container by running docker run -dt ubuntu sleep infinity.
+
+
+### [Swarm Mode Introduction for IT pros](https://training.play-with-docker.com/ops-s1-swarm-intro/)
++ Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose.
++ initialize your swarm
+1. First thing we need to do is tell our Docker hosts we want to use Docker Swarm Mode.
+   command: docker swarm init --advertise-addr $(hostname -i)
+   add worker: docker swarm join --token SWMTKN-1-4aqqkimpge90ot4d57aphgdawlllbu0bciosv5tbfgq2ygafb2-6e1jj3inme140ctfkcaql824r          192.168.0.22:2377
+   add manager:docker swarm join-token manager
+2. show swarm members
+   docker node ls
+3. test app Clone the Voting App from github
+4. deploy a stack
+   A stack is a group of services that are deployed together: multiple containerized components of an application that run in separate instances. Each individual service can actually be made up of one or more containers, called tasks and then all the tasks & services together make up a stack.
+   
+5. Let’s list the tasks of the vote service
+  docker service ps voting_stack_vote
+6. scaling an application
+  docker service scale voting_stack_vote=5
+ spent 60 mins
+---
+### [docker swarm vs kubernetes](https://www.youtube.com/watch?v=L8xuFG49Fac)
+
++ Kubernetes is an open-source system for automating deployment, scaling, and management of containerized application.
++ swarm feature highlights:
+1. cluster management intergrated with docker engine
+2. decentralized design
+3. deciarative service model
+4. scalling
+
+spent 10 mins
+
+### kubernetes
++ kubernetes character:
+1. portability: support individual cloud, public cloud, compose cloud, multi-cloud
+2. expandaple: modularization, pluggable, mount, composability 
+3. automation: auto-deploy, auto-restart, auto-copy, auto-extend
+
++ module
+ master module
+ >cluster control center always boot in a VM machine
+1. kube-apiserver
+2. ETCD
+3. kube-controller-manager
+4. cloud-controller-manager
+5. plug-in addons
+6. DNS
+7. user interface
+8. container monitor
+9. cluster-level logging
+
++ Node
+1. kubelet
+2. kube-proxy
+3. docker
+4. rkt
+5. supervisord
+6. fluentd
+
+spent 1 hours
+---
+
+
+
+
+
 
  
  
-
-
-
  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
+ 
+ 
+ 
 
 
 
