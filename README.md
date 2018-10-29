@@ -120,5 +120,12 @@ ubuntu sleep infinity`)
   * Updated the application
   * Then used Kubernetes to roll it back to the previous version across the cluster
 
+* [AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)
+  1. Containerize the Monolith
+    * The first step was to get set up (install docker, setup the AWS CLI, clone the repo)
+    * Then I set up a container on ECR following the direction
+    * The final step of containerizing the monolith was building and pushing the docker image to ECR - this was fairly straight forward as they set it up for us in the project
+    * This process for creating the image looks like the following: ![Container Image Build Process]("/container-image-build-process.png")
+
 ## Area 2
 > Include notes here about each of the links
