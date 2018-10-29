@@ -92,7 +92,7 @@ Both containers and VMs have benefits and drawbacks, and the ultimate decision w
 
 With the current state of virtualization technology, the flexibility of VMs and the minimal resource requirements of containers work together to provide environments with maximum functionality.
 
-![Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/#Task_0)
+[Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/#Task_0)
 
 **Task 1: Run some simple Docker containers**
 
