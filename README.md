@@ -89,9 +89,32 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		* A VM needs POST->kernel->init->process 
 		* A container needs sandbox->process
 
-6. Docker Networking
+6. Docker Networking - 45 min
+	- Docker networking setup seems to be entirely through the Docker
+	network command.
+	- Networks attached to Docker containers have drivers and a per
+	network scope
+	- Setting a container to spin and then networking into it to then
+	interact and then make changes
+	- I'm not sure I see the point on the same machine but I guess if
+	you're running your contianer in someone else server this is useful
+	- Using swarm to orchestrate networking seems useful
+	- Initializing a swarm is startlingly easy
+	- Adding nodes to a swarm is as simple as pasting in a generated
+	join command. This clearly demonstrates the ease of using an integrated
+	orchestration tool
+	- Building a testing services in this swarm is very simple and continues
+	to display how useful it is to have swarm built in
+	- The only disadvantages this shows to kubernetes is that I think
+	you can do more with kubernetes it just takes longer to setup
 
-7. Swarm Mode Instruction
+7. Swarm Mode Instruction - 30 min
+	- Again this demonstrates how convenient it is to have swarm be built
+	buy docker and integrated
+	- A stack in the context of Docker Swarm is a collection of services
+	that are deployed together. Like a development stack
+	- Both Docker Swarm and kubernetes use .YAML files to define the
+	structure of their system management
 
 8. Kubernetes VS. Swarm - 4 min
 	- Comparison of orchestration systems
