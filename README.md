@@ -69,15 +69,91 @@ how to build images and run a custom application using docker.
 what is bind mount and how to modify a running website.  
 how to update and push images.  
 
--Lab: Doing more with Docker Images(https://training.play-with-docker.com/ops-s1-images/)(1hour)
+-Lab: Doing more with Docker Images(https://training.play-with-docker.com/ops-s1-images/)(1hour10min)
 how to create image in docker: 2ways.
 create a image from container, add all the libraries and binaries in it and then commit it in order to create an image.  
 create image using dockerfile: We created two files: our application code (index.js) is a simple bit of javascript code  
 that prints out a message. And the Dockerfile is the instructions for Docker engine to create our custom container.  
 what is image layers and how to use inspect command to inspect particular details about the image.  
 
--Video: VMs Versus Containers Deep Dive(https://www.youtube.com/watch?v=PoiXuVnSxfE)()  
+-Video: VMs Versus Containers Deep Dive(https://www.youtube.com/watch?v=PoiXuVnSxfE)(10min)  
+the differences between virtual machine and containers:size, isolation and boot time.  
+the size of virtual machine is bigger than the size of container.  
+both virtual machine and container are extremely secured, the virtual machine is little securer than container.  
+the boot time of virtual machine is much bigger than the boot time of containers.  
+
+-Lab: Docker Networking(https://training.play-with-docker.com/docker-networking-hol/)(1hour15min)  
+know about the basic knowledgement about the docker networks.  
+how to use the command as well as all of the docker network sub-commands.  
+The docker network inspect command is used to view network configuration details.  
+These details include; name, ID, driver, IPAM driver, subnet info, connected containers, and more.  
+The bridge network is the default network for new containers.  
+This means that unless you specify a different network, all new containers will be connected to the bridge network.  
+how to initialize a swarm and how to create an overlay network.  
+create a server through the overlay network and how to test it.  
+clean up the service we created, the containers we started, and finally disable Swarm mode.  
+
+-Lab: Swarm Mode Introduction(https://training.play-with-docker.com/ops-s1-swarm-intro/)(1hour)  
+Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them.  
+nitializing Docker Swarm Mode is easy. docker swarm init --advertise-addr $(hostname -i)  
+A stack is a group of services that are deployed together:   
+multiple containerized components of an application that run in separate instances.  
+You could edit files and change the specs if you wanted to make the scale size more permanent.  
+docker service scale voting_stack_vote=5  
+the number of replicas for the vote service increase to 5 and in a few seconds Swarm will have all of them running.   
+
+-Video: Kubernetes vs Swarm(https://www.youtube.com/watch?v=L8xuFG49Fac)(4min)  
+docker swarm: enable user to run a container on a cluster.  
+orchestration system manage your container in production.
+Kubernetes is an open-source system for docker.  
+competition between docker swarm and kubernetes:  
+two reasons Kubernetes is better than Swarm: kubernetes is a good way to learn how to use orchestration.  
+kubernetes has far more features and is more wildly used
+
+-Video: Kubernetes in 5 Minutes(https://www.youtube.com/watch?v=PH-2FfFD2PU)(5min)  
+kubernets cluster services: specific configuration and cluster services will run the configuration in infrastructure.  
+worker: is a container host, run cubelet process which is respensible for communicating with the cluster services.  
+yaml file: a pod configuration, in a pod can have running containers.  
+the cluster services will figure out how to schdule the pods in the environment.  
+
+-Kubernetes(https://kubernetes.io/)(30min)
+Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.  
+Kubernetes Features:
+Service discovery and load balancing: No need to modify your application to use an unfamiliar service discovery mechanism.  
+Kubernetes gives containers their own IP addresses and   
+a single DNS name for a set of containers, and can load-balance across them.  
+Automatic binpacking: Automatically places containers based on their resource requirements and other constraints,  
+while not sacrificing availability. Mix critical and best-effort workloads in order to drive up utilization  
+and save even more resources.  
+Storage orchestration: Automatically mount the storage system of your choice,  
+whether from local storage, a public cloud provider such as GCP or AWS,  
+or a network storage system such as NFS, iSCSI, Gluster, Ceph, Cinder, or Flocker.
+Self-healing: Restarts containers that fail, replaces and reschedules containers when nodes die,   
+kills containers that don’t respond to your user-defined health check,  
+and doesn’t advertise them to clients until they are ready to serve.
+Automated rollouts and rollbacks: Kubernetes progressively rolls out changes to  
+your application or its configuration, while monitoring application health to   
+ensure it doesn’t kill all your instances at the same time. If something goes wrong, Kubernetes  
+will rollback the change for you. Take advantage of a growing ecosystem of deployment solutions.
+Secret and configuration management: Deploy and update secrets and application configuration   
+without rebuilding your image and without exposing secrets in your stack configuration.
+Batch execution: In addition to services, Kubernetes can manage your batch   
+and CI workloads, replacing containers that fail, if desired.
+Horizontal scaling: Scale your application up and down with a simple command,  
+with a UI, or automatically based on CPU usage.
+
+## Big Data and Machine Learning
+> Include notes here about each of the links  
+  
+-Video: Hadoop Intro(https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)   
+After 2000, data grew quickly, data process needs large memory and fast processors.  
+possible solution for growing data: multiple machine(distributed system), challenges of distributed system  
+high chances of system failures, limit bandwith, high programming complexity.  
+Hadoop: allows for distributed processing of large data sets across clusters of commodity computers.  
+four features of hadoop: economical, reliable, scalable and flexible.  
+
+-QwikLab: Analyze Big Data with Hadoop(https://awseducate.qwiklabs.com/focuses/19?parent=catalog)   
+know how to use and create an Amazon S3 bucket  
+know how to launch an Amazon EMR cluster  
 
 
-## Area 2
-> Include notes here about each of the links
