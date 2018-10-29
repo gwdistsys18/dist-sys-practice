@@ -256,6 +256,40 @@ Time: 15 min
 
 Virtual machines and containers differ in several ways, but the primary difference is that containers provide a way to virtualize an OS so that multiple workloads can run on a single OS instance. With VMs, the hardware is being virtualized to run multiple OS instances. Containers’ speed, agility, and portability make them yet another tool to help streamline software development.
 
+****
+
+*Networking and Orchestration Part*
+
+[Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)
+
+Time: 45min
+
+**Section #1 - Networking Basics**
+
+The ```docker network``` command is the main command for configuring and managing container networks. ```docker network ls``` command can view existing container networks on the current Docker host. Each network gets a unique ```ID``` and ```NAME```. The ```docker network inspect``` command is used to view network configuration details. 
+
+**Section #2 - Bridge Networking**
+
+Every clean installation of Docker comes with a pre-built network called **bridge**. Verify this with the ```docker network ls```. The ***bridge*** network is the default network for new containers. This means that unless you specify a different network, all new containers will be connected to the ***bridge*** network. Create a new container by running ```docker run -dt ubuntu sleep infinity```. The port mapping is actually port address translation (PAT).
+
+![]()
+
+**Section #3 - Overlay Networking**
+
+Create a new overlay network called “overnet” by running ```docker network create -d overlay overnet```. Use the docker network ls command to verify the network was created successfully. Use the ```docker network inspect <network>``` command to view more detailed information about the “overnet” network. After having a Swarm initialized and an overlay network, we can create a service that uses the network.
+
+```
+docker service create --name myservice \
+--network overnet \
+--replicas 2 \
+ubuntu sleep infinity
+```
+ 
+Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. Macvlan networks can assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
+
+
+
+
 > Include notes here about each of the links
 
 ## Area 2
