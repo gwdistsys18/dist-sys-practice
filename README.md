@@ -3,6 +3,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Docker and Containers
 ### Beginner Level
+
+****
+
 * [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 
 Time: 20 min.
@@ -24,6 +27,8 @@ Docker is a computer program that performs operating-system-level virtualization
 4). Docker is freeing up a lot of those rasks of the maintenance of stuff and allowing us to get more of our time to innovate. 
 
 5). Docker is the core essence that you need to understand first but once you've moved beyond that you are probably need to use other tools for filling the gaps in your toolset.
+
+****
 
 * [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
 
@@ -52,6 +57,8 @@ In the demo above, I used the ```docker image pull``` command to download the **
 
 * *Docker Store* - Store is, among other things, a registry of Docker images. You can think of the registry as a directory of all available Docker images. You’ll be using this later in this tutorial.
 
+****
+
 ### Intermediate Level
 
 *Containers Part*:
@@ -67,6 +74,8 @@ A container is a standard unit of software that packages up code and all its dep
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-26%2022.23.28.png?raw=true)
 
 Container images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
+
+****
 
 * [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc) 
 
@@ -91,6 +100,8 @@ Both containers and VMs have benefits and drawbacks, and the ultimate decision w
 | Fully isolated and hence more secure | Process-level isolation, possibly less secure |
 
 With the current state of virtualization technology, the flexibility of VMs and the minimal resource requirements of containers work together to provide environments with maximum functionality.
+
+****
 
 [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/#Task_0)
 
@@ -174,6 +185,11 @@ To persist the changes you made to the index.html file into the image, you need 
 My newly-pushed Docker images
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.22.30.png?raw=true)
+
+****
+
+[Lab: Doing more with Docker images](https://training.play-with-docker.com/ops-s1-images/)
+
 
 
 > Include notes here about each of the links
