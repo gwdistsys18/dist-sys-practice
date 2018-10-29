@@ -328,6 +328,47 @@ Time: 120 min
 
 	Amazon S3 can be used to host static websites without having to configure or manage any web servers. A new S3 bucket that will be used to host all of the static assets (e.g. HTML, CSS, JavaScript, and image files) for the web application.
 	
+3. Upload Content
+
+	Upload the website assets for this module to your S3 bucket. You can use the AWS Management Console (requires Google Chrome browser).  It seems I could also do it with Firefox.
+	
+4. Add a Bucket Policy to Allow Public Reads
+
+	You can define who can access the content in your S3 buckets using a bucket policy. Bucket policies are JSON documents that specify what principals are allowed to execute various actions against the objects in your bucket.
+	
+	This steps need to pay more attention. When I did it first time, the public was not enabled. The second time works. 
+	
+5. Enable Website Hosting
+
+	This will make your objects available at the AWS Region-specific website endpoint of the bucket: .s3-website-.amazonaws.com. 
+	
+6. Validate your implementation
+
+	Visit your website's base URL (this is the URL you noted in the prior section) in the browser of choice. You should see the Wild Rydes home page displayed. If you need to lookup the base URL, visit the S3 console, select your bucket and then click the Static Web Hosting on the Properties tab. 
+	
+
+ - Module 2. User Management
+
+	Overview:  
+
+	This module create an Amazon Cognito user pool to manage your users' accounts. Deploy pages that enable customers to register as a new user, verify their email address, and sign into the site.
+	
+	  Steps:
+   
+1. Create an Amazon Cognito User Pool
+
+	Amazon Cognito provides two different mechanisms for authenticating users. You can use Cognito User Pools to add sign-up and sign-in functionality to your application or use Cognito Identity Pools to authenticate users through social identity providers such as Facebook, Twitter, or Amazon, with SAML identity solutions, or by using your own identity system. For this module you'll use a user pool as the backend for the provided registration and sign-in pages. 
+	
+2. Add an App to Your User Pool
+
+	From the Amazon Cognito console select your user pool and then select the App clients section
+	
+3. Update the config.js File in Your Website Bucket
+
+	The /js/config.js file contains settings for the user pool ID, app client ID and Region. Update this file with the settings from the user pool and app you created in the previous steps and upload the file back to your bucket.
+
+4. Validate your implementation
+
 
 
 
