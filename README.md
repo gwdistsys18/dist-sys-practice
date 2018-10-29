@@ -50,14 +50,48 @@ Analyze
 Access
 
 ### QwikLab: Analyze Big Data with Hadoop (80min)
+- Create a bucket with S3 service to store log files and output data
+- Launch a Hadoop cluster to help with processing data
+- Add Hive Script as a step in the cluster to process sample data
+- Run the Hive Script and check result in S3 bucket when it is completed
+- download the 000000_0 file to local computer to check the output
+
 ### QwikLab: Intro to S3 (25min)
+- Create a bucket and configure to allow versioning and set permissions
+- upload an image to the bucket
+- change the permission setting and make the image public
+- create a bucket policy to set permission setting
+- get access to different versions of images with the same name
+
 ### QwikLab: Intro to Amazon Redshift (30min)
+- Amazon Redshift is a fast, fully managed data warehouse. 
+- launch a Redshift cluster and configure
+- use Pgweb as the SQL interface to Redshift
+- create a table by executing SQL commands in Redshift
+- import data from S3 and run the Query
+
 ### Video: Short AWS Machine Learning Overview (5min)
+Three layers of machine learning:
+- Framework and interfaces
+- Machine learning platforms
+- Application services
+
 ### AWS Tutorial: Analyze Big Data with Hadoop (30min)
+
 ### QwikLab: Intro to Amazon Machine Learning (40min)
 ### Docs: AWS Machine Learning
 ### AWS Tutorial: Build a Machine Learning Model (30min)
 ### Video Tutorial: Overview of AWS SageMaker (40min)
+This tutorial introduced SageMaker with a few examples.
+
+Sagemaker console: 
+Notebook instance: explore AWS data in your notebooks, and use algorithms to create models via training jobs
+Jobs: track training jobs at your desk or remotely. Leverage high-performance AWS algorithms
+Models: create models for hosting from job outputs, or import externally trained models into Amazon SageMaker.
+Endpoint: deploy endpoints for developers to use in production. A/B test model variants via an endpoint
+
+The four parts and be linked to be used together but they can also be used separately.
+
 ### AWS Tutorial: AWS SageMaker (40min)
 
 ## Area 2 Cloud Web Apps
