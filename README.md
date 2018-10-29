@@ -287,7 +287,21 @@ ubuntu sleep infinity
  
 Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. Macvlan networks can assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
 
+****
 
+[Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/)
+
+Time: 45 min
+
+* **Compose** is used to control multiple containers on a single system. Much like the Dockerfile we looked at to build an image, there is a text file that describes the application: which images to use, how many instances, the network connections, etc.
+
+* **Swarm Mode** tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose, but to define and maintain high availability levels, scaling, load balancing, and more. With all this functionality, Swarm mode is used more often in production environments than it’s more simplistic cousin, Compose.
+
+![]()
+
+![]()
+
+Docker Swarm can easily and quickly scale your application’s services up and down as needs require. Using only a couple of commands enables you to deploy a stack of services using Docker Swarm Mode to orchestrate the entire stack, all maintained in the simple, human readable Docker Compose file format.
 
 
 > Include notes here about each of the links
