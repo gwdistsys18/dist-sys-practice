@@ -93,3 +93,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * A user-generated algorithm in a separate Python file can also be used
   * SageMaker can also host already trained models, but they may need to be converted
   * You can also build your own algorithm Docker container
+* AWS Tutorial: AWS SageMaker (took ~45 minutes)
+  * Started by creating S3 bucket and SageMaker notebook instance
+  * In the notebook, loaded the dataset, which is images of handwritten numbers
+  * Configured the built-in k-means algorithm with data and output locations, etc.
+  * Used `fit` method to begin training
+  * Used `deploy` to create a model, an endpoint configuration, and an endpoint
+  * Used `predict` to get inferences for 100 images; they were mostly accurate
