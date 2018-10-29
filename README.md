@@ -102,14 +102,24 @@ There are different ways to use containers. These include:
 3. **In the background:** For long-running services like websites and databases.
 
  **Run a single task in an Alpine Linux container**
+ 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2019.46.52.png?raw=true)
 
 Containers which do one task and then exit can be very useful. You could build a Docker image that executes a script to configure something. Anyone can execute that task just by running the container - they don’t need the actual scripts or configuration information.
 
  **Run an interactive Ubuntu container**
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2019.56.55.png?raw=true)
+
 Interactive containers are useful when you are putting together your own image. You can run a container and verify all the steps you need to deploy your app, and capture them in a Dockerfile.
 
  **Run a background MySQL container**
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2020.04.23.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2020.12.27.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2020.16.05.png?raw=true)
 
 Background containers are how you’ll run most applications
 
