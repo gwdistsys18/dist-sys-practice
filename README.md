@@ -594,7 +594,7 @@ Time: 150 min
 - Cleanup. Be sure to delete all the resources created during the workshop in order to ensure that billing for the resources does not continue for longer than you intend. 
 
 
-- Final summary: There are a lot of steps in this project. A good practice is to use a notepad to save the every steps input commands and output for later check, and save the screenshot for further check. There are some wrong steps in the official steps. Some steps are not very clear. So itt is very important to understand every steps.
+- Final summary: There are a lot of steps in this project. A good practice is to use a notepad to save the every steps input commands and output for later check, and save the screenshot for further check. There are some wrong steps in the official steps. Some steps are not very clear. So it is very important to understand every steps.
 
 
 
