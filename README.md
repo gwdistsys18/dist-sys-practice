@@ -395,6 +395,41 @@ Time: 120 min
 
 	Test the function that you built using the AWS Lambda console. 
 
+- Module 4. RESTful APIs
+
+	Overview:  
+
+	Use Amazon API Gateway to expose the Lambda function you built in the previous module as a RESTful API. This API will be accessible on the public Internet. It will be secured using the Amazon Cognito user pool you created in the previous module. Using this configuration you will then turn your statically hosted website into a dynamic web application by adding client-side JavaScript that makes AJAX calls to the exposed APIs..  
+	
+   
+   Steps:
+   
+1. Create a New REST API
+
+	Select Services then select API Gateway under Application Services to create api.
+	
+	  
+2. Create a Cognito User Pools Authorizer
+
+	In this step you'll configure an authorizer for your API to use the user pool you created in Module 2.
+	
+3. Create a new resource and method
+
+	Create a new resource called /ride within your API. Then create a POST method for that resource and configure it to use a Lambda proxy integration backed by the RequestUnicorn function you created in the first step of this module.
+	  
+4. Deploy Your API
+
+	From the Amazon API Gateway console, choose Actions, Deploy API.
+	  
+5. Update the Website Config
+
+	Update the /js/config.js file in your website deployment to include the invoke URL of the stage you just created.
+	  
+6. Validate your implementation
+
+	Visit /ride.html under your website domain.
+
+
 
 
 #### [AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)  
