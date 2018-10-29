@@ -48,5 +48,25 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Docker image history keeps track of image layers (similar to git commit history)
   * Layers saves us time by caching levels of builds to avoid having to go through the whole process when unnecessary
 
+* [VMs Versus Containers Deep Dive Video](https://www.youtube.com/watch?v=PoiXuVnSxfE)
+  * **FILL ME IN**
+
+* [Docker Networking Lab ~35 mins](https://training.play-with-docker.com/docker-networking-hol/)
+  * `docker network` is the primary command to manage networks with Docker
+  * Docker uses a docker0 network to bridge containers to the host network
+  * Able to map ports into the container and use `docker ps` to view port mappings
+  * Swarms are replica groups of containers led by leaders with workers
+  * Created a swarm with one node as a manager and joined the second node as a worker
+  * Overlay networks are created on the manager node and deployed to worker nodes as needed, which is cool
+  * You can create a service on the overlay network with replicas, which will deploy onto nodes and wait for it to start (ex. `docker service create --name myservice \
+--network overnet \
+--replicas 2 \
+ubuntu sleep infinity`)
+  * Overlay network gives two nodes IPs on a network
+  * Service discovery works by running a local Docker nameserver on 127.0.0.11:53 - this allows us to use service names rather than IP addresses if desired
+  * Leave a swarm with `docker swarm leave --force`
+
+* [Swarm Mode Introduction Lab](https://training.play-with-docker.com/ops-s1-swarm-intro/)
+
 ## Area 2
 > Include notes here about each of the links
