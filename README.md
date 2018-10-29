@@ -46,9 +46,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Swarm does load-balancing automatically
 * Kubernetes is more powerful in general
 11. Kubernetes in 5 Minutes (5min)
-* //TODO
+* The basic computation unit is a node
+* A pod contains multiple nodes. The application can be scaled up in the unit of pods.
+* A deployment controller controls how to create and run pods (example: number of replicas)
+* k8s cluster service redistribute tasks to other pods if one of them is down
 12. Learn more about Kubernetes on your own (30min)
-* Kubernetes
+* `kubectl run kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8080` will create a new deployment "kubernetes-bootcamp" using image "google-samples/kubernetes-bootcamp:v1" and run (expose) the application on the port 8080
+* Use `kubectl scale` to scale up the application (create more replicas)
+* Kubernetes automatically rollback to previous version if the new version fails
 13. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them (90min)
 * //TODO
 
