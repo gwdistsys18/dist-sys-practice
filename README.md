@@ -79,6 +79,12 @@ Three layers of machine learning:
 ### AWS Tutorial: Analyze Big Data with Hadoop (30min)
 
 ### QwikLab: Intro to Amazon Machine Learning (40min)
+- create a bucket and upload training data to the bucket
+- create a datasource with Amazon machine learning that refers to the training data in the S3 bucket
+- create a model from the datasource 
+-
+-
+
 ### Docs: AWS Machine Learning
 ### AWS Tutorial: Build a Machine Learning Model (30min)
 ### Video Tutorial: Overview of AWS SageMaker (40min)
