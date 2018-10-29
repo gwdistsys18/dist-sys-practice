@@ -105,6 +105,93 @@ Layers - A Docker image is built up from a series of layers.
 Dockerfile - A text file that contains all the commands, in order, needed to build a given image.  
 Volumes - A special Docker container layer that allows data to persist and be shared separately from the container itself.  
 
+* [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE) (10 min)  
 
-## Area 2
-> Include notes here about each of the links
+Size  
+VM: Depending on the size of user space and application can range from hundreds of megabytes to tens of gigabytes.  
+Container: Depending on the type of application we have inside it, the size can range from tens of megabytes up to gigtabytes.  
+
+Isolation  
+VM: Have boundaries that are created outside the x86 platform. Extremely difficult for attackers.  
+Container: By no means insecure. As secure as the kernel they are running on.  
+
+Boot time  
+VM: Several startup times can be divided in 2 sections. One is the system check section, usually takes around 3-4 seconds. The startup of process itself takes about 500ms.  
+Container: Run the process, like in the VM, takes about 500ms. Setup the sandbox, takes no time.  
+
+#### Networking and Orchestration  
+* [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/) (1 hr)  
+
+In this lab we learn about key Docker Networking concepts.  
+
+Networking Basics  
+The docker network command is the main command for configuring and managing container networks.  
+Run a docker network ls command to view existing container networks on the current Docker host.  
+The docker network inspect command is used to view network configuration details.  
+The docker info command shows a lot of interesting information about a Docker installation.  
+
+Bridge Networking  
+Every clean installation of Docker comes with a pre-built network called bridge.  
+The bridge network is the default network for new containers. This means that unless you specify a different network, all new containers will be connected to the bridge network.  
+The Docker host can ping the container over the bridge network.  
+The new container can ping the internet and therefore has a valid and working network configuration.  
+Traffic that hits the Docker host on port 8080 will be passed on to port 80 inside the container. If start a new container from the official NGINX image without specifying a command to run, the container will run a basic web server on port 80.  
+
+Overlay Networking  
+Initialize a new Swarm, join a single worker node, and verify the operations worked.  
+Create a new overlay network. 
+Create a service that uses the network.  
+Test the network.  
+Test service discovery.  
+
+Cleaning Up  
+Execute the docker service rm myservice command to remove the service called myservice.  
+Use the docker kill <CONTAINER ID ...> command to kill the ubunut and nginx containers.  
+Use the docker swarm leave --force command to remove node1 and node2 from the Swarm.  
+
+* [Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/) (45 min)  
+
+Initialize Your Swarm  
+
+Show Swarm Members  
+How multiple managers and workers interact  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/swarm.png)  
+
+Clone the Voting App  
+
+Deploy a Stack  
+A stack is a group of services that are deployed together: multiple containerized components of an application that run in separate instances.  
+Logical interpretation of how stacks, services and tasks are inter-related  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/stack.png)  
+
+Scaling An Application  
+New architecture after scaling  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/scaling.png)  
+
+* [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac) (5 min)  
+
+Swarm is an example of orchestration system.  
+Kubernetes is a popular orchestration system for docker, orignally came from Google.  
+Docker contains its built-in orchestration system called Docker Swarm.  
+Kubernetes has far more features it's more widely used.  
+
+* [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU) (5 min)  
+
+Architectural component  
+Kubernetes cluster services. "Desired state management": Feed the cluster services a specific configuration.  
+Worker: A container host.  
+
+Use case  
+.yaml file  
+Deployment file: A pod configuration. Can have running containers in a pod.  
+Replica: Specify how many of pods need to be running.  
+
+The cluster services are responsible to make sure that configuration is running across of container or workers.  
+
+#### Bring it all together  
+* [AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/cn/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card) (2 hr)  
+Deploy a monolithic node.js application to a Docker container, then decouple the application into microservices without any downtime. The node.js application hosts a simple message board with threads and messages between users.  
+
+## Cloud Web Applications  
+### Beginner Level
+a
