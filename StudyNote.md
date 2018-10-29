@@ -41,6 +41,11 @@ Then to the cache,and then set up the c group in the process name space.
 *(1)* **The container size:** It is depend on the programming language.For example, the application used by go language can be 1 M size.However,some traditional software will need GB level storage. And if the application need user space tool. The container will build based on another user space container.  
 *(2)* **Isolation:** VM is a sandbox, it has a clear boundary,so the attack wil be very hard because the vm is very isolated on its host machine.In container side, it is easier to attack the kernel from the process in container.  
 *(3)* **Boot time:** Boot time in VM has 2 sections. One is System check section(including X86post,EFI or Boot check,kernel boot,init startup),usually3-4seconds;The second is porcess running section(about 5ms). If you use system v or parallel on VM. Its speed will increase close to container. Then container is started.First setting up the process sandbox and the other one is  staring up the application. This is very fast.  
-
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/4docker_swarm.png)  
+&lt;video4-Docker Swarm basic structure&gt;  
+docker swarm is less powerful than the kubernate. But it is easier to use.
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/5kubernetes.png)  
+&lt;video5-Kubernetes simple structure&gt;  
+There are one **kubernate cluster server** and several **worker nodes**.Each worker has a kubernate process which is responsable to communicate with the cluster server. User case:In the deployment file there are mainly two part:Pod has one or several container image. User can set the replicas number. If a worker node die, the cluster server will be noticed and send a new task with losed job to living workers.
 ## Area 2
 > Include notes here about each of the links
