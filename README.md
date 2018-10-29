@@ -299,10 +299,13 @@ Time: 45 min
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2017.32.53.png?raw=true)
 
-![]()
+Logical interpretation of how stacks, services and tasks are inter-related:
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2017.41.17.png?raw=true)
 
 Docker Swarm can easily and quickly scale your application’s services up and down as needs require. Using only a couple of commands enables you to deploy a stack of services using Docker Swarm Mode to orchestrate the entire stack, all maintained in the simple, human readable Docker Compose file format.
 
+****
 
 > Include notes here about each of the links
 
