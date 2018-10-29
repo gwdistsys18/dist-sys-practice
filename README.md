@@ -53,3 +53,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * Framework and Interfaces: used by companies with experts who build and train ML models
     * ML Platforms: make it easy to build, train, tune, and deploy models without expertise
     * Application Services: APIs for computer vision, speech processing, etc.
+* AWS Tutorial: Analyze Big Data with Hadoop (took ~25 minutes)
+  * Created an S3 bucket and an EC2 key pair
+  * Launched an EMR cluster
+  * Allowed SSH connections to cluster
+  * Steps can be submitted to a cluster, configured when it is set up, or run on the command line after connecting to the master node
+  * The script also analyzes CloudFront log files and determines the number of requests for each OS
+  
