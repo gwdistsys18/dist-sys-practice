@@ -196,9 +196,19 @@ We will then see how to get the details of an image through the inspection and e
 
 **Image creation from a container**
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.50.06.png?raw=true)
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.54.22.png?raw=true)
 
 we can create a container, add all the libraries and binaries in it and then commit it in order to create an image.  We can then use that image just as we would for images pulled down from the Docker Store. 
+
+**Image creation using a Dockerfile**
+
+Instead of creating a static binary image, we can use a file called a Dockerfile to create an image. The final result is essentially the same, but with a Dockerfile we are supplying the instructions for building the image, rather than just the raw binary files. This is useful because it becomes much easier to manage changes, especially as your images get bigger and more complex.
+
+We will use a simple example in this section and build a “hello world” application in Node.js.
+
+With a Dockerfile we can specify precise commands to run for everyone who uses this container. Other users do not have to build the container themselves once you push your container up to a repository (which we will cover later) or even know what commands are used. The Dockerfile allows us to specify how to build a container so that we can repeat those steps precisely everytime and we can specify what the container should do when it runs. There are actually multiple methods for specifying the commands and accepting parameters a container will use, but for now it is enough to know that you have the tools to create some pretty powerful containers.
 
 
 > Include notes here about each of the links
