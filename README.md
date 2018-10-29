@@ -94,6 +94,8 @@ With the current state of virtualization technology, the flexibility of VMs and 
 
 [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/#Task_0)
 
+Time: 1 hour
+
 **Task 1: Run some simple Docker containers**
 
 There are different ways to use containers. These include:
@@ -122,6 +124,21 @@ Interactive containers are useful when you are putting together your own image. 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2020.16.05.png?raw=true)
 
 Background containers are how you’ll run most applications
+
+**Task 2: Package and run a custom app using Docker**
+
+In this step, we’ll learn how to package your own apps as Docker images using a Dockerfile. The Dockerfile syntax is straightforward. In this task, we’re going to create a simple NGINX website from a Dockerfile.
+
+**Build a simple website image**
+
+**Task 3: Modify a running website**
+
+When you’re actively working on an application it is inconvenient to have to stop the container, rebuild the image, and run a new version every time you make a change to your source code.
+
+One way to streamline this process is to mount the source code directory on the local machine into the running container. This will allow any changes made to the files on the host to be immediately reflected in the container.
+
+We do this using something called a bind mount.When you use a bind mount, a file or directory on the host machine is mounted into a container running on the same host.
+
 
 
 > Include notes here about each of the links
