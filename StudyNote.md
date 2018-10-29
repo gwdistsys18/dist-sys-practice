@@ -32,7 +32,15 @@ When you run a container,it will pull the file from the registory.
 Then to the cache,and then set up the c group in the process name space.  
   
 ***Intermediate Level***  
-![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/Screen%20Shot%202018-10-01%20at%2010.32.24%20AM.png)
-![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/Screen%20Shot%202018-10-01%20at%2011.01.13%20AM.png)
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/1Container.png)
+&lt;video1-The basic structure of container&gt;
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/2VM&Container.png)
+&lt;video2-The comparison between VM and containers&gt;
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/3VM&Container_advanced.png)  
+&lt;video3-The advanced details between VM and containers&gt;  
+*(1)* **The container size:** It is depend on the programming language.For example, the application used by go language can be 1 M size.However,some traditional software will need GB level storage. And if the application need user space tool. The container will build based on another user space container.  
+*(2)* **Isolation:** VM is a sandbox, it has a clear boundary,so the attack wil be very hard because the vm is very isolated on its host machine.In container side, it is easier to attack the kernel from the process in container.  
+*(3)* **Boot time:** Boot time in VM has 2 sections. One is System check section(including X86post,EFI or Boot check,kernel boot,init startup),usually3-4seconds;The second is porcess running section(about 5ms). If you use system v or parallel on VM. Its speed will increase close to container. Then container is started.First setting up the process sandbox and the other one is  staring up the application. This is very fast.  
+
 ## Area 2
 > Include notes here about each of the links
