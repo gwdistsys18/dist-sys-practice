@@ -430,18 +430,54 @@ Time: 120 min
 	Visit /ride.html under your website domain.
 
 
+- Finally, Resource Cleanup. It is very important to clean the resource to avoid additional charging.
 
 
 #### [AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)  
 Time: 150 min   
 
-   This lab create a simple FAQ micro-service. The micro-service will return a JSON object containing a random question and answer pair using an Amazon API Gateway endpoint that invokes an AWS Lambda function. 
+  - Again, this is a relatively difficult tutorial. I believe it is not easy to complete it in 150 minutes in first try.
+  
+  - This tutorial build a modern application on AWS. Modern applications are resilient, scalable collections of independent services that abstract away the underlying infrastructure. Modern application development leverages agile development practices, immutable deployments, and programmable infrastructure to continuously release new features to the business and end users.
+  
+  - Implement Mythical Mysfits using these modules:
+  
+    Create Static Website Build a static website, using Amazon Simple Storage Service (S3) that serves static content (images, static text, etc.) for your website.
+    
+    Build Dynamic Website Host your application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.
+    
+    Store Mysfit Data Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.
+    
+    Add User Registration Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.
+    
+    Capture User Clicks Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose. 
+    
 
-1. Create a Lambda Function.   
+ - Module 1: Build a Static Website 
+ 
+ 	Host the static content (html, js, css, media content, etc.) of our Mythical Mysfit website on Amazon S3 (Simple Storage Service)
+	
+	Steps:
+  
+1. Create A New AWS Cloud9 Environment.   
 
-	This create two Amazon S3 buckets -- one for input and one for output.  
+	On the AWS Console home page, type Cloud9 into the service search bar and select it. Click Create Environment on the Cloud9 home page.
    
-2. Test the Lambda function.
+2. Create An S3 Bucket And Configure It For Website Hosting.
+
+	These Steps seem miss something. I add "git checkout python" after "aws s3 website s3://mythical-mysfits-bucket-lijun --index-document index.html" to make it success.
+	
+	
+ - Module 2: Host Your Application On A Web Server
+ 
+
+	In this module you will create a new microservice hosted with AWS Fargate.  
+
+	AWS Fargate is a deployment option in Amazon Elastic Container Service (ECS) that allows you to deploy containers without having to manage any clusters or servers.
+	
+	With Fargate, you get the control of containers and the flexibility to choose when they run without worrying about provisioning or scaling servers. It offers full control of networking, security, and service to service communication and is natively integrated with AWS services for security, networking, access control, developer tooling, monitoring, and logging.
+	
+	
 
 
 
