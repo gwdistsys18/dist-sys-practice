@@ -370,7 +370,30 @@ Time: 120 min
 4. Validate your implementation
 
 
+- Module 3. Serverless Service Backend
 
+	Overview:  
+
+	Use AWS Lambda and Amazon DynamoDB to build a backend process for handling requests for your web application. The browser application that you deployed in the first module allows users to request that a unicorn be sent to a location of their choice. In order to fulfill those requests, the JavaScript running in the browser will need to invoke a service running in the cloud.  
+	
+   
+   Steps:
+   
+1. Create an Amazon DynamoDB Table
+
+	Use the Amazon DynamoDB console to create a new DynamoDB table. Call your table Rides and give it a partition key called RideId with type String. The table name and partition key are case sensitive. 
+
+2. Create an IAM Role for Your Lambda function
+
+	Every Lambda function has an IAM role associated with it. This role defines what other AWS services the function is allowed to interact with. 
+
+3. Create a Lambda Function for Handling Requests
+
+	AWS Lambda will run your code in response to events such as an HTTP request. 
+
+4. Validate Your Implementation
+
+	Test the function that you built using the AWS Lambda console. 
 
 
 
