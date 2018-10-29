@@ -57,6 +57,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 13. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them (90min)
 
 ![Screenshot 1](images/screen2.png)
+![Screenshot 2](images/screen3.png)
+
 
 ## Cloud Web Applications
 1. AWS Tutorial: Launch a VM (15min)
