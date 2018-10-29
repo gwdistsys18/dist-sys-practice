@@ -165,6 +165,16 @@ To persist the changes you made to the index.html file into the image, you need 
 
 **Push your images to Docker Hub**
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.18.40.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.20.11.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.20.51.png?raw=true)
+
+My newly-pushed Docker images
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.22.30.png?raw=true)
+
 
 > Include notes here about each of the links
 
