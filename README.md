@@ -84,6 +84,27 @@ Test the new version.
   
 Push your images to Docker Hub. Docker Hub supports public and private repositories.  
 
+* [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/) (50 min)  
+
+Image creation from a container. this approach of manually installing software in a container and then committing it to a custom image is just one way to create an image. It works fine and is quite common.  
+
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/icc.png)  
+
+Image creation using a Dockerfile. This is useful because it becomes much easier to manage changes, especially as your images get bigger and more complex.  
+
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/icd.png)  
+
+Image layers. Using cache.  
+
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/l&c.png)  
+
+Image Inspection. Docker has an inspect command for images and it returns details on the container image, the commands it runs, the OS and more.  
+
+Terminology:  
+Layers - A Docker image is built up from a series of layers.  
+Dockerfile - A text file that contains all the commands, in order, needed to build a given image.  
+Volumes - A special Docker container layer that allows data to persist and be shared separately from the container itself.  
+
 
 ## Area 2
 > Include notes here about each of the links
