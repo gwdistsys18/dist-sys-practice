@@ -321,6 +321,7 @@ In the AWS Tutorial: Break a Monolith Application into Microservices, I followed
         The main goal of SDN is for the network to be open and programmable. If a specific network behavior is required, users should be able to develop and install application for the purpose.
 
     * **3 layer model of OS and SDN**
+
         |        |                                         OS model                                        |                                                                              SDN model                                                                             |   |   |
         |--------|:---------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---|---|
         | North  |                       Application--Customize OS for users' demand                       |                                                    Network Application--Satisfy user's needs but network related                                                   |   |   |
@@ -361,6 +362,7 @@ In the AWS Tutorial: Break a Monolith Application into Microservices, I followed
             Use regional SDN controller to handle traffic in the region. Controllers communicate via East/West Protocol.
 
     * **SDN vs traditional networks**
+
         |      | Traditional Network                                                                           | SDN                                                                                       |
         |------|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
         | Pros | \                                                                                             | 1. No needs to handle distributed protocol 2. No needs to configure policies in all nodes |
