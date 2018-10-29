@@ -346,6 +346,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 ![](https://s3.amazonaws.com/hadoop357/RTArchitecture.PNG)
 I will go through the project in the order of the architecture
 * Before going through this architecture, I will create a Cloud9 instance and download the client.tar file first
+* p.s You can use "Control + C" to stop it.
 
 ### Amazon Kinesis Data Streams
 ![](https://s3.amazonaws.com/hadoop357/KinesisStream.PNG)
@@ -387,4 +388,28 @@ I will go through the project in the order of the architecture
 	    FROM "SOURCE_SQL_STREAM_001"
 	    GROUP BY FLOOR("SOURCE_SQL_STREAM_001"."ROWTIME" TO MINUTE), "Name";
 
+Finally Connect to destination
 
+* Read messages from the stream
+	* commands: "./consumer -stream wild-summary 
+	![](https://s3.amazonaws.com/hadoop357/readWildStream.png)
+
+* Experiment
+	* Exit previous unicorn
+	* Run "./producer -name Bucephalus
+	* Unicorn change 
+	![](https://s3.amazonaws.com/hadoop357/UnicornChange.png)
+
+### Process streaming data
+* Amazon Kinesis Data Stream -> AWS Lambda -> Amazon S3 -> Amazon DynamoDB
+* In previous section, the work data collecting have been finished.
+* Amazon DynamoDB is a fully managed non-relational database service that provides fast and predictable performance with seamless scalability.
+* Format:
+	* Table name: UnicornSensorData
+	* Partition key: Name
+	* Sort key: StatusTime
+* Create a WildRydesStreamProcessorRole with AWSLambdaKinesisExcutionRole and WildRyedsDynamoDBWritePolicy.
+	* p.s Lambda run your code only when triggered, using only the compute resources needed.
+
+* Create a Lambda function to process the stream
+	* Create a Lambda function "WildRydesStreamProcessor" which will be triggered whenever a new record is available in the wildrydes stream.
