@@ -190,6 +190,12 @@ My newly-pushed Docker images
 
 [Lab: Doing more with Docker images](https://training.play-with-docker.com/ops-s1-images/)
 
+* *Layers* - A Docker image is built up from a series of layers. Each layer represents an instruction in the image’s Dockerfile. Each layer except the last one is read-only.
+
+* *Dockerfile* - A text file that contains all the commands, in order, needed to build a given image. The Dockerfile reference page lists the various commands and format details for Dockerfiles.
+
+* *Volumes* - A special Docker container layer that allows data to persist and be shared separately from the container itself. Think of volumes as a way to abstract and manage your persistent data separately from the application itself.
+
 We will start with the simplest form of image creation, in which we simply commit one of our container instances as an image. Then we will explore a much more powerful and useful method for creating images: the Dockerfile.
 
 We will then see how to get the details of an image through the inspection and explore the filesystem to have a better understanding of what happens under the hood.
@@ -208,7 +214,38 @@ Instead of creating a static binary image, we can use a file called a Dockerfile
 
 We will use a simple example in this section and build a “hello world” application in Node.js.
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2023.37.05.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2023.40.32.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2023.45.54.png?raw=true)
+
+What just happened? We created two files: our application code (index.js) is a simple bit of javascript code that prints out a message. And the Dockerfile is the instructions for Docker engine to create our custom container. This Dockerfile does the following:
+
+* Specifies a base image to pull FROM - the alpine image we used in earlier labs.
+
+* Then it RUNs two commands (apk update and apk add) inside that container which installs the Node.js server.
+
+* Then we told it to COPY files from our working directory in to the container. The only file we have right now is our index.js.
+
+* Next we specify the WORKDIR - the directory the container should use when it starts up
+
+* And finally, we gave our container a command (CMD) to run when the container starts.
+
 With a Dockerfile we can specify precise commands to run for everyone who uses this container. Other users do not have to build the container themselves once you push your container up to a repository (which we will cover later) or even know what commands are used. The Dockerfile allows us to specify how to build a container so that we can repeat those steps precisely everytime and we can specify what the container should do when it runs. There are actually multiple methods for specifying the commands and accepting parameters a container will use, but for now it is enough to know that you have the tools to create some pretty powerful containers.
+
+**Image layers**
+
+Docker has an inspect command for images and it returns details on the container image, the commands it runs, the OS and more.
+
+![]()
+
+![]()
+
+Docker Enterprise Edition includes private Trusted Registries with Security Scanning and Image Signing capabilities so you can further inspect and authenticate your images. In addition, there are policy controls to specify which users have access to various images, who can push and pull images, and much more.
+
+Another important note about layers: each layer is immutable. As an image is created and successive layers are added, the new layers keep track of the changes from the layer below. When you start the container running there is an additional layer used to keep track of any changes that occur as the application runs. This design principle is important for both security and data management. If someone mistakenly or maliciously changes something in a running container, you can very easily revert back to its original state because the base layers cannot be changed. Or you can simply start a new container instance which will start fresh from your pristine image. And applications that create and store data can store their data in a special kind of Docker object called a volume, so that data can persist and be shared with other containers. 
+
 
 
 > Include notes here about each of the links
