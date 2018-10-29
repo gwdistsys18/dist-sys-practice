@@ -88,7 +88,10 @@ ubuntu sleep infinity`)
   * `docker service scale <servicename>=<scalesize>` is an insanely awesomely simply way to scale your application
 
 * [Kubernetes vs Swarm Video](https://www.youtube.com/watch?v=L8xuFG49Fac)
-  * **FILL ME IN**
+  * Both are orchestration systems for Docker
+  * Kubernetes and Swarm are in competition - have to choose between the two
+  * Kubernetes is probably the more popular of the two
+  * Kubernetes is more mature, with more features, and is more widely used
 
 * [Kubernetes in 5 Minutes Video](https://www.youtube.com/watch?v=PH-2FfFD2PU)
   * **FILL ME IN**
