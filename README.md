@@ -108,6 +108,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * Started the producer and consumer in separate terminals
     * Used Cognito to create an identity pool to grant unauthenticated users access to stream
     * Opened a web app that showed a live map of the coordinates being transmitted in the stream
+    ![](./shadowfax.png)
   * Module 2: Aggregate data (Kinesis Data Analytics)
     * Created another stream with 1 shard for aggregated statistics
     * Started the producer so that Kinesis Data Analytics would automatically detect the schema
@@ -115,11 +116,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * A table with data from the SQL query updated every minute automatically
     * Connected the application to an output Kinesis stream
     * Used a consumer to view the aggregate stream in a terminal
+    ![](./aggregate-stream.png)
   * Module 3: Process streaming data (DynamoDB, Lambda)
     * Created a DynamoDB table and configured a role for Lambda to access it
     * Set up a Lambda function running Node.js 6.10 and configured the Kinesis stream as a trigger
     * The function started saving the aggreagate data stream to the DyanmoDB table
+    ![](lambda-monitors.png)
   * Module 4: Store & query data (Kinesis Data Firehose, Athena)
     * Created a Kinesis Data Firehose delivery stream to put stream data into an S3 bucket
     * Created an Amazon Athena table with a query to use a JSON SerDe to get the data from the S3 bucket
     * The data then appeared in Athena
+    ![](athena-table.png)
