@@ -59,6 +59,10 @@ NF  1 - rx: 2106773568 rx_drop:         0 next:         0 drop:         0 ret│
         tx:         0 tx_drop:         0 out:          0 tonf: 2106769352 buf│                                                                             
     - However, it does not seem to explicitly provide speed or time
     - Trying the bridge example though, I did not get any output and I still have not figured the reason out.
+ 
+> OpenNetVM - Complete one issue from issue tracker (Speed tester should be able to create 0 packets good first issue)
+    - changed behaviour to accept 0 initial packets
+    - still resorts to 128 initial packets when -c option is not provided.
 
 ## Dockers and Containers
 > Why Dockers?
