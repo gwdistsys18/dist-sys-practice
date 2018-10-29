@@ -14,7 +14,7 @@
 1. [Why Docker?](#docker)
 2. [DevOps Docker Beginners Guide](#guide)
 
-**BIG DATA AND MACHINE LEARNING**
+# BIG DATA AND MACHINE LEARNING
 
 <a name="Introduction"></a>
 # Hadoop Introduction (2h)
@@ -490,7 +490,8 @@ Finally Connect to destination
 	* Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena 
 	* There is another branch for data analyzing and store which using Firehose and SQL(Athena).
 	* Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, run SQL queries against the raw data for ad-hoc analyses.
-**Docker and Containers**
+
+# Docker and Containers
 
 <a name="docker"></a>
 # Why Docker? 
