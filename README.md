@@ -307,6 +307,42 @@ Docker Swarm can easily and quickly scale your application’s services up and d
 
 ****
 
+**Kubernetes**
+
+**Pros of Kubernetes:**
+
+* Based on extensive experience running Linux containers at Google. Deployed at scale more often among organizations. Kubernetes is also backed by enterprise offerings from both Google (GKE) and RedHat (OpenShift).
+
+* Can overcome constraints of Docker and Docker API.
+
+* Autoscaling based on factors such as CPU utilization.
+
+* Largest community among container orchestration tools. Over 50,000 commits and 1200 contributors.
+
+* Does not have as much experience with production deployments at scale.
+
+* Limited to the Docker API’s capabilities.
+
+* Services can be scaled manually.
+
+* Smaller community and project. Over 3,000 commits and 160 contributors. 
+
+**Cons of Kubernetes:**
+
+* Uses a separate set of tools for management, including kubectl CLI.
+
+* Deployment is simpler and Swarm mode is included in Docker Engine.
+
+* Integrates with Docker Compose and Docker CLI – native Docker tools. Many of the Docker CLI commands will work with Swarm. Easier learning curve.
+
+**Kubernetes vs Swarm:**
+
+* Open source projects. Anyone can contribute using the Go programming language.
+
+* Various storage options.
+
+* Networking features such as load balancing and DNS.
+
 > Include notes here about each of the links
 
 ## Area 2
