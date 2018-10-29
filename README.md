@@ -73,3 +73,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The confusion matrix shows a matrix of the true values and predicted values and the frequencies
   * Real-time predictions show predicted scores (adding up to 1) for each category
   * Real-time predictions can be done without submitting all of the input data values
+* AWS Tutorial: Build a Machine Learning Model (took ~35 minutes)
+  * The ML model creation roughly follows the previous tutorial except with different data
+  * AUC (Area Under a Curve) is a quality metric for ML models
+  * The score threshold can be adjusted to choose a balance of false positives and false negatives
+  * Batch predictions can be done by linking to a new spreadsheet of input data; they cost $0.10 per 1,000 predictions
+  * The results spreadsheet gives the best answer and the score; the score threshold determines the best answer based on the score
+  
