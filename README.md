@@ -60,5 +60,13 @@ NF  1 - rx: 2106773568 rx_drop:         0 next:         0 drop:         0 ret│
     - However, it does not seem to explicitly provide speed or time
     - Trying the bridge example though, I did not get any output and I still have not figured the reason out.
 
-## Area 2
-> Include notes here about each of the links
+## Dockers and Containers
+> Why Dockers?
+  - Dockers (containers) are the next phase of computing
+  - It is inclusive; developed for both sysadmins and developers
+  - It is aimed at speeding up the entire software management lifecycle
+  - Allows packaging, develop, distribute and test software consistent across various environments
+  - Makes maintainance of software easier
+  - Docker has seen major adoptation
+  - Adopting containers do not require code changes; just changes in packaging
+  - Large projects can save 50 - 70% infrastructure based costs by containerizing
