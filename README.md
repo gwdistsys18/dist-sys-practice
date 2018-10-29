@@ -112,5 +112,13 @@ ubuntu sleep infinity`)
     4. Scale the number of instances of the application within the minikube cluster
     5. Update and roll back the application across all scaled instances within the cluster - rolling back the application was incredibly easy with a single command specifying version
 
+* [Install Docker on cluster of EC2 VMs and use Kubernetes to Orchestrate Them ~75 mins](https://kubernetes.io/docs/setup/turnkey/aws/#getting-started-with-your-cluster)
+  * Followed the linked tutorial
+  * Created 3 EC2 instances and managed them with Kubernetes
+  * Followed [this guide](https://kubernetes.io/docs/getting-started-guides/ubuntu/) to setup the Kubernetes cluster on Ubuntu EC2 instances
+  * Used [this guide](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/) to install a simple nginx application
+  * Updated the application
+  * Then used Kubernetes to roll it back to the previous version across the cluster
+
 ## Area 2
 > Include notes here about each of the links
