@@ -60,5 +60,37 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 + Before starting the skeleton test, we should bind another NIC port to dpdk. Because skeleton test requires even number of ports. The result of the test would be like below:
 ![skeleton](/src/skeleton.png)
 
+### 6. Install and run the openNetVM.
++ I must disable the network interface in the kernel and then bind the port to igb_uio.
++ I have binded eth1 and eth3 to dpdk.
++ I have also run the openNetVM manager and speed_test NF successfully. The result will like below.
+![onvm](/src/onvm.png)
++ To fix the issue 50, we can simple insert a line before SimpleHTTPServer is called to change the working directory to where the start_web_console.sh is. The code will be as bellow.
+```
+function usage {
+    echo "$0 [-p WEB-PORT-NUMBER]"
+    exit 1
+}
+
+web_port=8080
+
+while getopts "p:" opt; do
+    case $opt in
+        p) web_port="$OPTARG";;
+        \?) echo "Unknown option -$OPTARG" && usage
+            ;;
+    esac
+done
+
+
+# Start ONVM web stats console at http://localhost:<port num>
+echo -n "Starting openNetVM Web Stats Console at http://localhost:"
+echo $web_port
+
+cd $(dirname "$0")
+nohup python -m SimpleHTTPServer $web_port &
+export ONVM_WEB_PID=$!
+```
+
 ## Area 2
 > Include notes here about each of the links
