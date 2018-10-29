@@ -42,4 +42,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * A step is a unit of work with one or more Hadoop jobs
   * Created a step with a Hive script that reads and parses CloudFront log files and then submits a HiveQL query to analyze requests per OS
   * Script took about a minute to process 5,000 rows
-  
+* QwikLab: Intro to S3 - already completed in Area 1
+* QwikLab: Intro to Amazon Redshift
+  * Amazon Redshift is a data warehouse allowing data analysis using SQL
+  * Pgweb is a web application for SQL based on PostreSQL
+  * Created a users table, then copied 49,990 rows from an S3 text file
+  * Queried the data using SQL
