@@ -75,5 +75,11 @@ ubuntu sleep infinity`)
   * Deployed voting application via stack and saw replicas running on multiple nodes
   * `docker service scale <servicename>=<scalesize>` is an insanely awesomely simply way to scale your application
 
+* [Kubernetes vs Swarm Video](https://www.youtube.com/watch?v=L8xuFG49Fac)
+  * **FILL ME IN**
+
+* [Kubernetes in 5 Minutes Video](https://www.youtube.com/watch?v=PH-2FfFD2PU)
+  * **FILL ME IN**
+
 ## Area 2
 > Include notes here about each of the links
