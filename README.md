@@ -135,8 +135,6 @@ In this step, we’ll learn how to package your own apps as Docker images using 
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2021.52.59.png?raw=true)
 
-
-
 **Build a simple website image**
 
 **Task 3: Modify a running website**
@@ -147,9 +145,19 @@ One way to streamline this process is to mount the source code directory on the 
 
 We do this using something called a bind mount.When you use a bind mount, a file or directory on the host machine is mounted into a container running on the same host.
 
-**Start our web app with a bind mount**
+**Start our web app with a bind mount and Modify the running website****
 
-**Modify the running website**
+Start the web app and mount the current directory into the container.
+
+Bind mounts mean that any changes made to the local file system are immediately reflected in the running container. Even though we’ve modified the index.html local filesystem and seen it reflected in the running container, we’ve not actually changed the Docker image that the container was started from.
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2021.59.25.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.02.25.png?raw=true)
+
+**Update the image**
+
+To persist the changes you made to the index.html file into the image, you need to build a new version of the image.
 
 
 
