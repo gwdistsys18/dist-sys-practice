@@ -2,7 +2,19 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Area 1 Docker and Containers  
-***Beginner Level:***   
+***Beginner Level:***  
+#### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
+**Theory Definition:**  
+Container in linux os is many container processes themself. 
+In the container process, it has its own process name space and cgroups.  
+So,these process can be run in sandbox to be isolated.  
+**Dockerfile:** use "from" at first,"from"is the parent image but this docker file is inheriting from.(use a tree structure to define the dependent library relationship)  
+Dockerfile ultimately ends up creating an image.It creats the image tree that we can use to instantiate containers.  
+dockerfile is the starting point for an image.  
+You can build you image both from **dockerfile** and **current container**.
+Then you can use the image to build more container.  
+When you run a container,it will pull the file from the registory.
+Then to the cache,and then set up the c group in the process name space.  
 #### [Lab: DevOps Docker Beginners Guide ](https://training.play-with-docker.com/ops-s1-hello/)
 *Docker basic operator*  
 __docker image ls__ `[search local image file]`  
@@ -19,18 +31,7 @@ echo "hello world" &gt; hello.txt
 
 __docker container start &lt;container ID&gt;__  
 __docker container exec &lt;containerID&gt; &lt;operator&gt;__
-#### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
-**Theory Definition:**  
-Container in linux os is many container processes themself. 
-In the container process, it has its own process name space and cgroups.  
-So,these process can be run in sandbox to be isolated.  
-**Dockerfile:** use "from" at first,"from"is the parent image but this docker file is inheriting from.(use a tree structure to define the dependent library relationship)  
-Dockerfile ultimately ends up creating an image.It creats the image tree that we can use to instantiate containers.  
-dockerfile is the starting point for an image.  
-You can build you image both from **dockerfile** and **current container**.
-Then you can use the image to build more container.  
-When you run a container,it will pull the file from the registory.
-Then to the cache,and then set up the c group in the process name space.  
+
   
 ***Intermediate Level***  
 3 Basic docker operator type:
