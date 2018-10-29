@@ -1,6 +1,4 @@
-**BIG DATA AND MACHINE LEARNING**
-
-# Table of contents
+## Big Data and Machine Learning
 1. [Hadoop Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
 3. [Introduction to Amazon Simple Storage Service](#s3)
@@ -10,9 +8,16 @@
 7. [AWS SageMaker Overview](#viewsegmaker)
 8. [AWS SageMaker](#segmaker)
 9. [Build a Serverless Real-Time Data Processing APP](#app)
+10. [Conclusion for the Unicorn project](#unicorn)
+
+## Docker and Containers
+1. [Why Docker?](#docker)
+2. [DevOps Docker Beginners Guide](#guide)
+
+**BIG DATA AND MACHINE LEARNING**
 
 <a name="Introduction"></a>
-# Hadoop Introduction (1h)
+# Hadoop Introduction (2h)
 ### Overgrowing data problem and management:
 - High chances of system failure.
 - Limit on bandwidth.
@@ -119,7 +124,7 @@ A fully integrated data processing platform.
         The table can have thousands of columns.
 
 <a name="bigdata"></a>
-# Analyze Big Data with Hadoop (30 mins) 
+# Analyze Big Data with Hadoop (1h) 
 
 ### Task 1: Create an Amazon S3 bucket
 * What is S3? Simple Storage Service is designed to make web-scale computing easier for developers. In my opinion, simple means that we can have more time to deal with other hard tasks and boost the probability of finish a project entirely.
@@ -174,7 +179,7 @@ Finally, it will give us a operating system counting table
     Add action “s3:GetObjectVersion” in “Action” will allow access old version of a file.
 
 <a name="redshift"></a> 
-# Introduction to Amazon Redshift 
+# Introduction to Amazon Redshift (1h 30mins)
 * Amazon Redshift is a data warehouse to analyze data using standard SQL and existing Business Intelligence tools.
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
@@ -225,7 +230,7 @@ Finally, it will give us a operating system counting table
 * Analyze data with Query.
 
 <a name="introml"></a> 
-# Intro to Amazon Machine Learning
+# Intro to Amazon Machine Learning (1h 30mins)
 ### Task 1: Uploading Training Data
 * Upload restaurant.data to a S3 bucket
 * Features in order: age, gender, budget, price, cuisine_type, rating
@@ -278,7 +283,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 * In my model, the score larger than 0.35 will be taken as 1 and the score smaller or equal than 0.35 will be taken as 0.
 
 <a name="viewsegmaker"></a> 
-# AWS Overviwe of SageMaker (1h)
+# AWS Overviwe of SageMaker (1h 30mins)
 * The most important things I believe is that you can use your own scripts to train your model.
 ### What is SageMaker?
 * Amazon SageMaker enables you to build, train, and deploy machine learning models quickly and easily while taking care of the heavy lifting of machine learning.
@@ -314,7 +319,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 	
 
 <a name="segmaker"></a> 
-# AWS SageMaker
+# AWS SageMaker (2h)
 * I lost my .md file in this episode, so the following introduction will be more concise.
 ### Getting Started
 * Create an S3 bucket a usual.
@@ -327,7 +332,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 		![](https://s3.amazonaws.com/hadoop357/batchTransform.PNG)
 
 <a name="app"></a> 
-# Build a Serverless Real-Time Data Processing APP
+# Build a Serverless Real-Time Data Processing APP (6h)
 ### Overview
 * In this project, I’ll build a serverless app to process real-time data streams and build infrastructure for a fictional ride-sharing company. In this case, I will enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
 
@@ -413,3 +418,145 @@ Finally Connect to destination
 
 * Create a Lambda function to process the stream
 	* Create a Lambda function "WildRydesStreamProcessor" which will be triggered whenever a new record is available in the wildrydes stream.
+(I lost my file here again, I should edit .md file in local editor with auto saving function...)
+* Monitor the Lambda function
+	* use command "./producer -name Rocinante" again to start emiting sensor data to the stream with a unicorn name.
+	* Use Monitoring AWS Lambda to get the data processing information.
+* Query the DynamoDB table
+	* Explore DynamoDB table to get per-minute data point for each Unicorn.
+	
+
+### Store & qurey Data
+* Application Architecture
+	* Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena
+![](https://s3.amazonaws.com/hadoop357/DeliveryStream.png)
+* I use the previous mldata S3 bucket to store the collecting and analyzed data
+* Create an Amazon Kinesis Data Firehose delivery stream
+![](https://s3.amazonaws.com/hadoop357/ProcessRecord.png)
+* Create an Amazon Athena table to query the raw data in place on Amazon S3 using a JSON SerDe.
+	* Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. 
+	* Use the path of mldata to create a Athena table
+	* Create table SQL statement:
+#
+	CREATE EXTERNAL TABLE IF NOT EXISTS wildrydes (
+	       Name string,
+	       StatusTime timestamp,
+	       Latitude float,
+	       Longitude float,
+	       Distance float,
+	       HealthPoints int,
+	       MagicPoints int
+	     )
+	     ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
+	     LOCATION 's3://YOUR_BUCKET_NAME_HERE/';
+### Explore and Query the batched data files
+* Verify that Firehose is delivering batched data files to the bucket. Download one of the files and open it in a text editor to see the contents.
+* Use "SELECT * FROM wildrydes" to get query data file
+
+<a name="unicorn"></a> 
+# Conclusion for the Unicorn project (30mins)
+(Notice: This is just a conclusion for the unicorn project. For more details or screeshots please jump to [episode 9](#app))
+### Tool list
+* Amazon S3
+	* Used to store data
+* AWS Lambda
+	* Lambda run your code only when triggered, using only the compute resources needed.
+* Amazon DynamoDB
+	* Amazon DynamoDB is a fully managed non-relational database service that provides fast and predictable performance with seamless scalability.
+	* In this project, I query the DynamoDB table to get per-minute data point for each Unicorn.
+* AWS IAM
+	* Use IAM (Identity and Access Management) and add inline policy such as WildRydesDynamoDBWritePolicy.
+* Amazon Kinesis Data Analytics
+	* The Amazon Kinesis Data Analytics application processes data from the source Amazon Kinesis stream that we created in the previous module and aggregates it on a per-minute basis.
+	* Finally it will be aggregated again to the Amazon Kinesis Data Stream
+* Amazon Kinesis Data Stream
+	* All our works are dealing with the data stream and storing it.
+	* Configure producers to put data records into a data stream. Configure consumers to continuously process data stream records.
+	* It provides the function of Data Firehose and Data Analytics and we use Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. 
+* Amazon Athena
+	* Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL.
+### Procedure
+* Aggregate Data
+	* Amazon Kinesis Data Streams -> Amazon Kinesis Data Analytics -> Amazon Kinesis Data Streams (aggregated)
+	* Firstly I run ./producer or ./producer -name Bucephalus to generate Unicorns on map and use ./consumer to reading the sensor data. The Unicorns data is what we need to analye and aggregate.
+	* Secondly I used Schema to build an Amazon Kinesis Data Analytics application which reads from the wildrydes stream built in the previous module and emits a JSON object with the following attributes each minute.
+	* These analyzed data now need Lambda to collect at run time
+* Process streaming data
+	* Amazon Kinesis Data Stream -> AWS Lambda -> Amazon S3 -> Amazon DynamoDB
+	* Firstly I used a Lambda function "WildRydesStreamProcessor" which will be triggered whenever a new record is available in the wildrydes stream to collect data from wildryes.
+	* Then use DynamoDB table to get per-minute data point for each Unicorn and store.
+	
+* Store & query data
+	* Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena 
+	* There is another branch for data analyzing and store which using Firehose and SQL(Athena).
+	* Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, run SQL queries against the raw data for ad-hoc analyses.
+**Docker and Containers**
+
+<a name="docker"></a>
+# Why Docker? 
+### What is docker?
+* Docker is a computer program that performs operating-system-level virtualization and is used to run containers.
+  * What is container?
+    * A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+
+### Docker is focused on the migration experience (20 mins)
+* Docker is all about speed
+![](https://s3.amazonaws.com/hadoop357/docker.PNG)
+* Containers Reduce Complexity. Package all of the '?'.
+* 80% MAINTENANCE, 20% INNOVATION, we use docker to reduce the maintenance and complexity drains budgets.
+* e.g1 Paypal
+   * 18 Month project (long)
+   * Migrated 700+ apps (multi platform)
+   * Now 150,000 containers (need management)
+   * 50% dev productivity boost (benefit from docker)
+* e.g2 MetLifte
+   * 70% reduction in VM costs
+   * 67% fewer CPU's (contrainer is light)
+   * 10x average CPU utilization (management)
+   * 66% cost reduction
+ 
+<a name="guide"></a>
+# DevOps Docker Beginners Guide (1h)
+
+### Concepts
+	* Docker engine
+	* Containers & images
+	* Image registries and Docker Store (AKA Docker Hub)
+	* Container isolation
+	
+### docker container run hello-world
+![](https://s3.amazonaws.com/hadoop357/hello_world.PNG)
+
+### Docker Image
+* Some Commands:
+	* docker image pull alpine
+		* The pull command fetches the alpine image from the Docker registry and saves it in our system. In this case the registry is Docker Store.
+	* docker image ls
+	* docker container run alpine ls -l
+![](https://s3.amazonaws.com/hadoop357/Docker_detail.PNG)
+	* docker container run -it alpine /bin/sh
+		* Running a Linux shell inside the container.
+	* docker container ls -a
+		* list all containers that you ran.
+![](https://s3.amazonaws.com/hadoop357/DockerInstance.PNG)
+
+### Container Isolation
+
+* Even though each docker container run command used the same alpine image, each execution was a separate, isolated container. Each container has a separate filesystem and runs in a different namespace; by default a container has no way of interacting with other containers, even those from the same image.
+
+* In every day work, Docker users take advantage of this feature not only for security, but to test the effects of making application changes. Isolation allows users to quickly create separate, isolated test copies of an application or service and have them run side-by-side without interfering with one another. In fact, there is a whole lifecycle where users take their changes and move them up to production using this basic concept and the built-in capabilities of Docker Enteprise.
+![](https://s3.amazonaws.com/hadoop357/DockerIsolation.PNG)
+![](https://s3.amazonaws.com/hadoop357/DockerExec.PNG)
+
+### Terminology
+* Images - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run docker image inspect alpine. In the demo above, you used the docker image pull command to download the alpine image. When you executed the command docker container run hello-world, it also did a docker image pull behind the scenes to download the hello-world image.
+* Containers - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. You created a container using docker run which you did using the alpine image that you downloaded. A list of running containers can be seen using the docker container ls command.
+* Docker daemon - The background service running on the host that manages building, running and distributing Docker containers.
+* Docker client - The command line tool that allows the user to interact with the Docker daemon.
+* Docker Store - Store is, among other things, a registry of Docker images. You can think of the registry as a directory of all available Docker images. You’ll be using this later in this tutorial.
+
+
+
+
+
+
