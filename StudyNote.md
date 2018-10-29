@@ -62,7 +62,7 @@ There are one **kubernate cluster server** and several **worker nodes**.Each wor
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/6Swarm(1).png)  
 &lt;LAB-SWARM simple application deployment-before&gt;  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/7Swarm(2).png)  
-&lt;LAB-SWARM simple application deployment-after&gt; 
+&lt;LAB-SWARM simple application deployment-after&gt;  
 After you get ready in docker swarm. Code below can create a basic distributed voting application.  
 `git clone https://github.com/docker/example-voting-app`  
 `cd example-voting-app`  
