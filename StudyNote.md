@@ -30,6 +30,8 @@ You can build you image both from **dockerfile** and **current container**.
 Then you can use the image to build more container.  
 When you run a container,it will pull the file from the registory.
 Then to the cache,and then set up the c group in the process name space.  
+  
+***Intermediate Level***  
 
 ## Area 2
 > Include notes here about each of the links
