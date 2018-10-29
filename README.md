@@ -1,3 +1,4 @@
+<a name="menu"></a>
 ## Big Data and Machine Learning
 1. [Hadoop Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
@@ -18,6 +19,7 @@
 
 <a name="Introduction"></a>
 # Hadoop Introduction (2h)
+[Back to Menu](#menu)
 ### Overgrowing data problem and management:
 - High chances of system failure.
 - Limit on bandwidth.
@@ -124,7 +126,8 @@ A fully integrated data processing platform.
         The table can have thousands of columns.
 
 <a name="bigdata"></a>
-# Analyze Big Data with Hadoop (1h) 
+# Analyze Big Data with Hadoop (1h)
+[Back to Menu](#menu)
 
 ### Task 1: Create an Amazon S3 bucket
 * What is S3? Simple Storage Service is designed to make web-scale computing easier for developers. In my opinion, simple means that we can have more time to deal with other hard tasks and boost the probability of finish a project entirely.
@@ -151,6 +154,7 @@ Finally, it will give us a operating system counting table
 
 <a name="s3"></a>
 # Introduction to Amazon Simple Storage Service (S3) (30mins) 
+[Back to Menu](#menu)
 ### Task 1-3: 
 1. Create bucket.
 2. Upload image file. 
@@ -180,6 +184,7 @@ Finally, it will give us a operating system counting table
 
 <a name="redshift"></a> 
 # Introduction to Amazon Redshift (1h 30mins)
+[Back to Menu](#menu)
 * Amazon Redshift is a data warehouse to analyze data using standard SQL and existing Business Intelligence tools.
 ### Task 1: Launch an Amazon Redshift Cluster
 * Launch cluster to open the Redshift Cluster Creation Wizard
@@ -231,6 +236,7 @@ Finally, it will give us a operating system counting table
 
 <a name="introml"></a> 
 # Intro to Amazon Machine Learning (1h 30mins)
+[Back to Menu](#menu)
 ### Task 1: Uploading Training Data
 * Upload restaurant.data to a S3 bucket
 * Features in order: age, gender, budget, price, cuisine_type, rating
@@ -248,6 +254,7 @@ Finally, it will give us a operating system counting table
 
 <a name="buildml"></a> 
 # Build a Machine Learning Model (1h 15mins)
+[Back to Menu](#menu)
 
 ### Task 1: Prepare your data
 * Data Resource: [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php)
@@ -284,6 +291,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 
 <a name="viewsegmaker"></a> 
 # AWS Overviwe of SageMaker (1h 30mins)
+[Back to Menu](#menu)
 * The most important things I believe is that you can use your own scripts to train your model.
 ### What is SageMaker?
 * Amazon SageMaker enables you to build, train, and deploy machine learning models quickly and easily while taking care of the heavy lifting of machine learning.
@@ -320,6 +328,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 
 <a name="segmaker"></a> 
 # AWS SageMaker (2h)
+[Back to Menu](#menu)
 * I lost my .md file in this episode, so the following introduction will be more concise.
 ### Getting Started
 * Create an S3 bucket a usual.
@@ -333,6 +342,7 @@ age | job | marital | education | default | housing | loan | contact | month | d
 
 <a name="app"></a> 
 # Build a Serverless Real-Time Data Processing APP (6h)
+[Back to Menu](#menu)
 ### Overview
 * In this project, I’ll build a serverless app to process real-time data streams and build infrastructure for a fictional ride-sharing company. In this case, I will enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
 
@@ -455,6 +465,7 @@ Finally Connect to destination
 
 <a name="unicorn"></a> 
 # Conclusion for the Unicorn project (30mins)
+[Back to Menu](#menu)
 (Notice: This is just a conclusion for the unicorn project. For more details or screeshots please jump to [episode 9](#app))
 ### Tool list
 * Amazon S3
@@ -494,7 +505,8 @@ Finally Connect to destination
 # Docker and Containers
 
 <a name="docker"></a>
-# Why Docker? 
+# Why Docker?
+[Back to Menu](#menu)
 ### What is docker?
 * Docker is a computer program that performs operating-system-level virtualization and is used to run containers.
   * What is container?
@@ -518,6 +530,7 @@ Finally Connect to destination
  
 <a name="guide"></a>
 # DevOps Docker Beginners Guide (1h)
+[Back to Menu](#menu)
 
 ### Concepts
 	* Docker engine
