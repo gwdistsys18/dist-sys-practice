@@ -159,6 +159,11 @@ Bind mounts mean that any changes made to the local file system are immediately 
 
 To persist the changes you made to the index.html file into the image, you need to build a new version of the image.
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.14.58.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2022.15.12.png?raw=true)
+
+**Push your images to Docker Hub**
 
 
 > Include notes here about each of the links
