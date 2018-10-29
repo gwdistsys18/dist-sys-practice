@@ -108,5 +108,13 @@ Removing Docker Images
 The Docker images on the system can be removed via the docker rmi command. Let’s look at this command in more detail.
 
 
+5. how can the Dockfile help to create a image?
+   A:if you create a image without a /root/Dockerfile  file (here the root could be any the directory you are)
+      then you will get the error that:
+      "unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /root/Dockerfile: no such file or directory." 
+      So the docker system will check a file that its name is called "Dockerfile" in your directory and use the context of it to create the image.
+      
+      <img src="https://training.play-with-docker.com/images/ops-images-dockerfile.svg" > 
+
 ## Area 2
 > Include notes here about each of the links
