@@ -35,3 +35,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * Oozie is a workflow or coodination system used to manage Hadoop jobs
     * Hue (Hadoop User Experience) is a web interface for Hadoop
   * These components help with the four stages of big data processing: ingest, processing, analyze, and access
+* QwikLab: Analyze Big Data with Hadoop (took ~20 minutes)
+  * Set up an EMR cluster and an S3 bucket for output
+  * The default EMR cluster configuration includes Apache Hadoop, Ganglia (performance monitor), Apache Tez (framework for creating a complex directied acyclic graph of tasks), Hive (data warehouse and analytics package), Hue (GUI), and Pig (converts Pig Latin to Tez jobs)
+  * Amazon CloudFront speeds up web content distribution through worldwide network of edge location data centers
+  * A step is a unit of work with one or more Hadoop jobs
+  * Created a step with a Hive script that reads and parses CloudFront log files and then submits a HiveQL query to analyze requests per OS
+  * Script took about a minute to process 5,000 rows
+  
