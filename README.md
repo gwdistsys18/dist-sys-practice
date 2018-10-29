@@ -17,4 +17,4 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## 2. Big Data and Machine Learning
 
 ### Beginner
-> [Video: Hadoop Intro? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Hadoop%20Intro.pdf) 60 min
+> [Video: Hadoop Intro Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Hadoop%20Intro.pdf) 60 min
