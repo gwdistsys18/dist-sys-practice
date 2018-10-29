@@ -14,6 +14,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 > [Video: VMs Versus Containers? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/VM%20%26%20Container.png) 15 min
 
 >  [Lab: Docker Intro Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/DockerIntro.pdf) 100 min
+
+ >  [Lab: Doing More With Docker Images Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Doing%20More%20With%20Docker%20Images.pdf) 80 min
 ## 2. Big Data and Machine Learning
 
 ### Beginner
