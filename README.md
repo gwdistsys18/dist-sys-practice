@@ -79,4 +79,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The score threshold can be adjusted to choose a balance of false positives and false negatives
   * Batch predictions can be done by linking to a new spreadsheet of input data; they cost $0.10 per 1,000 predictions
   * The results spreadsheet gives the best answer and the score; the score threshold determines the best answer based on the score
-  
+* Video Tutorial: Overview of AWS SageMaker (took ~15 minutes so far)
+  * SageMaker is a machine learning service with four parts: notebook instances, jobs, models, and endpoints
+  * The parts can be used independently or together 
+  * The notebook instances run Jupyter notebooks
+  * SageMaker has implementations of algorithms
+  * In the xgboost_mnist notebook shown, the steps included configuration, data ingestion, data conversion before training
+  * The algorithms are hosted in Docker containers; the user defines the parameters
+  * Training can be done on a single instance or on multiple instances to speed it up; training is done as jobs
+  * After training the model, it is hosted in a container so it can be used for predicting
+  * SageMaker allows multiple models behind the same endpoint, which allows AB testing
+  * After setting up the endpoint, predictions can be done and a confusion matrix can be generated
