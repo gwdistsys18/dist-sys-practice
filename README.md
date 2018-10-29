@@ -94,7 +94,14 @@ ubuntu sleep infinity`)
   * Kubernetes is more mature, with more features, and is more widely used
 
 * [Kubernetes in 5 Minutes Video](https://www.youtube.com/watch?v=PH-2FfFD2PU)
-  * **FILL ME IN**
+  * Kubernetes enforces desired state management
+  * Cluster services and workers
+  * Workers have kubelet processes which communicate with cluster services
+  * specify desired application state with a `.yml` file
+  * Pod configuration specifies container images, and service info
+  * Specify number of replicas for each pod type
+  * Cluster services is in charge of scheduling and allocating resources to meet the desired state
+  * When things go wrong cluster services is in charge of rearranging to reattain desired state
 
 * [Learn more about Kubernetes individually ~20 mins](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
   * Followed the linked tutorial
