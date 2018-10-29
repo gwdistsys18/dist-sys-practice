@@ -30,9 +30,23 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - Can't remember if the reason for using dockers to run the NFs or the fact that dockers add so little overhead was discussed in class.
   - The comparison with ClickOS is also informative.
   - Speed comparison of different NF configurations is informative.
-  
+
+> netmap - a framework for fast I/O
 > Install OpenNetVM
   - This I have done in the GW Nimbus Cluster
+  - Output from the speed tester example:
+PORTS                                                                        │Total packets: 2120000000                                                    
+-----                                                                        │TX pkts per second:  34498480                                                
+                                                                             │Initial packets created: 16000                                               
+                                                                             │                                                                             
+                                                                             │                                                                             
+NFS                                                                          │                                                                             
+-------                                                                      │                                                                             
+NF  1 - rx: 2106773568 rx_drop:         0 next:         0 drop:         0 ret│                                                                             
+:     16000                                                                  │                                                                             
+        tx:         0 tx_drop:         0 out:          0 tonf: 2106769352 buf│                                                                             
+    - However, it does not seem to explicitly provide speed or time
+    - Trying the bridge example though, I did not get any output and I still have not figured the reason out.
 
 ## Area 2
 > Include notes here about each of the links
