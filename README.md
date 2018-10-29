@@ -272,7 +272,7 @@ The ```docker network``` command is the main command for configuring and managin
 
 Every clean installation of Docker comes with a pre-built network called **bridge**. Verify this with the ```docker network ls```. The ***bridge*** network is the default network for new containers. This means that unless you specify a different network, all new containers will be connected to the ***bridge*** network. Create a new container by running ```docker run -dt ubuntu sleep infinity```. The port mapping is actually port address translation (PAT).
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2016.17.32.png?raw=true)
 
 **Section #3 - Overlay Networking**
 
