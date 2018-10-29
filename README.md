@@ -558,8 +558,43 @@ Time: 150 min
 
 - Module 5: Capture User Behavior
 
+	In this module you will capture user behavior using AWS Lambda and other serverless services. 
+	
+	Modern application design principles prefer focused, decoupled, and modular services.
+	
+	Create a new and decoupled service for the purpose of receiving user click events from the Mysfits website
+
+	Lambda is great for data-driven applications that need to respond in real-time to changes in data, shifts in system state, or actions by users.
+	
+	Steps:
+	
+1.  Create A New CodeCommit Repository
+
+	Create a new CodeCommit repository where the streaming service code will live: "aws codecommit create-repository --repository-name MythicalMysfitsStreamingService-Repository"
+	
+2.  Copy The Streaming Service Code Base
+
+3.  Use Pip To Intall Lambda Function Dependencies
+
+4.  Update The Lambda Function Code
+
+5. Push Your Code Into CodeCommit
+
+6. Create An S3 Bucket For Lambda Function Code Packages
+
+7. Use The SAM CLI To Package Your Code For Lambda
+
+8. Deploy The Stack Using AWS CloudFormation
+
+9. Update The Website Content
+
+10. Push The New Site Version to S3
 
 
+- Cleanup. Be sure to delete all the resources created during the workshop in order to ensure that billing for the resources does not continue for longer than you intend. 
+
+
+- Final summary: There are a lot of steps in this project. A good practice is to use a notepad to save the every steps input commands and output for later check, and save the screenshot for further check. There are some wrong steps in the official steps. Some steps are not very clear. So itt is very important to understand every steps.
 
 
 
