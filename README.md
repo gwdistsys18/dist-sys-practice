@@ -81,5 +81,14 @@ ubuntu sleep infinity`)
 * [Kubernetes in 5 Minutes Video](https://www.youtube.com/watch?v=PH-2FfFD2PU)
   * **FILL ME IN**
 
+* [Learn more about Kubernetes individually ~20 mins](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+  * Followed the linked tutorial
+  * Used minikube (a small-scale local Kubernetes deployment) to do the following:
+    1. Create a cluster
+    2. Deploy an application
+    3. Expose the app
+    4. Scale the number of instances of the application within the minikube cluster
+    5. Update and roll back the application across all scaled instances within the cluster
+
 ## Area 2
 > Include notes here about each of the links
