@@ -65,7 +65,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 + I have binded eth1 and eth3 to dpdk.
 + I have also run the openNetVM manager and speed_test NF successfully. The result will like below.
 ![onvm](/src/onvm.png)
-+ To fix the issue 50, we can simple insert a line before SimpleHTTPServer is called to change the working directory to where the start_web_console.sh is. The code will be as bellow.
++ To fix the issue 50, we can simply insert a line before SimpleHTTPServer is called to change the working directory to where the start_web_console.sh is. The code will be as bellow.
 ```
 function usage {
     echo "$0 [-p WEB-PORT-NUMBER]"
@@ -92,5 +92,35 @@ nohup python -m SimpleHTTPServer $web_port &
 export ONVM_WEB_PID=$!
 ```
 
-## Area 2
-> Include notes here about each of the links
+## Big Data and Machine Learning
+### 1. [Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
++ Data computation is conplex which depend on the available powers on the available computers. (Bottle Neck)
++ Solution of dealing with growing data: distributed system (multiple computer are used for a single task).
++ Challenges of distributed system: high chance of system failure, limit of bandwidth, high programming complexity. -- hadoop are used to accomplish these challenges. It is reliable, scalable, flexible and economical.
++ data center -> computer (traditional RDBMS) vs computer -> data center (hadoop). 
++ HDFS: when the data is stored first get distributed and then get processed.
++ HBASe store data to HDFS, it is a NoSQL database, provide random real-time, read and write access to big data, support high volume and high throughput of data.
++ Sqoop is used to transfer data between hadoop and relational database servers. 
++ Spark: process hdfs data. Major components: Spark core and Resilient Distributed Datasets(RDD), Spark SQL, Spark Streaming, Machine learning library, GraphX.
++ Hadoop map reduce: based on map and reduce programming model and have an extensive and mature fault tolerance framework.
++ Big, Impala and Hive: used to do data analytics.
++ After the data has been anayzed the user can use Cloudera search to access the result.
++ Ooize is a workflow or coordination system used to manage hadoop jpbs.
++ Hue: a web interface for users. 
++ Four stages for big data processing: Ingest (data are transfer to hadoop form various sources), processing (data is stored and processed), analyze (data is analyzed by processing frameworks), access (the analyzed data can be accessed by users).
+
+### 2. [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)
++ This tutorial gives me a brief view of how to deploy a hadoop cluster and use it to run some scripts to analyze some datasets.
++ I have created an Amazon S3 bucket to store the reault of Hive script and launch a hadoop cluster to process data.
++ The dataset used in this task is the log data from CloudFront. It contains about 5000 rows of data. It is relatively small, as a result the time used to process this dataset is less than 1 minutes.
++ The Hive script first create a table which correspond to the dataset. Then it will use RegEx SerDe to parse these data. Finally, select and count the records whose dateobject is between '2014-07-05' and '2014-08-05'.
++ The result of the Hive script would be stored under the os_requests directory of the bucket we created before. The result would be like:
+```
+Android	   855
+Linux      813
+MacOS      852
+OSX        799
+Windows    883
+iOS        794
+
+```  
