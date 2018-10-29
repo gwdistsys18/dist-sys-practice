@@ -209,7 +209,10 @@ Bring it all together:
 		dependencies across services are almost entirely abstracted away from
 		the developer. A dev can work and and test their service entirely
 		seperate from the rest of the system
-	- 
+	- The work of breaking an application into microservices is not difficult
+	a lot of steps but all fairly simple
+	- After all of the tasks are generated linking them all together takes
+	a bit of work but AWS makes this easier with listener generation wizards
 
 
 ## Area 2 Cloud Web Apps
