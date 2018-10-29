@@ -3,6 +3,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Area 1 Docker and Containers  
 ***Beginner Level:***   
+#### [Lab: DevOps Docker Beginners Guide ](https://training.play-with-docker.com/ops-s1-hello/)
 *Docker basic operator*  
 __docker image ls__ `[search local image file]`  
 __docker container ls__ `[search running container]`  
@@ -18,7 +19,7 @@ echo "hello world" &gt; hello.txt
 
 __docker container start &lt;container ID&gt;__  
 __docker container exec &lt;containerID&gt; &lt;operator&gt;__
-
+#### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 **Theory Definition:**  
 Container in linux os is many container processes themself. 
 In the container process, it has its own process name space and cgroups.  
@@ -32,37 +33,45 @@ When you run a container,it will pull the file from the registory.
 Then to the cache,and then set up the c group in the process name space.  
   
 ***Intermediate Level***  
-3 Basic docker operator type:  
+3 Basic docker operator type:
+#### [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)  
 **To run a single task:** This could be a shell script or a custom app.  
 **Interactively:** This connects you to the container similar to the way you SSH into a remote server.  
-**In the background:** For long-running services like websites and databases.  
+**In the background:** For long-running services like websites and databases.
+#### [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/1Container.png)
 &lt;Video1-The basic structure of container&gt;
+#### [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/2VM&Container.png)
 &lt;Video2-The comparison between VM and containers&gt;
+#### [Video: VMs Versus Containers Deep Dive ](https://www.youtube.com/watch?v=PoiXuVnSxfEc)  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/3VM&Container_advanced.png)  
 &lt;Video3-The advanced details between VM and containers&gt;  
 *(1)* **The container size:** It is depend on the programming language.For example, the application used by go language can be 1 M size.However,some traditional software will need GB level storage. And if the application need user space tool. The container will build based on another user space container.  
 *(2)* **Isolation:** VM is a sandbox, it has a clear boundary,so the attack wil be very hard because the vm is very isolated on its host machine.In container side, it is easier to attack the kernel from the process in container.  
-*(3)* **Boot time:** Boot time in VM has 2 sections. One is System check section(including X86post,EFI or Boot check,kernel boot,init startup),usually3-4seconds;The second is porcess running section(about 5ms). If you use system v or parallel on VM. Its speed will increase close to container. Then container is started.First setting up the process sandbox and the other one is  staring up the application. This is very fast.  
+*(3)* **Boot time:** Boot time in VM has 2 sections. One is System check section(including X86post,EFI or Boot check,kernel boot,init startup),usually3-4seconds;The second is porcess running section(about 5ms). If you use system v or parallel on VM. Its speed will increase close to container. Then container is started.First setting up the process sandbox and the other one is  staring up the application. This is very fast.
+#### [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac) 
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/4docker_swarm.png)  
-&lt;Video4-Docker Swarm basic structure&gt;  
+&lt;Video4-Docker Swarm basic structure&gt; 
+#### [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU) 
 docker swarm is less powerful than the kubernate. But it is easier to use.
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/5kubernetes.png)  
-&lt;Video5-Kubernetes simple structure&gt;  
+&lt;Video5-Kubernetes simple structure&gt; 
 There are one **kubernate cluster server** and several **worker nodes**.Each worker has a kubernate process which is responsable to communicate with the cluster server. User case:In the deployment file there are mainly two part:Pod has one or several container image. User can set the replicas number. If a worker node die, the cluster server will be noticed and send a new task with losed job to living workers.
+#### [Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/) 
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/6Swarm(1).png)  
+&lt;LAB-SWARM simple application deployment-before&gt;  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/7Swarm(2).png)  
-&lt;LAB-SWARM simple application deployment&gt; 
+&lt;LAB-SWARM simple application deployment-after&gt; 
 After you get ready in docker swarm. Code below can create a basic distributed voting application.  
-git clone https://github.com/docker/example-voting-app  
-cd example-voting-app  
-cat docker-stack.yml  
-docker stack deploy --compose-file=docker-stack.yml voting_stack  
-docker stack ls  
-docker stack services voting_stack  
-docker service ps voting_stack_vote  
-docker service scale voting_stack_vote=5  
+`git clone https://github.com/docker/example-voting-app`  
+`cd example-voting-app`  
+`cat docker-stack.yml`  
+`docker stack deploy --compose-file=docker-stack.yml voting_stack`  
+`docker stack ls`  
+`docker stack services voting_stack`  
+`docker service ps voting_stack_vote`  
+`docker service scale voting_stack_vote=5`    
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/8ECR.png)  
 &lt;Last-Toturial figure&gt; 
 
