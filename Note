@@ -1,3 +1,21 @@
 Docker
-1.0hello-world container
+1.0 hello-world container
   1.0a docker container run hello-world
+1.1 docker image
+  docker image pull alpine
+  docker image ls
+  docker container run alpine ls -l
+  docker container run alpine echo "hello from alpine" - "echo" like "print"
+  docker container run -it alpine /bin/sh - into some container  - "exit" out
+1.2 docker isolation
+  seperate instance
+  find the instance ID and run it
+1.3 Terminology
+  
+  
+  
+Docker for Beginners - Linux
+  Task 0:complete
+  Task 1:complete ID:38504033cb0d learn about how to run different simple container
+  Task 2: Package and run a custom app using Docker - some commandline, looks we can do all things with commandline
+  Task 3:
