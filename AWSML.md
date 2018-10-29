@@ -349,3 +349,19 @@ I will go through the project in the order of the architecture
 
 ### Amazon Kinesis Data Streams
 ![](https://s3.amazonaws.com/hadoop357/KinesisStream.PNG)
+* Put record for "./producer"
+![](https://s3.amazonaws.com/hadoop357/putrecord.png)
+* Use "./consumer" command to start reading sensor data from the stream.
+* Use Amazon Cognito and manage Identity Pools. Identity pool ID will be used later.
+* Use IAM (Identity and Access Management) and add inline policy that allow read and list.
+* Use Identity pool ID in Contigo to do dataprocessing.
+* Use command "./producer -name Bucephalus" to generate unicorns on map
+
+### Aggregate Data
+* The Amazon Kinesis Data Analytics application processes data from the source Amazon Kinesis stream that we created in the previous module and aggregates it on a per-minute basis. Each minute, the application will emit data including the total distance traveled in the last minute as well as the minimum and maximum readings from health and magic points for each unicorn in our fleet. These data points will be sent to a destination Amazon Kinesis stream for processing by other components in our system.
+
+* Amazon Kinesis Data Streams -> Amazon Kinesis Data Analytics -> Amazon Kinesis Data Streams (aggregated)
+* Analytics Application
+![](https://s3.amazonaws.com/hadoop357/KinesisAnalyticsApp.png)
+
+
