@@ -145,14 +145,22 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - We utilize Amazon ECR (Elastic Container Registry) for managing docker deployments
   - Note: You will need Docker and AWS CLI installed on your workstation in order to do the demo 
  - After forking the Github repository, you can use Amazon ECR to add the repository.  Amazon ECR is a Docker container registry.  By Adding our code to the registry, we can use Docker to create container images
- <INSERT IMAGE docker_push.png>
+![docker_push.png](/images/docker_push.png)
  <insert image respository.png>
  - We will use CloudFormation and provide it a Docker stack file which is in the Github repiository (See previous notes for what a Docker stack is).  Basically this is a markup document which describes a recipe for building a containerized application.  This stack file will spin up a cluster of two nodes.
- - We build the docker image locally, tag it, and push it to the ECR registry
- - We will now use Amazon ECS (Elastic Container Service) to spin up our docker containers on EC2 instances
- - We utilize the CloudFormation service to create a ECS cluster.  This service takes an markup text file as input which specifies how the cluster should be built.
- - Next, we have to build and run a task definition which describes how our application containers get deployed across our cluster
- - Finally, we can configure the load balancer in a typical fashion, add a listener for our service, and at this point it should be accessble via the internet.
+  <inster cluster_create.png>
+  <insert cluster_instances.png>
+ - We will now use Amazon ECS (Elastic Container Service) to spin up our docker containers on our EC2 instances of our cluster
+ - We have to build and run an EC2 task definition which describes how our application containers get deployed across our cluster
+  <insert task definition>
+ - Now we must configure our target group so our load balancer knows how to direct traffic to our application.  You can utilize the demo VPC configured by default within AWS.  
+  <insert target_group image>
+ - Next we must add a listener to our VPC.  Add a listener on the desired port and forward to the api target group.  This way requests coming into our ELB on the port specified (in our case 80), will get redirected to our target group for the api service
+ <insert listener.png>
+ - Finally, frum the cluster configuration we can create a new service and start up our application. 
+  <insert service_created image>
+   
+ - and we can test it is working by navigating to the DNS name of our ELB
  - Now, we have our monolith application running, we want to break it into three seperate services.  The github project for this demo provides us with an additional 3 docker repositories which comprises each service individually inside it's own NodeJS application
  - In order to use this, we need to basically repeat the previous steps, but this time do everything in pairs of 3's for each of the individual services.
  - So, we first must add the repositories to ECR, build and tag the docker images for all three microservices
