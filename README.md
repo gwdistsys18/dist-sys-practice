@@ -258,18 +258,77 @@ spent 1 hours
 
 
 
-
- 
- 
- 
- 
- 
- 
- 
+## Area 2 Big Data and Machine learning 
 
 
+[hadoop intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
+
++ volume of data more and more huge
++ use ditributed system to solve larger data
++ challenges:
+since multiple computers are used in the distributed system there are high chances of system failure. there is also a limit on the bandwith. programming comlexity is also high because it is difficult ot synchronized data and process.
+hadoop solve this problem.
+
++ hadoop is framework taht allows for the distributed processing of large data sets across clusters of commodity computers using simple programming models. it is inspired by a technical document published by google the word. 
+
++ four characteristics
+1. economical
+ordinary computers can be used for data processing
+2. reliable
+stores copies of the data on different machines and is resistant to hardware failure
+3. scalable
+can follow both horizontal and vertical scaling
+4. flexible
+can store as much of the data and decide to use it later
+
++ hadoop brought a radical approach. in hadoop the program goes to the data not vice-versa. it initially distributes the dta to multiple systems and later runs the computation wherever the data is located.
+
++ three core componets processing resource management and storage.
+
++ HDFS is a storage layer for hadoop suitable for distributed storage and hadoop provides a command line interface to interact with HDFS
++ Hbase stores data in HDFS; a noSQL databse 
+ mainly used when you need random, real-time, read/write access to your Big Data
+provides support to high volumes of data and high throughout
+
++ sqoop is a tool designed to transfer data between Hadoop and relational database servers. it is used to import data from relational database such as, oracle and MySQl to HDFS and export data from HDFS to relational databases.
++ Flume A distributed service for ingesting streaming data; ideally suited for event data from multiple systems 
++ spark: an open-source cluster computing framework; provides 100 times faster performance as compared to MapReduce; Supports Machine learning, business intelligence, streaming, and batch processing
++ hadoop map reduce: the original hadoop processing engine which is primarily java based
++ Based on the map and reduce programming model
++ hadoop ecosystem. an open-source dataflow system converts pig script to map-reduce code an alternate to writing ma-reduce code best for ad-hoc quries like join and filter
+
++ impala to analyze data it is an open source high performance SQL engine which runs on Hadoop cluster. ideal for interactive analysis;very low latency; supports a dialect of SQL
++ Hive is an abstraction layer on top of Hadoop it's very similar to lmpala. ETL
++ cloudera search: one of cloudera's near-real-time access products
++ enables non-technical users to search and exploore data stored in or ingested into Hadoop and HBase
++ Oozie is a workflow or coordination system used to manage the hadoop jobs
++ Hue is an acronym for Hadoop user experience; Hue is an open source Web interface for analyzing data with Hadoop 
++ it provides SQL editors for Hive, lmpala, MySQL, oracle, postgreSQL, Spark SQL, and Solr SQL
++ Hue is an open source web interface for analyzing data with Hadoop
+
+spent 1 hours
+---
+### [analyze big data with hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)
++ step:
+1. create bucket
+2. create cluster 
+3. add step
+4. view from os_requests folder
+5. end s3
+6 end lab
 
 
 
-## Area 2
-> Include notes here about each of the links
+
+
+
+
+
+
+
+
+
+
+
+
+
