@@ -328,6 +328,18 @@ age | job | marital | education | default | housing | loan | contact | month | d
 
 <a name="app"></a> 
 # Build a Serverless Real-Time Data Processing APP
+### Overview
+![](https://s3.amazonaws.com/hadoop357/RTArchitecture.PNG)
+* In this project, I’ll build a serverless app to process real-time data streams and build infrastructure for a fictional ride-sharing company. In this case, I will enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
 
-
+### Procedure
+* Build a data stream
+	* Create a stream in Kinesis and write to and read from the stream to track Wild Rydes unicorns on the live map.
+	* create an Amazon Cognito identity pool to grant live map access to your stream.
+* Aggregate data
+	* Build a Kinesis Data Analytics application to read from the stream and aggregate metrics like unicorn health and distance traveled each minute.
+* Process streaming data
+	* Persist aggregate data from the application to a backend database stored in DynamoDB and run queries against those data.
+* Store & query data
+	* Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, you'll run SQL queries against the raw data for ad-hoc analyses.
 
