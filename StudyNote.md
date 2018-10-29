@@ -78,7 +78,7 @@ After you get ready in docker swarm. Code below can create a basic distributed v
 
 ## Area 2 Big Data and Machine Learning
 ***Beginner Level:***  
-`**I have read the paper of HDFS and get a deep understanding about HDFS and HADOOP,Here is my Note**`
+`I have read the paper of HDFS and get a deep understanding about HDFS and HADOOP,Here is my Note`
 HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware.  
 **High falt-tolerant:**  
 Therefore, detection of faults and quick, automatic recovery from them is a core architectural goal of HDFS.  
