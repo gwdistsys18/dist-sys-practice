@@ -48,3 +48,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Pgweb is a web application for SQL based on PostreSQL
   * Created a users table, then copied 49,990 rows from an S3 text file
   * Queried the data using SQL
+* Video: Short AWS Machine Learning Overview (took ~3 minutes)
+  * There are three layers of the machine learning stack:
+    * Framework and Interfaces: used by companies with experts who build and train ML models
+    * ML Platforms: make it easy to build, train, tune, and deploy models without expertise
+    * Application Services: APIs for computer vision, speech processing, etc.
