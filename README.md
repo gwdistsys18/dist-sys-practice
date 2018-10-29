@@ -41,9 +41,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * A stack is made of several services (one or more containers)
 * Use `docker service scale` to add more replicas to a service
 10. Kubernetes vs Swarm (4min)
-* ???
+* Swarm is easier to set up but works better on simple architecture
+* Kubernetes can automatically scale up the containers according to server traffic
+* Swarm does load-balancing automatically
+* Kubernetes is more powerful in general
 11. Kubernetes in 5 Minutes (5min)
-* Kubernetes
+* //TODO
 12. Learn more about Kubernetes on your own (30min)
 * Kubernetes
 13. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them (90min)
