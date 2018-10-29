@@ -32,7 +32,7 @@ When you run a container,it will pull the file from the registory.
 Then to the cache,and then set up the c group in the process name space.  
   
 ***Intermediate Level***  
-![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/Screen%20Shot%202018-10-01%20at%2010.32.24%20AM.png)
-![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/Screen%20Shot%202018-10-01%20at%2011.01.13%20AM.png)
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/1Container.png)
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/2VM&Container.png)
 ## Area 2
 > Include notes here about each of the links
