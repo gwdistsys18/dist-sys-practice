@@ -18,4 +18,10 @@ Docker for Beginners - Linux
   Task 0:complete
   Task 1:complete ID:38504033cb0d learn about how to run different simple container
   Task 2: Package and run a custom app using Docker - some commandline, looks we can do all things with commandline
-  Task 3:
+  Task 3:completed
+  
+Doing More With Docker Images - Images are really important in docker/dist-sys
+  // hello docker is pretty fun somehow
+  - use -tag "rename"
+  - docketfile: guide for docker
+  - need use vim/vi 
