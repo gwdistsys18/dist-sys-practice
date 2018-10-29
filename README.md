@@ -43,6 +43,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - Speed comparison of different NF configurations is informative.
 
 > netmap - a framework for fast I/O
+
 > Install OpenNetVM
   - This I have done in the GW Nimbus Cluster
   - Output from the speed tester example:
