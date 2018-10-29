@@ -66,7 +66,14 @@ ubuntu sleep infinity`)
   * Service discovery works by running a local Docker nameserver on 127.0.0.11:53 - this allows us to use service names rather than IP addresses if desired
   * Leave a swarm with `docker swarm leave --force`
 
-* [Swarm Mode Introduction Lab](https://training.play-with-docker.com/ops-s1-swarm-intro/)
+* [Swarm Mode Introduction Lab ~30 mins](https://training.play-with-docker.com/ops-s1-swarm-intro/)
+  * Setup swarm in identical manner to last tutorial - `docker swarm init --advertise-addr $(hostname -i)`.  Join swarm from other node with the command in the output of the first node's `docker swarm init` command
+  * `docker node ls` lists nodes in swarm (only works on manager)
+  * `docker-stack.yml` can be used to deploy a "stack" (list of services that can be deployed together)
+  * `docker stack deploy --compose-file=<stack file> <stack name>` is the command for deploying a stack based on a config
+  * `docker stack` has other useful sub-commands such as `services`, `ps`, and `ls`
+  * Deployed voting application via stack and saw replicas running on multiple nodes
+  * `docker service scale <servicename>=<scalesize>` is an insanely awesomely simply way to scale your application
 
 ## Area 2
 > Include notes here about each of the links
