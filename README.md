@@ -70,3 +70,21 @@ NF  1 - rx: 2106773568 rx_drop:         0 next:         0 drop:         0 ret│
   - Docker has seen major adoptation
   - Adopting containers do not require code changes; just changes in packaging
   - Large projects can save 50 - 70% infrastructure based costs by containerizing
+
+> Play with Docker Classroom
+  - the focus of containers is on the application rather than on the hardware layer.
+  - hello-world docker was not available locally, so the image got pulled from the docker store (the default docker registry)
+  - pull the alpine container and run
+  - two container commands run on two different container instances and have no interaction with each other - that is docker isolation
+  - since there is no need to emulate the full hardware stack, containers are much faster.
+  - Commands:
+    1. docker image pull alpine : pull an alpine image from local or remote docker registry
+    2. docker image ls : images that have been pulled into this system
+    3. docker container run alpine ls -l : 'ls -l' inside a new container (starts the container, runs the command, stops the container)
+    4. docker container run -it alpine /bin/sh : run the container in interactive mode
+    5. docker container ls -a : all docker instances that have been run so far. Stores all changes made in/to them
+    6. 
+        a. docker container start 514f0e9fa723 : start a previously run docker instance
+        b. docker container start 514f : as long as the docker can be uniquely identified
+    7. docker container exec 514f ls : run ls inside a previously run container
+    
