@@ -329,7 +329,6 @@ age | job | marital | education | default | housing | loan | contact | month | d
 <a name="app"></a> 
 # Build a Serverless Real-Time Data Processing APP
 ### Overview
-![](https://s3.amazonaws.com/hadoop357/RTArchitecture.PNG)
 * In this project, I’ll build a serverless app to process real-time data streams and build infrastructure for a fictional ride-sharing company. In this case, I will enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
 
 ### Procedure
@@ -343,3 +342,10 @@ age | job | marital | education | default | housing | loan | contact | month | d
 * Store & query data
 	* Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, you'll run SQL queries against the raw data for ad-hoc analyses.
 
+### Application Architecture
+![](https://s3.amazonaws.com/hadoop357/RTArchitecture.PNG)
+I will go through the project in the order of the architecture
+* Before going through this architecture, I will create a Cloud9 instance and download the client.tar file first
+
+### Amazon Kinesis Data Streams
+![](https://s3.amazonaws.com/hadoop357/KinesisStream.PNG)
