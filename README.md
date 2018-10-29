@@ -59,4 +59,17 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Allowed SSH connections to cluster
   * Steps can be submitted to a cluster, configured when it is set up, or run on the command line after connecting to the master node
   * The script also analyzes CloudFront log files and determines the number of requests for each OS
-  
+* QwikLab: Intro to Amazon Machine Learning (took ~35 minutes)
+  * Amazon ML allows software developers to build predictive models from supervised data sets
+  * Docs: AWS Machine Learning
+    * A datasource contains metadata about input data but not the data itself
+    * An ML model generates predictions
+    * An evaluation measures ML model quality
+    * Batch predictions generate predictions for a set of observations
+    * Real-time predictions generate predictions for single input observations with low latency
+  * Started by adding data to an S3 bucket
+  * Inputted the data into Amazon ML and identified the target variable
+  * Amazon ML by default reserves 70% of data for training and 30% for evaluation
+  * The confusion matrix shows a matrix of the true values and predicted values and the frequencies
+  * Real-time predictions show predicted scores (adding up to 1) for each category
+  * Real-time predictions can be done without submitting all of the input data values
