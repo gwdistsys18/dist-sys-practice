@@ -147,9 +147,69 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	- <https://www.youtube.com/watch?v=kOa_llowQ1c>
 	- <https://www.youtube.com/watch?time_continue=4&v=H06qrNmGqyE>
 
-11. Docker in Cluster of EC2 Instances using Kubernetes to Orchestrate
+11. Docker in Cluster of EC2 Instances using Kubernetes to Orchestrate - 60 min
+	- Amazon provides a service called Elastic Container Service(ECS) this is
+	what eventually is fed a docker image and serves as the docker container
+	- ECS is typically setup as a cluster, the process is straightforward
+	if default configuration is assumed
+	- ECS instances use a task definition from amazon that defines which
+	docker image to use for container configuration
+	- Using ECS amazon provides elastic load balancing which isn't needed
+	for this project but very useful in real world applications
+	- The basics of interacting with a cluster are verified using a key pair
+	similar to EC2 generation and access
+	- KOPS is a somewhat simple to use open source tool for installing
+	kubernetes on a cluster of EC2 instances
+	- <https://medium.com/containermind/how-to-create-a-kubernetes-cluster-on-aws-in-few-minutes-89dda10354f4>
+	
 
 Bring it all together:
+	- This module goes through putting a monolith application in a container
+	then deploying that container
+	- This module then breaks the monolith into microservices without any
+	downtime 
+	- Each of the pieces of this process are addressed and explained in
+	short. Starting with containers the tutorial explains why they're
+	useful in this situation
+	- This tutorial requires more access than a standard amazon educate
+	account provides so I needed to make a personal account for this module
+	- This module is multistep and hands off compared to the others
+	- Setting up a containerized version of an app requires first building
+	a docker image to use for the container
+	- The first large step is to deploy a large application inside of a
+	container
+		* First step is to build a cluster using the image created earlier
+		* Build a stack(not the data structure) 
+		* Setup and orchestration .yaml file
+	- Next once the cluster is deployed it must have it's task set to
+	the application to be run
+	- Setting up a load balancer is the next important step
+		* Setting a target group is needed to route traffic to containers
+		in the cluster
+		* Setting the listener is needed to handle requests to the load
+		balancer
+	- The next portion of the module focusses on pulling the application
+	a piece at a time
+	- After building a docker image and tagging it in the repo contianers
+	can be built to the spec
+	- Setting up a cluster using the spec provided was also a simple task
+		* This involved building a new stack and using the provided .yaml
+		file to orchestrate at a basic level
+	- Deploying the monolith definitely took some doing, breaking into
+	microservices shouldn't be too bad because the way this application
+	was built it allows for it to be broken up. Some apps aren't architected
+	to support containerization and distribution
+	- Advantages of isolation into microservices inside of containers
+		* Crashes are isolated, the entire system doesn't have to go down
+		* If a container becomes compromised it cannot affect the rest of
+		the system
+		* If a portion of the system needs to scale to account for new needs
+		it can easily do so without constraining the rest of the system
+		* This one is not intuitive, development speed is greatly increased
+		dependencies across services are almost entirely abstracted away from
+		the developer. A dev can work and and test their service entirely
+		seperate from the rest of the system
+	- 
 
 
 ## Area 2 Cloud Web Apps
