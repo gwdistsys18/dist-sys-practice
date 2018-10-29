@@ -4,13 +4,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Area 1 - Docker & Containers
 ### Beginner Courses:
 #### Video: Why Docker? (10 min)
- - Docker is a major infrastructure shift.  Comparable to Mainframe to PC shift in 1990s, Baremteal to Virtual on 2000s, Datacenter to Cloud in 2010s, and finally host to containers currently (aka Docker).
+ - Docker is a major infrastructure shift.  Comparable to Mainframe --> PC shift in 1990s, Baremteal --> Virtual in 2000s, Datacenter --> Cloud in 2010s, and finally host --> containers currently (aka Docker).
  - Migration is the hard part, however Docker is built with migration in mind.
  - Why Docker?? Docker is all about speed!  Develop faster, build faster, test faster, deploy faster, etc.
- - Matrix from hell - Current applications have many different types, with different requirements, running on different machines with different operating systems, with different testing requirements, etc.
- - Docker basically standardizes all of the above, so that every part of your application (e.g., database server, web server, front end server, etc, can all be run from within docker containers)
+ - Matrix from hell - Current applications have many different types, with different requirements, running on different machines with different operating systems, with different testing requirements, etc.  The "matrix from hell" is the matrix you get when you try to plot service by requirement for a large scale application.
+ - Docker basically standardizes all of the above, so that every part of your application (e.g., database server, web server, front end server, etc, can all be run from within docker containers).  This means rather than having to spin up a specific type of system (e.g., a Linux server with MySQL version a.b.c running and ports e,f,g open), which is a different process from spining up an Apache webserver, in both cases all you have to do is spin up the right container
  - Docker is freeing up time typically spent on maintenance
- - Apps can be migrated into containers without code changes.  Containers is simply about optimizing the packaging and running apps.
+ - Apps can be migrated into containers without code changes.  Containers is simply about optimizing the packaging and running of apps.
 
 #### Lab: DevOps Docker Beginners Guide (1 hour)
  - Container is application abstraction, where as virtual machines are hardware abstraction
