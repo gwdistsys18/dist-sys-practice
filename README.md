@@ -145,7 +145,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - We utilize Amazon ECR (Elastic Container Registry) for managing docker deployments
   - Note: You will need Docker and AWS CLI installed on your workstation in order to do the demo 
  - After forking the Github repository, you can use Amazon ECR to add the repository.  Amazon ECR is a Docker container registry.  By Adding our code to the registry, we can use Docker to create container images
- - We will use CloudFormation and provide it a Docker stack file (See previous notes for what a Docker stack is).  Basically this is a markup document which describes a recipe for building a containerized application
+ <INSERT IMAGE docker_push.png>
+ <insert image respository.png>
+ - We will use CloudFormation and provide it a Docker stack file which is in the Github repiository (See previous notes for what a Docker stack is).  Basically this is a markup document which describes a recipe for building a containerized application.  This stack file will spin up a cluster of two nodes.
  - We build the docker image locally, tag it, and push it to the ECR registry
  - We will now use Amazon ECS (Elastic Container Service) to spin up our docker containers on EC2 instances
  - We utilize the CloudFormation service to create a ECS cluster.  This service takes an markup text file as input which specifies how the cluster should be built.
