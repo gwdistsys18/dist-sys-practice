@@ -32,6 +32,10 @@ When you run a container,it will pull the file from the registory.
 Then to the cache,and then set up the c group in the process name space.  
   
 ***Intermediate Level***  
+3 Basic docker operator type:  
+**To run a single task:** This could be a shell script or a custom app.  
+**Interactively:** This connects you to the container similar to the way you SSH into a remote server.  
+**In the background:** For long-running services like websites and databases.  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/1Container.png)
 &lt;Video1-The basic structure of container&gt;
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/2VM&Container.png)
@@ -47,6 +51,22 @@ docker swarm is less powerful than the kubernate. But it is easier to use.
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/5kubernetes.png)  
 &lt;Video5-Kubernetes simple structure&gt;  
 There are one **kubernate cluster server** and several **worker nodes**.Each worker has a kubernate process which is responsable to communicate with the cluster server. User case:In the deployment file there are mainly two part:Pod has one or several container image. User can set the replicas number. If a worker node die, the cluster server will be noticed and send a new task with losed job to living workers.
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/6Swarm(1).png)  
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/7Swarm(2).png)  
+&lt;LAB-SWARM simple application deployment&gt; 
+After you get ready in docker swarm. Code below can create a basic distributed voting application.  
+git clone https://github.com/docker/example-voting-app  
+cd example-voting-app  
+cat docker-stack.yml  
+docker stack deploy --compose-file=docker-stack.yml voting_stack  
+docker stack ls  
+docker stack services voting_stack  
+docker service ps voting_stack_vote  
+docker service scale voting_stack_vote=5  
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/8ECR.png)  
+&lt;Last-Toturial figure&gt; 
+
+
 ## Area 2 Big Data and Machine Learning
 ***Beginner Level:***  
 `**I have read the paper of HDFS and get a deep understanding about HDFS and HADOOP,Here is my Note**`
