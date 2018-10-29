@@ -3,14 +3,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## 1. Docker and Containers
 
-### Beginner
+## Beginner
 > [Video: Why Docker? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/WhyDockerNote.pdf) 25 min
 
 >  [Lab: DevOps Docker Beginners Guide Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/FirstAlpineLinuxContainers.pdf) 90 min
 
-### Intermediate
+## Intermediate
 
-####Containers
+###Containers
 > [Video: What are Containers? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/WhatAreContainer.pdf) 25 min
 
 > [Video: VMs Versus Containers? Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/VM%20%26%20Container.png) 15 min
@@ -21,7 +21,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  
  > [Video: VMs Versus Containers Deep Dive Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/VMs%20Versus%20Containers%20Deep%20Dive.png) 15 min
  
-####Networking and Orchestration
+###Networking and Orchestration
  > [Video: Kubernetes vs Swarm Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Kubernetes%20vs%20Swarm.pdf) 7 min
  
   >  [Lab: Docker Networking Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Docker%20Networking%20Hands-on%20Lab.pdf) 90 min
