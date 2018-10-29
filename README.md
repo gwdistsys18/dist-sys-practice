@@ -129,6 +129,14 @@ Background containers are how you’ll run most applications
 
 In this step, we’ll learn how to package your own apps as Docker images using a Dockerfile. The Dockerfile syntax is straightforward. In this task, we’re going to create a simple NGINX website from a Dockerfile.
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2021.49.14.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2021.51.17.png?raw=true)
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-28%2021.52.59.png?raw=true)
+
+
+
 **Build a simple website image**
 
 **Task 3: Modify a running website**
@@ -138,6 +146,10 @@ When you’re actively working on an application it is inconvenient to have to s
 One way to streamline this process is to mount the source code directory on the local machine into the running container. This will allow any changes made to the files on the host to be immediately reflected in the container.
 
 We do this using something called a bind mount.When you use a bind mount, a file or directory on the host machine is mounted into a container running on the same host.
+
+**Start our web app with a bind mount**
+
+**Modify the running website**
 
 
 
