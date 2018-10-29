@@ -91,14 +91,14 @@ Computation closer to data The assumption is that it is often better to migrate 
 **Portable:**  
 HDFS has been designed to be easily portable from one platform to another.   
 **Master/slave architecture:**  
-*(1)*An HDFS cluster consists of a single NameNode, a master server that manages the file system namespace and regulates access to files by clients.  
-*(2)*In addition, there are a number of DataNodes, usually one per node in the cluster, which manage storage attached to the nodes that they run on.   
-*(3)*HDFS supports a traditional hierarchical file organization.   
-*(4)*It stores each file as a sequence of blocks;all blocks in a file except the last block are the same size. The blocks of a file are replicated for fault tolerance.  
-*(5)*The **NameNode** makes all decisions regarding replication of blocks.It periodically receives a Heartbeat and a Blockreport from each of the DataNodes in the cluster.A Blockreport contains a list of all blocks on a DataNode
+*(1)* An HDFS cluster consists of a single NameNode, a master server that manages the file system namespace and regulates access to files by clients.  
+*(2)* In addition, there are a number of DataNodes, usually one per node in the cluster, which manage storage attached to the nodes that they run on.   
+*(3)* HDFS supports a traditional hierarchical file organization.   
+*(4)* It stores each file as a sequence of blocks;all blocks in a file except the last block are the same size. The blocks of a file are replicated for fault tolerance.  
+*(5)* The **NameNode** makes all decisions regarding replication of blocks.It periodically receives a Heartbeat and a Blockreport from each of the DataNodes in the cluster.A Blockreport contains a list of all blocks on a DataNode
 cases, network bandwidth between machines in the same rack is greater than network bandwidth between machines in different racks.  
-*(6)*For the common case, when the replication factor is three, HDFS’s placement policy is to put one replica on one node in the local rack, another on a node in a different (remote) rack, and the last on a different node in the same remote rack. The chance of rack failure is far less than that of node failure; this policy does not impact data reliability and availability guarantees. However, it does reduce the aggregate network bandwidth used when reading data since a block is placed in only two unique racks rather than three.  
-*(7)*To minimize global bandwidth consumption and read latency, HDFS tries to satisfy a read request from a replica that is closest to the reader. If there exists a replica on the same rack as the reader node, then that replica is preferred to satisfy the read request. If angg/ HDFS cluster spans multiple data centers, then a replica that is resident in the local data center is preferred over any remote replica.  
+*(6)* For the common case, when the replication factor is three, HDFS’s placement policy is to put one replica on one node in the local rack, another on a node in a different (remote) rack, and the last on a different node in the same remote rack. The chance of rack failure is far less than that of node failure; this policy does not impact data reliability and availability guarantees. However, it does reduce the aggregate network bandwidth used when reading data since a block is placed in only two unique racks rather than three.  
+*(7)* To minimize global bandwidth consumption and read latency, HDFS tries to satisfy a read request from a replica that is closest to the reader. If there exists a replica on the same rack as the reader node, then that replica is preferred to satisfy the read request. If angg/ HDFS cluster spans multiple data centers, then a replica that is resident in the local data center is preferred over any remote replica.  
 **SAFEMODE:**   
 A block is considered safely replicated when the minimum number of replicas of that data block has checked in with the NameNode. After a configurable percentage of safely replicated data blocks checks in with the NameNode (plus an additional 30 seconds), the NameNode exits the Safemode state.  
 **The NameNode** uses a transaction log called the EditLog to persistently record every change that occurs to file system metadata.The NameNode uses a file in its local host OS file system to store the EditLog.
