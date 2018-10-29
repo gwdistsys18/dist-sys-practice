@@ -315,6 +315,16 @@ age | job | marital | education | default | housing | loan | contact | month | d
 
 <a name="segmaker"></a> 
 # AWS SageMaker
+* I lost my .md file in this episode, so the following introduction will be more concise.
+### Getting Started
+* Create an S3 bucket a usual.
+* Create an SageMaker Notebook Instance
+* Train Model and Deploy it
+* p.s Some important image I used before this episode lost:
+	* SageMakerLoop	
+		![](https://s3.amazonaws.com/hadoop357/SageMakerLoop.PNG)
+	* BatchTransform
+		![](https://s3.amazonaws.com/hadoop357/batchTransform.PNG)
 
 <a name="app"></a> 
 # Build a Serverless Real-Time Data Processing APP
