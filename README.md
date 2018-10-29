@@ -97,4 +97,9 @@ The four parts and be linked to be used together but they can also be used separ
 ## Area 2 Cloud Web Apps
 ### AWS tutorial: Launch a VM
 ### QwikLab: Intro to S3 (25min)
+- Create a bucket and configure to allow versioning and set permissions
+- upload an image to the bucket
+- change the permission setting and make the image public
+- create a bucket policy to set permission setting
+- get access to different versions of images with the same name
 
