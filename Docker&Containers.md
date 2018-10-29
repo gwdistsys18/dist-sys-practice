@@ -38,7 +38,7 @@
 	* Container isolation
 	
 ### docker container run hello-world
-?[](https://s3.amazonaws.com/hadoop357/hello_world.PNG)
+![](https://s3.amazonaws.com/hadoop357/hello_world.PNG)
 
 ### Docker Image
 * Some Commands:
@@ -46,20 +46,20 @@
 		* The pull command fetches the alpine image from the Docker registry and saves it in our system. In this case the registry is Docker Store.
 	* docker image ls
 	* docker container run alpine ls -l
-?[](https://s3.amazonaws.com/hadoop357/Docker_detail.PNG)
+![](https://s3.amazonaws.com/hadoop357/Docker_detail.PNG)
 	* docker container run -it alpine /bin/sh
 		* Running a Linux shell inside the container.
 	* docker container ls -a
 		* list all containers that you ran.
-?[](https://s3.amazonaws.com/hadoop357/DockerInstance.PNG)
+![](https://s3.amazonaws.com/hadoop357/DockerInstance.PNG)
 
 ### Container Isolation
 
 * Even though each docker container run command used the same alpine image, each execution was a separate, isolated container. Each container has a separate filesystem and runs in a different namespace; by default a container has no way of interacting with other containers, even those from the same image.
 
 * In every day work, Docker users take advantage of this feature not only for security, but to test the effects of making application changes. Isolation allows users to quickly create separate, isolated test copies of an application or service and have them run side-by-side without interfering with one another. In fact, there is a whole lifecycle where users take their changes and move them up to production using this basic concept and the built-in capabilities of Docker Enteprise.
-?[](https://s3.amazonaws.com/hadoop357/DockerIsolation.PNG)
-?[](https://s3.amazonaws.com/hadoop357/DockerExec.PNG)
+![](https://s3.amazonaws.com/hadoop357/DockerIsolation.PNG)
+![](https://s3.amazonaws.com/hadoop357/DockerExec.PNG)
 
 ### Terminology
 * Images - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run docker image inspect alpine. In the demo above, you used the docker image pull command to download the alpine image. When you executed the command docker container run hello-world, it also did a docker image pull behind the scenes to download the hello-world image.
