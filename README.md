@@ -25,10 +25,18 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * You can start containers and pass commands to them to `exec`
 
 * [What are Containers Video](https://www.youtube.com/watch?v=EnJ7qX9fkcU)
-  * **FILL ME IN**
+  * At its simplest definition a container is an isolated process within a host OS
+  * Container processes and its container lifecycle are tightly coupled
+  * Containers are created from images - image layering (covered in "Doing More with Docker Images Lab")
+  * Dockerfiles create images
+  * Docker registry and cache
+  * Docker client does container lifecycle management as well as network and storage configuration
 
 * [VMs Versus Containers Video](https://www.youtube.com/watch?v=L1ie8negCjc)
-  * **FILL ME IN**
+  * VM needs hypervisor, which does NIC, storage, hardware monitoring (agents, kernel modules)
+  * VMs have NIC, storage, can be sized
+  * Containers have docker engine in OS
+  * Container image contains OS dependencies and application
 
 * [Docker Intro Lab ~20 mins](https://training.play-with-docker.com/beginner-linux/)
   * Introduction was overlapping content from Docker Beginner Lab
@@ -49,7 +57,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Layers saves us time by caching levels of builds to avoid having to go through the whole process when unnecessary
 
 * [VMs Versus Containers Deep Dive Video](https://www.youtube.com/watch?v=PoiXuVnSxfE)
-  * **FILL ME IN**
+  * Container images can be very small in size if built using container-oriented technologies
+  * Otherwise they can be similar in size to VMs
+  * VM isolation is as far as we know impenetrable (fully isolated x86 instances)
+  * Containers are only as secure as the process they are running on - kernel insecurities -> container insecurities
+  * Containers start fast but we can speed up VMs by using EFI and systemd to do things in parallel and faster
 
 * [Docker Networking Lab ~35 mins](https://training.play-with-docker.com/docker-networking-hol/)
   * `docker network` is the primary command to manage networks with Docker
