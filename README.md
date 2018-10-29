@@ -63,18 +63,74 @@ hypervisor is responsible for interacting with NIC, storage, agents and kernel m
 in Container: the docker engine in operating system, operating system dependencies and the application itself-image.  
 
 -Lab: Docker Intro(https://training.play-with-docker.com/beginner-linux/)(1hour)  
-how to clone a repo from github in docker.  
-how to run a single task, interactive ubuntu container and background mysql container in Alpine Linux container.  
-how to build images and run a custom application using docker.  
-what is bind mount and how to modify a running website.  
-how to update and push images.  
+know how to clone a repo from github in docker.  
+git clone https://github.com/dockersamples/linux_tweet_app  
+command to clone the lab’s repo from GitHub (you can click the command or manually type it).  
+This will make a copy of the lab’s repo in a new sub-directory called linux_tweet_app
+know how to run a single task, interactive ubuntu container and background mysql container in Alpine Linux container.  
+start a new container and tell it to run the hostname command.  
+The container will start, execute the hostname command, then exit. docker container run alpine hostname  
+Docker automatically pulls image from Docker Hub. After the image is pulled, the container’s hostname is displayed  
+Docker keeps a container running as long as the process it started inside the container is still running.  
+In this case the hostname process exits as soon as the output is written. This means the container stops.  
+Containers which do one task and then exit can be very useful.  
+You could build a Docker image that executes a script to configure something.  
+Anyone can execute that task just by running the container - they don’t need the actual scripts or configuration information. 
+You can run a container based on a different version of Linux than is running on your Docker host.  
+run an Ubuntu Linux container on top of an Alpine Linux Docker host (Play With Docker uses Alpine Linux for its nodes).  
+docker container run --interactive --tty --rm ubuntu bash  
+Notice that our host VM is running Alpine Linux, yet we were able to run an Ubuntu container.  
+As previously mentioned, the distribution of Linux inside the container does not need to  
+match the distribution of Linux running on the Docker host.  
+Background containers are how you’ll run most applications.  
+docker container run \
+ --detach \
+ --name mydb \
+ -e MYSQL_ROOT_PASSWORD=my-secret-pw \
+ mysql:latest
+--detach will run the container in the background.  
+know how to build images and run a custom application using docker.  
+know what is bind mount and how to modify a running website.  
+When you’re actively working on an application it is inconvenient to have to stop the container,  
+rebuild the image, and run a new version every time you make a change to your source code.  
+One way to streamline this process is to mount the source code directory on the local machine into the running container.  
+This will allow any changes made to the files on the host to be immediately reflected in the container.  
+When you use a bind mount, a file or directory on the host machine is mounted into a container running on the same host.  
+Bind mounts mean that any changes made to the local file system are immediately reflected in the running container.  
+know how to update and push images.  
+To persist the changes you made to the index.html file into the image, you need to build a new version of the image.  
+docker image build --tag $DOCKERID/linux_tweet_app:2.0 .will Build a new image and tag it as 2.0  
+These images are only stored in your Docker hosts local repository.  
+Your Docker host will be deleted after the workshop.  
+In this step we’ll push the images to a public repository so you can run them from any Linux machine with Docker.  
+Distribution is built into the Docker platform. You can build images locally and push them to a public or private registry,  
+making them available to other users.
+docker image push $DOCKERID/linux_tweet_app:1.0 will Push version 1.0 of your web app using docker image push.  
 
 -Lab: Doing more with Docker Images(https://training.play-with-docker.com/ops-s1-images/)(1hour10min)
-how to create image in docker: 2ways.
+know how to create image in docker: 2ways.
 create a image from container, add all the libraries and binaries in it and then commit it in order to create an image.  
+Before we create our own image, we might want to inspect all the changes we made.  
+Try typing the command docker container diff <container ID> for the container you just created.  
+You should see a list of all the files that were added or changed to in the container when you installed figlet.  
+Docker keeps track of all of this information for us. This is part of the layer concept we will explore in a few minutes.
+we can create a container, add all the libraries and binaries in it and then commit it in order to create an image.  
+We can then use that image just as we would for images pulled down from the Docker Store.
 create image using dockerfile: We created two files: our application code (index.js) is a simple bit of javascript code  
 that prints out a message. And the Dockerfile is the instructions for Docker engine to create our custom container.  
+The final result is essentially the same, but with a Dockerfile we are supplying the instructions for building the image,  
+rather than just the raw binary files. This is useful because it becomes much easier to manage changes,  
+especially as your images get bigger and more complex.
+For example, if a new version of figlet is released we would either have to re-create our image from scratch,  
+or run our image and upgrade the installed version of figlet.  
+In contrast, a Dockerfile would include the apt-get commands we used to install figlet so that we  
+- or anybody using the Dockerfile - could simply recompose the image using those instructions.
 what is image layers and how to use inspect command to inspect particular details about the image.  
+There is something else interesting about the images we build with Docker.  
+When running they appear to be a single OS and application. But the images themselves are actually built in layers.  
+What if we get a container from Docker Store or another registry and  
+want to know a bit about what is inside the container we are consuming?  
+Docker has an inspect command for images and it returns details on the container image, the commands it runs, the OS and more.
 
 -Video: VMs Versus Containers Deep Dive(https://www.youtube.com/watch?v=PoiXuVnSxfE)(10min)  
 the differences between virtual machine and containers:size, isolation and boot time.  
