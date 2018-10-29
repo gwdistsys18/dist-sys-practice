@@ -363,5 +363,28 @@ I will go through the project in the order of the architecture
 * Amazon Kinesis Data Streams -> Amazon Kinesis Data Analytics -> Amazon Kinesis Data Streams (aggregated)
 * Analytics Application
 ![](https://s3.amazonaws.com/hadoop357/KinesisAnalyticsApp.png)
+* Discover in Schema
+	Build an Amazon Kinesis Data Analytics application which reads from the wildrydes stream built in the previous module and emits a JSON object with the following attributes each minute:
+![](https://s3.amazonaws.com/hadoop357/SchemaDiscover.png)
+
+* Run SQL to see rows of aggregated data.
+![](https://s3.amazonaws.com/hadoop357/SQLRTanalytics.png)
+#
+CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
+  "Name"                VARCHAR(16),
+  "StatusTime"          TIMESTAMP,
+  "Distance"            SMALLINT,
+  "MinMagicPoints"      SMALLINT,
+  "MaxMagicPoints"      SMALLINT,
+  "MinHealthPoints"     SMALLINT,
+  "MaxHealthPoints"     SMALLINT
+);
+
+CREATE OR REPLACE PUMP "STREAM_PUMP" AS
+  INSERT INTO "DESTINATION_SQL_STREAM"
+    SELECT STREAM "Name", "ROWTIME", SUM("Distance"), MIN("MagicPoints"),
+                  MAX("MagicPoints"), MIN("HealthPoints"), MAX("HealthPoints")
+    FROM "SOURCE_SQL_STREAM_001"
+    GROUP BY FLOOR("SOURCE_SQL_STREAM_001"."ROWTIME" TO MINUTE), "Name";
 
 
