@@ -115,6 +115,7 @@ The Docker images on the system can be removed via the docker rmi command. Letâ€
       So the docker system will check a file that its name is called "Dockerfile" in your directory and use the context of it to create the image.
       
       <img src="https://training.play-with-docker.com/images/ops-images-dockerfile.svg" > 
-
+      and a update version when we are going to use some of the cache data from v0.1.
+      <img src="https://training.play-with-docker.com/images/ops-images-cache.svg">
 ## Area 2
 > Include notes here about each of the links
