@@ -55,9 +55,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Use `kubectl scale` to scale up the application (create more replicas)
 * Kubernetes automatically rollback to previous version if the new version fails
 13. Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them (90min)
-
+* One advantage of running application on a cluster of containers is that the restart of containers (or changing the tasks) does not affect the function of application
+* The load-balancer routes the incoming traffic to the right containers according to configuration policy
+* The cluster is configured using .yml file. The file contains the information such as network configuration and number of replicas
+* A task is a job running inside one or multiple containers. The task definition defines how a task is run by one or multiple containers. The service is an abstraction that manages multiple running tasks. If one of the container failed, the service will start the old task on a new container.
 ![Screenshot 1](images/screen2.png)
 ![Screenshot 2](images/screen3.png)
+* After running the application, it is important to go through the cleanup process and delete the cluster in order to avoid additional charges
 
 
 ## Cloud Web Applications
