@@ -1,4 +1,4 @@
-#video:why docker? (20min)
+# video:why docker? (20min)
 
 Docker is an open source object, release in 2013.
 
@@ -6,8 +6,8 @@ The most great thing that docker has is higher speed. We can do faster develop b
 
 But, docker is not good at deal difficult problem, like multitype application.
 
--
-#Lab: DevOps Docker Beginners Guide (80min)
+----
+# Lab: DevOps Docker Beginners Guide (80min)
 
 I learned some basic operating about docker.
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/WechatIMG1.png?raw=true)
@@ -22,13 +22,13 @@ Alpine - lightweight Linux distribution so it is quick to pull down and run, mak
 
 docker container start "container ID": pattern.
 
--
+----
 
-#Video: What are Containers? (35min)
+# Video: What are Containers? (35min)
 
  Containers are isolated from each other and bundle their own tools, libraries and configuration files; they can communicate with each other through well-defined channels. All containers are run by a single operating system kernel and are thus more lightweight than virtual machines. Containers are created from "images" that specify their precise contents. Images are often created by combining and modifying standard images downloaded from public repositories.
  
--
+-----
 
 **Video: VMs Versus Containers** (20min)
 
@@ -39,8 +39,9 @@ Both VMs and container is good choice for build your project.
 
 -
 
-#Lab: Docker Intro （55min）
-###Task1: Run some simple Docker containers
+# Lab: Docker Intro （55min）
+
+### Task1: Run some simple Docker containers
 
 There are different ways to use containers. These include:
 
@@ -53,36 +54,39 @@ There are different ways to use containers. These include:
 * In the background: For long-running services like websites and databases.
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/WX20181029-195157@2x.png?raw=true)
 
-###Task 2: Package and run a custom app using Docker
+### Task 2: Package and run a custom app using Docker
 
 Build a simple website image
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/docker%20t3-1.png?raw=true)
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/docker%20t3%20-%202.png?raw=true)
 
-###Task 3: Modify a running website
+### Task 3: Modify a running website
 
 * Start our web app with a bind mount
+
 * Modify the running website
+
 * Update the image
+
 * Push your images to Docker Hub
 
--
+----
 
-#Lab: Doing more with Docker Images (100min)
+# Lab: Doing more with Docker Images (100min)
 
 * Image creation from a container
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/doing%20more%201.png?raw=true)
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/doing%20more%202.png?raw=true)
 
-* Image creation using a Dockerfile
+*  Image creation using a Dockerfile
 
    *Dockerfile* - Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
    
--
+----
 
-#Lab: Docker Networking (90min)
+# Lab: Docker Networking (90min)
 
-###Section #1 - Networking Basics
+### Section #1 - Networking Basics
 * Step 1: The Docker Network Command
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn%201.png?raw=true)
 * Step 2: List networks
@@ -92,7 +96,7 @@ Build a simple website image
 * Step 4: List network driver plugins
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn4.png?raw=true)
 
-###Section #2 - Bridge Networking
+### Section #2 - Bridge Networking
 * Step 1: The Basics
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn5.png?raw=true)
 * Step 2: Connect a container
@@ -102,7 +106,7 @@ Build a simple website image
 * Step 4: Configure NAT for external connectivity
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn8.png?raw=true)
 
-###Section #3 - Overlay Networking
+### Section #3 - Overlay Networking
 * Step 1: The Basics
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn9.png?raw=true)
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn10.png?raw=true)
@@ -118,9 +122,9 @@ we created service here
 * Step 5: Test service discovery
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/dn14.png?raw=true)
 
--
+----
 
-#Lab: Swarm Mode Introduction
+# Lab: Swarm Mode Introduction
 * **Cluster management integrated with Docker Engine**: Use the Docker Engine CLI to create a swarm of Docker Engines where you can deploy application services. You don’t need additional orchestration software to create or manage a swarm.
 * **Decentralized design**: Instead of handling differentiation between node roles at deployment time, the Docker Engine handles any specialization at runtime. You can deploy both kinds of nodes, managers and workers, using the Docker Engine. This means you can build an entire swarm from a single disk image.
 * **Declarative service model**: Docker Engine uses a declarative approach to let you define the desired state of the various services in your application stack. For example, you might describe an application comprised of a web front end service with message queueing services and a database backend.
@@ -136,7 +140,7 @@ we created service here
 
 -
 
-#Kubernetes (110min)
+# Kubernetes (110min)
 * Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
 
 | Kubernets   |      Swarm     |
@@ -148,11 +152,13 @@ we created service here
 |With the release of 1.6, Kubernetes scales to  5,000-node clusters. Kubernetes scalability is benchmarked against the following Service Level Objectives (SLOs):|According to the Docker’s blog post on scaling Swarm clusters, Docker Swarm has been scaled and performance tested up to 30,000 containers and 1,000 nodes with 1 Swarm manager.|
 
 -
-#AWS Tutorial: Break a Monolith Application into Microservices （forever... ）
+# AWS Tutorial: Break a Monolith Application into Microservices （forever... ）
 
 **record**
 * 383544123906.dkr.ecr.us-east-1.amazonaws.com/guan 
+
 1. Install application. - Docker, AWS CLI, Atom.
+
 2. Clone repo from  https://github.com/awslabs/amazon-ecs-nodejs-microservices.
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws1.png?raw=true)
 3. Build and Push docker image.  
