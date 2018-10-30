@@ -264,7 +264,25 @@ Each feature of the node.js application runs as a separate service within its ow
  1: install docker
  2: install the AWS CLI
  
- +
++ Download project
++ create ECR in AWS
+ 
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%8810.49.55.png)
+
+***if have a pemission problem add this json file***
+![p]()
++ build &push th docker
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%8811.24.53.png)
+
++ lanch an ECS cluster
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%8811.52.49.png)
+
++ write a task definition
++ configure the application Load Balancr
++ deploy the monolith 
+
+
+
 
 
 
