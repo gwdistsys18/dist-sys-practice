@@ -5,6 +5,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## **Table of Contents**
 
 > All elapsed time contains time of material studying and time of note writing.
+>
 > Accoring to the description in course website, I only provide screenshot of "Bring it all together" in Docker topic. If more screenshots of other labs are requried, please contact me for them.
 
 * [Docker and Containers](#Docker-and-Containers)
@@ -146,7 +147,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * **Modify a running application**
         * *Bind mount*
 
-            If we are modifing source code on a running system, it would be nightmare to stop the container, rebuild the image and test new version everytime. 
+            If we are modifing source code on a running system, it would be nightmare to stop the container, rebuild the image and test new version everytime.
 
             ``` shell
             docker container run \
@@ -366,7 +367,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. It provides a monolith application to play with.
 
-
 There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
 
 1. **Containerize the monolith**
@@ -430,7 +430,7 @@ There are four sections included--1) Containerize the application, 2) deploy the
 
     * Configure Application Load Balancer
 
-        ![Configure target group](./screenshots/docker-fianl/microservice_target.png)
+        ![Configure target group](./screenshots/docker-fianl/microsevice_target.png)
 
     * Configure listener rules
 
