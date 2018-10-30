@@ -270,16 +270,46 @@ Each feature of the node.js application runs as a separate service within its ow
 ![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%8810.49.55.png)
 
 ***if have a pemission problem add this json file***
-![p]()
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E4%B8%8B%E8%BD%BD.png)
 + build &push th docker
 ![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%8811.24.53.png)
 
 + lanch an ECS cluster
 ![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%8811.52.49.png)
 
-+ write a task definition
-+ configure the application Load Balancr
 + deploy the monolith 
+1. create stack
+2. write a task definition
+3. configure the application load balancer
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/WeChat%20Screenshot_20181030000508.png)
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/WeChat%20Screenshot_20181030000844.png)
+4. create service and test
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/WeChat%20Screenshot_20181030001052.png)
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/WeChat%20Screenshot_20181030001307.png)
+
+
++ break the monolith
+1. create rposiory
+2. build and push images for each service(build images tag then push)
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/11.png)
+
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/22.png)
+
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/33.png)
+
+
++ deploy microservices
+1. write Task Definition for yourservices
+2. configure the application load balancer
+3. create service and validate your deploy ment
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/111.png)
+
+![p](https://github.com/kailinghuang/dist-sys-practice/blob/master/222.png)
+
+
+
+
+
 
 
 
