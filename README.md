@@ -364,32 +364,87 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ### **Bring it all together**
 
-In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. Actually, it is easy for me after the annoying procedure I met on above lab. The tutorial provides a monolith application to play with. There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
+In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. It provides a monolith application to play with.
+
+
+There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
 
 1. **Containerize the monolith**
 
     * Install dependencies and get application source
 
-        We need to install awscli and docker where we work. My pc is windows home so I uses a windows server EC2 in aws for the lab. There is not much to talk about installation and git clone provided project.
+        We need to install awscli and docker where we work. There is not much to talk about installation and git clone provided project.
+
+        ![Install wheel](./screenshots/docker-fianl/installation.png)
+
     * Build and push Docker Image
 
-        After login AWS, we can create a container registry repo and push the code to it.
+        After login AWS, we can create a container registry repo for storing images.
+
+        ![ECS repo](./screenshots/docker-fianl/ECSrepo.png)
+
+        Then we need to build the code, tag, and push the image to it.
+        ```shell
+        docker build -t api .                                                       # Build
+        docker tag api:latest [account-id].dkr.ecr.[region].amazonaws.com/api:v1    # Tag
+        docker push [account-id].dkr.ecr.[region].amazonaws.com/api:latest          # Push
+        ```
+        ![Pushed image](./screenshots/docker-fianl/pushed_image.png)
 
 2. **Deploy the monolith**
     * Create ECS cluster, and write task definition
         We need to create a cluster for deployment.
+
+        ![Cluster](./screenshots/docker-fianl/cluser.png)
+
+        Then add task definition to the cluster
+
+        ![Task Definition](./screenshots/docker-fianl/task_defi.png)
+
+    * Add and configure Application Load Balancer
+        We need to add a application load balancer. And then configure its target group and listener.
+
+        ![Application Load Balancer](./screenshots/docker-fianl/app_load_balancer.png)
+        ![Configure target group](./screenshots/docker-fianl/target_group.png)
+        ![Configure listener](./screenshots/docker-fianl/lisner.png)
+
+    * Deploy the Monolith as a service in container
+        Create service in load balancer.
+
+        ![Create service](./screenshots/docker-fianl/service.png)
+        ![Test deployment](./screenshots/docker-fianl/testing.png)
+
 3. **Break it into microservices**
+
+    The application is already broken into microservices in sample code. After creat image repo for each of microsevices, we can directly build it, then tag and push each images.
+
+    ![Create service](./screenshots/docker-fianl/microservice_image.png)
+    ![Create service](./screenshots/docker-fianl/microservice_repo.png)
+
 4. **Depoy microservices**
 
+    Here we are at the final step. It is pretty similiar as pervious procedure but we need to set up microservice seperately.
+    * Task definition
 
+        ![Write task definition](./screenshots/docker-fianl/microservice_task_definition.png)
 
+    * Configure Application Load Balancer
 
+        ![Configure target group](./screenshots/docker-fianl/microservice_target.png)
 
+    * Configure listener rules
 
+        ![Configure listener rule](./screenshots/docker-fianl/microservice_listener.png)
 
+    * Deployment
 
+        ![Deployment](./screenshots/docker-fianl/microservice_services.png)
 
+        At last, we can test spilited microservices. For example, we can test http://[DNS name]/api/threads
 
+        ![Testing](./screenshots/docker-fianl/microservice_result.png)
+
+Actually, this tutorial is easier for me after the annoying procedure I walked through on above lab.  But it is still time consuming because my PC is running Windows10home without Hyper-V, which means I cannot install docker locally. I tried serval alternative solutions for this. At last, I use another personal cloud server completing the lab.
 
 ## **SDN and NFV**
 
