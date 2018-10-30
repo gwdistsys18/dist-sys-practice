@@ -155,7 +155,9 @@ we created service here
 1. Install application. - Docker, AWS CLI, Atom.
 2. Clone repo from  https://github.com/awslabs/amazon-ecs-nodejs-microservices.
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws1.png?raw=true)
-3. Authenticate Docker Login with AWS.  
+3. Build and Push docker image.  
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws4.png?raw=true)
+![]()
 4. creat a ECS cluster.
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws2.png?raw=true)
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws3.png?raw=true)
