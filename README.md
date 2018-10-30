@@ -151,7 +151,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ![repository.png](/images/repository.PNG)
 
  - We will use CloudFormation and provide it a Docker stack file which is in the Github repiository (See previous notes for what a Docker stack is).  Basically this is a markup document which describes a recipe for building a containerized application.  This stack file will spin up a cluster of two nodes.
- ![docker_push.png](/images/cluster_create.PNG)
+ ![docker_push.png](/images/cluster_create_complete.PNG)
  ![docker_push.png](/images/cluster_instances.PNG)
  - We will now use Amazon ECS (Elastic Container Service) to spin up our docker containers on our EC2 instances of our cluster
  - We have to build and run an EC2 task definition which describes how our application containers get deployed across our cluster
@@ -161,7 +161,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Next we must add a listener to our VPC.  Add a listener on the desired port and forward to the api target group.  This way requests coming into our ELB on the port specified (in our case 80), will get redirected to our target group for the api service
   ![docker_push.png](/images/listener.PNG)
  - Finally, frum the cluster configuration we can create a new service and start up our application. 
-  ![docker_push.png](/images/service_created.PNG)
+  ![docker_push.png](/images/service_create.PNG)
  - Now, we have our monolith application running, we want to break it into three seperate services.  The github project for this demo provides us with an additional 3 docker repositories which comprises each service individually inside it's own NodeJS application
  - In order to use this, we need to basically repeat the previous steps, but this time do everything in pairs of 3's for each of the individual services.
  - first we add a repository in ECR for threads, posts, and users.
