@@ -1,0 +1,7 @@
+## Virtualization
+
+Virtualization is technology that separates functions from hardware, while clouds rely on that split. It's easy to confuse the 2, particularly because they both revolve around creating useful environments from abstract resources.
+
+The easiest way to describe the difference is from a purely Infrastructure-as-a-Service (IaaS) perspective. At the base of cloud computing is a stable operating system (like Linux). This is the layer that gives users independence across public, private, and hybrid environments. Assuming intranet access, internet access, or both is already established, virtualization is what creates clouds. Software called a hypervisor sits on top of physical hardware and abstracts the machine's resources. These resources can be raw processing power, storage, or cloud-based applications containing all the runtime code and resources required to deploy it.
+
+*If the process stops here, it's not cloud computing—it's just virtualization*. Virtual resources need to be allocated into centralized pools before they're called clouds, and those clouds need to be orchestrated by management and automation software before it's considered cloud computing. Clouds deliver the added benefits of self-service access, automated infrastructure scaling, and dynamic resource pools, which most clearly distinguish it from traditional virtualization.
