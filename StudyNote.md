@@ -114,7 +114,8 @@ docker service scale voting_stack_vote=5
 
 
 ## Area 2 Big Data and Machine Learning
-### Beginner Level:    
+### Beginner Level: 
+#### [QwikLab: Analyze Big Data with Hadoop(40min)](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)  
 `I have read the paper of HDFS and get a deep understanding about HDFS and HADOOP,Here is my Note`
 HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware.  
 **High falt-tolerant:**  
