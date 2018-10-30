@@ -1,6 +1,10 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+______________________________________________________________________________________________________
+as the guidence for the https://training.play-with-docker.com/ is sophisiticated. There are some question or concept that are confusing for the beginner and not well explained in the guidence. Here I post some of them and give the material to help to understand them.
+
+
 
 
 # 1.what is -it
@@ -142,5 +146,10 @@ The diagram below shows a three-service replica in yellow and a global service i
   how does replicated work
   
   what is network means in the docker commend line.
+  
+  ## the Swarm
+  <img src="https://training.play-with-docker.com/images/ops-swarm-arch.svg">
+  
+  
 
 
