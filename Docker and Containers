@@ -15,13 +15,13 @@ A few useful command:
                      docker container run < image name>: create a container of the given image.
                      docker container ls: list the container that are currently running
  Key points:
-          Docker engine runs on top of the linux kernel. And the containers runs on top of the docker engine.
-          If a user needs to create a container of a given image. First, this image must be stored locally
-          These containers are isolated from each other, they cann't interact with each other.
-          When a container is running, the user can send command to the container or get into 
-          the container shell. 
-          You can create multiple containers for one image, and these containers cann't interact with each other.
-          They all have their own ID. 
+          1. Docker engine runs on top of the linux kernel. And the containers runs on top of the docker engine.
+          2. If a user needs to create a container of a given image. First, this image must be stored locally
+          3. These containers are isolated from each other, they cann't interact with each other.
+          4. When a container is running, the user can send command to the container or get into 
+             the container shell. 
+          5. You can create multiple containers for one image, and these containers cann't interact with each other.
+             They all have their own ID. 
           
           
                      
