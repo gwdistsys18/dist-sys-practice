@@ -250,10 +250,21 @@ spent 10 mins
 4. rkt
 5. supervisord
 6. fluentd
-
 spent 1 hours
 ---
 
+---
+### [AWS tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/cn/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)
++ monolithic architecture
+The entire node.js application is run in a container as a single service and each container has the same features as all other containers. 
++ Microservices Architecture
+Each feature of the node.js application runs as a separate service within its own container. 
+
++ get start:
+ 1: install docker
+ 2: install the AWS CLI
+ 
+ +
 
 
 
