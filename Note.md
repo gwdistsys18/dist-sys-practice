@@ -157,7 +157,8 @@ we created service here
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws1.png?raw=true)
 3. Build and Push docker image.  
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws4.png?raw=true)
-![]()
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws5.png?raw=true)
+*remember '.' is very important!*   
 4. creat a ECS cluster.
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws2.png?raw=true)
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws3.png?raw=true)
