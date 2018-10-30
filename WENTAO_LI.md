@@ -428,12 +428,15 @@ Finally Connect to destination
 
 * Create a Lambda function to process the stream
 	* Create a Lambda function "WildRydesStreamProcessor" which will be triggered whenever a new record is available in the wildrydes stream.
+![](https://s3.amazonaws.com/hadoop357/Lamdafunction.PNG)
 (I lost my file here again, I should edit .md file in local editor with auto saving function...)
 * Monitor the Lambda function
 	* use command "./producer -name Rocinante" again to start emiting sensor data to the stream with a unicorn name.
 	* Use Monitoring AWS Lambda to get the data processing information.
+![](https://s3.amazonaws.com/hadoop357/MONITOR.PNG)
 * Query the DynamoDB table
 	* Explore DynamoDB table to get per-minute data point for each Unicorn.
+![](https://s3.amazonaws.com/hadoop357/DynamoQuery.PNG)
 	
 
 ### Store & qurey Data
@@ -504,6 +507,7 @@ Finally Connect to destination
 	* Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena 
 	* There is another branch for data analyzing and store which using Firehose and SQL(Athena).
 	* Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, run SQL queries against the raw data for ad-hoc analyses.
+
 
 # Docker and Containers
 
