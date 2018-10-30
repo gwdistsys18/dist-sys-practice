@@ -417,9 +417,9 @@ Time: 30 min
 
 I have learned how to launch, configure, connect, and terminate an instance in the cloud.
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2022.54.41.png?raw=true)
 
-* Terminology: 
+* **Terminology:** 
 
 **Download key pair to securely access your Linux instance using SSH.**
 
@@ -429,5 +429,50 @@ I have learned how to launch, configure, connect, and terminate an instance in t
 
 ```ssh -i ~/.ssh/MyKeyPair.pem ec2-user@{IP_Address} (ex. ssh -i ~/.ssh/MyKeyPair.pem ec2-user@52.27.212.125)```
 
+****
 
+[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
+Time: 30 min
+
+Be able to:
+
+* Create a bucket in Amazon S3
+
+* Add an object to your bucket
+
+* Manage access permissions on an object
+
+* Create a Bucket Policy
+
+* Use bucket versioning
+
+**Task 1: Create a Bucket**
+
+In this task I create an Amazon S3 Bucket.
+
+![]()
+
+**Task 2: Upload an Object to the Bucket**
+
+I am ready to store objects.
+
+![]()
+
+**Task 3: Make Your Object Public**
+
+I configure permissions on my objects so that it is publucly accessible.
+
+![]()
+
+**Task 4: Create a Bucket Policy**
+
+bucket policy can be used to control access to a whole bucket or to specific directories within a Bucket.
+
+![]()
+
+**Task 5: Explore Versioning**
+
+We can use versioning to preserve, retrieve, and restore every version of every object stored in Amazon S3 Bucket.
+
+![]()
