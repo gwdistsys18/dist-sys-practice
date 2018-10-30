@@ -362,7 +362,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
         2. Later, I set whole enviorment up using my personal AWS account. Left Docker alone, I installed Kubernetes using Kops. Another annoying thing is that when I tried to create SSHpublic key using AWS crendential, the default file name of the is somethingelse but regular 'id_rsa'. I scanned whole documation for a hour to fix my public key. AWS is quite annoying about auth stuff.
 
-### **Bring it all together**
+### **Bring it all together** --elapsed time: 4 hours
 
 In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. It provides a monolith application to play with.
 
@@ -450,7 +450,7 @@ Actually, this tutorial is easier for me after the annoying procedure I walked t
 
 ### **Beginner Level mastery of SDN**
 
-1. ***Video: Introduction to SDN***
+1. ***Video: Introduction to SDN*** --elapsed time: 30 mins
     * **Primary Goal**
         The main goal of SDN is for the network to be open and programmable. If a specific network behavior is required, users should be able to develop and install application for the purpose.
 
@@ -502,7 +502,7 @@ Actually, this tutorial is easier for me after the annoying procedure I walked t
         | Pros | \                                                                                             | 1. No needs to handle distributed protocol 2. No needs to configure policies in all nodes |
         | Cons | 1. Proprietary locked box--control is coupled to data 2. Each node is configured individually | SDN controller is very complex                                                            |
 
-2. ***Tutorial: Using the OpenDaylight SDN Controller with the Mininet Network Emulator***
+2. ***Tutorial: Using the OpenDaylight SDN Controller with the Mininet Network Emulator*** --elapsed time: 2 hours
 
     This tutorial guides me to simulate an SDN controller (OpenDaylight) with a SDN network (Mininet) using OpenFlow. All working enviorment are sitting on VM running in VirtualBox. There are three sections included here--1) set up Mininet VM, 2) set up OpenDaylight VM, and 3) capture OpenFlow messages
 
