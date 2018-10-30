@@ -4,7 +4,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Area 1
 
 
-# 1.Option types
+# 1.what is -it
 Single character command line options can be combined, so rather than typing docker run -i -t --name test busybox sh, you can write docker run -it --name test busybox sh.
 
 
@@ -114,9 +114,11 @@ The Docker images on the system can be removed via the docker rmi command. Letâ€
       "unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /root/Dockerfile: no such file or directory." 
       So the docker system will check a file that its name is called "Dockerfile" in your directory and use the context of it to create the image.
       
-      <img src="https://training.play-with-docker.com/images/ops-images-dockerfile.svg" > 
+  <img src="https://training.play-with-docker.com/images/ops-images-dockerfile.svg" > 
+      
       and a update version when we are going to use some of the cache data from v0.1.
-      <img src="https://training.play-with-docker.com/images/ops-images-cache.svg">
+      
+  <img src="https://training.play-with-docker.com/images/ops-images-cache.svg">
 ## Area 2
 # Replicated and global services
 There are two types of service deployments, replicated and global.
