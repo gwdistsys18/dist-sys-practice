@@ -161,5 +161,11 @@ ubuntu sleep infinity`)
   * Expose some ports like 80 or 8080 and run a simple webserver.  Access it at the public IP
   * Disconnect and terminate the instance
 
-* [Intro to S3 QwikLab](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
-  * **FILL THIS IN**
+* [Intro to S3 QwikLab ~20 mins](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+  * Creating a bucket is quite simple using the web UI
+  * Also very easy to upload via the web UI
+  * Objects in S3 have their own URLs
+  * Can set default to be public or private
+  * If private, need to explicitly allow access to certain objects
+  * Bucket policies let you apply rules across buckets without having to specify rules for every single upload
+  * Versioning lets you keep track of file versions in the bucket
