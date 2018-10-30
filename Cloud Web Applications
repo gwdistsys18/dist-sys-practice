@@ -1,20 +1,21 @@
 AWS Tutorial: Launch a VM:
 
-First launch a virtual machine instance,then configure that instance. A instance type comprise of 
-varing combination of CPU, memory, storage, and networking capacity. You can make an appropriate choice according to
-your application.
-You can create a new key pair or choose an existing key pair to securely access your linux instance using SSK.
-you need to store the key pair in some secure location.
-connect, and terminate an instance in the cloud, you can progress to the next tutorial where you will learn how to register a domain name and attach it to an instance. 
-This will allow your end users to always find your application or website.
-Use the SSH to get access to your instance.
+Procedure:
+
+    First, launch a virtual machine instance,then configure that instance. A instance type comprise of varing combination 
+    of CPU, memory, storage, and networking capacity. You can make an appropriate choice according to your application.
+    second, You can create a new key pair or choose an existing key pair to securely access your linux instance using SSK.
+    you need to store the key pair in some secure location.
+    Third, use the SSH to get access to your instance.
 
 QwikLab: Intro to S3
-First, create a bucket and add objects to your bucket.
-After you add some objects to your bucket, you can change the access permission on each object. Or you can make 
-a change in Bucket policy which will impact all the objects. You can do that change with the help of Policy generator.
-You can also change the bucket policy to make Bucket versioning available to public.
 
+procedure:
+    First, create a bucket and add objects to your bucket.S
+    Second, After you add some objects to your bucket, you can change the access permission on each object. Or you can make 
+    a change in Bucket policy which will impact all the objects. You can do that change with the help of Policy generator.
+    You can also change the bucket policy to make Bucket versioning available to public.
 
+After this tutotial, I think I know what the S3 is now.
 
 
