@@ -428,12 +428,12 @@ Finally Connect to destination
 
 * Create a Lambda function to process the stream
 	* Create a Lambda function "WildRydesStreamProcessor" which will be triggered whenever a new record is available in the wildrydes stream.
-![](https://s3.amazonaws.com/hadoop357/Lamdafunction.PNG)
+![](https://s3.amazonaws.com/hadoop357/Lamdafunction1.PNG)
 (I lost my file here again, I should edit .md file in local editor with auto saving function...)
 * Monitor the Lambda function
 	* use command "./producer -name Rocinante" again to start emiting sensor data to the stream with a unicorn name.
 	* Use Monitoring AWS Lambda to get the data processing information.
-![](https://s3.amazonaws.com/hadoop357/MONITOR.PNG)
+![](https://s3.amazonaws.com/hadoop357/MONITOR1.PNG)
 * Query the DynamoDB table
 	* Explore DynamoDB table to get per-minute data point for each Unicorn.
 ![](https://s3.amazonaws.com/hadoop357/DynamoQuery.PNG)
