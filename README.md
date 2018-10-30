@@ -279,22 +279,300 @@ ____
 *Cost 30 minutes, finished on Oct 27th, 2018.*
 ____
 #### [AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card)
-*Cost 30 minutes, finished on Oct 27th, 2018.*
+* Architecture:
+![AWS Architecture](./img/AWS.png)
+* Launch an Elastic Beanstalk Environment
+    * Open the Elastic Beanstalk console using this preconfigured link: console.aws.amazon.com/elasticbeanstalk/home#/newApplication?applicationName=tutorials&environmentType=LoadBalanced&instanceType=t2.micro
+    * For **Platform**, choose Node.js
+    * For **Application code**, choose **Sample application**.
+    * **Review and launch**, then **Create app**.
+    ![Create Page](./img/node.png)
+    * Elastic Beanstalk takes about five minutes to create the environment with the following resources:
+        * EC2 instance
+        * Instance security group
+        * Load balancer
+        * Load balancer security group
+        * Auto Scaling group
+        * Amazon S3 bucket
+        * Amazon CloudWatch alarms
+        * AWS CloudFormation stack
+        * Domain name
+* Add Permissions to Environment’s Instances
+    * Open the **Roles page** in the IAM console.
+    * Choose **aws-elasticbeanstalk-ec2-role**
+    * On the **Permissions** tab, under **Managed Policies**, choose **Attach Policy**.
+        * AmazonSNSFullAccess
+        * AmazonDynamoDBFullAccess
+        ![Attach Policy](./img/policy.png)
+* Deploy the Sample Application
+    * Open the Elastic Beanstalk console.
+    * Navigate to the management page for your environment.
+    * Upload file and Deploy.
+    ![Upload and Deploy](./img/upload.png)
+* Create a DynamoDB Table
+    * Open the Tables page in the DynamoDB management console.
+    * Choose Create table with following settings, then Create:
+        * Table name – nodejs-tutorial
+        * Primary key – email
+        * Primary key type – String
+
+* Update the Application's Configuration Files
+    * Extract the project files from the source bundle
+    ```
+    mkdir nodejs-tutorial
+    cd nodejs-tutorial
+    unzip ~/Downloads/eb-node-express-sample-v1.0.zip
+    ```
+    * Open .ebextensions/options.config and change the values of the following settings:
+        * NewSignupEmail – Your email address.
+        * STARTUP_SIGNUP_TABLE – nodejs-tutorial
+        This configures the application to use the nodejs-tutorial table instead of the one created by .ebextensions/create-dynamodb-table.config, and sets the email address that the Amazon SNS topic uses for notifications.
+    * Remove .ebextensions/create-dynamodb-table.config.
+    ```
+    rm .ebextensions/create-dynamodb-table.config
+    ```
+    * Create a source bundle from the modified code.
+    ```
+    zip nodejs-tutorial.zip -r * .[^.]*
+    ```
+* Configure Your Environment for High Availability
+    * Navigate to **the management page**.
+    * Choose **Configuration**.
+    * On the **Capacity** configuration card, choose **Modify**.
+    * In the **Auto Scaling Group** section, set **Min instances** to 2, then **Apply**.
+    ![Availability](./img/availability.png)
+
+* Cleanup
+    * **Terminate** Elastic Beanstalk environment
+    * **Delete** a DynamoDB table
+
+*Cost 60 minutes, finished on Oct 27th, 2018.*
 ____
 
 #### *Serverless and Edge Computing:*
 #### [QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog)
-*Cost 30 minutes, finished on Oct 27th, 2018.*
+* Scenario
+    * AWS Lambda Application Flow:
+    ![Lambda](./img/lambda.png)
+* Create Amazon S3 Buckets
+    * On the **Services** menu, select **S3**
+    * **Create bucket**, with name images-1234, as the source bucket for original uploads
+    * Create another bucket, with name images-1234-resized, as the output bucket for thumbnails
+    * Upload the HappyFace.jpg to source bucket
+* Create an AWS Lambda Function
+    * On the **Services** menu, select **Lambda**
+    * In the create function to configure:
+    This role grants permission to the Lambda function to read and write images in S3
+        ```
+        Name: Create-Thumbnail
+        Runtime: Python 3.6
+        Existing role: lambda-execution-role
+        ```
+    * **Add triggers** and **Configure triggers**:
+    ```
+    Bucket: image-bucket
+    Event type: Object Created (All)
+    ```
+    * Create-Thumbnail
+    ![Create Thumbnail](./img/thumbnail.png)
+    * Configure in **Function Code**
+    ```
+    Code entry type: Upload a file from Amazon S3
+    Runtime: Python 3.6
+    Handler: CreateThumbnail.handler
+    ```
+    * Review the **Description** and click **Save**
+* Test Lambda Function
+    * Click **Test** then configure:
+    ```
+    Event template: Amazon S3 put
+    Event name: Upload
+    ```
+    * Replace the **example-bucket** and **test/key** with test file.
+    * Save and Test
+    * Click **Details** to expand it and show more infomations.
+* Monitoring and Logging
+    * Monitoring tab displays graphs showing:
+        * **Invocations:** The number of times the function has been invoked.
+        * **Duration:** How long the function took to execute (in milliseconds).
+        * **Errors:** How many times the function failed.
+        * **Throttles:** When too many functions are invoked simultaneously, they will be throttled. The default is 1000 concurrent executions.
+        * **Iterator Age:** Measures the age of the last record processed from streaming triggers (Amazon Kinesis and Amazon DynamoDB Streams).
+        * **Dead Letter Errors:** Failures when sending messages to the Dead Letter Queue.
+        * Log messages from Lambda functions are retained in <strong>Amazon CloudWatch Logs</strong>
+    * Logging:
+        * Click the **log stream**
+        * **Expand** > each message to view the log message details:
+            The Event Data includes the Request Id, the duration (in milliseconds), the billed duration (rounded up to the nearest 100 ms, the Memory Size of the function and the Maximum Memory that the function used. In addition, any logging messages or print statements from the functions are displayed in the logs. This assists in debugging Lambda functions.
+
+*Cost 60 minutes, finished on Oct 27th, 2018.*
 ____
 #### [QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog)
+* Technical Concepts
+    * Microservice Architecture: A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services. The idea of a microservices architecture is to take a large, complex system and break it down into <strong>independent, decoupled services that are easy to manage and extend</strong>.
+    * Application Programming Interface (API): API is a set of instructions that defines how developers interface with an application. The idea behind an API is to create a <strong>standardized approach</strong> to interfacing the various services provided by an application. An API is designed to be used with a <strong>Software Development Kit (SDKs)</strong>, which is a collection of tools that allows developers to easily create downstream applications based on the API.
+    * API-First Strategy: each service within their stack is first and always released as an API.
+    * RESTful API: Representational state transfer (REST) refers to architectures that follow six constraints:
+        * Separation of concerns via a client-server model.
+        * <strong>State</strong> is stored entirely on the client and the communication between the client and server is <strong>stateless</strong>.
+        * The client will <strong>cache</strong> data to improve network efficiency.
+        * There is a uniform interface (in the form of an <strong>API</strong>) between the server and client.
+        * As complexity is added into the system, <strong>layers</strong> are introduced. There may be multiple layers of RESTful components.
+        * Follows a <strong>code-on-demand</strong> pattern, where code can be downloaded on the fly (in our case implemented in Lambda) and changed without having to update clients.
+* Amazon API Gateway features:
+    * Transform the body and headers of incoming API requests to match backend systems
+    * Transform the body and headers of the outgoing API responses to match API requirements
+    * Control API access via Amazon Identity and Access Management
+    * Create and apply API keys for third-party development
+    * Enable Amazon CloudWatch integration for API monitoring
+    * Cache API responses via Amazon CloudFront for faster response times
+    * Deploy an API to multiple stages, allowing easy differentiation between development, test, production as well as versioning
+    * Connect custom domains to an API
+    * Define models to help standardize your API request and response transformations
+* Amazon API Gateway and AWS Lambda Terminology
+    * **Resource:** Represented as a URL endpoint and path. For example, api.mysite.com/questions. You can associate HTTP methods with resources and define different backend targets for each method. In a microservices architecture, a resource would represent a single microservice within your system.
+    * **Method:** In API Gateway, a method is identified by the combination of a resource path and an HTTP verb, such as GET, POST, and DELETE.
+    * **Method Request:** The method request settings in API gateway store the methods authorization settings and define the URL Query String parameters and HTTP Request Headers that are received from the client.
+    * **Integration Request:** The integration request settings define the backend target used with the method. It is also where you can define mapping templates, to transform the incoming request to match what the backend target is expecting.
+    * **Integration Response:** The integration response settings is where the mappings are defined between the response from the backend target and the method response in API Gateway. You can also transform the data that is returned from your backend target to fit what your end users and applications are expecting.
+    * **Method Response:** The method response settings define the method response types, their headers and content types.
+    * **Model:** In API Gateway, a model defines the format, also known as the schema or shape, of some data. You create and use models to make it easier to create mapping templates. Because API Gateway is designed to work primarily with JavaScript Object Notation (JSON)-formatted data, API Gateway uses JSON Schema to define the expected schema of the data.
+    * **Stage:** In API Gateway, a stage defines the path through which an API deployment is accessible. This is commonly used to deviate between versions, as well as development vs production endpoints, etc.
+    * **Blueprint:** A Lambda blueprint is an example lambda function that can be used as a base to build out new Lambda functions.
+
 *Cost 30 minutes, finished on Oct 27th, 2018.*
 ____
 #### [AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card)
-*Cost 30 minutes, finished on Oct 27th, 2018.*
+* Application Architecture
+![Application Architecture](./img/architecture.png)
+* Static Web Hosting
+    * Architecture
+    ![Architecture](./img/architecture1.png)
+    * Create a S3 bucket as we do in previous tutorial.
+    * Upload static web content like HTML, CSS, JavaScript and Media Types.
+    * Configure **Bucket Policy** as following:
+    ```
+    {
+        "Version": "2018-10-27",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::[YOUR_BUCKET_NAME]/*"
+            }
+            ]
+    }
+    ```
+    * Save and enable Web Hosting.
+* User Management
+    * Architecture
+    ![Architecture](./img/architecture2.png)
+    * Create an Amazon Cognito User Pool, get the Pool Id
+    ![Create](./img/userpool.png)
+    * Add an App to User Pool
+        * Choose **Add an app client**.
+        * **Uncheck** the Generate client secret option.
+        * Choose **Create app** client.
+        * Note **App client id**
+        ![Add App](./img/addapp.png)
+    * Update the config.js File in Website Bucket
+    ```
+    window._config = {
+        cognito: {
+            userPoolId: 'us-west-2_uXboG5pAb', // e.g. us-east-2_uXboG5pAb
+            userPoolClientId: '25ddkmj4v6hfsfvruhpfi7n4hv', // e.g. 25ddkmj4v6hfsfvruhpfi7n4hv
+            region: 'us-west-2' // e.g. us-east-2
+            },
+            api: {
+                invokeUrl: '' // e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod',
+            }
+        };
+    ```
+    * Test
+    ![Success](./img/success.png)
+* Serverless Backend
+    * Architecture
+    ![Architecture](./img/architecture3.png)
+    * Create an Amazon DynamoDB Table as we do in previous tutorial.
+    ![Create Table](./img/createtable.png)
+    * Create an IAM Role for Your Lambda function
+        * Every Lambda function has an IAM role associated with it. This role defines what other AWS services the function is allowed to interact with.
+        * Use the IAM console to create a new role. Name it WildRydesLambda and select AWS Lambda for the role type. You'll need to attach policies that grant your function permissions to write to Amazon CloudWatch Logs and put items to your DynamoDB table.
+        * Attach the managed policy called AWSLambdaBasicExecutionRole to this role to grant the necessary CloudWatch Logs permissions. Also, create a custom inline policy for your role that allows the ddb:PutItem action for the table you created in the previous section.
+        ![Create IAM](./img/createIAM.png)
+
+    * Create a Lambda Function for Handling Requests as we do in previous tutorial.
+    ![Create Lambda](./img/createLambda.png)
+    * Test the Implementation
+    ![Test Lambda](./img/testLambda.png)
+* RESTful APIs
+    * Architecture
+    ![Architecture](./img/architecture4.png)
+    * Create a New REST API
+        * In the AWS Management Console, click **Services** then select **API Gateway** under **Application Services**.
+        * Choose **Create API**.
+        * Select **New API** and enter WildRydes for the **API Name**.
+        * Keep **Edge optimized** selected in the **Endpoint Type dropdown**.
+        ![Create API](./img/createAPI.png)
+    * Create a Cognito User Pools Authorizer as we do previously
+    ![Authorize](./img/authorize.png)
+    * Create a new resource called /ride within your API. Then create a **POST** method for that resource and configure it to use a Lambda proxy integration backed by the RequestUnicorn function you created in the first step of this module.
+
+    * Deploy API in stage prod
+        * In the **Actions** drop-down list select **Deploy API**.
+        * Select **[New Stage]** in the **Deployment stage** drop-down list.
+        * Enter **prod** for the Stage Name.
+        * Choose **Deploy**.
+        ![Deploy API](./img/deploy.png)
+    * Update the Website Config config.js as following:
+    ```
+    window._config = {
+        cognito: {
+            userPoolId: 'us-west-2_uXboG5pAb',
+            userPoolClientId: '25ddkmj4v6hfsfvruhpfi7n4hv',
+            region: 'us-west-2'
+            },
+        api: {
+        invokeUrl: 'https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod'
+        }
+    };
+    ```
+    * Test the Implementation
+    ![Test API](./img/testAPI.png)
+
+*Cost 120 minutes, finished on Oct 27th, 2018.*
 ____
 #### *Bring it together:*
 #### [AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)
-*Cost 30 minutes, finished on Oct 27th, 2018.*
+* Application Architecture
+![Application Architecture](./img/arch.png)
+* Modules:
+    * Create Static Website: Build a static website, using **Amazon Simple Storage Service (S3)** that serves static content (images, static text, etc.)
+    * Build Dynamic Website: Host the application logic on a web server, using an **API** backend microservice deployed as a container through **AWS Fargate**.
+    * Store Mysfit Data: Externalize all of the mysfit data and persist it with a managed NoSQL database provided by **Amazon DynamoDB**.
+    * Add User Registration: Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through **AWS API Gateway** and its integration with **Amazon Cognito**.
+    * Capture User Clicks: Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using **AWS Lambda** and **Amazon Kinesis Firehose**.
+* Module 1: Create Static Website
+    * AWS Cloud9: Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser.  
+    * Setup Cloud9
+    ![Cloud9](./img/cloud9.png)
+    * Create An S3 Bucket And Configure It For Website Hosting
+    ```
+    aws s3 mb s3://qibao
+    aws s3 website s3://qibao --index-document index.html
+    ```
+    * Update The S3 Bucket Policy
+    ```
+    aws s3api put-bucket-policy --bucket qibao --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+    ```
+    * Publish The Website Content To S3
+    ```
+    aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://qibao/index.html
+    ```
+
+
+*Cost 180 minutes, finished on Oct 27th, 2018.*
 ____
 
 
