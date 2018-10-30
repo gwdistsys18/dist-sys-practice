@@ -32,6 +32,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
    
    >  [Learn more abbout Kubernetes Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Learn%20more%20about%20Kubernetes.pdf) 40 min  
  
+### Bring it all together
+   >  [Break a Monolith Application into Microservices Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Break%20a%20Monolith%20Application%20into%20Microservices.pdf) 300 min 
+ 
 ## 2. Big Data and Machine Learning
 
 ### Beginner
