@@ -2,7 +2,7 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Area 1 Docker and Containers  
-***Beginner Level:***  
+### Beginner Level:  
 #### [Video: Why Docker?(16min)](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 **Theory Definition:**  
 Container in linux os is many container processes themself. 
@@ -33,12 +33,46 @@ __docker container start &lt;container ID&gt;__
 __docker container exec &lt;containerID&gt; &lt;operator&gt;__
 
   
-***Intermediate Level***  
+### Intermediate Level  
 3 Basic docker operator type:
 #### [Lab: Docker Intro(35min)](https://training.play-with-docker.com/beginner-linux/)  
 **To run a single task:** This could be a shell script or a custom app.  
 **Interactively:** This connects you to the container similar to the way you SSH into a remote server.  
 **In the background:** For long-running services like websites and databases.
+#### [Lab: Doing more with Docker Images(40min)](https://training.play-with-docker.com/ops-s1-images/)
+*(1)From container  docker image build*  
+```bash
+docker container run -ti ubuntu bash [run container and get into container and keep it running]
+{do waht you want}
+exit  [exit and stop the container]
+docker container ls -a [get the container ID]
+docker container commit <CONTAINER_ID>  [create the image based on container]
+docker image ls
+docker image tag <IMAGE_ID> <NEW NAME>  [ give the image name]
+docker container run <IMAGE NAME> <OPERATOR that you can run in your container> [use the image to run operator directly]
+```
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/9Dockerimage.png)
+*(2)From Dockerfiles Use the dockerfile to build the image*  
+operator:  
+```bash
+vi index.js    [create a file named index.js and use vim enter the edit page]
+input "i" to go to the insert model
+var os = require("os");
+var hostname = os.hostname();
+console.log("hello from " + hostname);
+:wq      [write and quit]
+vi Dockerfile       [create the docker file]
+FROM alpine
+RUN apk update && apk add nodejs
+COPY . /app
+WORKDIR /app
+CMD ["node","index.js"]
+:wq
+docker image build -t hello:v0.1 .     [notice the last "."]
+```
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/10Dockerfile.png)  
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/11Layers.png)  
+
 #### [Video: What are Containers?(19min)](https://www.youtube.com/watch?v=EnJ7qX9fkcU)  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/1Container.png)
 &lt;Video1-The basic structure of container&gt;
@@ -80,7 +114,7 @@ docker service scale voting_stack_vote=5
 
 
 ## Area 2 Big Data and Machine Learning
-***Beginner Level:***  
+### Beginner Level:    
 `I have read the paper of HDFS and get a deep understanding about HDFS and HADOOP,Here is my Note`
 HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware.  
 **High falt-tolerant:**  
