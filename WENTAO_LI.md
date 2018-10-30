@@ -459,6 +459,9 @@ Finally Connect to destination
 	     )
 	     ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 	     LOCATION 's3://YOUR_BUCKET_NAME_HERE/';
+![](https://s3.amazonaws.com/hadoop357/AthenaQuery.PNG)
+* The result in S3 bucket
+![](https://s3.amazonaws.com/hadoop357/Logfileforwild.PNG)
 ### Explore and Query the batched data files
 * Verify that Firehose is delivering batched data files to the bucket. Download one of the files and open it in a text editor to see the contents.
 * Use "SELECT * FROM wildrydes" to get query data file
