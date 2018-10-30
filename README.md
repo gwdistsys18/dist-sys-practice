@@ -1,7 +1,6 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Area 1
 
 
 # 1.what is -it
@@ -119,7 +118,7 @@ The Docker images on the system can be removed via the docker rmi command. Letâ€
       and a update version when we are going to use some of the cache data from v0.1.
       
   <img src="https://training.play-with-docker.com/images/ops-images-cache.svg">
-## Area 2
+
 # Replicated and global services
 There are two types of service deployments, replicated and global.
 
@@ -135,9 +134,13 @@ The diagram below shows a three-service replica in yellow and a global service i
 
 # Same questions need to deal: 
 1 what is node
+
   what is swarm
+  
   what is service
+  
   how does replicated work
+  
   what is network means in the docker commend line.
 
 
