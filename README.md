@@ -40,4 +40,27 @@ For QwikLab: Intro to Amazon Machine Learning, it takes me 75 minutes. The lab t
 
 For AWS Tutorial: Build a Machine Learning Model, it takes me 50 minutes. It is about using Amazon ML to Predict Responses to a Marketing Offer:
 •	Step 1: Prepare Your Data: In machine learning, you typically obtain the data and ensure that it is well formatted before starting the training process; we use customer purchase history to predict if this customer will subscribe to my new product
-•	Step 2: Create a Training Datasource
+•	Step 2: Create a Training Datasource using the Amazon S3 service
+•	Step 3: Create an ML Model: After you've created the training datasource, you use it to create an ML model, train the model, and then evaluate the results
+•	Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold
+•	Step 5: Use the ML Model to Generate Predictions
+
+For Video Tutorial: Overview of AWS SageMaker, it takes me 40 minutes: The AWS SageMaker has four parts, including the notebook instance, jobs, models and endpoints. Notebook instance is about using algorithms to create model via training jobs. Training jobs are instances to train the model. We create models for hosting from job outputs, or import externally trained models into Amazon SageMaker. Endpoints are for developers to use the SageMaker in production. The tutor elaborate on xgboost, kmeans, scikit . He talks about setting up the training parameters. We can train it on single or multiple instances. Then we import models into hosts. The last step is build endpoint configuration and create endpoint for developers to call
+For AWS Tutorial: AWS SageMaker, it takes me 80 minutes. 
+Step 1: Setting Up
+Step 2: Create an Amazon SageMaker Notebook Instance
+Step 3: Train and Deploy a Model
+Step 4: Clean up
+Step 5: Additional Considerations
+
+For Build a Serverless Real-Time Data Processing App, it takes 150 minutes, 
+
+Cloud web application
+For QwikLab: Intro to S3, it takes 50 minutes. In this lab, I learned:
+•	Create a bucket in Amazon S3 service
+•	Add an object for example a picture to the bucket
+•	Manage access permissions on an object: change from private to public and see the access difference
+•	Create a bucket policy by using the AWS policy generator which require the Amazon Resource Name. 
+•	Use bucket versioning to get access the picture with same name but uploaded at different time by changing the bucket policy
+The bucket is a really useful service and the versioning feature is quite cool.
+
