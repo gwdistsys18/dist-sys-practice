@@ -8,6 +8,7 @@ For this project, a blog was created to track all of the notes. The main link is
 - Beginner Level: [Intro to Docker](http://patcody.io/dist-sys-practice/intro-to-docker/)
 - Containers: [All About Containers](http://patcody.io/dist-sys-practice/all-about-containers/)
 - Networking and Orchestration: [Networking and Orchestration](http://patcody.io/dist-sys-practice/networking-and-orchestration/)
+- Bringing it All Together: [Breaking Up a Monolithic Application](http://patcody.io/dist-sys-practice/breaking-up-a-monolithic-application/)
 
 ## Area 2: Cloud Web Apps
 
