@@ -174,5 +174,7 @@ we created service here
 
 	VPC: vpc-06277877ad4593027
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws9.png?raw=true)
+8. Configure the Application Load Balancer: Listener
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws10.png?raw=true)
  
 	
