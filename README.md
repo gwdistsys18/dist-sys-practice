@@ -15,8 +15,6 @@
 1. [Why Docker?](#docker)
 2. [DevOps Docker Beginners Guide](#guide)
 
-p.s README.md is same as WENTAO_LI.md
-
 # BIG DATA AND MACHINE LEARNING
 
 <a name="Introduction"></a>
@@ -430,12 +428,15 @@ Finally Connect to destination
 
 * Create a Lambda function to process the stream
 	* Create a Lambda function "WildRydesStreamProcessor" which will be triggered whenever a new record is available in the wildrydes stream.
+![](https://s3.amazonaws.com/hadoop357/Lamdafunction.PNG)
 (I lost my file here again, I should edit .md file in local editor with auto saving function...)
 * Monitor the Lambda function
 	* use command "./producer -name Rocinante" again to start emiting sensor data to the stream with a unicorn name.
 	* Use Monitoring AWS Lambda to get the data processing information.
+![](https://s3.amazonaws.com/hadoop357/MONITOR.PNG)
 * Query the DynamoDB table
 	* Explore DynamoDB table to get per-minute data point for each Unicorn.
+![](https://s3.amazonaws.com/hadoop357/DynamoQuery.PNG)
 	
 
 ### Store & qurey Data
@@ -461,6 +462,9 @@ Finally Connect to destination
 	     )
 	     ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 	     LOCATION 's3://YOUR_BUCKET_NAME_HERE/';
+![](https://s3.amazonaws.com/hadoop357/AthenaQuery.PNG)
+* The result in S3 bucket
+![](https://s3.amazonaws.com/hadoop357/Logfileforwild.PNG)
 ### Explore and Query the batched data files
 * Verify that Firehose is delivering batched data files to the bucket. Download one of the files and open it in a text editor to see the contents.
 * Use "SELECT * FROM wildrydes" to get query data file
@@ -503,6 +507,7 @@ Finally Connect to destination
 	* Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> Amazon S3 -> Amazon Athena 
 	* There is another branch for data analyzing and store which using Firehose and SQL(Athena).
 	* Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, run SQL queries against the raw data for ad-hoc analyses.
+
 
 # Docker and Containers
 
@@ -570,4 +575,3 @@ Finally Connect to destination
 * Docker daemon - The background service running on the host that manages building, running and distributing Docker containers.
 * Docker client - The command line tool that allows the user to interact with the Docker daemon.
 * Docker Store - Store is, among other things, a registry of Docker images. You can think of the registry as a directory of all available Docker images. You’ll be using this later in this tutorial.
-
