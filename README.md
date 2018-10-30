@@ -132,3 +132,11 @@ global vs replicated services
 
 
 > Include notes here about each of the links
+So questions need to deal: 
+1 what is node
+  what is swarm
+  what is service
+  how does replicated work
+  what is network means in the docker commend line.
+
+
