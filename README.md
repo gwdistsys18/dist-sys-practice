@@ -15,3 +15,4 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 2. [S3](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud%20Web%20App/S3.md)
 3. [Virtualization](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud%20Web%20App/Virtualization.md)
 4. [Install an LAMP server on Amazon Linux](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud%20Web%20App/Install%20an%20LAMP%20server%20on%20Amazon%20Linux.md)
+5. [DynamoDB](https://github.com/GXwar/dist-sys-practice/blob/master/Cloud%20Web%20App/DynamoDB.md)
