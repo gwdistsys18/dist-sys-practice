@@ -575,4 +575,3 @@ Finally Connect to destination
 * Docker daemon - The background service running on the host that manages building, running and distributing Docker containers.
 * Docker client - The command line tool that allows the user to interact with the Docker daemon.
 * Docker Store - Store is, among other things, a registry of Docker images. You can think of the registry as a directory of all available Docker images. You’ll be using this later in this tutorial.
-
