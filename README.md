@@ -5,7 +5,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ***
 >[why docker? why now?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 
-*company shift
++ company shift
 dot cloud to docker inc
 - containers are the next once-in-a-decade shift in infrastructure and process that mak or break you
 ### diferent period different focus
