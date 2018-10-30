@@ -319,14 +319,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
         1. *Docker*
             I installed docker pretty easily.
 
-            ![Docker](screenshots\docker-lab\docker.png)
+            ![Docker](./screenshots/docker-lab/docker.png)
 
         2. *Kubernetes*
             * Python, pip, awscli, and kubectl
 
                 Because the tool--Kops--I was using to setup Kubernete require AWS Auth. I need to install awscli first. Nothing complex here.
 
-                ![python_pip_awslic_kubectl](screenshots\docker-lab\python_pip_awslic_kubectl.png)
+                ![python_pip_awslic_kubectl](./screenshots/docker-lab/python_pip_awslic_kubectl.png)
 
             * Set up Kops, Aws user permission, and bucket
                 Kops is a tool to manage Kubenetes cluster, especially for AWS users. It requires AWS access key for later actions. I set up a new user who has serval permissions to create a Kubenetes cluster.
@@ -340,21 +340,21 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
                 kops validate cluster # Verify created cluster ready or not
                 ```
 
-                ![Validating cluster](screenshots\docker-lab\validate.png)
-                ![Ec2 cluster](screenshots\docker-lab\cluster_creation.png)
+                ![Validating cluster](./screenshots/docker-lab/validate.png)
+                ![Ec2 cluster](./screenshots/docker-lab/cluster_creation.png)
 
                 I followed Kubernetes documentation to set up Kubernetes dashboard. And access it via RESTful API using cluster master domain. My apology of showing Chinese UI here because I cannot change it.
 
-                ![Kubernetes Dashboard](screenshots\docker-lab\dashboard.png)
+                ![Kubernetes Dashboard](./screenshots/docker-lab/dashboard.png)
 
                 Then I deploied an Nginx image to my cluster. Then expose its services.
 
-                ![Deploy Nginx](screenshots\docker-lab\deploy.png)
-                ![Expose its services](screenshots\docker-lab\service_expose.png)
+                ![Deploy Nginx](./screenshots/docker-lab/deploy.png)
+                ![Expose its services](./screenshots/docker-lab/service_expose.png)
 
                 At last, I scale it up.
 
-                ![Scaling out](screenshots\docker-lab\scaling.png)
+                ![Scaling out](./screenshots/docker-lab/scaling.png)
 
     * **Difficulties**
 
@@ -367,11 +367,17 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. Actually, it is easy for me after the annoying procedure I met on above lab. The tutorial provides a monolith application to play with. There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
 
 1. **Containerize the monolith**
+
     * Install dependencies and get application source
-        
+
+        We need to install awscli and docker where we work. My pc is windows home so I uses a windows server EC2 in aws for the lab. There is not much to talk about installation and git clone provided project.
     * Build and push Docker Image
-        
+
+        After login AWS, we can create a container registry repo and push the code to it.
+
 2. **Deploy the monolith**
+    * Create ECS cluster, and write task definition
+        We need to create a cluster for deployment.
 3. **Break it into microservices**
 4. **Depoy microservices**
 
