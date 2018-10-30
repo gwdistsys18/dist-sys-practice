@@ -347,6 +347,21 @@ Time: 35min
 
 ****
 
+**Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them**
+
+Time: 120 min
+
+
+
+****
+
+[AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/cn/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?nc1=h_ls)
+
+Time: 120 min
+
+Traditional monolithic architectures are hard to scale. As an application's code base grows, it becomes complex to update and maintain. Introducing new features, languages, frameworks, and technologies becomes very hard, limiting innovation and new ideas.
+
+
 
 ## Area 2
 > Include notes here about each of the links
