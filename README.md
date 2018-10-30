@@ -1,7 +1,7 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Area 1 Big Data and Machine Learning
+## Big Data and Machine Learning
 ### Video: Hadoop Intro (45min)
 Challenges of Distributed Systems
 -	High chances of system failure
@@ -44,10 +44,10 @@ Oozie is a workflow or coordination system used to manage the Hadoop jobs.
 Hue is an acronym for Hadoop User Experience. It is an open source Web interface for analyzing data with Hadoop. It provides SQL editors for Hive, Impala, MySQL, Oracle, PostgreSQL, Spark SQL, and Solr SQL. 
 
 Four stages of big data processing:
-Ingest
-Processing
-Analyze
-Access
+- Ingest
+- Processing
+- Analyze
+- Access
 
 ### QwikLab: Analyze Big Data with Hadoop (80min)
 - Create a bucket with S3 service to store log files and output data
@@ -76,17 +76,35 @@ Three layers of machine learning:
 - Machine learning platforms
 - Application services
 
-### AWS Tutorial: Analyze Big Data with Hadoop (30min)
-
+### AWS Tutorial: Analyze Big Data with Hadoop (80min)
+The getting started part of this tutorial is the same as the QwikLab analyze big data with hadoop.
+The function of the Hive Script:
+```
+- Creates a Hive table schema named cloudfront_logs. For more information about Hive tables, see the Hive Tutorial on the Hive wiki
+- Uses the built-in regular expression serializer/deserializer (RegEx SerDe) to parse the input data and apply the table schema. For more information, see SerDe on the Hive wiki
+- Runs a HiveQL query against the cloudfront_logs table and writes the query results to the Amazon S3 output location that you specify
+```
 ### QwikLab: Intro to Amazon Machine Learning (40min)
 - create a bucket and upload training data to the bucket
 - create a datasource with Amazon machine learning that refers to the training data in the S3 bucket
 - create a model from the datasource 
--
--
+- evaluate the generated model
+- generate predictions from the machine learning model
 
-### Docs: AWS Machine Learning
-### AWS Tutorial: Build a Machine Learning Model (30min)
+### Docs: AWS Machine Learning (60min)
+Datasources: A datasource is an object that contains metadata about your input data. It does not store a copy of your input data. Instead, it stores a reference to the Amazon S3 location where your input data resides. It is used to train and evaluate machine learning model and generate predictions.
+Machine Learning Models: A Machine Learning model is a mathematical model that generates predictions by finding patterns in your data.
+Evaluations: An evaluation measures the quality of your ML model and determines if it is performing well.
+Batch Predictions: Batch predictions are for a set of observations that can run all at once. 
+Real-time Predictions: Real-time predictions are for applications with a low latency requirement, such as interactive web, mobile, or desktop applications. 
+
+### AWS Tutorial: Build a Machine Learning Model (60min)
+- Download the data file banking.csv and banking-batch.csv. In the csv file we can see attribute y as a binary value. Create an S3 bucket and upload the files.
+- Create a training datasource and establish the schema. Select y as the target attribute.
+- Create an machine learning model. 
+- Review the performance of the model and set a score threshold. The default was 0.5 and adjust it so that 3% of the records are predicted as "1". Then save it as 0.77. 
+- Create predictions with the model with real-time predictions and download the prediction file to local computer.
+
 ### Video Tutorial: Overview of AWS SageMaker (40min)
 This tutorial introduced SageMaker with a few examples.
 
@@ -98,10 +116,35 @@ Endpoint: deploy endpoints for developers to use in production. A/B test model v
 
 The four parts and be linked to be used together but they can also be used separately.
 
-### AWS Tutorial: AWS SageMaker (40min)
+### AWS Tutorial: AWS SageMaker (80min)
+- Create an IAM Administrator User. 
+- Create a SageMaker Notebook Instance and open the Jupyter dashboard.
+- Create a Jupyter notebook to run the code. Download the dataset and display one of the image in the dataset. 
+- Transform the dataset. There are two ways to do it. I chose to use the high-level Python library provided by Amazon SageMaker.
+- Train the model with an algorithm. 
+- Validate the model with sending the requests. Get the references of the images. The model would divide the images I requested into clusters and each cluster contains similar images.
 
-## Area 2 Cloud Web Apps
+### Build a Serverless Real-Time Data Processing App (150min)
+#### Module 1 Build a data stream
+
+#### Module 2 Aggregate data
+
+#### Module 3 Process streaming data
+
+#### Module 4 Store & query data
+
+## Cloud Web Apps
 ### AWS tutorial: Launch a VM (15min)
+- open the Amazon EC2 console and launch instance
+- configure the virtual machine, create a new key pair and launch it
+- use chmod command to make sure the private key is not publicly viewable
+```
+chmod 400 Downloads/MyKeyPair.pem
+```
+- connect to the instance
+```
+ssh -i Downloads/MyKeyPair.pem ec2-user@54.186.234.37
+```
 
 ### QwikLab: Intro to S3 (25min)
 - Create a bucket and configure to allow versioning and set permissions
