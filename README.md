@@ -101,7 +101,8 @@ The four parts and be linked to be used together but they can also be used separ
 ### AWS Tutorial: AWS SageMaker (40min)
 
 ## Area 2 Cloud Web Apps
-### AWS tutorial: Launch a VM
+### AWS tutorial: Launch a VM (15min)
+
 ### QwikLab: Intro to S3 (25min)
 - Create a bucket and configure to allow versioning and set permissions
 - upload an image to the bucket
