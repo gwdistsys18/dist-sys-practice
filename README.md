@@ -126,12 +126,141 @@ The four parts and be linked to be used together but they can also be used separ
 
 ### Build a Serverless Real-Time Data Processing App (150min)
 #### Module 1 Build a data stream
+- Use the Amazon Kinesis Data Streams console to create a new stream named wildrydes with 1 shard
+- Produce messages into the stream with the command-line producer
+```
+./producer
+```
+- Print the messages being sent by the producer with consumer.
+```
+./consumer
+```
+- Create an Amazon Cognito identity pool to grant unauthenticated users access to read from the Kinesis stream.
+- Add a new policy to the unauthenticated role to allow the dashboard to read from the stream to plot the unicorns on the map.
+- Open Unicorn Dashboard and there is a unicore on the real-time map.
 
 #### Module 2 Aggregate data
+- Use the Amazon Kinesis Data Streams console to create a new stream named wildrydes-summary with 1 shard
+- Build an Amazon Kinesis Data Analytics application which reads from the wildrydes stream built in the previous module and emits a JSON object with Name, StatusTime, Distance, MinMagicPoints, MaxMagicPoints, MinHealthPoints, MaxHealthPoints each minute.
+- Start the producer and create the schema. Run following SQL code and see rows arrive every minute:
+```
+CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
+  "Name"                VARCHAR(16),
+  "StatusTime"          TIMESTAMP,
+  "Distance"            SMALLINT,
+  "MinMagicPoints"      SMALLINT,
+  "MaxMagicPoints"      SMALLINT,
+  "MinHealthPoints"     SMALLINT,
+  "MaxHealthPoints"     SMALLINT
+);
+
+CREATE OR REPLACE PUMP "STREAM_PUMP" AS
+  INSERT INTO "DESTINATION_SQL_STREAM"
+    SELECT STREAM "Name", "ROWTIME", SUM("Distance"), MIN("MagicPoints"),
+                  MAX("MagicPoints"), MIN("HealthPoints"), MAX("HealthPoints")
+    FROM "SOURCE_SQL_STREAM_001"
+    GROUP BY FLOOR("SOURCE_SQL_STREAM_001"."ROWTIME" TO MINUTE), "Name";
+``` 
 
 #### Module 3 Process streaming data
+- Use the Amazon DynamoDB console to create a new DynamoDB table. The name of the table is UnicornSensorData. Partition key: Name
+Type: String
+Sort key: StatusTime
+type: String
+- Create an IAM role for the Lambda function.
+Name: WildRydesStreamProcessoerRole 
+- Create a Lambda function.
+name: WildRydesStreamProcessor
+Environment variable: key TABLE_NAME value UnicornSensorData
+use JavaScript code:
+```
+'use strict';
+
+const AWS = require('aws-sdk');
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
+const tableName = process.env.TABLE_NAME;
+
+exports.handler = function(event, context, callback) {
+  const requestItems = buildRequestItems(event.Records);
+  const requests = buildRequests(requestItems);
+
+  Promise.all(requests)
+    .then(() => callback(null, `Delivered ${event.Records.length} records`))
+    .catch(callback);
+};
+
+function buildRequestItems(records) {
+  return records.map((record) => {
+    const json = Buffer.from(record.kinesis.data, 'base64').toString('ascii');
+    const item = JSON.parse(json);
+
+    return {
+      PutRequest: {
+        Item: item,
+      },
+    };
+  });
+}
+
+function buildRequests(requestItems) {
+  const requests = [];
+
+  while (requestItems.length > 0) {
+    const request = batchWrite(requestItems.splice(0, 25));
+
+    requests.push(request);
+  }
+
+  return requests;
+}
+
+function batchWrite(requestItems, attempt = 0) {
+  const params = {
+    RequestItems: {
+      [tableName]: requestItems,
+    },
+  };
+
+  let delay = 0;
+
+  if (attempt > 0) {
+    delay = 50 * Math.pow(2, attempt);
+  }
+
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      dynamoDB.batchWrite(params).promise()
+        .then(function(data) {
+          if (data.UnprocessedItems.hasOwnProperty(tableName)) {
+            return batchWrite(data.UnprocessedItems[tableName], attempt + 1);
+          }
+        })
+        .then(resolve)
+        .catch(reject);
+    }, delay);
+  });
+}
+```
+- Verify that the trigger is properly executing the Lambda function. View the metrics emitted by the function and inspect the output from the Lambda function.
+- After running the producer with a unicorn name, we can query the DynamoDB table for data for a specific unicorn. 
 
 #### Module 4 Store & query data
+- Create an S3 bucket with the name wildrydes-data-xumo.
+- Create an Amazon Kinesis Data Firehose delivery stream named wildrydes that is configured to source data from the wildrydes stream and deliver its contents in batches to the S3 bucket created previously.
+- Create an Athena table to query the raw data in S3 bucket. 
+```
+CREATE EXTERNAL TABLE IF NOT EXISTS wildrydes (
+       Name string,
+       StatusTime timestamp,
+       Latitude float,
+       Longitude float,
+       Distance float,
+       HealthPoints int,
+       MagicPoints int
+     )
+     ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
+     LOCATION 's3://wildrydes-data-xumo/';
+```
 
 ## Cloud Web Apps
 ### AWS tutorial: Launch a VM (15min)
