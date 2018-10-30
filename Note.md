@@ -167,8 +167,8 @@ we created service here
 *task table*
 ![task table](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws6.png?raw=true). 
 *instance table*. 
-![]()
-6. 
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/was7.png?raw=true)
+6. Write a task Definition
 
  
 	
