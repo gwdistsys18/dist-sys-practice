@@ -224,8 +224,36 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ****
 
 
+## Cloud Web Applications
 
+> **AWS Tutorial: Launch a VM**
 
+* Launch an Amazon EC2 Instance.
 
-## Area 2
-> Include notes here about each of the links
+    -Open the Amazon EC2 console and then click Launch Instance.
+
+    -Select Amazon Linux AMI.
+
+    -Select default option of t2.micro and click Review and Launch.
+
+    -Click Launch in the review page.
+
+    -Generate a key pair, download the key pair, then launch the instance finally.
+
+* Configure Instance. A key pair is used to securely access Linux instance using SSH. AWS stores the public part of the key pair which is just like a house lock.
+
+* Use SSH to connect to instance.
+
+* Terminate the instance from the EC2 console.
+
+> **QwikLab: Intro to S3**
+
+* Create an Amazon S3 bucket.
+
+* Upload an object to the bucket.
+
+* Make object public.
+
+* Create a bucket policy. A bucket policy is a set of permission associated with Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
+
+* Explore versioning. Versioning is a means of keeping multiple variants of an object in the same bucket. Can be used to preserve, retrieve, and restore every version of every object stored in Amazon S3 bucket.
