@@ -351,6 +351,46 @@ Time: 35min
 
 Time: 120 min
 
+* Login to your AWS console and generate access keys. 
+
+* To install AWS CLI by using ```brew install awscli``` and Install kops by using ```brew install kops```.
+
+* Create a new IAM user and grant following permissions:
+
+```
+AmazonEC2FullAccess
+AmazonRoute53FullAccess
+AmazonS3FullAccess
+AmazonVPCFullAccess
+IAMFullAccess
+```
+
+* Configure the AWS CLI by providing the Access Key, Secret Access Key and the AWS region that you want the Kubernetes cluster to be installed by using ```aws configure```
+
+* Create an AWS S3 bucket for kops to persist its state.
+
+```
+bucket_name=imesh-kops-state-store
+aws s3api create-bucket \
+--bucket ${bucket_name} \
+--region us-east-1
+```
+
+* Enable versioning for the above S3 bucket```aws s3api put-bucket-versioning --bucket ${bucket_name} --versioning-configuration Status=Enabled```.
+
+* Provide a name for the Kubernetes cluster and set the S3 bucket URL.
+
+```
+export KOPS_CLUSTER_NAME=imesh.k8s.local
+export KOPS_STATE_STORE=s3://${bucket_name}
+```
+
+* Create a Kubernetes cluster definition using kops by providing the required node count, node size, and AWS zones.
+
+* create the Kubernetes cluster on AWS by executing kops update command```kops update cluster --name ${KOPS_CLUSTER_NAME} --yes```
+
+* Execute the validate command to check its status and wait until the cluster becomes ready.
+
 
 
 ****
