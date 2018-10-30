@@ -570,7 +570,105 @@ ____
     ```
     aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://qibao/index.html
     ```
+    * Test
+    Visit: http://qibao.s3-website.us-west-2.amazonaws.com
+    (This may be down because of charging money!)
+    ![static](./img/static.png)
+* Module 2: Build Dynamic Website
+    * Why Fargate?
+        * It's a great choice for building long-running processes such as microservices backends for web and mobile and PaaS platforms.
+        * Users get the control of containers and the flexibility to choose when they run without worrying about provisioning or scaling servers.
+        * It offers full control of networking, security, and service to service communication and is natively integrated with AWS services for security, networking, access control, developer tooling, monitoring, and logging.
+        * Customers also have the option of using AWS Lambda for their compute needs.
+    *  Setup Core Infrastructure
+        * CloudFormation template:
+            * An Amazon VPC
+            * Two NAT Gateways (cost $1 per day)
+            * A DynamoDB VPC Endpoint
+            * A Security Group
+            * IAM Roles
+        * Create Resource:
+            ```
+            aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
+            ```
+        * Check on the status of stack
+            ```
+            aws cloudformation describe-stacks --stack-name MythicalMysfitsCoreStack
+            ```
+* Module 3: Store Mysfit Data
+    * Create A DynamoDB Table
+        ```
+        aws dynamodb create-table --cli-input-json file://~/environment/aws-modern-application-workshop/module-3/aws-cli/dynamodb-table.json
+        ```
+    * Add Items To The DynamoDB Table
+        ```
+        aws dynamodb batch-write-item --request-items file://~/environment/aws-modern-application-workshop/module-3/aws-cli/populate-dynamodb.json
+        ```
+    * Copy The Updated Flask Service Code
+    ```
+    cp ~/environment/aws-modern-application-workshop/module-3/app/service/* ~/environment/MythicalMysfitsService-Repository/service/
+    ```
+    * Update The Website Content in S3
+    Visit: http://qibao.s3-website.us-west-2.amazonaws.com
 
+* Module 4: Add User Registration
+    * Create The Cognito User Pool
+    ```
+    aws cognito-idp create-user-pool --pool-name MysfitsUserPool --auto-verified-attributes email
+    ```
+    * Create a Cognito User Pool Client
+    ```
+    aws cognito-idp create-user-pool-client --user-pool-id REPLACE_ME --client-name MysfitsUserPoolClient
+    ```
+    * Adding a new REST API with Amazon API Gateway
+        * Create An API Gateway VPC Link
+        ```
+        aws apigateway create-vpc-link --name MysfitsApiVpcLink --target-arns REPLACE_ME_NLB_ARN >
+~/environment/api-gateway-link-output.json
+        ```
+        * Create The REST API Using Swagger
+        ```
+        aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body file://~/environment/aws-modern-application-workshop/module-4/aws-cli/api-swagger.json --fail-on-warnings
+        ```
+        * Deploy The API
+        ```
+        aws apigateway create-deployment --rest-api-id REPLACE_ME_WITH_API_ID --stage-name prod
+        ```
+    * Update the Flask Service Backend
+    ```
+    aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-4/web/ s3://YOUR-S3-BUCKET/
+    ```
+
+* Module 5: Capture User Clicks
+    * Architecture
+    ![Architecture](./img/arch5.png)
+    * Why Choose AWS Lambda: Lambda is great for data-driven applications that need to respond in real-time to changes in data, shifts in system state, or actions by users.
+    * Creating the Streaming Service Code
+        ```
+        aws codecommit create-repository --repository-name MythicalMysfitsStreamingService-Repository
+        cd ~/environment/
+        git clone {insert the copied cloneValueUrl from above}
+        cd ~/environment/MythicalMysfitsStreamingService-Repository/
+        cp -r ~/environment/aws-modern-application-workshop/module-5/app/streaming/* .
+        cp ~/environment/aws-modern-application-workshop/module-5/cfn/* .
+        ```
+    * Update The Lambda Function Package And Code
+    * Creating the Streaming Service Stack
+        * Create An S3 Bucket For Lambda Function Code Packages
+        * Use The SAM CLI To Package Your Code For Lambda
+        ```
+        sam package --template-file ./real-time-streaming.yml --output-template-file ./transformed-streaming.yml --s3-bucket qibao
+        ```
+        * Deploy The Stack Using AWS CloudFormation
+        ```
+        aws cloudformation deploy --template-file /home/ec2-user/environment/MythicalMysfitsStreamingService-Repository/cfn/transformed-streaming.yml --stack-name MythicalMysfitsStreamingStack --capabilities CAPABILITY_IAM
+        ```
+        * Sending Mysfit Profile Clicks to the Service
+        ```
+        aws cloudformation describe-stacks --stack-name MythicalMysfitsStreamingStack
+
+        aws s3 cp ~/environment/aws-modern-application-workshop/module-5/web/index.html s3://qibao/
+        ```
 
 *Cost 180 minutes, finished on Oct 27th, 2018.*
 ____
