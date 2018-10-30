@@ -16,7 +16,29 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 > **DevOps Docker Beginners Guide**
 
+* Basic docker CLI syntax
 
+    -```pull``` fetches a conainer image from the registry and saves it on your system.
+    
+    -```docker image``` interact with images loaded on the system. 
+    
+    -```docker container run``` run an application within a specific container. Once the application has run, the                                                       container shuts down.
+    
+    -```docker container run -it``` keep a container alive in an interactive envornment.
+    
+    -```docker container ls``` list all running containers.
+    
+    -```docker container start <container_id>``` start a specific container.
+    
+    -```docker container execute <container_id>``` interact with a running container.
+
+* Concepts
+
+    -Container is application abstraction, where as virtual machines are hardware abstraction
+
+    -The Docker Registry is the location Docker looks to pull containers. In the default case, it is the Docker Store.
+    
+> **What are containers**
 
 
 * ee
