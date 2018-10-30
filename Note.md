@@ -152,6 +152,9 @@ we created service here
 
 **record**
 * 383544123906.dkr.ecr.us-east-1.amazonaws.com/guan 
-* 1.Install application. - Docker, AWS CLI, Atom
-* 2. Clone repo
+ 1.Install application. - Docker, AWS CLI, Atom
+ 2. Clone repo from  https://github.com/awslabs/amazon-ecs-nodejs-microservices
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws1.png?raw=true)
+ 3. Authenticate Docker Login with AWS
+ 4. creat a ECS cluster
 	
