@@ -173,6 +173,6 @@ we created service here
 7. Configure the Application Load Balancer: Target Group. 
 
 	VPC: vpc-06277877ad4593027
-
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws9.png?raw=true)
  
 	
