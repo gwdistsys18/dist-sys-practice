@@ -175,7 +175,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Now we need to add some rules to our current listener.  We will update it so that traffic matches on /api still goes to our active api service.  However, below that rule we will create new rules for traffic matching each of our service endpoints, and redirecting as appropriate.  Once we spin up our services we will remove the first rule to enable our microservice implimentation
   ![docker_push.png](/images/listener_rules.PNG)
  - Now we need to go back to our cluster and configure a service for each of our microcservices.  This is done just as before, except we will choose our new target groups and create a service for each individual component
- <insert microservices.PNG>
   ![docker_push.png](/images/microservices.PNG)
  - Now we can go back to the load balancer and remove our first rule which still was directing traffic to the monolithic application
  - And we are done!
