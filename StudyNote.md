@@ -34,8 +34,9 @@ __docker container exec &lt;containerID&gt; &lt;operator&gt;__
 
   
 ### Intermediate Level  
-3 Basic docker operator type:
+
 #### [Lab: Docker Intro(35min)](https://training.play-with-docker.com/beginner-linux/)  
+3 Basic docker operator type:  
 **To run a single task:** This could be a shell script or a custom app.  
 **Interactively:** This connects you to the container similar to the way you SSH into a remote server.  
 **In the background:** For long-running services like websites and databases.
