@@ -15,6 +15,8 @@
 1. [Why Docker?](#docker)
 2. [DevOps Docker Beginners Guide](#guide)
 
+[Resources: CS 6421 Distributed Systems - Fall 2018, provided by @Prof. Tim Wood](https://gwdistsys18.github.io/)
+
 # BIG DATA AND MACHINE LEARNING
 
 <a name="Introduction"></a>
