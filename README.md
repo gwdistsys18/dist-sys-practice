@@ -90,6 +90,46 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 > **Doing More with Docker Images**
 
+* Covered the CLI syntax for committing changes to a container, writing a docker file from scratch, and creating a new docker image from  an existing one with changes.
+
+    -show modifications made to a container: ```docker container diff <container_id>```
+    
+    -create a new container image based on the container_id: ```docker container commit <container_id>```
+    
+    -tag the image with <IMAGE_NAME>: ```docker image tag <IMAGE_ID> <IMAGE_NAME>```
+    
+    -see history of an image: ```docker image history <image_id>```
+    
+    -see detailed information about an image file such as the layers, drivers, archetcture, and other various metadata: ```docker image inspect <image_id>```
+    
+> **VMs vs Containers Deepdive**
+
+* VMs vs containers in aspects of size, isolation, and boot time
+
+    -Often containers are smaller, for binaries that require very little from the hardware. VM's have everything except physical hardware inside VM image (kernels, efi, OS, etc). Containers may have only application data, or could have entire OS's in them.
+    
+    -Isolation is generally better on virtual machines, because there are more layers of emulation. Not only will an attacker need to escape the virtual process's sandbox, but also the hypervisor layer which emulates EFI and bios, in order to see other VMs running on the system. Container are only as secure as the kernerl they are running on.
+    
+    -Using modern tools like EFI and system which begins processes in parallel, starting VMs can be close in startup time to containers. However containers do not need to emulate hardware bootup, so they are slightly faster.
+    
+> **Docker Networking**
+
+* The bridge network is created by default for all containers, and it allows communication between the host and all of the containers that are created along with the ability to ping the outside world.
+
+* Port mapping: The docker CLI and dockerfiles system make it easy to programmatically connect containers, as well as to map host and container ports.
+    
+    - ```docker run --name web1 -d -p 8080:80 nginx``` will start an nginx web server, and map docker host port 8080 to container port 80 (default port where nginx will listen for connections)
+    
+* Docker swarm mode allows you to control many docker instances of the same application programmatically.
+
+    -create a swarm, tell nodes to join The Swarm: ```docker swarm init --advertise-addr $(hostname -i)```
+    
+    -create an overlay network across the swarm: ```docker network create -d overlay overnet```
+    
+    -create a service and pass it to the network to be executed by the swarm: ```docker service create --name myservice --network overnet --replicas 2 ubuntu sleep infinity```
+    
+> **Swarm Mode Introduction**
+
 
 
 
