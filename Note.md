@@ -158,6 +158,7 @@ we created service here
 3. Authenticate Docker Login with AWS.  
 4. creat a ECS cluster.
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws2.png?raw=true)
+ ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws3.png?raw=true)
 5. 
 
  
