@@ -435,7 +435,7 @@ aws cloudformation deploy \
    —capabilities CAPABILITY_NAMED_IAM
 ```
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.44.09.png?raw=true)
 
 **Break the Monolith into micro service**
 
@@ -469,6 +469,8 @@ Steps:
 * Edit listener using “Insert Rule”. Insert rules for each service. 
 
 * Deploy each service on Amazon ECS console. 
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.57.48.png?raw=true)
 
 Deploy Monolith application and break it into microservices shows how Docker images can be built and deploy services onto a cloud platform. It is very fast, duplicable, and efficient. The convenience is quietly needed when there is a large amount of servers are required to deploy same services. 
 
