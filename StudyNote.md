@@ -115,6 +115,13 @@ docker service scale voting_stack_vote=5
 
 ## Area 2 Big Data and Machine Learning
 ### Beginner Level: 
+#### [Video: Hadoop Intro(20min)](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)  
+Mapreduce:  
+process amount data in parallel on large cluster  
+job use map tasks to split input data-set.  
+Framework sort outputs of the map as the input of reduce tasks.  
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/hadoop1.png)  
+
 #### [QwikLab: Analyze Big Data with Hadoop(40min)](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)  
 `I have read the paper of HDFS and get a deep understanding about HDFS and HADOOP,Here is my Note`
 HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware.  
@@ -128,6 +135,7 @@ Reading more than writing HDFS applications need a write-once-read-many access m
 Computation closer to data The assumption is that it is often better to migrate the computation closer to where the data is located rather than moving the data to where the application is running.  
 **Portable:**  
 HDFS has been designed to be easily portable from one platform to another.   
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/hadoop2.png) 
 **Master/slave architecture:**  
 *(1)* An HDFS cluster consists of a single NameNode, a master server that manages the file system namespace and regulates access to files by clients.  
 *(2)* In addition, there are a number of DataNodes, usually one per node in the cluster, which manage storage attached to the nodes that they run on.   
@@ -171,6 +179,7 @@ The first DataNode starts receiving the data in small portions (4 KB), writes ea
 HDFS can be accessed from applications in many different ways. Natively, HDFS provides a Java API for applications to use. A C language wrapper for this Java API is also available. In addition, an HTTP browser can also be used to browse the files of an HDFS instance. Work is in progress to expose HDFS through the WebDAV protocol.  
 **FS Shell:**     
 HDFS allows user data to be organized in the form of files and directories. It provides a commandline interface called FS shell that lets a user interact with the data in HDFS.  
-
+### Conclusion
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/hadoop3.png) 
 
 > Include notes here about each of the links
