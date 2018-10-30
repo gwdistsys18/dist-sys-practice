@@ -150,5 +150,16 @@ ubuntu sleep infinity`)
   5. Clean up
     * Deleted everything
 
-## Area 2
-> Include notes here about each of the links
+## Area 2 - Cloud Web Apps
+
+* [AWS Launch a VM Tutorial ~10 mins](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
+  * Created a VM on EC2 - have done this before so went pretty quickly
+  * Go to EC2 console and click Launch Instance
+  * Specify things about the instance like OS type, number of CPUs, RAM, Disk Space, networking config
+  * Ensure SSH key is present so you can login from your machine
+  * `ssh` in and run some commands / play around
+  * Expose some ports like 80 or 8080 and run a simple webserver.  Access it at the public IP
+  * Disconnect and terminate the instance
+
+* [Intro to S3 QwikLab](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+  * **FILL THIS IN**
