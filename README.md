@@ -1,8 +1,8 @@
-# Distributed Systems Practice
-Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Area 1
-> Include notes here about each of the links
-
-## Area 2
-> Include notes here about each of the links
+I have write the notes in a few files. And my choices is:
+Beginner level:
+    Docker and Containers
+    Cloud Web Applications
+    SDN and NFV
+Intermediate level:
+    Big Data and Machine Learning
