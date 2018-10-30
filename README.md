@@ -451,28 +451,30 @@ Be able to:
 
 In this task I create an Amazon S3 Bucket.
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.12.32.png?raw=true)
 
 **Task 2: Upload an Object to the Bucket**
 
 I am ready to store objects.
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.14.42.png?raw=true)
 
 **Task 3: Make Your Object Public**
 
 I configure permissions on my objects so that it is publucly accessible.
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.15.39.png?raw=true)
 
 **Task 4: Create a Bucket Policy**
 
 bucket policy can be used to control access to a whole bucket or to specific directories within a Bucket.
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.23.23.png?raw=true)
 
 **Task 5: Explore Versioning**
 
 We can use versioning to preserve, retrieve, and restore every version of every object stored in Amazon S3 Bucket.
 
-![]()
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.27.06.png?raw=true)
+
+****
