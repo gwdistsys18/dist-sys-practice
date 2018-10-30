@@ -146,3 +146,6 @@ we created service here
 | Auto-scaling using a simple number-of-pods target is defined declaratively using deployments. CPU-utilization-per-pod target is available. Other targets are on the roadmap. | Not directly available. For each service, you can declare the number of tasks you want to run. When you manually scale up or down, the Swarm manager automatically adapts by adding or removing tasks. |
 |The deployment controller  supports both “rolling-update” and “recreate” strategies. Rolling updates can  specify maximum number of pods unavailable or maximum number running during the process. | At rollout time, you can apply rolling updates to services. The Swarm manager lets you control the delay between service deployment to different sets of nodes, thereby updating only 1 task at a time.|
 |With the release of 1.6, Kubernetes scales to  5,000-node clusters. Kubernetes scalability is benchmarked against the following Service Level Objectives (SLOs):|According to the Docker’s blog post on scaling Swarm clusters, Docker Swarm has been scaled and performance tested up to 30,000 containers and 1,000 nodes with 1 Swarm manager.|
+
+-
+#AWS Tutorial: Break a Monolith Application into Microservices （forever... ）
