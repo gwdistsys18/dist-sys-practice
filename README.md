@@ -120,7 +120,7 @@ ubuntu sleep infinity`)
   * Updated the application
   * Then used Kubernetes to roll it back to the previous version across the cluster
 
-* [AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)
+* [AWS Tutorial: Break a Monolith Application into Microservices ~100 mins](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)
   1. Containerize the Monolith
     * The first step was to get set up (install docker, setup the AWS CLI, clone the repo)
     * Then I set up a container on ECR following the direction
@@ -134,6 +134,21 @@ ubuntu sleep infinity`)
     * setup the monolith service and tested the load balancer / request rotation
     * service name points at load balancer
     * added a field to the user data model so I could get a better understanding for how the application worked: ![JSON With Added Field](json-with-added-field.png)
+  3. Break the Monolith
+    * Breaking the monolith into multiple microservices is beneficial because of isolation of crashes (only one part will break at a time), isolation for security (breach of one service hopefully won't impact others), independent scaling (no need to scale whole app if only one part needs scaled), and development velocity
+    * Instead of one ECR repository for the monolith, we create one per microservice
+    * Build one image per service
+    * Break the DB up as well for each service
+  4. Deploy Microservices
+    * Configure target groups for each endpoint `/api/users` -> users microservice target group etc
+    * Setup the 3 autoscaling groups instead of just 1
+    * Transition traffic over
+    * Kill the running monolith application
+    * Again using CFT for config    
+    * Check to make sure that requests are distributed among the microservices among the replicas
+    * Diagram for this process: ![microservice-deployment-diagram](microservice-deployment-diagram.png)
+  5. Clean up
+    * Deleted everything
 
 ## Area 2
 > Include notes here about each of the links
