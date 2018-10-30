@@ -281,4 +281,3 @@ ssh -i Downloads/MyKeyPair.pem ec2-user@54.186.234.37
 - change the permission setting and make the image public
 - create a bucket policy to set permission setting
 - get access to different versions of images with the same name
-
