@@ -4,7 +4,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## **Table of Contents**
 
-> All elapsed time contains material studying and note writing.
+> All elapsed time contains time of material studying and time of note writing.
+> Accoring to the description in course website, I only provide screenshot of "Bring it all together" in Docker topic. If more screenshots of other labs are requried, please contact me for them.
 
 * [Docker and Containers](#Docker-and-Containers)
   * [Beginer Level](#Beginner-Level-mastery-of-Docker)
@@ -102,7 +103,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 3. ***Lab: Docker Intro*** --elapsed time: 35 mins
 
     * **Run docker containers**
+
         User can run containers that have different application running, including single task container, interactive container and background container. Using coressponding flag in run command can make it.
+
         * *Default*:
 
             ``` shell
@@ -121,7 +124,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
             docker container run --detach [FLAG] [CONTAINER_NAME] [TASK]
             ```
 
-    * **Package and run a custom app** using Docker
+    * **Package and run a custom app**
+
         With a dockerfile, user can package customized application as a docker image.
 
         * *Dockerfile syntax*
@@ -141,6 +145,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
     * **Modify a running application**
         * *Bind mount*
+
             If we are modifing source code on a running system, it would be nightmare to stop the container, rebuild the image and test new version everytime. 
 
             ``` shell
@@ -155,6 +160,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
             In the above example, user can use bind mount to start an application with [--mount] flag. It enables mounting source code directory into a running container. The container will react to every change immediately.
 
         * *Modify source and test*
+
             Let us make change to the source file naming it as [linux_tweet_app:2.0].
 
             ``` shell
@@ -168,6 +174,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
             User can test new version by changing file name.
 
         * *Store image in Docker Hub*
+
             Docker provides a system called Docker Hub for user to manage their images with version control. It is pretty like Github system workflow.
 
              ``` shell
@@ -179,18 +186,21 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 4. ***Lab: Doing more with Docker Images*** --elapsed time: 40 mins
 
     * **Image creation from a container**
+
         User can create a image from a existing stopped container with commit command
         ```shell
         docker container commit [CONTAINER_ID]
         ```
 
     * **Image creation using a Dockerfile**
+
         User can create a image using a Dockerfile. It has serval configuration, including FROM, RUN COPY WORKDIR, and CMD. After writing Dockerfile, user can create a image directly using run command
         ```shell
         docker container run [IMAGE_NAME]
         ```
 
     * **Image layers**
+
         After user modified the application running in the container, he can rebuild a new image to test modification. The interesting part during the build procedure is it says "Using cache".
         Because docker image has hierarchy, some of replicated image are stored in Docker cache. Docker will recognize difference between new created image between existing ones so that it will use cached version instead of going through all procedure again.
 
@@ -302,15 +312,72 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
         * Kubernetes cluster services will try to *schedule* feeding Pod and checking. If one of a worker *die*, the kubernetes cluster services will reschedule new place for instantiating lost Pod and Replica.
 
-5. ***Learn more about Kubernetes on your own***
-    I followed serval tutorials in Kubernetes' documation.
-    * 
+5. ***Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them*** --elapsed time: 5 hours
+    I provide screenshot for this lab because I thought it is the final lab for Docker topic at first. Anyway, screenshot helps demonstrating steps in the lab.
 
-6. ***Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them***
+    * **Steps**
+        1. *Docker*
+            I installed docker pretty easily.
+
+            ![Docker](screenshots\docker-lab\docker.png)
+
+        2. *Kubernetes*
+            * Python, pip, awscli, and kubectl
+
+                Because the tool--Kops--I was using to setup Kubernete require AWS Auth. I need to install awscli first. Nothing complex here.
+
+                ![python_pip_awslic_kubectl](screenshots\docker-lab\python_pip_awslic_kubectl.png)
+
+            * Set up Kops, Aws user permission, and bucket
+                Kops is a tool to manage Kubenetes cluster, especially for AWS users. It requires AWS access key for later actions. I set up a new user who has serval permissions to create a Kubenetes cluster.
+
+            * Orchestrate cluster
+                I create a cluster that has 2 nodes with AWS SSHpublickey, Then I edit, update, and validate a new Kubernetes cluster using kops.
+                ```shell
+                kops create cluster --node-count=2 --node-size=t2.medium --zones=us-east-1a --name=${KOPS_CLUSTER_NAME} # Create cluster of two nodes
+                kops edit cluster --name ${KOPS_CLUSTER_NAME} # Edit configuration file of created cluster
+                kops update cluster --name ${KOPS_CLUSTER_NAME} --yes # Update cluster to docker
+                kops validate cluster # Verify created cluster ready or not
+                ```
+
+                ![Validating cluster](screenshots\docker-lab\validate.png)
+                ![Ec2 cluster](screenshots\docker-lab\cluster_creation.png)
+
+                I followed Kubernetes documentation to set up Kubernetes dashboard. And access it via RESTful API using cluster master domain. My apology of showing Chinese UI here because I cannot change it.
+
+                ![Kubernetes Dashboard](screenshots\docker-lab\dashboard.png)
+
+                Then I deploied an Nginx image to my cluster. Then expose its services.
+
+                ![Deploy Nginx](screenshots\docker-lab\deploy.png)
+                ![Expose its services](screenshots\docker-lab\service_expose.png)
+
+                At last, I scale it up.
+
+                ![Scaling out](screenshots\docker-lab\scaling.png)
+
+    * **Difficulties**
+
+        1. I lanuched a instance of EC2. I installed docker in it easily. However, the installion of Kubernetes became a nightmare in AWS. All tool I found require AWS access key for install k8s which is a banned feature in AWS educate account. I tried to fix this out turing impossible and wasted more than 2 hours.
+
+        2. Later, I set whole enviorment up using my personal AWS account. Left Docker alone, I installed Kubernetes using Kops. Another annoying thing is that when I tried to create SSHpublic key using AWS crendential, the default file name of the is somethingelse but regular 'id_rsa'. I scanned whole documation for a hour to fix my public key. AWS is quite annoying about auth stuff.
 
 ### **Bring it all together**
 
-In the AWS Tutorial: Break a Monolith Application into Microservices, I followed instructions
+    In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. Actually, it is easy for me after the annoying procedure I met on above lab. The tutorial provides a monolith application to play with. There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## **SDN and NFV**
 
@@ -322,11 +389,11 @@ In the AWS Tutorial: Break a Monolith Application into Microservices, I followed
 
     * **3 layer model of OS and SDN**
 
-        |        |                                         OS model                                        |                                                                              SDN model                                                                             |   |   |
-        |--------|:---------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---|---|
-        | North  |                       Application--Customize OS for users' demand                       |                                                    Network Application--Satisfy user's needs but network related                                                   |   |   |
-        | Center |     OS--Manage access from applications to underlying hardware, using core services.    |                                   Network OS(SDN controller)--Interfaces with network nodes and provides programmable interface.                                   |   |   |
-        | South  | Hardware--Handled by OS.  Typical components are CPU, storage, memory and network card. | Network forwarding device--Receive and handle packets, update counters.  Actions includes dropping packets, modifying packet headers and sending packet via ports. |   |   |
+        |        |                                        OS model                                        |                                                                             SDN model                                                                             |
+        |:------:|:--------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+        |  North |                       Application--Customize OS for users' demand                      |                                                   Network Application--Satisfy user's needs but network related                                                   |
+        | Center |    OS--Manage access from applications to underlying hardware, using core services.    |                                  Network OS(SDN controller)--Interfaces with network nodes and provides programmable interfaces.                                  |
+        |  South | Hardware--Handled by OS. Typical components are CPU, storage, memory and network card. | Network forwarding device--Receive and handle packets, update counters. Actions includes dropping packets, modifying packet headers and sending packet via ports. |
 
     * **Packet Flow**
         * *On arrival*: a packet arrives forwarding device, it would parse header then either already knows what to do or queries the network controller.
@@ -369,3 +436,34 @@ In the AWS Tutorial: Break a Monolith Application into Microservices, I followed
         | Cons | 1. Proprietary locked box--control is coupled to data 2. Each node is configured individually | SDN controller is very complex                                                            |
 
 2. ***Tutorial: Using the OpenDaylight SDN Controller with the Mininet Network Emulator***
+
+    This tutorial guides me to simulate an SDN controller (OpenDaylight) with a SDN network (Mininet) using OpenFlow. All working enviorment are sitting on VM running in VirtualBox. There are three sections included here--1) set up Mininet VM, 2) set up OpenDaylight VM, and 3) capture OpenFlow messages
+
+    * **OpenDayligh VM**
+        * *Start OpenDaylight VM. Connect it*
+
+            Using the Ubuntu Server ISO, we can installed a new Vm in Virtual Box. After set up a loopback network adapter, we can connect to the VM using putty based on the IP gained from ```ifconfig``` command
+
+        * *Set up dependencies*
+
+          * OpenDaylight is Java program and packaged in karaf container. Thus we need install Java for it.
+          * Then we need to download and tar the OpenDaylight file. We can start it with ```karaf``` inside of the container.
+          * Install features for testing and GUI.
+
+    * **Mininet VM**
+        * *Start and connect Mininet VM*
+
+            There is a VM .ovf file provided by Mininet project. We can import the MininetVM to virtual box with it. Similar, we can connect to it using putty.
+
+        * *Start Mininet*
+
+            Inside of the MininetVM, there are many pre-installed dependcries for supporting Mininet. We can start it directly withou any installation. We can test the network by ping something, which is worked out.
+
+    * **Caputure OpenFlow message**
+        * *Access OpenDaylight GUI*
+
+            Once OpenDaylightVM is set up, we can access GUI from browser. There are lots of SDN features that we should know. Topology, nodes and Yang which provides SDN switches.
+
+        * *Capture messages*
+
+            Keep two VM and our SDN application on them running. Now we had set up a SDN, which could be validated if we can capture OpenFlow message or not. Connecting to MininetVM, we can start Wireshark to detecting packet. After creating a filter for OpenFlow message, we can observe message flowing on.
