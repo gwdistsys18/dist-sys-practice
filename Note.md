@@ -176,5 +176,9 @@ we created service here
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws9.png?raw=true)
 8. Configure the Application Load Balancer: Listener
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws10.png?raw=true)
- 
+9. Deploy the Monolith as a Service
+ ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws11.png?raw=true)
+10. Break the Monolith.  
+11. Deploy Microservices
+12. ![](https://d1.awsstatic.com/Developer%20Marketing/containers/5786%20Monolith%20Containers_6-switching-traffic.d54c5d1d16f4e86f2a712f862988fa05aa885b22.png) 
 	
