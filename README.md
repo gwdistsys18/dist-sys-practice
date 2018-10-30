@@ -151,31 +151,32 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ![repository.png](/images/repository.PNG)
 
  - We will use CloudFormation and provide it a Docker stack file which is in the Github repiository (See previous notes for what a Docker stack is).  Basically this is a markup document which describes a recipe for building a containerized application.  This stack file will spin up a cluster of two nodes.
-  <inster cluster_create.png>
-  <insert cluster_instances.png>
+ ![docker_push.png](/images/cluster_create.PNG)
+ ![docker_push.png](/images/cluster_instances.PNG)
  - We will now use Amazon ECS (Elastic Container Service) to spin up our docker containers on our EC2 instances of our cluster
  - We have to build and run an EC2 task definition which describes how our application containers get deployed across our cluster
-  <insert task definition>
+  ![docker_push.png](/images/task_definition.PNG)
  - Now we must configure our target group so our load balancer knows how to direct traffic to our application.  You can utilize the demo VPC configured by default within AWS.  
-  <insert target_group image>
+  ![docker_push.png](/images/target_group.PNG)
  - Next we must add a listener to our VPC.  Add a listener on the desired port and forward to the api target group.  This way requests coming into our ELB on the port specified (in our case 80), will get redirected to our target group for the api service
- <insert listener.png>
+  ![docker_push.png](/images/listener.PNG)
  - Finally, frum the cluster configuration we can create a new service and start up our application. 
-  <insert service_created image>
+  ![docker_push.png](/images/service_created.PNG)
  - Now, we have our monolith application running, we want to break it into three seperate services.  The github project for this demo provides us with an additional 3 docker repositories which comprises each service individually inside it's own NodeJS application
  - In order to use this, we need to basically repeat the previous steps, but this time do everything in pairs of 3's for each of the individual services.
  - first we add a repository in ECR for threads, posts, and users.
-  <insert microservice_repos image>
+  ![docker_push.png](/images/microservice_repos.PNG)
  - Nextrun ```docker build``` and ```docker tag```, ```docker push``` on each of the three services.  Now we have a container image for each service in our registry.
  - Now we need to make 3 new task definitions for each service just as we did before for the monlothic application
-  <insert image microservice_task_defs.PNG>
+  ![docker_push.png](/images/microservice_task_defs.PNG)
  - Now we will need to create new target groups for our ELB to point to for each of our new services, just as we did before.
-  <insert microservice_target_groups.PNG>
+    ![docker_push.png](/images/microservice_target_groups.PNG)
  - Note the additional of the dummy "drop-traffic" target group.  This will allow us to disable the old service so traffic no longer routs to that and instead will get directed to our new microservices application
  - Now we need to add some rules to our current listener.  We will update it so that traffic matches on /api still goes to our active api service.  However, below that rule we will create new rules for traffic matching each of our service endpoints, and redirecting as appropriate.  Once we spin up our services we will remove the first rule to enable our microservice implimentation
-  <insert listener_rules.PNG>
+  ![docker_push.png](/images/listener_rules.PNG)
  - Now we need to go back to our cluster and configure a service for each of our microcservices.  This is done just as before, except we will choose our new target groups and create a service for each individual component
  <insert microservices.PNG>
+  ![docker_push.png](/images/microservices.PNG)
  - Now we can go back to the load balancer and remove our first rule which still was directing traffic to the monolithic application
  - And we are done!
  - Make sure to clean up once complete.  Remove task groups.  Delete clusters, etc.
