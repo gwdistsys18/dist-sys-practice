@@ -2,15 +2,14 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Area 1
-> Include notes here about each of the links
 
 
-1.Option types
+# 1.Option types
 Single character command line options can be combined, so rather than typing docker run -i -t --name test busybox sh, you can write docker run -it --name test busybox sh.
 
 
 
-2.Confused about Docker -t option to Allocate a pseudo-TTY
+# 2.Confused about Docker -t option to Allocate a pseudo-TTY
 
 What exactly does this option do? I've been reading a lot on TTY and am still confused. I played around with not having the -t and just -i and it seems like programs that expect user input throw an error without the -t. Why is it important for pseudo-TTY to be enabled?
 
@@ -20,14 +19,15 @@ So, with that as background, run a container with no options and by default you 
 
 
 
-3.what is docker image? is it a real image?(for confusing question.)
+# 3.what is docker image? is it a real image?(for confusing question.)
 A Docker image is a file, comprised of multiple layers, used to execute code in a Docker container. An image is essentially built from the instructions for a complete and executable version of an application, which relies on the host OS kernel. When the Docker user runs an image, it becomes one or multiple instances of that container.
 
+# what is dockerfile
 Dockerfile to build a custom app. 
 the dockerid must match your dockerhub id so to successfully push it to the cloud.
 
 
-detail for image
+# detail for image
 In Docker, everything is based on Images. An image is a combination of a file system and parameters. Let’s take an example of the following command in Docker.
 
 docker run hello-world 
@@ -108,7 +108,7 @@ Removing Docker Images
 The Docker images on the system can be removed via the docker rmi command. Let’s look at this command in more detail.
 
 
-5. how can the Dockfile help to create a image?
+# 5. how can the Dockfile help to create a image?
    A:if you create a image without a /root/Dockerfile  file (here the root could be any the directory you are)
       then you will get the error that:
       "unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /root/Dockerfile: no such file or directory." 
@@ -118,7 +118,7 @@ The Docker images on the system can be removed via the docker rmi command. Let�
       and a update version when we are going to use some of the cache data from v0.1.
       <img src="https://training.play-with-docker.com/images/ops-images-cache.svg">
 ## Area 2
-Replicated and global services
+# Replicated and global services
 There are two types of service deployments, replicated and global.
 
 For a replicated service, you specify the number of identical tasks you want to run. For example, you decide to deploy an HTTP service with three replicas, each serving the same content.
@@ -128,11 +128,10 @@ A global service is a service that runs one task on every node. There is no pre-
 The diagram below shows a three-service replica in yellow and a global service in gray.
 <img src="https://docs.docker.com/engine/swarm/images/replicated-vs-global.png">
 
-global vs replicated services
 
 
-> Include notes here about each of the links
-So questions need to deal: 
+
+# Same questions need to deal: 
 1 what is node
   what is swarm
   what is service
