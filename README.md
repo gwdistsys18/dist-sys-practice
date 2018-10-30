@@ -391,9 +391,12 @@ export KOPS_STATE_STORE=s3://${bucket_name}
 
 * Execute the validate command to check its status and wait until the cluster becomes ready.
 
+Once the above process completes, kops will configure the Kubernetes CLI (kubectl) with Kubernetes cluster API endpoint and user credentials.
 
 
 ****
+
+*Bring it all together part*:
 
 [AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/cn/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?nc1=h_ls)
 
@@ -403,5 +406,28 @@ Traditional monolithic architectures are hard to scale. As an application's code
 
 
 
-## Area 2
-> Include notes here about each of the links
+## Cloud Web Applications
+### Beginner Level
+
+****
+
+[AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
+
+Time: 30 min
+
+I have learned how to launch, configure, connect, and terminate an instance in the cloud.
+
+![]()
+
+* Terminology: 
+
+**Download key pair to securely access your Linux instance using SSH.**
+
+```mv ~/Downloads/MyKeyPair.pem ~/.ssh/MyKeyPair.pem```
+
+**Connect to your Instance**
+
+```ssh -i ~/.ssh/MyKeyPair.pem ec2-user@{IP_Address} (ex. ssh -i ~/.ssh/MyKeyPair.pem ec2-user@52.27.212.125)```
+
+
+
