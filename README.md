@@ -162,16 +162,23 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  <insert listener.png>
  - Finally, frum the cluster configuration we can create a new service and start up our application. 
   <insert service_created image>
-   
- - and we can test it is working by navigating to the DNS name of our ELB
  - Now, we have our monolith application running, we want to break it into three seperate services.  The github project for this demo provides us with an additional 3 docker repositories which comprises each service individually inside it's own NodeJS application
  - In order to use this, we need to basically repeat the previous steps, but this time do everything in pairs of 3's for each of the individual services.
- - So, we first must add the repositories to ECR, build and tag the docker images for all three microservices
- - We will now write and run 3 new task definitions within ECS for each of our three microservices (note that our existing monolith application will remain running on our cluster)
- - Our microservices are now deployed on the same cluster, but the traffic through our load balancer is still going to our monolith.
- - We can now update the load balancer, and edit the target groups.  There are a few ways to do this, but if we want to maintain traffic to the monolith, we should add new target groups, 1 for each of our new services
- - We also need to add 3 new listeners, but we will leave the original listener in tact
- - Now we can deploy our microservices, and turn off our other applications
+ - first we add a repository in ECR for threads, posts, and users.
+  <insert microservice_repos image>
+ - Nextrun ```docker build``` and ```docker tag```, ```docker push``` on each of the three services.  Now we have a container image for each service in our registry.
+ - Now we need to make 3 new task definitions for each service just as we did before for the monlothic application
+  <insert image microservice_task_defs.PNG>
+ - Now we will need to create new target groups for our ELB to point to for each of our new services, just as we did before.
+  <insert microservice_target_groups.PNG>
+ - Note the additional of the dummy "drop-traffic" target group.  This will allow us to disable the old service so traffic no longer routs to that and instead will get directed to our new microservices application
+ - Now we need to add some rules to our current listener.  We will update it so that traffic matches on /api still goes to our active api service.  However, below that rule we will create new rules for traffic matching each of our service endpoints, and redirecting as appropriate.  Once we spin up our services we will remove the first rule to enable our microservice implimentation
+  <insert listener_rules.PNG>
+ - Now we need to go back to our cluster and configure a service for each of our microcservices.  This is done just as before, except we will choose our new target groups and create a service for each individual component
+ <insert microservices.PNG>
+ - Now we can go back to the load balancer and remove our first rule which still was directing traffic to the monolithic application
+ - And we are done!
+ - Make sure to clean up once complete.  Remove task groups.  Delete clusters, etc.
  
 ## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
