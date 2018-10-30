@@ -162,7 +162,13 @@ we created service here
 4. creat a ECS cluster.
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws2.png?raw=true)
  ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws3.png?raw=true)
-5. 
+5. checking cluster.  
+
+*task table*
+![task table](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws6.png?raw=true). 
+*instance table*. 
+![]()
+6. 
 
  
 	
