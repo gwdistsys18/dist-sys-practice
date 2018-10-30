@@ -1,0 +1,28 @@
+Beginner Level
+Video:
+    Shiftting from host to docker is the trend now.
+    Docker focus on the migrating experience and developers.
+    Docker is faster in almost every phase of the software development.
+    Container can reduce the complexity of an application. 
+    Container can reduce the infrastructure cost and the time consuming in maintainance. 
+Lab:
+A few terminologies: images: Which is used to create containers.
+                     containers: Running instances of Docker images.A container includes an application and all 
+                                 of its dependencies. It share the kernel with other containers.
+                     Docker Store: a registry of docker images.
+A few useful command: 
+                     docker image pull < image name >: download the corresponding image.
+                     docker container run < image name>: create a container of the given image.
+                     docker container ls: list the container that are currently running
+ Key points:
+          1. Docker engine runs on top of the linux kernel. And the containers runs on top of the docker engine.
+          2. If a user needs to create a container of a given image. First, this image must be stored locally
+          3. These containers are isolated from each other, they cann't interact with each other.
+          4. When a container is running, the user can send command to the container or get into 
+             the container shell. 
+          5. You can create multiple containers for one image, and these containers cann't interact with each other.
+             They all have their own ID. 
+          
+          
+                     
+                      
