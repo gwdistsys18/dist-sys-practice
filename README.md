@@ -130,7 +130,95 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     
 > **Swarm Mode Introduction**
 
+* Docker Compose is used to control multiple containers on a single system. Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them.
+    
+    -Setup swarm in identical manner to last tutorial - ```docker swarm init --advertise-addr $(hostname -i)```. Join swarm from other node with the command in the output of the first node's ```docker swarm init``` command
 
+* A stack is a group of services that are deployed together: multiple containerized components of an application that run in separate instances.
+
+* Each individual service can actually be made up of one or more containers, called tasks and then all the tasks & services together make up a stack.
+
+> **Kubernetes vs. Swarm**
+
+* Swarm and kubernetes are orchestration tools.
+
+* Swarm is a bit simpler and is built into docker.
+
+* Kubernetes is built by Google, and can be used for docker as well as other virtualization container tools.
+
+* Kubernetes is much more widely used and has many more features.
+
+> **Kubernetes in 5 minutes**
+
+* Kubernetes enforces desired state management
+
+* Workers have kubelet processes which communicate with cluster services
+
+* specify desired application state with a .yml file
+
+* Pod configuration specifies container images, and service info
+
+* Specify number of replicas for each pod type
+
+* Cluster services is in charge of scheduling and allocating resources to meet the desired state
+
+* When things go wrong cluster services is in charge of rearranging to reattain desired state
+
+> **Break a Monolith Application into Microservices**
+
+* Containerize the Monolith
+
+    - set up. Install application: Docker, AWS CLI, Atom. Clone repo from https://github.com/awslabs/amazon-ecs-nodejs-microservices. 
+    
+    - set up a container on ECR.
+    
+    - build and push the docker image to ECR: ```docker build -t api .```
+    
+      ```docker push [account-id].dkr.ecr.[region].amazonaws.com/api:latest```
+
+* Deploy the Monolith
+
+    - Create a ECS cluster
+    
+    - Check task table and instance table
+    
+    - Configure the Application Load Balancer: Target Group
+    
+    - Configure the Application Load Balancer: Listener 
+
+    - Used CFTs to setup a resource stack and used this to create / update the template
+
+    - setup the monolith service and tested the load balancer / request rotation
+    
+    - ```aws cloudformation deploy \
+        —template-file infrastructure/ecs.yml \
+        —region <region> \
+        —stack-name BreakTheMonolith-Demo \
+        —capabilities CAPABILITY_NAMED_IAM```
+
+* Break the Monolith
+
+    - Breaking the monolith into multiple microservices is beneficial because of isolation of crashes (only one part will break at a           time), isolation for security (breach of one service hopefully won't impact others), independent scaling (no need to scale whole         app if only one part needs scaled), and development velocity
+      
+        - Create three different repositories under ECS repositories.
+
+        - Under local environment (where git repo is cloned), run three command that create 3 different images.
+
+        - Tag images that just build.
+
+        - Push them to the corresponding repository.
+    
+* Deploy Microservices
+
+    - Write task definition for each post, users, threads service.
+
+    - Configure the four application balance load as previous section. Same setting during the configuration process.
+
+    - Edit listener using “Insert Rule”. Insert rules for each service.
+
+    - Deploy each service on Amazon ECS console.
+
+    * Deploy Monolith application and break it into microservices shows how Docker images can be built and deploy services onto a cloud platform. It is very fast, duplicable, and efficient. The convenience is quietly needed when there is a large amount of servers are required to deploy same services. 
 
 
 ****
