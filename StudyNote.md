@@ -109,10 +109,11 @@ docker stack ls`
 docker stack services voting_stack  
 docker service ps voting_stack_vote  
 docker service scale voting_stack_vote=5    
-```
+```  
+#### [AWS Tutorial: Break a Monolith Application into Microservices(40min)](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)  
 ![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/8ECR.png)  
-&lt;Last-Toturial figure&gt; 
-
+&lt;Last-Toturial figure&gt;  
+![image](https://github.com/XinShuYang/dist-sys-practice/blob/master/Image/12deploy.png)
 
 ## Area 2 Big Data and Machine Learning
 ### Beginner Level: 
