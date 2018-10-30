@@ -309,6 +309,8 @@ Docker Swarm can easily and quickly scale your application’s services up and d
 
 **Kubernetes**
 
+Time: 35min
+
 **Pros of Kubernetes:**
 
 * Based on extensive experience running Linux containers at Google. Deployed at scale more often among organizations. Kubernetes is also backed by enterprise offerings from both Google (GKE) and RedHat (OpenShift).
@@ -343,7 +345,8 @@ Docker Swarm can easily and quickly scale your application’s services up and d
 
 * Networking features such as load balancing and DNS.
 
-> Include notes here about each of the links
+****
+
 
 ## Area 2
 > Include notes here about each of the links
