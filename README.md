@@ -126,6 +126,14 @@ ubuntu sleep infinity`)
     * Then I set up a container on ECR following the direction
     * The final step of containerizing the monolith was building and pushing the docker image to ECR - this was fairly straight forward as they set it up for us in the project
     * This process for creating the image looks like the following: ![Container Image Build Process](container-image-build-process.png)
+  2. Deploy the Monolith
+    * Using classic web app tools - load balancer with target groups
+    * Setup containers as the target group using ECS
+    * Used CFTs to setup a resource stack and used this to create / update the template of what we want
+    * Cloud Formation is a great tool from AWS I became familiar with this summer at Capital One
+    * setup the monolith service and tested the load balancer / request rotation
+    * service name points at load balancer
+    * added a field to the user data model so I could get a better understanding for how the application worked: ![JSON With Added Field](json-with-added-field.png)
 
 ## Area 2
 > Include notes here about each of the links
