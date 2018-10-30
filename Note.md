@@ -169,6 +169,10 @@ we created service here
 *instance table*. 
 ![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/was7.png?raw=true)
 6. Write a task Definition
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/aws8.png?raw=true)
+7. Configure the Application Load Balancer: Target Group. 
+
+	VPC: vpc-06277877ad4593027
 
  
 	
