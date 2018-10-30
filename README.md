@@ -364,10 +364,16 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ### **Bring it all together**
 
-    In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. Actually, it is easy for me after the annoying procedure I met on above lab. The tutorial provides a monolith application to play with. There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
+In the AWS Tutorial: Break a Monolith Application into Microservices, I broke a application into microservices and deploy them into containers. Actually, it is easy for me after the annoying procedure I met on above lab. The tutorial provides a monolith application to play with. There are four sections included--1) Containerize the application, 2) deploy the application, 3) break the monolith, and 4) deploy microservices.
 
-
-
+1. **Containerize the monolith**
+    * Install dependencies and get application source
+        
+    * Build and push Docker Image
+        
+2. **Deploy the monolith**
+3. **Break it into microservices**
+4. **Depoy microservices**
 
 
 
