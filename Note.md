@@ -149,3 +149,9 @@ we created service here
 
 -
 #AWS Tutorial: Break a Monolith Application into Microservices （forever... ）
+
+**record**
+* 383544123906.dkr.ecr.us-east-1.amazonaws.com/guan 
+* 1.Install application. - Docker, AWS CLI, Atom
+* 2. Clone repo
+	
