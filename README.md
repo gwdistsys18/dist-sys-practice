@@ -404,9 +404,78 @@ Time: 120 min
 
 Traditional monolithic architectures are hard to scale. As an application's code base grows, it becomes complex to update and maintain. Introducing new features, languages, frameworks, and technologies becomes very hard, limiting innovation and new ideas.
 
+Following the instruction of the URL.
 
+**Build the Docker Image**
+
+Run the following command: ```aws ecr get-login --no-include-email --region us-east-1```
+
+Copy this entire output, paste, and run it in the terminal. Login Succeeded.
+
+**Create the Repository**
+
+Create a Amazon Elastic Container Registry (Amazon ECR) and save the link.
+
+**Push image**
+
+Run the following command under the ```/amazon-ecs-nodejs-microservices/2-containerized/services/api``` to build and tag the image:
+
+```
+docker build -t api .
+docker push [account-id].dkr.ecr.[region].amazonaws.com/api:latest
+```
+
+**Deploy the Monolith**
+
+```
+aws cloudformation deploy \
+   —template-file infrastructure/ecs.yml \
+   —region <region> \
+   —stack-name BreakTheMonolith-Demo \
+   —capabilities CAPABILITY_NAMED_IAM
+```
+
+![]()
+
+**Break the Monolith into micro service**
+
+Why Microservices?**
+
+* Isolation of Crashes
+
+* Isolation for Security
+
+* Independent Scaling
+
+* Development Velocity
+
+Steps:
+
+* Create three different repositories under ECS repositories.
+
+* Under local environment (where git repo is cloned), run three command that create 3 different images. 
+
+* Tag images that just build.
+
+* Push them to the corresponding repository.
+
+
+**Deploy Microservices**
+
+* Write task definition for each post, users, threads service. 
+
+* Configure the four application balance load as previous section. Same setting during the configuration process.
+
+* Edit listener using “Insert Rule”. Insert rules for each service. 
+
+* Deploy each service on Amazon ECS console. 
+
+Deploy Monolith application and break it into microservices shows how Docker images can be built and deploy services onto a cloud platform. It is very fast, duplicable, and efficient. The convenience is quietly needed when there is a large amount of servers are required to deploy same services. 
+
+****
 
 ## Cloud Web Applications
+
 ### Beginner Level
 
 ****
