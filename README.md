@@ -1,18 +1,32 @@
-# Docker
+
 ## Time spend
-### Beginner level
+### Area1: Docker
+#### Beginner level
 Video: Why Docker? -- 50 min  
 Lab: DevOps Docker Beginners Guide -- 180 min
-### Intermediate Level
+#### Intermediate Level
 Video: What are Containers? -- 100 min  
 Video: VMs Versus Containers -- 90min  
 Lab: Docker Intro -- 200min  
 Lab: Doing more with Docker Images -- 200min  
 Video: VMs Versus Containers Deep Dive -- 60 min  
 
-Lab: Docker Networking  -- 220min
+Lab: Docker Networking  -- 220min  
+Lab: Swarm Mode Introduction -- 140min  
+Video: Kubernetes vs Swarm -- 20min  
+Video: Kubernetes in 5 Minutes -- 40min  
+Learn more about Kubernetes on your own -- 120min  
+Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them -- 160min  
+AWS Tutorial: Break a Monolith Application into Microservices -- 240min
 
-[TOC]
+### Area2: Cloud Web Apps
+### Beginner level
+AWS Tutorial: Launch a VM -- 60min  
+QwikLab: Intro to S3 -- 70 min
+
+
+
+# Area1: Docker
 
 # What is Docker and Why we use Docker
 
@@ -480,3 +494,156 @@ Run `docker service inspect [Service name]` will see details of the service. The
 `docker service rm [Service name]` can remove services.  
 
 Run `docker swarm leave --force` in a swarm node to leave the swarm.
+
+# Lab05: Swarm Mode Introduction for IT Pros
+
+## What is swarm?
+The cluster management and orchestration feature embedded in the Docker Engine. A swarm consists of multiple Docker hosts which run in swarm mode and act as managers (to manage membership and delegation) and workers (which run swarm services). A given Docker host can be a manager, a worker, or perform both roles.  
+
+Docker swarm will automatically balance the load of all docker hosts. The atomic unit of Docker swarm is called "task". A task is a running container which is part of a swarm service and managed by a swarm manager, as opposed to a standalone container.
+
+## Concepts of the swarm
+
+### Nodes 
+A node is an instance of the Docker engine participating in the swarm. There are two kinds of nodes, manager nodes, and worker nodes. 
+
+The manager node dispatches units of work called tasks to worker nodes. It also performs the orchestration and cluster management functions required to maintain the desired state of the swarm. There must be one and only one leader among all the manager nodes. When the leader node down, a new leader will be elect from other manager nodes.
+
+Worker nodes receive and execute tasks dispatched from manager nodes. The worker node notifies the manager node of the current state of its assigned tasks so that the manager can maintain the desired state of each worker.
+
+### Service
+A service is the definition of the tasks to execute on the manager or worker nodes. It is the central structure of the swarm system and the primary root of user interaction with the swarm. When creating a service, you should specify which container image to use and which commands to execute inside running containers.
+
+### Task
+A task carries a Docker container and the commands to run inside the container. It is the atomic scheduling unit of the swarm. Manager nodes assign tasks to worker nodes according to the number of replicas set in the service scale. Once a task is assigned to a node, it cannot move to another node. It can only run on the assigned node or fail.
+
+### Stack
+A stack is a group of services that are deployed together. Each individual service can actually be made up of one or more containers, called tasks and then all the tasks & services together make up a stack.
+
+## Swarm commands
+### Initiate swarm
+`docker swarm init --advertise-addr $(hostname -i)` will initiate a swam listen to the host's IP address.
+
+### Join swarm
+As a worker: `docker swarm join -token SWMTKN-X-abcdef.....` The token will be shown when you initiate a swarm. Or you can run `docker swarm join-token worker` to see the token for join as a work.
+
+As a manager: `docker swarm join-token manager` and follow the instruction.
+
+### Show swarm members
+`docker node ls`
+
+### Deploy a stack
+The file to define a stack is just a plain text file which is easy to edit and track. The file ends up with ".yml" as its name. The YAML file will define the entire stack: the architecture of the services, number of instances, how everything is wired together, how to handle updates to each service. It is the source code for our application design.
+
+Run `docker stack deploy --compose-file=docker-stack.yml voting_stack` to deploy the stack based on the YAML file named "docker-stack.yml" and voting_stack as its name.
+
+### List information of stacks, services, and tasks
+Run `docker stack ls` to list all stacks and how many services are running in each stack.
+
+Run `docker stacker services [stack name]` to see the details of each service in a stack. For example `docker stack services voting_stack`. The column "REPLICAS" shows how many task replicas for each service.
+
+Run `docker service ps [service name]` to see the information of all tasks in a service.
+
+### Scaling an application
+Sometimes the number of replicas for some tasks are not enough to handle the huge number of requests. So we need to scale the services. In the real world, you can automate it through Docker’s APIs. But by running `docker service scale [service name]=[new replica number]` can also change the number of replicas of a service. For example `docker service scale voting_stack_vote=5` will change the number of replicas of service "voting_stack_vote" to 5. Docker swarm will automatically balance the load between all Docker engines.
+
+# Kubernetes vs Swarm
+Kubernetes is an orchestration tool developed by Google. It is developed for Docker, though it can also run in a non-docker environment, too.  
+
+Docker swarm is a docker built-in orchestration tool.
+
+Now most products are choosing Kubernetes as their orchestration tool. Because docker swarm is simpler than Kubernetes. It's a less powerful but a very featureful tool for developing a distributed system.
+
+# Kubernetes
+## What is kubernetes
+ Kubernetes is a container orchestration tool that enables container management at scale.   
+ 
+Main features of Kubernetes:
+1. a container platform
+2. a microservices platform
+3. a portable cloud platform and a lot more.
+
+## Components of Kubernetes.
+
+### Master 
+One server (or a small group in highly available deployments) functions as the master server. This server acts as a gateway and brain for the cluster by exposing an API for users and clients, health checking other servers, deciding how best to split up and assign work (known as "scheduling"), and orchestrating communication between other components. 
+
+### Nodes
+The other machines in the cluster are designated as nodes: servers responsible for accepting and running workloads using local and external resources. each node needs to be equipped with a container runtime (like Docker)
+
+### Pod
+A pod is the most basic unit that Kubernetes deals with. one or more tightly coupled containers are encapsulated in an object called a pod. A pod generally represents one or more containers that should be controlled as a single application. Containers in a pod are highly coupled, they share the same life cycle, worked together and always runs in the same node.
+
+### Replicas
+Instead of working with a single pod, there will always be severy pods work together. Replicas are created from pod templates and can be horizontally scaled by controllers. 
+
+The replication controller is responsible for ensuring that the number of pods deployed in the cluster matches the number of pods in its configuration. If a pod or underlying host fails, the controller will start new pods to compensate.
+
+### YAML
+Kubernetes create pods, replicas, and configure the cluster with the desired states defined in a plain text file called YAML file.
+
+
+# Area2: Cloud Web Apps
+## AWS Tutorial: Launch a VM
+### Steps to create an instance:
+1. Open Amazon EC2 console and click "Launch Instance" button
+2. Chose an operating system. There will be severy OSes you can choose. Different releases of Linux and Windows for different purposes. Chose one best fit you.
+3. Chose an instance type. Different type of instance will have different CPU, memory and hard disk.
+4. Click Review and Launch at the bottom and you can review the configuration, storage, tagging, and security settings that have been selected for your instance.
+5. Create a new key pair or use an exit one to make your instance secure. You can only connect to your VM instance with your private key pair. Make sure the key pair is stored in a safe place.
+6. click Launch Instance to start your Linux instance.
+7. Click View Instances on the next screen to view your instances and see the status of the instance you have just started.
+8. Copy the **Public IP address** and this will be used to connect to this VM instance through SSH.
+
+### Steps to connect to an instance:
+1. Type `ssh -i ~/.ssh/MyKeyPair.pem ec2-user@{IP_Address}` in the terminal to connect a VM instance. For example `ssh -i ~/Downloads/KeyForDistLab.pem ec2-user@18.236.207.126`. 
+2. You will be asked 
+    > "Are you sure you want to continue connecting (yes/no)?"
+
+    Type yes and press enter.
+3. If the connection success, you will see a welcome screen.
+
+### Steps to terminate an instance
+It is important to terminate an instance when you won't need it anymore, or you may keep getting charged for it.
+
+1. In the EC2 Console, select the box at the first column of the instance you want to terminate. Then click the Actions button, navigate to Instance State, and click Terminate.
+2.  You will be asked to confirm your termination - select Yes, Terminate.
+
+
+## Lab: Intro to S3
+### Create a bucket
+Select S3 in the AWS Management Console, Services table. Click Create bucket then configure.
+
+### Upload an object
+1. Select a bucket
+2. Click the "Upload" button to upload an object. An upload wizard will be open and help to upload objects.
+3. Set permission of that object and click "upload" button
+
+
+### Share objects
+1. Click an object, copy the S3 link displayed in the bottom of the page.
+2. Click the "Permission" tab. Select "Everyone" under the public access section. Select "Read object" and then click "Save". This will make everyone has the permission to read this object you uploaded.
+3. You can access and read this object by using the link copied in the first step.
+
+### Create a bucket policy
+If you want to change the object access policy of the whole bucket. Follow these steps.
+1. Open a bucket
+2. Click "Permission" table at the home page of the bucket.
+3. Click "Bucket Policy" tab
+4. Copy the ARN shown in this page (Don't copy the "ARN:". Just characters after "ARN:").
+![ARN](https://github.com/PerryApple/dist-sys-practice/blob/master/ARN.jpg?raw=true)
+5. Click "Policy generator" link at the bottom of the page.
+6. Config the policy by:  
+    Select type of policy: *S3 Bucket Policy*  
+    Principle: *  
+    > By input * in the principle blank, you allow everyone to perform the actions in the policy.
+
+    Action: GetObject
+    > This means everyone has the permission of "GetObject" for objects in this bucket.
+
+    Amazon Resource Name (ARN): paste the ARN you just copied. **At the end of the ARN, append /***
+    > By appending /* at the end of the ARN, you allow the policy to apply to all objects within the bucket.
+    
+7. Click "Add Statement"
+8. Click "Generate policy", your policy will be displayed. copy it and paste it in the page which has "Bucket Policy" tab mentioned in the third step.
+9. Click "Save" button.
