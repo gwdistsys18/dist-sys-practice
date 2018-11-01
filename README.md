@@ -440,7 +440,7 @@ There are four sections included--1) Containerize the application, 2) deploy the
 
         ![Deployment](./screenshots/docker-fianl/microservice_services.png)
 
-        At last, we can test spilited microservices. For example, we can test http://[DNS name]/api/threads
+        At last, we can test spilited microservices. For example, we can test <http://[DNS name]/api/threads>
 
         ![Testing](./screenshots/docker-fianl/microservice_result.png)
 
