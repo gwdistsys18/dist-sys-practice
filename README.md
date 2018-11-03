@@ -707,7 +707,7 @@ __Time: 70min__
 
             http://REPLACE_ME_BUCKET_NAME.s3-website-REPLACE_ME_YOUR_REGION.amazonaws.com
 
-        ![module1](m1.png)
+        ![module1](screenshots/m1.png)
 
 * Host Application On A Web Server
 
@@ -778,7 +778,7 @@ __Time: 70min__
 
             aws s3 cp ~/environment/aws-modern-application-workshop/module-2/web/index.html s3://YOUR_BUCKET_NAME/index.html
 
-        ![module2a](m2a.png)
+        ![module2a](screenshots/m2a.png)
 
     * Create another S3 bucket that used to store the temporary artifacts that are created in the middle of CI/CD pipeline executions:
 
@@ -829,7 +829,7 @@ __Time: 70min__
 
     * Wait until the changes to be deployed to live service:
 
-        ![module2b](m2b.png)
+        ![module2b](screenshots/m2b.png)
 
 * Store Mysfit Information
 
@@ -859,9 +859,9 @@ __Time: 70min__
 
     * Now the site can load data form the database and filter results:
 
-        ![module3a](m3a.png)
+        ![module3a](screenshots/m3a.png)
 
-        ![module3b](m3b.png)
+        ![module3b](screenshots/m3b.png)
 
 * Setup User Registration
 
@@ -903,15 +903,15 @@ __Time: 70min__
 
     * Then the site provides user register and other more functionalities:
 
-        ![module4a](m4a.png)
+        ![module4a](screenshots/m4a.png)
 
-        ![module4b](m4b.png)
+        ![module4b](screenshots/m4b.png)
 
-        ![module4c](m4c.png)
+        ![module4c](screenshots/m4c.png)
 
-        ![module4d](m4d.png)
+        ![module4d](screenshots/m4d.png)
 
-        ![module4e](m4e.png)
+        ![module4e](screenshots/m4e.png)
 
 * Capture User Behavior
 
