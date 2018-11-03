@@ -671,6 +671,290 @@ __Time: 70min__
 
     * Check /ride.html page of the web site (need to log in with a user account), it is expected to be functioning now.
 
+## Bring It Together
+
+### AWS Tutorial: Deploy a Scalable Node.js Web App
+
+* Build a Static Website
+
+    * Create a new AWS Cloud9 environment, name it MythicalMysfitsIDE.
+
+    * In the bottom panel terminal, run the command to clone the necessary code:
+
+            git clone https://github.com/aws-samples/aws-modern-application-workshop.git
+
+    * Navigate to cloned repository directory:
+
+            cd aws-modern-application-workshop
+
+    * Create an AWS S3 bucket (replace YOUR\_BUCKET\_NAME with a valid S3 bucket name):
+
+            aws s3 mb s3://YOUR_BUCKET_NAME
+
+    * Set the home page of the bucket hosted website (replace YOUR\_BUCKET\_NAME with the name of the created bucket name):
+
+            aws s3 website s3://YOUR_BUCKET_NAME --index-document index.html
+
+    * Replace YOUR\_BUCKET\_NAME in file _~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json_ with the name of the created bucket name, and run command to update the bucket policy (replace YOUR\_BUCKET\_NAME with the name of the created bucket name):
+
+            aws s3api put-bucket-policy --bucket YOUR_BUCKET_NAME --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+
+    * Publish website content to S3 bucket by the command (replace YOUR\_BUCKET\_NAME with the name of the created bucket name):
+
+             aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://YOUR_BUCKET_NAME/index.html
+
+    * View the published web page by visiting the URL (replace REPLACE\_ME\_BUCKET\_NAME with the name of the created bucket name and replace REPLACE\_ME\_YOUR\_REGION with the region code):
+
+            http://REPLACE_ME_BUCKET_NAME.s3-website-REPLACE_ME_YOUR_REGION.amazonaws.com
+
+        ![module1](m1.png)
+
+* Host Application On A Web Server
+
+    * Deploy the given CloudFormation template to create all of the necessary Network and Security resources by:
+
+            aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
+
+    * The process can be checked by the following command, when completed, copy the JSON response for further use.
+
+            aws cloudformation describe-stacks --stack-name MythicalMysfitsCoreStack
+
+    * Navigate to directory:
+
+            cd ~/environment/aws-modern-application-workshop/module-2/app
+
+    * Retrieve the required information about your account and region by:
+
+            aws sts get-caller-identity
+
+    * Build the Docker image (replace REPLACE\_ME\_AWS\_ACCOUNT\_ID with retrieved account ID and replace REPLACE\_ME\_REGION with the region code):
+
+            docker build . -t REPLACE_ME_AWS_ACCOUNT_ID.dkr.ecr.REPLACE_ME_REGION.amazonaws.com/mythicalmysfits/service:latest
+
+    * Then copy the Docker image tag for later reference:
+
+            Successfully built 8bxxxxxxxxab
+            Successfully tagged 111111111111.dkr.ecr.us-east-1.amazonaws.com/mythicalmysfits/service:latest
+
+    * Create a container image repository in Amazon Elastic Container (ECR) Registry:
+
+            aws ecr create-repository --repository-name mythicalmysfits/service
+
+    * Run the following command, which will return a log in command to retrieve credentials for the Docker client, and then automatically execute it:
+
+            $(aws ecr get-login --no-include-email)
+
+    * Push the image to the ECR repository (replace REPLACE\_ME\_WITH\_DOCKER\_IMAGE\_TAG with retrieved docker image tag):
+
+            docker push REPLACE_ME_WITH_DOCKER_IMAGE_TAG
+
+    * Create a new cluster in ECS:
+
+            aws ecs create-cluster --cluster-name MythicalMysfits-Cluster
+
+    * Create the new log group in CloudWatch logs:
+
+            aws logs create-log-group --log-group-name mythicalmysfits-logs
+
+    * Replace indicated values in file _~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json_ then run the command:
+
+            aws ecs register-task-definition --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json
+
+    * Run the following command to provision a new Network Load Balancer (NLB) (replace REPLACE\_ME\_PUBLIC\_SUBNET\_ONE and REPLACE\_ME\_PUBLIC\_SUBNET\_TWO with previously retrieved values), and copy the response JSON for later reference:
+
+            aws elbv2 create-load-balancer --name mysfits-nlb --scheme internet-facing --type network --subnets REPLACE_ME_PUBLIC_SUBNET_ONE REPLACE_ME_PUBLIC_SUBNET_TWO
+
+    * Then create an NLB target group (replace REPLACE\_ME with previously retrieved VPC ID value), and copy the response JSON for later reference:
+
+            aws elbv2 create-target-group --name MythicalMysfits-TargetGroup --port 8080 --protocol TCP --target-type ip --vpc-id REPLACE_ME --health-check-interval-seconds 10 --health-check-path / --health-check-protocol HTTP --healthy-threshold-count 3 --unhealthy-threshold-count 3
+
+    * Create a load balancing listener for the NLB (replace REPLACE\_ME with TargetGroupArn and LoadBalancerArn values retrieved in previous steps):
+
+            aws elbv2 create-listener --default-actions TargetGroupArn=REPLACE_ME,Type=forward --load-balancer-arn REPLACE_ME --port 80 --protocol TCP
+
+    * Replace REPLACE\_ME with the DNS name saved when creating the NLB in file _/module-2/web/index.html_.
+
+    * Upload file to S3, then visit the same URL used before for the site which is currently running within a Docker container (replace YOUR\_BUCKET\_NAME with the name of the created bucket name).
+
+            aws s3 cp ~/environment/aws-modern-application-workshop/module-2/web/index.html s3://YOUR_BUCKET_NAME/index.html
+
+        ![module2a](m2a.png)
+
+    * Create another S3 bucket that used to store the temporary artifacts that are created in the middle of CI/CD pipeline executions:
+
+            aws s3 mb s3://ARTIFACTS_BUCKET_NAME
+
+    * Replace indicated values in file _~/environment/aws-modern-application-workshop/module-2/aws-cli/artifacts-bucket-policy.json_ then run the command (replace ARTIFACTS\_BUCKET\_NAME with the name of the created bucket name):
+
+            aws s3api put-bucket-policy --bucket ARTIFACTS_BUCKET_NAME --policy file://~/environment/aws-modern-application-workshop/module-2/aws-cli/artifacts-bucket-policy.json
+
+    * Create an AWS CodeCommit Repository：
+
+            aws codecommit create-repository --repository-name MythicalMysfitsService-Repository
+
+    * Replace indicated values in file _~/environment/aws-modern-application-workshop/module-2/aws-cli/code-build-project.json_ then run the command to create a CodeBuild project:
+
+            aws codebuild create-project --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/code-build-project.json
+
+    * Replace indicated values in file _~/environment/aws-modern-application-workshop/module-2/aws-cli/code-pipeline.json_ then run the command to create a CodePipeline pipeline:
+
+            aws codepipeline create-pipeline --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/code-pipeline.json
+
+    * Replace indicated values in file _~/environment/aws-modern-application-workshop/module-2/aws-cli/ecr-policy.json_ then run the command to create a policy to enable automated access to ECR image repository:
+
+            aws ecr set-repository-policy --repository-name mythicalmysfits/service --policy-text file://~/environment/aws-modern-application-workshop/module-2/aws-cli/ecr-policy.json
+
+    * Configure git to be used with AWS CodeCommit:
+
+            git config --global user.name "REPLACE_ME_WITH_YOUR_NAME"
+            git config --global user.email REPLACE_ME_WITH_YOUR_EMAIL@example.com
+            git config --global credential.helper '!aws codecommit credential-helper $@'
+            git config --global credential.UseHttpPath true
+
+    * Then clone the repository:
+
+            cd ~/environment/
+            git clone https://git-codecommit.REPLACE_REGION.amazonaws.com/v1/repos/MythicalMysfitsService-Repository
+
+    * Then copy the application files into the repository directory using the following command:
+
+            cp -r ~/environment/aws-modern-application-workshop/module-2/app/* ~/environment/MythicalMysfitsService-Repository/
+
+    * Push code:
+
+            cd ~/environment/MythicalMysfitsService-Repository/
+            git add .
+            git commit -m "I changed the age of one of the mysfits."
+            git push
+
+    * Wait until the changes to be deployed to live service:
+
+        ![module2b](m2b.png)
+
+* Store Mysfit Information
+
+    * Create a DynamoDB  table:
+
+            aws dynamodb create-table --cli-input-json file://~/environment/aws-modern-application-workshop/module-3/aws-cli/dynamodb-table.json
+
+    * Add items to the DynamoDB table:
+
+            aws dynamodb batch-write-item --request-items file://~/environment/aws-modern-application-workshop/module-3/aws-cli/populate-dynamodb.json
+
+    * Changes in the database can be examined by:
+
+            aws dynamodb scan --table-name MysfitsTable
+
+    * Commit code changes:
+
+            cp ~/environment/aws-modern-application-workshop/module-3/app/service/* ~/environment/MythicalMysfitsService-Repository/service/
+            cd ~/environment/MythicalMysfitsService-Repository
+            git add .
+            git commit -m "Add new integration to DynamoDB."
+            git push
+
+    * Replace REPLACE\_ME in file _/module-3/web/index.html_ like did in _/module-2/web/index.html_, then upload new _index.html_ file (replace YOUR\_BUCKET\_NAME with the name of the first created bucket name):
+
+            aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-3/web/ s3://YOUR_BUCKET_NAME/
+
+    * Now the site can load data form the database and filter results:
+
+        ![module3a](m3a.png)
+
+        ![module3b](m3b.png)
+
+* Setup User Registration
+
+    * Create a Cognito user pool, then copy the response which includes the unique ID for your user pool for further reference.
+
+            aws cognito-idp create-user-pool --pool-name MysfitsUserPool --auto-verified-attributes email
+
+    * Create a Cognito user pool client (replace REPLACE\_ME with the user pool ID value copied above), then copy the response for user pool client ID.
+
+            aws cognito-idp create-user-pool-client --user-pool-id REPLACE_ME --client-name MysfitsUserPoolClient
+
+    * Create a VPC link for upcoming REST API (Replace REPLACE\_ME\_NLB\_ARN with the previously retrieved NLB ARN value) then copy the response for VPC link ID.
+
+            aws apigateway create-vpc-link --name MysfitsApiVpcLink --target-arns REPLACE_ME_NLB_ARN
+
+    * Replace indicated values in file _~/environment/aws-modern-applicaiton-workshop/module-4/aws-cli/api-swagger.json_ and run the command to create a REST API using swagger, then copy the response for API ID.
+
+            aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body file://~/environment/aws-modern-application-workshop/module-4/aws-cli/api-swagger.json --fail-on-warnings
+
+    * Deploy the API (replace REPLACE\_ME\_WITH\_API\_ID with the API ID value copied above):
+
+            aws apigateway create-deployment --rest-api-id REPLACE_ME_WITH_API_ID --stage-name prod
+
+    * The API endpoint will be like:
+
+            https://API_ID.execute-api.REGION.amazonaws.com/prod
+
+    * Commit code changes:
+
+            cd ~/environment/MythicalMysfitsService-Repository/
+            cp -r ~/environment/aws-modern-application-workshop/module-4/app/* .
+            git add .
+            git commit -m "Update service code backend to enable additional website features."
+            git push
+
+    * Replace indicated values in file _~/environment/aws-modern-application-workshop/module-4/app/web/index.html_,  _~/environment/aws-modern-application-workshop/module-4/app/web/register.html_, and  _~/environment/aws-modern-application-workshop/module-4/app/web/confirm.html_, then upload new front end files to S3 (replace YOUR\_S3\_BUCKET with the name of the first created bucket name):
+
+            aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-4/web/ s3://YOUR-S3-BUCKET/
+
+    * Then the site provides user register and other more functionalities:
+
+        ![module4a](m4a.png)
+
+        ![module4b](m4b.png)
+
+        ![module4c](m4c.png)
+
+        ![module4d](m4d.png)
+
+        ![module4e](m4e.png)
+
+* Capture User Behavior
+
+    * Create a new CodeCommit repository and clone (replace REPLACE\_ME\_REGION with the region code):
+
+            aws codecommit create-repository --repository-name MythicalMysfitsStreamingService-Repository
+            cd ~/environment/
+            git clone https://git-codecommit.REPLACE_ME_REGION.amazonaws.com/v1/repos/MythicalMysfitsStreamingService-Repository
+
+    * Copy the streaming service code base:
+
+            cd ~/environment/MythicalMysfitsStreamingService-Repository/
+            cp -r ~/environment/aws-modern-application-workshop/module-5/app/streaming/* .
+            cp ~/environment/aws-modern-application-workshop/module-5/cfn/* .
+
+    * Install the requests package:
+
+            pip install requests -t .
+
+    * Replace REPLACE\_ME\_API\_ENDPOINT with the API endpoint in file _streamProcessor.py_ then commit code changes:
+
+            git add .
+            git commit -m "New stream processing service."
+            git push
+
+    * Create a new S3 bucket.
+
+    * Use SAM CLI to package code for Lambda (replace replace-with-your-bucket-name with the name of the bucket created above):
+
+            sam package --template-file ./real-time-streaming.yml --output-template-file ./transformed-streaming.yml --s3-bucket replace-with-your-bucket-name
+
+    * Deploy the streaming stack:
+
+            aws cloudformation deploy --template-file /home/ec2-user/environment/MythicalMysfitsStreamingService-Repository/transformed-streaming.yml --stack-name MythicalMysfitsStreamingStack --capabilities CAPABILITY_IAM
+
+    * Retrieve the new streaming API Gateway endpoint:
+
+            aws cloudformation describe-stacks --stack-name MythicalMysfitsStreamingStack
+
+    * Replace indicated values in front end files in _~/environment/aws-modern-application-workshop/module-5/app/web_ the upload new front end files to S3 (replace YOUR\_S3\_BUCKET with the name of the first created bucket name):
+
+            aws s3 cp ~/environment/aws-modern-application-workshop/module-5/web/index.html s3://YOUR-S3-BUCKET/
+
 ---
 
 # SDN and NFV
