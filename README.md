@@ -37,7 +37,20 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  
 ## 2. Big Data and Machine Learning
 
-### Beginner
+## Beginner
 > [Video: Hadoop Intro Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Hadoop%20Intro.pdf) 60 min
 
 >  [Lab:Analyze Big Data with Hadoop Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Analyze%20Big%20Data%20with%20Hadoop.pdf) 45 min
+
+## Intermediate
+
+### Data Storage
+> [QwikLab: Intro to S3 Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/QwikLab-Intro%20to%20S3.pdf) 60 min
+
+> [QwikLab: Intro to Amazon Redshift Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/QwikLab-Intro%20to%20Amazon%20Redshift.pdf) 60 min
+
+### Big Data Analytics
+
+### Machine Learning Models
+
+### Bring it all together
