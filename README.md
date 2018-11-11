@@ -51,6 +51,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ### Big Data Analytics
 
+> [Video: Short AWS Machine Learning Overview Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Video-Short%20AWS%20Machine%20Learning%20Overview.pdf) 10 min
+
 ### Machine Learning Models
 
 ### Bring it all together
