@@ -1,6 +1,13 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+
+## Table of Contents  
+- [Heading](#heading)
+- [Heading](#heading-1)
+- [Heading](#heading-2)
+
+
 ## Area 1 - Docker & Containers
 ### Beginner Courses:
 #### Video: Why Docker? (10 min)
