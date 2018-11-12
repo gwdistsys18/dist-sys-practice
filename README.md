@@ -214,10 +214,17 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - We can add a 'Hive' step which involves parsing data into our Hadoop cluster, generating a Hive query, and writing the results to our designated output (in this case an S3 bucket)
  
 ### Intermediate Courses:
-#### QwikLab: Intro to S3
+#### QwikLab: Intro to S3 (45 min)
  - Bucket numbers have to be unique
  - You can upload any type of object into a bucket (e.g., pictures, videos, audio, etc)
  - Objects in S3 are private by default.  If you want public access you need to modify the object itself, or update the bucket policy (which will effect permissions of all objects inside the bucket)
  - Use the bucket policy editor to quickly generate the necessary JSON policy code
  - enable bucket versioning in order to keep all versions of objects within your buckets.  Note that the most recent version is what will get retrieved by default if you request the object.  But behind the scenes you still have access to the older versions in case the newest version is not correct
  
+ #### QwikLab: Intro to Amazon Redshift (30 min)
+  - What is Amazon Redshift?  It is a fully managed data warehouse where you can store and analyze your data via SQL queries
+  - Utilise the Services -> Amazon Redshift to create a redshift cluster.  You can customize the cpu, memory, storage of your cluster nodes.  For a simple demo, we can run an Amazon Redshift cluster of only a single node.
+  - pgweb is a cool web-based utility for connecting to SQL databases and running quries.  Alternatively you could just use something like mysql-client package on linux.  Or any python mysql client libraries.  You just need support for JDBC or ODBC.
+  - You can also import data directly from Amazon S3 into your Redshift cluster (e.g., ```COPY users FROM 's3://awssampledbuswest2/tickit/allusers_pipe.txt'```)
+ 
+  
