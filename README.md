@@ -4,8 +4,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Table of Contents  
 - [Area 1 - Docker & Containers](#area-1---docker--containers)
-- [Area 2 - Big Data and Machine Learning](#area-2---big-data-and-machine-learning-)
-- [Area 3 - TBD](#area3)
+- [Area 2 - Big Data and Machine Learning](#area-2---big-data-and-machine-learning)
+- [Area 3 - Cloud Web Apps](#area-3---cloud-web-apps)
 
 
 ## Area 1 - Docker & Containers
@@ -241,4 +241,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
    - ML Platforms - e.g., Amazon Sagemaker - platform that is for developers but not necessarily ML experts.  Higher level of abstraction to ML process.  Don't need to write tensorflow code directly
    - Application Services: These are APIs provided by Amazon so developers can utilize pre-trained models to do such things as image processing, video processing, text-to-speech, etc
   
-
+## Area 3 - Cloud Web Apps
+### Beginner Courses
+#### AWS Tutorial: Launch a VM (20 min)
+ - EC2 is Amazon's Elastic compute cloud.  This is the service we use to spin up generic VM instances
+ - AMI - Amazon Machine Image.  This is a system image which will be used as a starting point for VMs (e.g., RHEL, Centos, Amazon Linux, etc)
+ - Instance Type: This will specify the type of instance we create.  This will describe what hardware is accessible to our device.  Example: t3.nano	vCPUs: 2 Memory (GB): 0.5	Storage: EBS-Only	Network Bandwidth (Gbps): Up to 5
+ - You need to create a public key/ private key pair if you do not already have one.  This is necessary to connect to your instance.
+ - You can connect to the instance via SSH by including your private key with ssh -i <private key> <username>@<public_ip_of_instance>
+ 
+#### QwikLab: Intro to S3
+ - This was completed as part of intermedeiate level track of Big Data & Machine Learning (see above)
