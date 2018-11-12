@@ -61,4 +61,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 > [Docs: AWS Machine Learning Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Docs-AWS%20Machine%20Learning.pdf) 30 min
 
+> [AWS Tutorial: Build a Machine Learning Model Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/AWS%20Tutorial-Build%20a%20Machine%20Learning%20Model.pdf) 60 min
+
 ### Bring it all together
