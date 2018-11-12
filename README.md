@@ -213,3 +213,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - To run things in our EMR cluster, we add a 'step'.  We provide things like "Input" and "Arguments" to an EMR step.
  - We can add a 'Hive' step which involves parsing data into our Hadoop cluster, generating a Hive query, and writing the results to our designated output (in this case an S3 bucket)
  
+### Intermediate Courses:
+#### QwikLab: Intro to S3
+ - Bucket numbers have to be unique
+ - You can upload any type of object into a bucket (e.g., pictures, videos, audio, etc)
+ - Objects in S3 are private by default.  If you want public access you need to modify the object itself, or update the bucket policy (which will effect permissions of all objects inside the bucket)
+ - Use the bucket policy editor to quickly generate the necessary JSON policy code
+ - enable bucket versioning in order to keep all versions of objects within your buckets.  Note that the most recent version is what will get retrieved by default if you request the object.  But behind the scenes you still have access to the older versions in case the newest version is not correct
+ 
