@@ -227,4 +227,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   - pgweb is a cool web-based utility for connecting to SQL databases and running quries.  Alternatively you could just use something like mysql-client package on linux.  Or any python mysql client libraries.  You just need support for JDBC or ODBC.
   - You can also import data directly from Amazon S3 into your Redshift cluster (e.g., ```COPY users FROM 's3://awssampledbuswest2/tickit/allusers_pipe.txt'```)
  
+  #### Video: Short AWS Machine Learning Overview (5 min)
+   - The dude has purple hair!!
+   - Amazon ML Services stack: Application Services, ML Platforms, Framework & Interfaces
+   - Framework & Intefaces us for subject matter experts.  Example would be Amazon AMI with tensorflow so you can build and train your own ML models
+   - ML Platforms - e.g., Amazon Sagemaker - platform that is for developers but not necessarily ML experts.  Higher level of abstraction to ML process.  Don't need to write tensorflow code directly
+   - Application Services: These are APIs provided by Amazon so developers can utilize pre-trained models to do such things as image processing, video processing, text-to-speech, etc
   
+
