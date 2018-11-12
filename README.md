@@ -3,9 +3,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 
 ## Table of Contents  
-- [Heading](#Area 1 - Docker & Containers)
-- [Heading](#Area 2 - Big Data and Machine Learning)
-- [Heading](#Area 3 - TBD)
+- [Area 1 - Docker & Containers](#area1)
+- [Area 2 - Big Data and Machine Learning](#area2)
+- [Area 3 - TBD](#area3)
 
 
 ## Area 1 - Docker & Containers
