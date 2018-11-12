@@ -57,4 +57,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ### Machine Learning Models
 
+> [QwikLab: Intro to Amazon Machine Learning Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/QwikLab-Intro%20to%20Amazon%20Machine%20Learning.pdf) 60 min
+
 ### Bring it all together
