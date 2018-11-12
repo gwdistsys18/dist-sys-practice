@@ -4,11 +4,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Table of Contents  
 - [Area 1 - Docker & Containers](#area1)
-- [Area 2 - Big Data and Machine Learning](#area2)
+- [Area 2 - Big Data and Machine Learning](#area-2---big-data-and-machine-learning-)
 - [Area 3 - TBD](#area3)
 
 
-## Area 1 - Docker & Containers <a name="area1"></a>
+## Area 1 - Docker & Containers
 ### Beginner Courses:
 #### Video: Why Docker? (10 min)
  - Docker is a major infrastructure shift.  Comparable to Mainframe --> PC shift in 1990s, Baremteal --> Virtual in 2000s, Datacenter --> Cloud in 2010s, and finally host --> containers currently (aka Docker).
@@ -187,7 +187,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - And we are done!
  - Make sure to clean up once complete.  Remove task groups.  Delete clusters, etc.
  
-## Area 2 - Big Data and Machine Learning <a name="area2"></a>
+## Area 2 - Big Data and Machine Learning
 ### Beginner Courses:
 #### Video: Hadoop Intro
  - Data is exploding which means that we need distributed systems to handle the ever increasing data size
