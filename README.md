@@ -6,12 +6,12 @@ Github Name: [C91CBQ](https://github.com/C91CBQ)
 
 ## Check List
 ##### Docker and Containers
-- [ ] Beginner Level
+- [x] Beginner Level
 - [ ] Intermediate Level
 
 ##### Big Data and Machine Learning
-- [ ] Beginner Level
-- [ ] Intermediate Level
+- [x] Beginner Level
+- [x] Intermediate Level
 
 ##### Cloud Web Applications
 - [x] Beginner Level
@@ -589,12 +589,38 @@ ____
             * IAM Roles
         * Create Resource:
             ```
-            aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
+            aws cloudformation create-stack --stack-name QiBaoStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
             ```
         * Check on the status of stack
             ```
             aws cloudformation describe-stacks --stack-name MythicalMysfitsCoreStack
             ```
+    * Deploy A Service With AWS Fargate
+        * Create A Flask Service
+        ```
+        docker build . -t REPLACE_ME_AWS_ACCOUNT_ID.dkr.ecr.REPLACE_ME_REGION.amazonaws.com/mythicalmysfits/service:latest
+        docker run -p 8080:8080 REPLACE_ME_WITH_DOCKER_IMAGE_TAG
+        ```
+        ![Docker](./img/docker.png)
+        * Configure The Service Prerequisites In Amazon ECS
+        ```
+        aws ecs create-cluster --cluster-name MythicalMysfits-Cluster
+        aws logs create-log-group --log-group-name mythicalmysfits-logs
+        aws ecs register-task-definition --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json
+        ```
+        * Enable A Load Balanced Fargate Service
+        ```
+        aws elbv2 create-load-balancer --name mysfits-nlb --scheme internet-facing --type network --subnets subnet-09110b1fd01364bf5 subnet-0b7f7e0739b1ece6e
+        aws elbv2 create-target-group --name MythicalMysfits-TargetGroup --port 8080 --protocol TCP --target-type ip --vpc-id vpc-079fc743e080ced55 --health-check-interval-seconds 10 --health-check-path / --health-check-protocol HTTP --healthy-threshold-count 3 --unhealthy-threshold-count 3
+        aws elbv2 create-listener --default-actions TargetGroupArn=arn:aws:elasticloadbalancing:us-west-2:045395253222:targetgroup/MythicalMysfits-TargetGroup/8c8b59ccd8aec277,Type=forward --load-balancer-arn arn:aws:elasticloadbalancing:us-west-2:045395253222:loadbalancer/net/mysfits-nlb/21dbd778ee11e221 --port 80 --protocol TCP
+        ```
+        * Create A Service with Fargate
+        ```
+        aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com
+        aws ecs create-service --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/service-definition.json
+        http://mysfits-nlb-123456789-abc123456.elb.us-east-1.amazonaws.com/mysfits
+
+        ```
 * Module 3: Store Mysfit Data
     * Create A DynamoDB Table
         ```
@@ -807,4 +833,49 @@ ____
     ```
 
 *Cost 60 minutes, finished on Oct 20th, 2018.*
+____
+
+## [Docker and Containers](https://gwdistsys18.github.io/learn/docker/)
+### Beginner Level
+#### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
+
+1. Docker Definition: Docker is a computer program that performs operating-system-level virtualization.
+
+1. Docker is focused on the migration experience.
+
+1. Docker is all about speed:
+    * Develop faster
+    * Build faster
+    * Test faster
+    * Deploy faster
+    * Update faster
+    * Recover faster
+
+*Cost 20 minutes, finished on Nov 12th, 2018.*
+____
+
+#### [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
+
+1. Terminology
+    * Images: The file system and configuration of our application which are used to create containers.
+    * Containers:  Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS.
+    * Docker daemon: The background service running on the host that manages building, running and distributing Docker containers.
+    * Docker client: The command line tool that allows the user to interact with the Docker daemon.
+    * Docker Store: Store is, among other things, a registry of Docker images.
+
+1. Run Container
+```
+docker container run hello-world
+```
+![Hello World What Happened](/img/ops-basics-hello-world.svg)
+1. Docker Image
+```
+docker image pull alpine // The pull command fetches the alpine image from the Docker registry
+docker container run alpine ls -l
+```
+![Docker Run Details](/img/ops-basics-run-details.svg)
+1. Container Isolation: a critical security concept in the world of Docker containers. Even though each *docker container run* command used the same alpine image, each execution was a separate, isolated container. Each container has a separate filesystem and runs in a different namespace; by default a container has no way of interacting with other containers, even those from the same image. Let’s try another exercise to learn more about isolation.
+![Container Isolation](/img/ops-basics-isolation.svg)
+
+*Cost 60 minutes, finished on Nov 12th, 2018.*
 ____
