@@ -879,3 +879,83 @@ docker container run alpine ls -l
 
 *Cost 60 minutes, finished on Nov 12th, 2018.*
 ____
+
+## [Big Data and Machine Learning](https://gwdistsys18.github.io/learn/bigdata/)
+### Beginner Level
+#### [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
+
+1. Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models.
+
+1. Hadoop Key Characteristics
+    * Economical: Ordinary computers can be used for data processing.
+    * Reliable: Stores copies of data on different machines and is resistant to hardware failure.
+    * Scalable: Can follow both horizontal and vertical scaling.
+    * Flexible: Can store as much of the data and decide to use it later.
+
+1. Hadoop Ecosystem:
+    1. Hadoop Distributed File System (HDFS):
+        * A storage layer for Hadoop.
+        * Suitable for the distributed storage and processing.
+        * Hadoop provides a command line interface to interact with HDFS.
+        * Streaming access to file system data.
+        * Provides file permissions and authentication.
+    1. HBase:
+        * A NoSQL database or non-relational database.
+        * Stores data in HDFS
+        * Mainly used when you need random, real-time, read/write access to your Big Data.
+        * Provides support for high volume of data and high throughput.
+        * The table can be thousands of columns.
+    1. Sqoop: a tool that transfer data between Hadoop and relational database.
+    1. Flume: A distributed service for ingesting streaming data, ideally suited for event data from multiple system.
+    1. Spark
+        * An open-source cluster computing framework.
+        * Provides 100 times faster performance as compared to MapReduce.
+        * Supports Machine Learning, Business Intelligence, Streaming, and Batch processing.
+    1. Hadoop MapReduce: The original Hadoop processing engine based on map and reduce programming model implemented by Java. It is an extensive and mature fault tolerance framework and commonly used.
+    1. Pig: An open-source data-flow system which can transfer script to MapReduce code. It is best for ad-hoc queries like join and filter.
+    1. Impala
+        * High performance SQL engine which runs on Hadoop cluster.
+        * Ideal for interactive analysis.
+        * Very low latency - measured in milliseconds.
+        * Support a dialect SQL(Impala SQL).
+    1. Hive: Executes queries using MapReduce. Best for data processing and ETL. Similar to Impala.
+    1. Cloudera Search
+        * A fully integrated data processing platform.
+        * One of Cloudera near-real-time-access products.
+        * Users don't need SQL or programming skills to use Cloudera Search.
+        * Enable non-technical users to search are explore data stored in or ingested into Hadoop and HBase.
+    1. Oozie: a workflow or coordination system used to manage Hadoop jobs.
+    1. Hue
+        * An acronym for Hadoop User Experience.
+        * An open-source Web-interface for analyzing data with Hadoop.
+
+*Cost 30 minutes, finished on Nov 13th, 2018.*
+____
+
+#### [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)
+
+1. **Amazon EMR** is a managed service that makes it fast, easy, and cost-effective to run Apache Hadoop and Spark to process vast amounts of data. Amazon EMR also supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.
+1. Launch an Amazon EMR cluster
+    * On the <strong>Services</strong> menu, click <strong>EMR</strong>, and click <strong>Create cluster</strong>.
+    * In the <strong>General Configuration</strong> section, configure <strong>Cluster name</strong> and <strong>S3 folder</strong>.
+    * In the <strong>Hardware configuration</strong> section, configure <strong>Instance type:</strong> and <strong>Number of instances:</strong>
+    * In the <strong>Security and access</strong> section, configure <strong>EC2 key pair:</strong> which is used to login to the EMR cluster.
+    * Click <strong>Create cluster</strong> to launch the EMR cluster.
+1. <strong>Amazon CloudFront</strong> is a web service that speeds up distribution of static and dynamic web content, such as .html, .css, .php, and image files. CloudFront delivers content through a worldwide network of data centers called <em>edge locations</em>. When a user requests content through CloudFront, the user is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance. If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately. If the content is not in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.</p>
+1. Process Data by Running a Hive Script
+    * In the <strong>Add step</strong> dialog, configure the following settings:
+        * <strong>Step type:</strong> Hive program
+        * <strong>Name:</strong> Process log
+        * <strong>Script S3 location:</strong> s3://us-west-2.elasticmapreduce.samples/cloudfront/code/Hive_CloudFront.q
+        * <strong>Input S3 location:</strong> s3://us-west-2.elasticmapreduce.samples
+        * <strong>Output S3 location</strong>
+        * <strong>Arguments:</strong> -hiveconf hive.support.sql11.reserved.keywords=false
+    * What the script is doing:
+        * Creates a <strong>Hive table</strong> named <em>cloudfront_logs</em>.
+        * Reads the <strong>CloudFront log files</strong> from Amazon S3 and parses the files using the Regular Expression Serializer/Deserializer (<em>RegEx SerDe</em>).
+        * Writes the parsed results to the <em>cloudfront_logs</em> Hive table.
+        * Submits a HiveQL query against the data to retrieve the <strong>total requests per operating system for a given time frame</strong>.
+        * Writes the query results to your Amazon S3 output bucket.
+
+*Cost 60 minutes, finished on Nov 13th, 2018.*
+____
