@@ -65,4 +65,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 > [Video Tutorial: Overview of AWS SageMaker Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Video%20Tutorial-Overview%20of%20AWS%20SageMaker.pdf) 60 min
 
+> [AWS Tutorial: AWS SageMaker Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/AWS%20Tutorial-AWS%20SageMaker.pdf) 60 min
+
 ### Bring it all together
