@@ -228,19 +228,42 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Use the bucket policy editor to quickly generate the necessary JSON policy code
  - enable bucket versioning in order to keep all versions of objects within your buckets.  Note that the most recent version is what will get retrieved by default if you request the object.  But behind the scenes you still have access to the older versions in case the newest version is not correct
  
- #### QwikLab: Intro to Amazon Redshift (30 min)
-  - What is Amazon Redshift?  It is a fully managed data warehouse where you can store and analyze your data via SQL queries
-  - Utilise the Services -> Amazon Redshift to create a redshift cluster.  You can customize the cpu, memory, storage of your cluster nodes.  For a simple demo, we can run an Amazon Redshift cluster of only a single node.
-  - pgweb is a cool web-based utility for connecting to SQL databases and running quries.  Alternatively you could just use something like mysql-client package on linux.  Or any python mysql client libraries.  You just need support for JDBC or ODBC.
-  - You can also import data directly from Amazon S3 into your Redshift cluster (e.g., ```COPY users FROM 's3://awssampledbuswest2/tickit/allusers_pipe.txt'```)
+#### QwikLab: Intro to Amazon Redshift (30 min)
+ - What is Amazon Redshift?  It is a fully managed data warehouse where you can store and analyze your data via SQL queries
+ - Utilise the Services -> Amazon Redshift to create a redshift cluster.  You can customize the cpu, memory, storage of your cluster nodes.  For a simple demo, we can run an Amazon Redshift cluster of only a single node.
+ - pgweb is a cool web-based utility for connecting to SQL databases and running quries.  Alternatively you could just use something like mysql-client package on linux.  Or any python mysql client libraries.  You just need support for JDBC or ODBC.
+ - You can also import data directly from Amazon S3 into your Redshift cluster (e.g., ```COPY users FROM 's3://awssampledbuswest2/tickit/allusers_pipe.txt'```)
  
-  #### Video: Short AWS Machine Learning Overview (5 min)
-   - The dude has purple hair!!
-   - Amazon ML Services stack: Application Services, ML Platforms, Framework & Interfaces
-   - Framework & Intefaces us for subject matter experts.  Example would be Amazon AMI with tensorflow so you can build and train your own ML models
-   - ML Platforms - e.g., Amazon Sagemaker - platform that is for developers but not necessarily ML experts.  Higher level of abstraction to ML process.  Don't need to write tensorflow code directly
-   - Application Services: These are APIs provided by Amazon so developers can utilize pre-trained models to do such things as image processing, video processing, text-to-speech, etc
-  
+#### Video: Short AWS Machine Learning Overview (5 min)
+ - The dude has purple hair!!
+ - Amazon ML Services stack: Application Services, ML Platforms, Framework & Interfaces
+ - Framework & Intefaces us for subject matter experts.  Example would be Amazon AMI with tensorflow so you can build and train your own ML models
+ - ML Platforms - e.g., Amazon Sagemaker - platform that is for developers but not necessarily ML experts.  Higher level of abstraction to ML process.  Don't need to write tensorflow code directly
+ - Application Services: These are APIs provided by Amazon so developers can utilize pre-trained models to do such things as image processing, video processing, text-to-speech, etc
+
+#### AWS Tutorial: Analyze Big Data with Hadoop (60 min)
+ - In this tutorial we are going to set up an Amazon Elastic MapReduce (EMR) Cluster.  Note that this is charged at the per-second level...so we will try to be quick!
+ - First, in order to do the tutorial, we need our own S3 bucket, as well as our own key pair.  By now, I have completed tutorials which describe both.  Read previous sections for S3 setup information, and key-pair information
+ - To create a cluster: Amazon EMR -> Create Cluster
+ - We can leave basically all of the options default, but do change the name, and select your key-pair under "Security and Access"
+ - SSH to the cluster is disabled by default.  To enable, go to "security and access" page for the master node and add an inbound SSH rule
+ - The tutorial provides a Hive script which will create a Hive table for cloudfront logs, and run a query against the data.  We can run this as a "step" on our cluster, which we can submit from the console.  This is accessible as "Steps" under EMR->Cluster List.
+ - The cool thing is input/output scripts and locations can all be specifid as S3 locations.  So you don't have to ever actually log into your EMR cluster to view / export / import the data.  You can just specify it all here.
+ - Once the step is finished, viewing the results is as simple as downloding the file from the S3 bucket you specified
+ - Make sure to terminate your cluster and delete your S3 buckets when finished!
+
+#### QwikLab: Intro to Amazon Machine Learning (45 min)
+ - Amazon ML is amazons machine learning platform which specializes in the training and storage of ML models in their cloud infrastructure
+ - According to the tutorial, at least this vanilla Amazon ML is for strictly supervised learning.  I'm sure they must have some other ML offerings for unsupervised learning
+ - As with most of the other services we have been exploring, Amazon ML takes data input in the form of a S3 bucket location.  So, we will create anmother S3 bucket and place the data file in that location
+ - Now we can create the "Datasource" model in Amazon ML: Services -> Machine Learning -> View Dashboard -> Create New -> Datasource
+ - Now that our datasource is available, we can create a model.  Simply click "Create ML Model".  Wow that was easy.
+ - After training is complete, you can evaluate your model, look at the confusion matrix, determine if it is over-fitting or under-fitting, all the typical ML evaluation stuff
+ - Now if we want to do predictions, we can do them either in batch mode or real time.  
+ - Batch mode predictions = specify a S3 location with test data and the model wil run a prediction on all the data and produce outputs.
+ - Real Time mode = you can submit individual data points through the web interface and get back a prediction immediately
+ - At the ML dashboard, go Predictions -> Try real time predictions.  You will be greeted with a table of your data columns where you can input whatever data you like and see the prediction of your model
+ 
 ## Area 3 - Cloud Web Apps
 ### Beginner Courses
 #### AWS Tutorial: Launch a VM (20 min)
