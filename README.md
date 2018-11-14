@@ -264,6 +264,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Real Time mode = you can submit individual data points through the web interface and get back a prediction immediately
  - At the ML dashboard, go Predictions -> Try real time predictions.  You will be greeted with a table of your data columns where you can input whatever data you like and see the prediction of your model
  
+#### AWS Tutorial: Build a Machine Learning Model (30 min)
+ - TODO
+#### Video Tutorial: Overview of AWS SageMaker (30 min)
+ - TODO
+#### AWS Tutorial: AWS SageMaker (60 min)
+ - TODO
+#### Build a Serverless Real-Time Data Processing App (2 hour)
+ - TODO
+#### TODO Dont forget to do the blogpost write-up
 ## Area 3 - Cloud Web Apps
 ### Beginner Courses
 #### AWS Tutorial: Launch a VM (20 min)
