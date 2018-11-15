@@ -76,3 +76,5 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Beginner
 
 > [AWS Tutorial: Launch a VM Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/AWS%20Tutorial-Launch%20a%20VM.pdf) 45 min
+
+> [QwikLab: Intro to S3 Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/QwikLab-Intro%20to%20S3.pdf) 60 min
