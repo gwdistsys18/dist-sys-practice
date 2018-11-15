@@ -68,3 +68,5 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 > [AWS Tutorial: AWS SageMaker Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/AWS%20Tutorial-AWS%20SageMaker.pdf) 60 min
 
 ### Bring it all together
+
+> [Build a Serverless Real-Time Data Processing App Note](https://github.com/AlexQianYi/dist-sys-practice/blob/master/Build%20a%20Serverless%20Real-Time%20Data%20Processing%20App.pdf) 150 min
