@@ -286,6 +286,26 @@ To perform a rolling update use: `kubectl set image deployments/<name> <name>=<u
 
 To rollback: `kubectl rollout undo deployments/<name>`
 
+[AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)
+
+In this tutorial, the idea is to deploy a monolithic node.js application to a Docker container, then decouple the application into microservices without any downtime. The node.js application hosts a simple message board with threads and messages between users.
+
+The tutorial is divided into modules
+
+[Repo](https://github.com/awslabs/amazon-ecs-nodejs-microservices)
+
+1. Monolithic Application
+![Monolithic Application](https://d1.awsstatic.com/Developer%20Marketing/containers/monolith_3-Image-Deployment-to-Amazon-ECR.ef4f8b89baccbd37380998a8d896126df5ed8a3b.png)
+
+To login use `$(aws ecr get-login --no-include-email --region us-east-1)`
+
+`docker build -t sebas_api .`
+
+But it is advised to tag the image to push it into the ECS instance.
+
+If you cannot login to push use this `eval $(aws ecr get-login --no-include-email | sed 's|https://||')`
+
+
 ## Cloud Web Apps
 
 [AWS LAB](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
@@ -316,5 +336,32 @@ For this you launch a new S3 instance bucket through the AWS console and then cr
     ]
 }
 ```
+
+[Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk)
+
+Virtualization is a concept developped by IBM in the 1970's to boost the
+IBM 360 sales. VMWARE pionnered the softwared based virtualization.
+Intel decided that provided support in their x86 architecture was a good
+idea, and so they added this 'Hardware Virtualization" or VT-x to their
+architecture. Another open source architecture is XEN based and known as
+paravirtualization. CLoud service providers, use this fact to sell you a
+part of the computer through virtualization ( AWS, Azure, ... )
+
+[AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2)
+
+
+In order to use do this tutorial you require an EC2 Linux 2 instance
+that has port 80, port 443 and port 22 open. Open HTTP, HTTPS and SSH. 
+
+To install packages: `sudo amazon-linux-extras install -y
+lamp-mariadb10.2-php7.2 php7.2`
+
+use `sudo systemctl start httpd` and `sudo systemctl enable httpd` to
+start the apache service. It's important to set the permissions
+correctly. To secure server `sudo systemctl start mariadb` and `sudo
+mysql_secure_installation`
+
+![](apache_server.png)
+
 
 > Include notes here about each of the links
