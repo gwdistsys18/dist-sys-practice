@@ -363,5 +363,38 @@ mysql_secure_installation`
 
 ![](apache_server.png)
 
+[QwikLab: Intro to DynamoDB](https://awseducate.qwiklabs.com/focuses/23?parent=catalog)
 
-> Include notes here about each of the links
+Introduction on how to use DynamoDB aka basic introduction on NoSQL. We
+added 3 key-value pairs based on Artist and Song names. We used Query
+and Scan to search the database.
+
+![](dynamo_db.png)
+
+[AWS Tutorial: Deploy a Scalable Node.js Web
+App](https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card)
+
+![](https://d1.awsstatic.com/Projects/V445874/arch-diagram_nodejs-app.4c8966fcddcba4e101b955905cf88d99d4c9dcd5.png)
+
+[Tutorial](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-dynamodb-tutorial.html?refid=gs_card)
+
+This tutorial provides an introduction to AWS Elastic Beanstalk.
+it composed of:
+ - EC2 instance
+ - Instance security group
+ - Load Balancer
+ - Load balancer security group
+ - Auto Scaling group
+ - Amazon S3 bucket
+ - Amazon CloudWatch alarms
+ - AWS CloudFormation stack
+ - Domain name aka `subdomain.region.elasticbeanstalk.com`
+
+The beanstalk manages all those resources. There is EB CLI to manage it
+or you can create a zip file with all the require files.
+
+You can create a separate instance of DynamoDB so it's not tied to the
+beanstalk. .ebextensions are what setup the beanstalk. These files
+provide a good foundation to use this service.
+
+![EB EX](EB_EX.png)

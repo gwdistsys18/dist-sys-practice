@@ -1,0 +1,4 @@
+[submodule "eb-node-express-sample"]
+	path = eb-node-express-sample
+	url = https://github.com/aws-samples/eb-node-express-sample
+	branch = master
