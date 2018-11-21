@@ -202,7 +202,7 @@ Routing table indicates that interface 0000:06:00.0 is active. Not modifying
 So you must stop it, then replace the driver. Using the following command to stop eth3 and replace its driver:    
 
 ```
-ifconfig down eth3
+ifconfig eth3 down 
 /local/onvm/openNetVM/dpdk/usertools/dpdk-devbind.py --bind=igb_uio eth3
 /local/onvm/openNetVM/dpdk/usertools/dpdk-devbind.py --bind=igb_uio eth1
 
