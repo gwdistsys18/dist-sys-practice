@@ -2,3 +2,7 @@
 	path = eb-node-express-sample
 	url = https://github.com/aws-samples/eb-node-express-sample
 	branch = master
+[submodule "aws-serverless-workshops"]
+	path = aws-serverless-workshops
+	url = https://github.com/aws-samples/aws-serverless-workshops
+	branch = master
