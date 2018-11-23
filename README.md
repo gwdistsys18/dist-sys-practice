@@ -582,7 +582,8 @@ Code to test:
         }
     },
     "body": "{\"PickupLocation\":{\"Latitude\":47.6174755835663,\"Longitude\":-122.28837066650185}}"
-}```
+}
+```
 
 - RESTful API
 
