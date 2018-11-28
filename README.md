@@ -265,7 +265,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - At the ML dashboard, go Predictions -> Try real time predictions.  You will be greeted with a table of your data columns where you can input whatever data you like and see the prediction of your model
  
 #### AWS Tutorial: Build a Machine Learning Model (30 min)
- - TODO
+ - In this project we will be building a machine learning model in AWS on the sample dataset provided in an S3 bucket.
+ - First we will download the train and test data from the provided S3 link, and then upload to our own S3 bucket.
+ - Next we will go to the Amazon ML console and launch the standard setup
+ - We can now tell Amazon ML where our S3 bucket is containing our training data, and also tell it about the type of data
+ - We can now create our model.  If we leave the defaults, it will split the data 70/30 train/test.  The model will go into the processing queue and then be trained
+ - We can find the evaluation summary of our model in the evaluation summary page.  This will report accuracy statistics and tell us how well our model trained
+ - From the ML console, you can also do real time predictions using your model by simply pasting in a data record in the expected format, or perform batch prediction on a set of test data points.
+ - Remember to delete your S3 bucket as well as the Amazon ML datasource, model, and evaluation objects created
+ 
 #### Video Tutorial: Overview of AWS SageMaker (30 min)
  - TODO
 #### AWS Tutorial: AWS SageMaker (60 min)
