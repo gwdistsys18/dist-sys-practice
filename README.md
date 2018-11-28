@@ -275,11 +275,22 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - Remember to delete your S3 bucket as well as the Amazon ML datasource, model, and evaluation objects created
  
 #### Video Tutorial: Overview of AWS SageMaker (30 min)
- - TODO
+ - Everything you need to train and deploy ML models in AWS!
+ - 4 parts to Sagemaker: Notebook Instance (good for experimentation), Jobs (like training jobs), Models, Endpoint (for model deployment)
+ - All parts can be used together or independently
+ - Notebook Instances are simply a Jupyter environment.  Includes a bunch of examples
+ - some algorithms (e.g., XGBoost) are hosted by AWS in docker contains which can be used directly from your notebook instances
+ - You use the AWS sagemaker python SDK to generate training jobs.  they will show up in the Jobs console
+ - You can similarly create models, and endpoints for those models from within the Jupyter notebooks
+ - You can also bring in pre-trained models to sagemaker environment
+ - recap: (1) use off the shelf model, (2) use library (e.g., tensorflow, mxnet) and your own custom model creation and trainings cript, (3) bring your own pretrained model and simply deploy it and create an endpoint
+ - you can also create your own docker container containing your model and access it from within sagemaker just as in example (1)
+ - Basically this is everything you need to run ML and deep learning in the cloud without managing any infrastructure and having full scalability options
 #### AWS Tutorial: AWS SageMaker (60 min)
  - TODO
 #### Build a Serverless Real-Time Data Processing App (2 hour)
  - TODO
+ 
 #### TODO Dont forget to do the blogpost write-up
 ## Area 3 - Cloud Web Apps
 ### Beginner Courses
