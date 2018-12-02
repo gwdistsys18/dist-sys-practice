@@ -549,3 +549,14 @@ We can use versioning to preserve, retrieve, and restore every version of every 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.27.06.png?raw=true)
 
 ****
+
+### Intermediate Level
+
+****
+
+[Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk)
+
+Time: 10min
+
+From this video, we can learn that the operating system is capable of performing operations that the application cannot perform in case the application crashes the computer accidentally or maliciously. **Kernel mode** and **hypervisor mode** are the hardware implementation of this machanism. And for **Hypervisor**, also known as virtual machine monitor (VMM), is software, firmware, or hardware used to build and execute virtual machines.
+
