@@ -589,8 +589,106 @@ Code to test:
 
     use Amazon API Gateway to expose the Lambda function you built in the previous module as a RESTful API. This API will be accessible on the public Internet. It will be secured using the Amazon Cognito user pool you created in the previous module. Using this configuration you will then turn your statically hosted website into a dynamic web application by adding client-side JavaScript that makes AJAX calls to the exposed APIs.
 
-We used the RESTful api to link the lambda funciton, cognito authorized users and the DynamoDB database. 
+We used the RESTful api to link the lambda funciton, cognito authorized users and the DynamoDB database.
 
 ![Final API Map](RequestUnicorn.png)
 
+[AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)
 
+We build a sample website called Mythical Mysfits that enables visitors to adopt a fantasy creature (mysfit) as pet. You can see a working sample of this [website](www.mythicalmysfits.com). We create a well-architected sample web application using AWS tools. Use an S3 to host the static then turn it dynamic. We will link the  web application on a front-end web server  to a backend database.
+
+![Architecture](https://d1.awsstatic.com/Getting%20Started/build-modern-app-fargate-lambda-dynamodb-python/architecture-diagram-AWS-Developer-Center_mythical-mysfits-application-architecture-1@1.5x.22db78a48a57bd00cce92f44146e96d3312ab1e3.png)
+
+We will use the python based tutorial. 
+
+Modules:
+
+- Create Static Website Build a static website, using Amazon Simple Storage Service (S3) that serves static content (images, static text, etc.) for your website.
+    We learned how to host a static website on an S3 instance. But we did use the AWS cli which made the process easier
+
+``` bash
+aws s3 mb s3://REPLACE_ME_BUCKET_NAME // Create S3 bucket
+aws s3 website s3://REPLACE_ME_BUCKET_NAME --index-document index.html // Config for Static Website referenceing a index.html
+aws s3api put-bucket-policy --bucket REPLACE_ME_BUCKET_NAME --policy file://policy.json // Uploading policies
+aws s3 cp web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html //cp index to bucket
+```
+
+- Build Dynamic Website Host your application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.
+
+We use a microservice hosted using AWS Fargate integrate with an application backend. AWS Fargate is a deployment option in Amazon Elastic Container Service (ECS) that allows you to deploy containers without having to manage any clusters or servers. For our Mythical Mysfits backend, we will use Python and create a Flask app in a Docker container behind a Network Load Balancer. These will form the microservice backend for the frontend website.
+
+Why [AWS Fargate](https://aws.amazon.com/fargate/)?
+
+We chose Fargate here because it's a great choice for building long-running processes such as microservices backends for web and mobile and PaaS platforms. With Fargate, you get the control of containers and the flexibility to choose when they run without worrying about provisioning or scaling servers. It offers full control of networking, security, and service to service communication and is natively integrated with AWS services for security, networking, access control, developer tooling, monitoring, and logging.
+In addition to Fargate, customers also have the option of using AWS Lambda for their compute needs. While Lambda offers the same serverless benefits as Fargate, Lambda is great for data-driven applications that need to respond in real-time to changes in data, shifts in system state, or actions by users.
+
+In order to setup the Fargate, we need to setup the core insfraestructure: Network, permissions for ECS and containers. We will use AWS CloudFormartion to automate the process from a simple JSON or YAML template file. For this module, we created a VPC, 2 NAT Gateways, a DynamoDB endpoint VPC that we will implement in the next module, open port 8080 so the containers can get traffic and IAM roles.
+
+Launch it with:
+`aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://module-2/cfn/core.yml`
+
+and check status with:
+
+`aws cloudformation describe-stacks --stack-name MythicalMysfitsCoreStack`
+
+We use containers and a Dockerimage to create the Flask service. Remeber
+to tag the docker image so we can upload it to AWS ECR
+
+Same as for the container project: `aws ecr create-repository --repository-name mythicalmysfits/service`
+
+To create fargate, you need an AWS ECS cluster, AWS CloudWatch group, a ECS task definition (A task in ECS is a set of container images that should be scheduled together. A task definition declares that set of containers and the resources and configuration those containers require), A load balanced Fargate service and the configure the URL to call the NLB (Network Load Balancer).
+
+To provision a new NLB: `aws elbv2 create-load-balancer --name mysfits-nlb --scheme internet-facing --type network --subnets REPLACE_ME_PUBLIC_SUBNET_ONE REPLACE_ME_PUBLIC_SUBNET_TWO > ~/environment/nlb-output.json`
+
+To create a NLB group: `aws elbv2 create-target-group --name MythicalMysfits-TargetGroup --port 8080 --protocol TCP --target-type ip --vpc-id REPLACE_ME_VPC_ID --health-check-interval-seconds 10 --health-check-path / --health-check-protocol HTTP --healthy-threshold-count 3 --unhealthy-threshold-count 3 > ~/environment/target-group-output.json`
+
+To create the listener: `aws elbv2 create-listener --default-actions TargetGroupArn=REPLACE_ME_NLB_TARGET_GROUP_ARN,Type=forward --load-balancer-arn REPLACE_ME_NLB_ARN --port 80 --protocol TCP`
+
+Additionally, we use AWS Code Services to automate the update of our container and such in case we want to update the code aka Continuous Integration and Continuous Delivery or CI/CD.
+
+![CI/CD](https://d1.awsstatic.com/Getting%20Started/build-modern-app-fargate-lambda-dynamodb-python/architecture-diagram-AWS-Developer-Center_mythical-mysfits-application-architecture-module-2b@1.5x.dc94e5db633ae76a54b1915d407be5e9a4f4a330.png)
+
+AWS CodeCommit offers version control tools as well as a pipeline to trigger builds
+AWS CodePipeline allows to trigger a build anytime there is a push into the repository.
+
+```
+Your pipeline in CodePipeline will do just what I described above.
+Anytime a code change is pushed into your CodeCommit repository,
+CodePipeline will deliver the latest code to your AWS CodeBuild project
+so that a build will occur. When successfully built by CodeBuild,
+CodePipeline will perform a deployment to ECS using the latest container
+image that the CodeBuild execution pushed into ECR.
+```
+
+- Store Mysfit Data Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.
+
+For this module, we will simply link AWS Fargate to a Dynamo DB. We will
+use AWS cli. `aws dynamodb create-table --cli-input-json file://dynamodb-table.json`
+
+- Add User Registration Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.
+
+Very similar to the AWS tutorial from above. But we are using AWS cli. AWS Cognito with REST API.
+
+``` BASH
+aws cognito-idp create-user-pool --pool-name MysfitsUserPool --auto-verified-attributes email
+aws cognito-idp create-user-pool-client --user-pool-id REPLACE_ME --client-name MysfitsUserPoolClient
+```
+For the REST API, we used the Amazon API Gateway. In order for API
+Gateway to privately integrate with our NLB, we will configure an API
+Gateway VPC Link that enables API Gateway APIs to directly integrate
+with backend web services that are privately hosted inside a VPC.
+
+`aws apigateway create-vpc-link --name MysfitsApiVpcLink --target-arns
+REPLACE_ME_NLB_ARN > ~/environment/api-gateway-link-output.json`
+
+We SWAGGER to create the API from a JSON file and use 'stages' to manage it
+
+
+- Capture User Clicks Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose.
+
+![lambda](https://d1.awsstatic.com/Getting%20Started/build-modern-app-fargate-lambda-dynamodb-python/architecture-diagram-AWS-Developer-Center_mythical-mysfits-application-architecture-module-5@1.5x.72b36652a65e68329468f65ebfe6bf2f10f77144.png)
+
+In this module, we use AWS Lambda function to tract some statistics. In addition to AWS Lambda, we are using AWS Kinesis Firehose delivery system. Kinesis Firehose is a highly available and managed real-time streaming service that accepts data records and automatically ingests them into several possible storage destinations within AWS, such as Amazon S3 bucket, or Amazon Redshift data warehouse cluster. Kinesis Firehose also enables all of the records received by the stream to be automatically delivered to a serverless function created with AWS Lambda
+
+Learned how to use the SAM cli with the CloudFormation as well as the
+API endpoint it creates.

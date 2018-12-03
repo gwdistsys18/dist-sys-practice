@@ -6,3 +6,7 @@
 	path = aws-serverless-workshops
 	url = https://github.com/aws-samples/aws-serverless-workshops
 	branch = master
+[submodule "aws-modern-application-workshop"]
+	path = aws-modern-application-workshop
+	url = https://github.com/aws-samples/aws-modern-application-workshop
+	branch = master
