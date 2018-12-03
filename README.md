@@ -560,3 +560,7 @@ Time: 10min
 
 From this video, we can learn that the operating system is capable of performing operations that the application cannot perform in case the application crashes the computer accidentally or maliciously. **Kernel mode** and **hypervisor mode** are the hardware implementation of this machanism. And for **Hypervisor**, also known as virtual machine monitor (VMM), is software, firmware, or hardware used to build and execute virtual machines.
 
+****
+
+[AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
+
