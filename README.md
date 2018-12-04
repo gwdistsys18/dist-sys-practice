@@ -959,3 +959,854 @@ ____
 
 *Cost 60 minutes, finished on Nov 13th, 2018.*
 ____
+
+### Intermediate Level
+#### *Data Storage*
+
+#### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+This is a duplicated content we have done in Cloud Web Applications
+
+*Cost 0 minutes, finished on Dec 1st, 2018.*
+____
+
+#### [QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
+
+1. Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and your existing Business Intelligence (BI) tools.
+1. Lanuch an Amazon Redshift Cluster
+    * In the <strong>AWS Management Console</strong>, on the <strong>Services</strong> menu, click <strong>Amazon Redshift</strong>.
+    * Click <strong>Launch cluster</strong> to open the Redshift Cluster Creation Wizard.
+    * On the <strong>CLUSTER DETAILS</strong> page, configure:
+    * Click <strong>Continue</strong> and <strong>Continue</strong>.
+    * At the <strong>ADDITIONAL CONFIGURATION</strong> page, configure:
+        * <strong>Choose a VPC:</strong> Select the other VPC (<em>not</em> the Default VPC)
+        * <strong>VPC security groups:</strong> <em>Redshift Security Group</em>
+        * <strong>Available roles:</strong> <em>Redshift-Role</em>
+    * Leave all other settings at their default value and click <strong>Continue</strong>.
+    * Click <strong>Launch cluster</strong> at the bottom of the screen.
+    * Cluster Configuration:
+        * <strong>Cluster Properties</strong>: Contains information about the Cluster including: Name, Type, Node Type, number of Nodes, Zone location, Time and version of the creation as well as other information.
+        * <strong>Cluster Status</strong>: Allows you to see the current status of the cluster whether it is available or not and also whether it is currently <strong>In Maintenance Mode</strong>.
+        * <strong>Cluster Database Properties</strong>: Contains information on the Endpoint, which is the DNS address of the cluster, and the port number on which the database accepts connections. These are required when you want to create SQL connections. It also lets you know whether the cluster has a public IP address that can be accessed from the public internet. The JDBC URL and ODBC URL contain the URLs to connect to the cluster via a java database connection or an Oracle database connection client.
+        * <strong>Backup, Audit Logging and Maintenance</strong>: Contains information on how many days the automated snapshots are retained, whether they are automatically copied to another region, and whether logging is enabled on the cluster.
+        * <strong>Capacity Details</strong>: Contains information about the data warehouse node type, number of EC2 Compute Units per node, memory, disk storage, I/O performance as well as the processor architecture of the node type.
+        * <strong>SSH Ingestion Settings</strong>: Contains information about the Public Key of the cluster as well as the Public and Private IP addresses of the node.
+1. Launch Pgweb to Communicate with Redshift Cluster
+    * Open a <strong>new tab</strong> in web browser, paste the copied IP Address and hit Enter.
+    * Click the <strong>Endpoint</strong> displayed at the top of the window and Copy it to clipboard.
+    * Enter the following info in Pgweb:
+        * <strong>Host:</strong> Paste the Endpoint copied.
+        * <strong>Username</strong>: master
+        * <strong>Password</strong>: Redshift123
+        * <strong>Database</strong>: labdb
+        * <strong>Port</strong>: 5439
+    * Click <strong>Connect</strong>.
+    ![Pgweb Login](./img/pgweb-login.png)
+1. Create a Table
+    * Copy this SQL command and paste it into Pgweb.
+    ```
+    CREATE TABLE users (
+        userid INTEGER NOT NULL,
+        username CHAR(8),
+        firstname VARCHAR(30),
+        lastname VARCHAR(30),
+        city VARCHAR(30),
+        state CHAR(2),
+        email VARCHAR(100),
+        phone CHAR(14),
+        likesports BOOLEAN,
+        liketheatre BOOLEAN,
+        likeconcerts BOOLEAN,
+        likejazz BOOLEAN,
+        likeclassical BOOLEAN,
+        likeopera BOOLEAN,
+        likerock BOOLEAN,
+        likevegas BOOLEAN,
+        likebroadway BOOLEAN,
+        likemusicals BOOLEAN
+    );
+    ```
+    * Click the <strong>Run Query</strong> button to execute the SQL script.
+    * Click the <strong>users</strong> table, then click the <strong>Structure</strong> tab.
+    ![Table Structure](./img/table-structure.png)
+1. Load Sample Data from Amazon S3
+    * In Pgweb, click the <strong>SQL Query</strong> tab at the top of the window.
+    * Delete the existing query, then paste this SQL command into Pgweb:
+    ```
+    COPY users FROM 's3://awssampledbuswest2/tickit/allusers_pipe.txt'
+    CREDENTIALS 'aws_iam_role=YOUR-ROLE'
+    DELIMITER '|';
+    ```
+    * Paste the Role into your Pgweb query, <strong>replacing the text *YOUR-ROLE</strong>*.
+    * Click the <strong>Run Query</strong> button to execute the SQL command.
+    * Click the <strong>users</strong> table and then click the <strong>Rows</strong> tab.
+1. Query Data
+    * Return to the <strong>SQL Query</strong> tab.
+    * Run this query to count the number of rows in the <em>users</em> table:
+    ```
+    SELECT COUNT(*) FROM users;
+    ```
+    * This query displays users in Ohio (OH) who like sports but do not like opera. The list is sorted by their first name.
+    ```
+    SELECT userid, firstname, lastname, city, state
+    FROM users
+    WHERE likesports AND NOT likeopera AND state = 'OH'
+    ORDER BY firstname;
+    ```
+    * This query shows the Top 10 cities where Jazz-loving users live.
+    ```
+    SELECT
+        city,
+        COUNT(*) AS count
+    FROM users
+    WHERE likejazz
+    GROUP BY city
+    ORDER BY count DESC
+    LIMIT 10;
+    ```
+
+*Cost 60 minutes, finished on Dec 1st, 2018.*
+____
+
+#### *Big Data Analytics:*
+#### [Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
+1. Three Layers of Machine Learning Stack
+    * Framework & Interfaces: training and building machine learning models.
+    * Machine Learning Platforms: build, train and deploy models.
+    * Application Services: developers make calls to API and add machine learning services to applications.
+
+*Cost 5 minutes, finished on Dec 1st, 2018.*
+____
+
+#### [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+
+1. Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. By using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads. Additionally, you can use Amazon EMR to transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB.
+
+1. The central component of Amazon EMR is the cluster. A cluster is a collection of Amazon Elastic Compute Cloud (Amazon EC2) instances. Each instance in the cluster is called a node. Each node has a role within the cluster, referred to as the node type. Amazon EMR also installs different software components on each node type, giving each node a role in a distributed application like Apache Hadoop.
+
+1. The node types in Amazon EMR
+    * **Master node**: A node that manages the cluster by running software components to coordinate the distribution of data and tasks among other nodes for processing. The master node tracks the status of tasks and monitors the health of the cluster. Every cluster has a master node, and it's possible to create a single-node cluster with only the master node.
+    * **Core node**: A node with software components that run tasks and store data in the Hadoop Distributed File System (HDFS) on your cluster. Multi-node clusters have at least one core node.
+    * **Task node**: A node with software components that only runs tasks and does not store data in HDFS. Task nodes are optional.
+    ![Cluster Node Type](./img/cluster-node-type.png)
+
+1. Processing Data
+    * Submitting Jobs Directly to Applications
+    * Running Steps in Cluster
+        * Submit an input dataset for processing.
+        * Process the output of the first step by using a Pig program.
+        * Process a second input dataset by using a Hive program.
+        * Write an output dataset.
+
+1. Cluster Lifecycle
+    * Amazon EMR first provisions EC2 instances in the cluster for each instance according to your specifications. For more information, see Configure Cluster Hardware and Networking. For all instances, Amazon EMR uses the default AMI for Amazon EMR or a custom Amazon Linux AMI that you specify. For more information, see Using a Custom AMI. During this phase, the cluster state is *STARTING*.
+    * Amazon EMR runs bootstrap actions that you specify on each instance. You can use bootstrap actions to install custom applications and perform customizations that you require. For more information, see Create Bootstrap Actions to Install Additional Software. During this phase, the cluster state is *BOOTSTRAPPING*.
+    * Amazon EMR installs the native applications that you specify when you create the cluster, such as Hive, Hadoop, Spark, and so on.
+    * After bootstrap actions are successfully completed and native applications are installed, the cluster state is *RUNNING*. At this point, you can connect to cluster instances, and the cluster sequentially runs any steps that you specified when you created the cluster. You can submit additional steps, which run after any previous steps complete.
+    * After steps run successfully, the cluster goes into a WAITING state. If a cluster is configured to auto-terminate after the last step is complete, it goes into a *SHUTTING_DOWN* state.
+    * After all instances are terminated, the cluster goes into the *COMPLETED* state.
+
+1. Benefits of Using Amazon EMR
+    * **Cost Savings**: pricing depends on the instance type and number of EC2 instances that you deploy and the region in which you launch your cluster.
+    * **AWS Integration**: integrates with other AWS services to provide capabilities and functionality related to networking, storage, security, and so on, for your cluster.
+    * **Deployment**: cluster consists of EC2 instances, which perform the work that you submit to your cluster.
+    * **Scalability and Flexibility**: provides flexibility to scale your cluster up or down as your computing needs change.
+    * **Reliability**: monitors nodes in your cluster and automatically terminates and replaces an instance in case of failure.
+    * **Security**: leverages other AWS services, such as IAM and Amazon VPC, and features such as Amazon EC2 key pairs, to help you secure your clusters and data.
+    * **Monitoring**: use the Amazon EMR management interfaces and log files to troubleshoot cluster issues.
+    * **Management Interfaces**
+        * Console
+        * AWS Command Line Interface (AWS CLI)
+        * Software Development Kit (SDK)
+        * Web Service API
+
+1. Amazon EMR Architecture
+    * Storage: The storage layer includes the different file systems that are used with your cluster.
+        * **Hadoop Distributed File System (HDFS)**: is a distributed, scalable file system for Hadoop.
+        * **EMR File System (EMRFS)**: has ability to directly access data stored in Amazon S3 as if it were a file system like HDFS.
+        * **Local File System**: The local file system refers to a locally connected disk.
+    * Cluster Resource Management: The resource management layer is responsible for managing cluster resources and scheduling the jobs for processing data.
+    * Data Processing Frameworks: The data processing framework layer is the engine used to process and analyze data.
+        * **Hadoop MapReduce**: is an open-source programming model for distributed computing.
+        * **Apache Spark**: is a cluster framework and programming model for processing big data workloads.
+    * Applications and Programs
+
+1. Launch Amazon EMR Cluster
+    * Choose **Create cluster**.
+    * On the **Create Cluster - Quick Options** page, accept the default values except for the following fields:
+        * Enter a **Cluster name** that helps you identify the cluster, for example, My First EMR Cluster.
+        * Under **Security and access**, choose the **EC2 key pair** that you created in Create an Amazon EC2 Key Pair.
+    * Choose Create cluster.
+
+1. Allow SSH Connections to the Cluster
+    * Choose **Clusters**.
+    * Choose the **Name** of the cluster.
+    * Under **Security and access** choose the **Security groups for Master** link.
+    * Choose **ElasticMapReduce-master** from the list.
+    * Choose **Inbound, Edit** to add a new inbound rule.
+    * Scroll down through the listing of default rules and choose **Add Rule** at the bottom of the list.
+    * For **Type**, select **SSH**. For source, select **My IP**.
+    * Choose **Save**.
+    * Choose **ElasticMapReduce-slave** from the list and repeat the steps above to allow SSH client access to core and task nodes from trusted clients.
+
+1. Amazon EMR Notebooks
+    * Create an EMR notebook
+        * Choose **Notebooks**, **Create notebook**.
+        * Enter a **Notebook name** and an optional **Notebook description**.
+        * Select **Choose,** select a cluster from the list, and then **Choose cluster**.
+        * For **Security groups**, choose **Use default security groups**.
+        * For **AWS Service Role**, leave the **default** or choose a **custom role** from the list.
+        * For **Notebook location** choose the location in Amazon S3 where the notebook file is saved, or specify your own location.
+        * Optionally, choose **Tags**, and then add any additional key-value tags for the notebook.
+    * Status in the Notebooks
+        * **Ready**: You can open the notebook using the notebook editor.
+        * **Starting**: The notebook is being created and attached to the cluster.
+        * **Pending**: The notebook has been created, and is waiting for integration with the cluster to complete.
+        * **Stopping**: The notebook is shutting down, or the cluster that the notebook is attached to is terminating.
+        * **Stopped**: The notebook has shut down.
+        * **Deleting**: The cluster is being removed from the list of available clusters.
+    * Changing Clusters
+        * If the notebook that you want to change is running, select it from the **Notebooks** list and choose **Stop**.
+        * When the notebook status is **Stopped**, select the notebook from the **Notebooks** list, and then choose **View details**.
+        * Choose **Change cluster**.
+        * Choose Create a cluster and then choose the cluster options.
+        * Choose an option for **Security groups**, and then choose **Change cluster and start notebook**.
+    * Spark Job Monitoring Widget
+        ![Spark Job Monitoring Widget](./img/spark_monitoring_job_progress.png)
+
+1. Amazon EMR Security
+    * **AWS Identity and Access Management (IAM) policies**: IAM policies allow or deny permissions for IAM users and groups to perform actions. Policies can be combined with tagging to control access on a cluster-by-cluster basis.
+    * **IAM roles for EMRFS requests to Amazon S3**: You can control whether cluster users can access files from within Amazon EMR based on user, group, or the location of EMRFS data in Amazon S3.
+    * **IAM roles**: The Amazon EMR service role, instance profile, and service-linked role control how Amazon EMR is able to access other AWS services.
+    * **Kerberos**: You can set up Kerberos to provide strong authentication through secret-key cryptography.
+    * **Secure Socket Shell (SSH)**: SSH provides a secure way for users to connect to the command line on cluster instances. It also provides tunneling to view web interfaces that applications host on the master node. Clients can authenticate using Kerberos or an Amazon EC2 key pair.
+    * **Data encryption**: You can implement data encryption to help protect data at rest in Amazon S3 and in cluster instance storage, and data in transit.
+    * **Security groups**: Security groups act as a virtual firewall for Amazon EMR cluster instances, limiting inbound and outbound network traffic.
+    * **Security configurations**: Security configurations in Amazon EMR are templates for a security setup. You can create a security configuration to conveniently re-use a security setup whenever you create a cluster.
+
+*Cost 60 minutes, finished on Dec 4th, 2018.*
+____
+
+#### [QwikLab: Intro to Amazon Machine Learning ](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)
+
+1. **Amazon Machine Learning (Amazon ML)** is a robust machine learning platform that allows software developers to train predictive models and use them to create powerful predictive applications. Amazon ML allows business domain experts and software developers to focus on the problems they are trying to solve using predictive models rather than running and maintaining the compute and storage infrastructure required to train a supervised machine learning model.
+![Overview](./img/mloverview.png)
+
+1. Amazon Machine Learning Key Concepts
+    * **Datasources** contain metadata associated with data inputs to Amazon ML.
+    * **ML Models** generate predictions using the patterns extracted from the input data.
+    * **Evaluations** measure the quality of ML models.
+    * **Batch Predictions** asynchronously generate predictions for multiple input data observations.
+    * **Real-time Predictions** synchronously generate predictions for individual data observations.
+
+1. Upload Training Data
+    * In the <strong>AWS Management Console</strong>, click <strong>Services</strong> and then click <strong>S3</strong>.
+    * Click <strong>Create bucket</strong>, then configure:
+        * <strong>Bucket name</strong>
+        * Replace <strong>NUMBER</strong> with a random number
+        * Copy the name of your bucket to your text editor
+        * Click <strong>Create
+    * Upload the <strong>restaurants.data</strong> file into new bucket
+        * Click the bucket you created
+        * Click <strong>Upload</strong>
+        * Click <strong>Add files</strong>
+        * Select the <strong>restaurants.data</strong> file downloaded earlier.
+        * Click <strong>Open</strong>
+        * Click <strong>Upload</strong>
+
+1. Create a Datasource
+    * In the <strong>Services</strong> menu, click <strong>Machine Learning</strong>.
+    * Click <strong>Get started</strong>.
+    * Click <strong>View Dashboard</strong>.
+    * Click <strong>Create new… &gt; Datasource and ML model</strong>.
+    * In the <strong>S3 location</strong> text box, start typing the name of the bucket created earlier.
+    * Click S3 bucket.
+    * Click the <strong>restaurants.data</strong> file.
+    * Click <strong>Verify</strong>, then click <strong>Yes</strong>.
+    * Click <strong>Continue</strong>.
+    * For <strong>Does the first line in your CSV contain the column names?</strong>, click <strong>Yes</strong>.
+    * Click <strong>Continue</strong>.
+    * Select <strong>rating</strong> (in the bottom row).
+    * Click <strong>Continue</strong>.
+    * For <strong>Row identifier (optional)</strong>, click <strong>Review</strong>.
+    * Review the configuration and click <strong>Continue</strong>.
+
+1. Create an ML Model from the Datasource
+    * Review the <strong>ML model settings</strong> page.
+    * Click <strong>Review</strong>.
+    * Click <strong>Create ML model</strong>.
+    * In the top-left of the window, click <strong>Amazon Machine Learning</strong> and then click <strong>Dashboard</strong>.
+
+1. Evaluate an ML Model
+    * Click Refresh every 60 seconds until the status of the Evaluation row is <strong>Completed</strong>.
+    * Click <strong>Evaluation: ML model: Restaurants.data</strong> (the first row of the table).
+    * Click <strong>Explore model performance</strong>.
+    * Take some time to explore the model performance by mousing over the individual cells in the confusion matrix. Statistics will be displayed by hovering over the matrix.
+
+1. Generate Predictions From Your ML Model
+    * In the top-left of the window, click <strong>Amazon Machine Learning</strong> and then click <strong>ML models</strong>.
+    * Click the displayed ML model.
+    * Under <strong>Predictions</strong> click <strong>Try real-time predictions</strong>.
+    * Enter data in the form.
+    * Click <strong>Create prediction</strong>.
+
+*Cost 45 minutes, finished on Dec 4th, 2018.*
+____
+
+#### [AWS Tutorial: AWS SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+
+1. **Amazon SageMaker** is a fully managed machine learning service. With Amazon SageMaker, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don't have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. With native support for bring-your-own-algorithms and frameworks, Amazon SageMaker offers flexible distributed training options that adjust to your specific workflows. Deploy a model into a secure and scalable environment by launching it with a single click from the Amazon SageMaker console. Training and hosting are billed by minutes of usage, with no minimum fees and no upfront commitments.
+
+1. Workflow for creating a machine learning model
+    * **Generate** example data—To train a model, you need example data.
+        * Fetch the data
+        * Clean the data
+        * Prepare or transform the data
+    * **Train a model** — Model training includes both training and evaluating the model
+        * Training the model
+        * Evaluating the model
+    * **Deploy the model** — traditionally re-engineer a model before you integrate it with your application and deploy it.
+    ![Workflow](./img/ml-concepts-10.png)
+
+1. Training a Model with Amazon SageMaker
+    * The training job includes the following information:
+        * The URL of the Amazon Simple Storage Service (Amazon S3) bucket where you've stored the training data.
+        * The compute resources that you want Amazon SageMaker to use for model training. Compute resources are ML compute instances that are managed by Amazon SageMaker.
+        * The URL of the S3 bucket where you want to store the output of the job.
+        * The Amazon Elastic Container Registry path where the training code is stored.
+    * Options for a Training Algorithm
+        * Use an algorithm provided by Amazon SageMaker
+        * Use Apache Spark with Amazon SageMaker
+        * Submit custom code to train with deep learning frameworks
+        * Use your own custom algorithms
+        * Use an algorithm that you subscribe to from AWS Marketplace
+    ![SageMaker Architecture](./img/sagemaker-architecture.png)
+
+1. Incremental Training in Amazon SageMaker
+    * To perform incremental training (console)
+        * In the navigation pane, choose **Training**, then choose **Training jobs**.
+        * Choose **Create training job**.
+        * Provide a **name** for the training job.
+        * Choose the **algorithm** that you want to use.
+        * For **Resource configuration**, either leave the default values or increase the resource consumption to reduce computation time.
+        * Provide information about the input data for the training dataset.
+        * To use model artifacts in a training job, you need to add a new channel and provide the needed information about the model artifacts.
+        * **Output data configuration**
+        * For **Tags**, add one or more tags to the training job. A tag is metadata that you can define and assign to AWS resources.
+        * Choose **Create training job**. Amazon SageMaker creates and runs training job.
+    * Performing Incremental Training (API)
+        * Get an AWS Identity and Access Management (IAM) role that grants required permissions and initialize environment variables:
+        ```
+        import sagemaker
+        from sagemaker import get_execution_role
+
+        role = get_execution_role()
+        print(role)
+
+        sess = sagemaker.Session()
+
+        bucket=sess.default_bucket()
+        print(bucket)
+        prefix = 'ic-incr-training'
+        ```
+        * Get the training image for the image classification algorithm:
+        ```
+        from sagemaker.amazon.amazon_estimator import get_image_uri
+
+        training_image = get_image_uri(sess.boto_region_name, 'image-classification', repo_version="latest")
+        #Display the training image
+        print (training_image)
+        ```
+        * Download the training and validation datasets, then upload them to Amazon Simple Storage Service (Amazon S3):
+        ```
+        import os
+        import urllib.request
+        import boto3
+
+        # Define a download function
+        def download(url):
+            filename = url.split("/")[-1]
+            if not os.path.exists(filename):
+                urllib.request.urlretrieve(url, filename)
+
+        # Download the caltech-256 training and validation datasets
+        download('http://data.mxnet.io/data/caltech-256/caltech-256-60-train.rec')
+        download('http://data.mxnet.io/data/caltech-256/caltech-256-60-val.rec')
+
+        # Create fourour channels: train, validation, train_lst, and validation_lst
+        s3train = 's3://{}/{}/train/'.format(bucket, prefix)
+        s3validation = 's3://{}/{}/validation/'.format(bucket, prefix)
+
+        # Upload the first files to the train and validation channels
+        !aws s3 cp caltech-256-60-train.rec $s3train --quiet
+        !aws s3 cp caltech-256-60-val.rec $s3validation --quiet
+        ```
+        * Define the training hyperparameters:
+        ```
+        # Define hyperparameters for the estimator
+        hyperparams = { "num_layers": "18",
+            "resize": "32",
+            "num_training_samples": "50000",
+            "num_classes": "10",
+            "image_shape": "3,28,28",
+            "mini_batch_size": "128",
+            "epochs": "3",
+            "learning_rate": "0.1",
+            "lr_scheduler_step": "2,3",
+            "lr_scheduler_factor": "0.1",
+            "augmentation_type": "crop_color",
+            "optimizer": "sgd",
+            "momentum": "0.9",
+            "weight_decay": "0.0001",
+            "beta_1": "0.9",
+            "beta_2": "0.999",
+            "gamma": "0.9",
+            "eps": "1e-8",
+            "top_k": "5",
+            "checkpoint_frequency": "1",
+            "use_pretrained_model": "0",
+            "model_prefix": ""
+        }
+        ```
+        * Create an estimator object and train the first model using the training and validation datasets:
+        ```
+        # Fit the base estimator
+        s3_output_location = 's3://{}/{}/output'.format(bucket, prefix)
+        ic = sagemaker.estimator.Estimator(training_image,
+                               role,
+                               train_instance_count=1,
+                               train_instance_type='ml.p2.xlarge',
+                               train_volume_size=50,
+                               train_max_run=360000,
+                               input_mode='File',
+                               output_path=s3_output_location,
+                               sagemaker_session=sess,
+                               hyperparameters=hyperparams)
+
+        train_data = sagemaker.session.s3_input(s3train, distribution='FullyReplicated', content_type='application/x-recordio', s3_data_type='S3Prefix')
+        validation_data = sagemaker.session.s3_input(s3validation, distribution='FullyReplicated', content_type='application/x-recordio', s3_data_type='S3Prefix')
+
+        data_channels = {'train': train_data, 'validation': validation_data}
+
+        ic.fit(inputs=data_channels, logs=True)
+        ```
+        * To use the model to incrementally train another model, create a new estimator object and use the model artifacts (ic.model_data, in this example) for the model_uri input argument:
+        ```
+        # Given the base estimator, create a new one for incremental training
+        incr_ic = sagemaker.estimator.Estimator(training_image,
+                                        role,
+                                        train_instance_count=1,
+                                        train_instance_type='ml.p2.xlarge',
+                                        train_volume_size=50,
+                                        train_max_run=360000,
+                                        input_mode='File',
+                                        output_path=s3_output_location,
+                                        sagemaker_session=sess,
+                                        hyperparameters=hyperparams,
+                                        model_uri=ic.model_data) # This parameter will ingest the previous job's model as a new channel
+                                        incr_ic.fit(inputs=data_channels, logs=True)
+        ```
+1. Monitor and Analyze Training Jobs Using Metrics
+    * Define Training Metrics
+        * Define Training Metrics (Low-level Amazon SageMaker API)
+        ```
+        "AlgorithmSpecification": {
+        "TrainingImage": ContainerName,
+        "TrainingInputMode": "File",
+        "MetricDefinitions" : [
+            {
+            "Name": "train:error",
+            "Regex": ".*\\[[0-9]+\\]#011train-error:(\\S+).*"
+        },
+             {
+            "Name": "validation:error",
+            "Regex": ".*\\[[0-9]+\\]#011validation-error:(\\S+).*"
+        }
+
+        ]}
+        ```
+        * Define Training Metrics (Amazon SageMaker Python SDK)
+        ```
+        estimator =
+                Estimator(image_name=ImageName,
+                role='SageMakerRole', train_instance_count=1,
+                train_instance_type='ml.c4.xlarge',
+                train_instance_type='ml.c4.xlarge',
+                k=10,
+                sagemaker_session=sagemaker_session,
+                metric_definitions=[
+                   {'Name': 'train:error', 'Regex': '.*\\[[0-9]+\\]#011train-error:(\\S+).*'},
+                   {'Name': 'validation:error, 'Regex': '.*\\[[0-9]+\\]#011validation-error:(\\S+).*'
+                ]
+            )
+        ```
+        * Define Metrics (Console)
+        * Define Regular Expressions for Metrics
+    * Monitor Training Job Metrics in CloudWatch
+        * Choose **Metrics**, then choose **/aws/sagemaker/TrainingJobs**.
+        * Choose **TrainingJobName**.
+        * On the **All metrics** tab, choose the names of the training metrics that you want to monitor.
+        * On the **Graphed metrics** tab, configure the graph options.
+
+1. Model Deployment
+    * Deploying a model using Amazon SageMaker hosting services
+        * **Create a model in Amazon SageMaker**—By creating a model, you tell Amazon SageMaker where it can find the model components. This includes the S3 path where the model artifacts are stored and the Docker registry path for the image that contains the inference code. In subsequent deployment steps, you specify the model by name.
+        * **Create an endpoint configuration for an HTTPS endpoint**—You specify the name of one or more models in production variants and the ML compute instances that you want Amazon SageMaker to launch to host them.
+        * **Create an HTTPS endpoint**—Provide the endpoint configuration to Amazon SageMaker. The service launches the ML compute instances and deploys the model or models as specified in the configuration.
+    * Batch Transform
+        * To Create a transform job includes the following information:
+            * The path to the S3 bucket where you've stored the data to transform.
+            * The compute resources that you want Amazon SageMaker to use for the transform job. Compute resources are ML compute instances that are managed by Amazon SageMaker.
+            * The path to the S3 bucket where you want to store the output of the job.
+            * The name of the model that you want to use in the transform job.
+        * The workflow of a batch transform job
+        ![Batch Transform](./img/batch-transform.png)
+
+1. Validating Machine Learning Models
+    * **Offline testing**: Use historical, not live, data to send requests to the model for inferences.
+        * **Validating using a "holdout set"**—Machine learning practitioners often set aside a part of the data as a "holdout set."
+        * **k-fold validation**—In this validation approach, you split the example dataset into k parts. You treat each of these parts as a holdout set for k training runs, and use the other k-1 parts as the training set for that run. You produce k models using a similar process, and aggregate the models to generate your final model. The value k is typically in the range of 5-10.
+    * **Online testing with live data**: Amazon SageMaker supports deploying multiple models (called production variants) to a single Amazon SageMaker endpoint. You configure the production variants so that a small portion of the live traffic goes to the model that you want to validate. For example, you might choose to send 10% of the traffic to a model variant for evaluation. After you are satisfied with the model's performance, you can route 100% traffic to the updated model.
+
+1. The Amazon SageMaker Programming Model
+    * **Use the Amazon SageMaker console**—With the console, you don't write any code. You use the console UI to start model training or deploy a model. The console works well for simple jobs, where you use a built-in training algorithm and you don't need to preprocess training data.
+    * **Modify the example Jupyter notebooks**—Amazon SageMaker provides several Jupyter notebooks that train and deploy models using specific algorithms and datasets. Start with a notebook that has a suitable algorithm and modify it to accommodate your data source and specific needs.
+    * **Write model training and inference code from scratch**—Amazon SageMaker provides both an AWS SDK and a high-level Python library that you can use in your code to start model training jobs and deploy the resulting models.
+        * **The high-level Python library**—The Python library simplifies model training and deployment. In addition to authenticating your requests, the library abstracts platform specifics by providing simple methods and default parameters.
+        * **The AWS SDK**—The SDKs provide methods that correspond to the Amazon SageMaker API (see Actions). Use the SDKs to programmatically start a model training job and host the model in Amazon SageMaker. SDK clients authenticate your requests by using your access keys, so you don't need to write authentication code. They are available in multiple languages and platforms.
+    * **Integrate Amazon SageMaker into your Apache Spark workflow**—Amazon SageMaker provides a library for calling its APIs from Apache Spark. With it, you can use Amazon SageMaker-based estimators in an Apache Spark pipeline.
+
+*Cost 60 minutes, finished on Dec 4th, 2018.*
+____
+
+#### [Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)
+
+1. Overview
+    * **Build a data stream**: Create a stream in Kinesis and write to and read from the stream to track Wild Rydes unicorns on the live map. In this module you'll also create an Amazon Cognito identity pool to grant live map access to your stream.
+    * **Aggregate data**: Build a Kinesis Data Analytics application to read from the stream and aggregate metrics like unicorn health and distance traveled each minute.
+    * **Process streaming data**: Persist aggregate data from the application to a backend database stored in DynamoDB and run queries against those data.
+    * **Store & query data**: Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, you'll run SQL queries against the raw data for ad-hoc analyses.
+    ![Application Architecture](./img/application-arch.png)
+
+1. Real-time Streaming Data
+    ![Application Architecture 1](./img/application-arch1.png)
+    * Create an Amazon Kinesis stream
+        * Go to the AWS Management Console, select **Services** then select **Kinesis** under Analytics.
+        * Select **Get started** if prompted with an introductory screen
+        * Select **Create data stream**.
+        * Enter  wildrydes  into Kinesis stream name and 1 into **Number of shards**, then select **Create Kinesis stream**.
+        * Within 60 seconds, your Kinesis stream will be **ACTIVE** and ready to store real-time streaming data.
+    * Produce messages into the stream
+        * Switch to the tab where you have your Cloud9 environment opened.
+        * In the terminal, run the producer to start emiting sensor data to the stream.
+        ```
+        ./producer
+        ```
+        * The producer emits a message a second to the stream and prints a period to the screen.
+        * In the Amazon Kinesis Streams console, click on **wildrydes** and click on the **Monitoring** tab.
+        * After several minutes, you will see the **Put Record (success count)** graph begin to record a single put a second.
+    * Read messages from the stream
+        * Switch to the tab where you have your Cloud9 environment opened.
+        * Hit the (+) button and click New Terminal to open a new terminal tab.
+        * Run the consumer to start reading sensor data from the stream:
+        ```
+        ./consumer
+        ```
+        * The consumer will print the messages being sent by the producer:
+        ```
+        {
+            "Name": "Shadowfax",
+            "StatusTime": "2017-06-05 09:17:08.189",
+            "Latitude": 42.264444250051326,
+            "Longitude": -71.97582884770408,
+            "Distance": 175,
+            "MagicPoints": 110,
+            "HealthPoints": 150
+        }
+        {
+            "Name": "Shadowfax",
+            "StatusTime": "2017-06-05 09:17:09.191",
+            "Latitude": 42.265486935100476,
+            "Longitude": -71.97442977859625,
+            "Distance": 163,
+            "MagicPoints": 110,
+            "HealthPoints": 151
+        }
+        ```
+    * Create an identity pool for the unicorn dashboard
+        * Go to the AWS Management Console, services **Services** then select **Cognito** under Security, Identity & Compliance.
+        * Select **Manage Identity Pools**.
+        * Select **Create new identity pool**.
+        * Enter wildrydes  into **Identity pool name**.
+        * Tick the **Enable access to unauthenticated identities** checkbox.
+        * Click **Create Pool**.
+        * Click **Allow** which will create authenticated and unauthenticated roles for your identity pool.
+        * Select **o to Dashboard**.
+        * Select **Edit identity** pool in the upper right hand corner.
+        * Note the **Identity pool ID** for use in a later step.
+    * Grant the unauthenticated role access to the stream
+        * Go to the AWS Management Console, services **Services** then select **IAM** under Security, Identity & Compliance.
+        * Select **Roles** in the left-hand navigation.
+        * Select the **Cognito_wildrydesUnauth_Role**.
+        * Select **Add inline policy**.
+        * Select **Choose a service** and select **Kinesis**.
+        * Tick the **Read** and **List** permissions checkboxes in the **Actions** section.
+        * Select **Resources** to limit the role to the wildrydes stream.
+        * Select **Add ARN** next to stream.
+        * Enter the region you're using in **Region** (e.g. us-east-1), your Account ID in **Account**, and wildrydes in **Stream name**.
+        * Select **Add**.
+        ![ARN](./img/streaming-data-stream-arn.png)
+        * Select **Review policy**.
+        * Enter wildrydesDashboardPolicy in **Name**.
+        * Select **Create policy**.
+    * View unicorn status on the dashboard
+        * Open the **Unicorn Dashboard**.
+        * Enter the **Cognito Identity Pool ID** you noted in step 4 and select **Start**.
+        * Validate that you can see the unicorn on the map.
+        * Click on the unicorn to see more details from the stream.
+            ![Unicorn Dashboard](./img/unicorn_dashboard.png)
+    * Experiment with the producer
+        * Stop the producer by pressing Control + C and notice the messages stop and the unicorn disappear after 30 seconds.
+        * Start the producer again and notice the messages resume and the unicorn reappear.
+        * Hit the (+) button and click **New Terminal** to open a new terminal tab.
+        * Start another instance of the producer in the new tab. Provide a specific unicorn name and notice data points for both unicorns in consumer’s output:
+        ```
+        ./producer -name Bucephalus
+        ```
+        * Check the dashboard and verify you see multiple unicorns.
+
+1. Aggregate data
+    ![Application Architecture 1](./img/application-arch2.png)
+    * Create an Amazon Kinesis stream
+        * Go to the AWS Management Console, click **Services** then select **Kinesis** under Analytics.
+        * Select **Get started** if prompted with an introductory screen.
+        * Select **Create data stream**.
+        * Enter wildrydes-summary into **Kinesis stream name** and 1 into **Number of shards**, then select **Create Kinesis stream**.
+        * Whithin 60 seconds, your Kinesis stream will be **ACTIVE** and ready to store the real-time streaming data.
+    * Create an Amazon Kinesis Data Analytics application
+        * Switch to the tab where you have your Cloud9 environment open.
+        * Run the producer to start emiting sensor data to the stream.
+        ```
+        ./producer
+        ```
+        * Go to the AWS Management Console, click **Services** then select **Kinesis** under Analytics.
+        * Select **Create analytics application**.
+        * Enter wildrydes into the **Application name** and then select **Create application.**
+        * Select **Connect streaming data**.
+        * Select wildrydes from **Kinesis stream**.
+        * Scroll down and click **Discover schema**, wait a moment, and ensure that schema was properly auto-discovered.
+        * Select **Save and continue**.
+        * Select **Go to SQL editor**.
+        * Select **Yes, start application**.
+        * Copy and pase the following SQL query into the SQL editor:
+        ```
+        CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
+            "Name"                VARCHAR(16),
+            "StatusTime"          TIMESTAMP,
+            "Distance"            SMALLINT,
+            "MinMagicPoints"      SMALLINT,
+            "MaxMagicPoints"      SMALLINT,
+            "MinHealthPoints"     SMALLINT,
+            "MaxHealthPoints"     SMALLINT
+        );
+
+        CREATE OR REPLACE PUMP "STREAM_PUMP" AS
+        INSERT INTO "DESTINATION_SQL_STREAM"
+        SELECT STREAM "Name", "ROWTIME", SUM("Distance"), MIN("MagicPoints"),
+              MAX("MagicPoints"), MIN("HealthPoints"), MAX("HealthPoints")
+              FROM "SOURCE_SQL_STREAM_001"
+              GROUP BY FLOOR("SOURCE_SQL_STREAM_001"."ROWTIME" TO MINUTE), "Name";
+        ```
+        * Select **Save and run SQL**.
+        * Click the **Console link**.
+        * Select **Connect to a destination**.
+        * Select wildrydes-summary from **Kinesis stream**.
+        * Select **DESTINATION_SQL_STREAM** from **In-application stream name**.
+        * Select **Save and continue**.
+        ![Aggregate data](./img/streaming-aggregation-schema-discovery.png)
+    * Read messages from the stream (same with Real-time Streaming Data)
+    * Experiment with the producer (same with Real-time Streaming Data)
+
+1. Process streaming data
+    ![Application Architecture 1](./img/application-arch3.png)
+    * Create an Amazon DynamoDB tables
+        * Go to the AWS Management Console, choose **Services** then select **DynamoDB** under Database.
+        * Click **Create table**.
+        * Enter UnicornSensorData for the **Table name**.
+        * Enter Name  for the **Partition key** and select **String** for the key type.
+        * Tick the **Add sort key** checkbox. Enter StatusTime for the **Sort key** and select **String** for the key type.
+        * Leave the **Use default settings** box checked and choose **Create**.
+        * Scroll to the **Table details** section of your new table's properties and note the **Amazon Resource Name (ARN)**. You will use this in the next step.
+        ![Create DynamoDB](./img/dynamodb-create.png)
+    * Create an IAM role for your Lambda function
+        * From the AWS Console, click on **Services** and then select **IAM** in the Securit, Identiy & Compliance section.
+        * Select **Policies** from the left navigation and then click **Create policy**.
+        * Using the **Visual editor**, we're going to create an IAM policy to allow our Lambda function access to the DynamoDB table created in the last section. To begin, select **Service**, begin typing DynamoDB in **Find a service**, and click **DynamoDB**.
+        * Select **Action**, begin typing BatchWriteItem in Filter actions, and tick the BatchWriteItem checkbox.
+        * Select **Resources**, select **Add ARN** in table, and construct the ARN of the DynamoDB table you created in the previous section by specifying the **Region**, **Account**, and **Table Name**.
+        * In **Region**, enter the AWS Region in which you created the DynamoDB table in the previous section, e.g.: us-east-1.
+        * In **Account**, enter your AWS Account ID which is a twelve digit number, e.g.: 123456789012. To find your AWS account ID number in the AWS Management Console, click on **Support** in the navigation bar in the upper-right, and then click **Support Center**. Your currently signed ID appears in the upper-right corner below the Support menu.
+        * In **Table Name**, enter UnicornSensorData.
+        * Select **Add**.
+        * Select **Review policy**.
+        * Enter WildRydesDynamoDBWritePolicy in the **Name** field.
+        * Select **Create policy**.
+        * Select **Roles** from the left navigation and then select **Create role**.
+        * Select **Lambda** for the role type from the **AWS service** section.
+        * Select **Next: Permissions**.
+        * Begin typing AWSLambdaKinesisExecutionRole in the **Filter** text box and check the box next to that role.
+        * Begin typing WildRydesDynamoDBWritePolicy in the **Filter** text box and check the box next to that role.
+        * Clikc **Next: Review**.
+        * Enter WildRydesStreamProcessorRole for the **Role name**.
+        * Click **Create role**.
+    * Create a Lambda function to process the stream
+        * Go to the AWS Management Console, choose **Service** then select **Lambda** under Compute.
+        * Select **Create a function**.
+        * Enter WildRydesStreamProcessor in the **Name** field.
+        * Select **Node.js 6.10** from **Runtime**.
+        * Select WildRydesStreamProcessorRole from the **Existing role** dropdown.
+        * Select **Create function**.
+        * Scroll down to the **Function code** section.
+        * Copy and paste the JavaScript code below into the code editor.
+        ```
+        'use strict';
+
+        const AWS = require('aws-sdk');
+        const dynamoDB = new AWS.DynamoDB.DocumentClient();
+        const tableName = process.env.TABLE_NAME;
+
+        exports.handler = function(event, context, callback) {
+            const requestItems = buildRequestItems(event.Records);
+            const requests = buildRequests(requestItems);
+
+            Promise.all(requests)
+            .then(() => callback(null, `Delivered ${event.Records.length} records`))
+            .catch(callback);
+        };
+
+        function buildRequestItems(records) {
+            return records.map((record) => {
+                const json = Buffer.from(record.kinesis.data, 'base64').toString('ascii');
+                const item = JSON.parse(json);
+
+                return {
+                    PutRequest: {
+                        Item: item,
+                        },
+                };
+            });
+        }
+
+        function buildRequests(requestItems) {
+            const requests = [];
+
+            while (requestItems.length > 0) {
+                const request = batchWrite(requestItems.splice(0, 25));
+
+                requests.push(request);
+            }
+
+            return requests;
+        }
+
+        function batchWrite(requestItems, attempt = 0) {
+            const params = {
+                RequestItems: {
+                    [tableName]: requestItems,
+                },
+            };
+
+            let delay = 0;
+
+            if (attempt > 0) {
+                delay = 50 * Math.pow(2, attempt);
+            }
+
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    dynamoDB.batchWrite(params).promise()
+                    .then(function(data) {
+                        if (data.UnprocessedItems.hasOwnProperty(tableName)) {
+                            return batchWrite(data.UnprocessedItems[tableName], attempt + 1);
+                        }
+                    })
+                    .then(resolve)
+                    .catch(reject);
+                }, delay);
+            });
+        }
+        ```
+        * In the **Environment variable** section, enter an environment variable with **Key** TABLE_NAME and **Value** UnicornSensorData.
+        * In the **Basic settings** section. Set the **Timeout** to **1** minute.
+        * Scroll up and select **Kinesis** from the **Designer** section
+        * In the **Configure triggers** section, select wildrydes-summary from Kinesis Stream.
+        * Leave **Batch size** set to 100 and **Starting position** set to **Latest**.
+        * Select **Enable trigger**.
+        * Select **Add**.
+        * Select **Save**.
+    * Monitor the Lambda function
+        * Run the producer to start emiting sensor data to the stream with a unicorn name.
+        ```
+        ./producer -name Rocinante
+        ```
+        * Select the **Monitor** tab and eplore the metrics available to monitor the function. Select **Jump to Logs** to explore the function's log output.
+    * Query the DynamoDB table
+        * Select **Services** then select **DynamoDB** in the Database section.
+        * Select **Tables** from the left-hand navigation.
+        * Select **UnicornSensorData**.
+        * Select the **Items** tab. Here you should see each per-minute data point for each Univorn for which you're running a producer.
+
+1. Store & query Data
+    ![Application Architecture 1](./img/application-arch4.png)
+    * Create an Amazon S3 bucket (Same as previous practice.)
+    * Create an Amazon Kinesis Data Firehose delivery stream
+        * From the AWS Management Console select **Services** then select **Kinesis** under Analytics.
+        * Select **Create delivery stream**.
+        * Enter wildrydes into **Delivery stream name**.
+        * Select **Kinesis stream** as **Source** and select wildrydes as the source stream.
+        * Select **Next**.
+        * Leave **Record transformation** and **Record format conversation** disabled and select **Next**.
+        * Select **Amazon S3** from **Desitation**.
+        * Choose the bucket you crerated in the previous section (i.e. wildrydes-data-johndoe) from **S3 bucket**.
+        * Select **Next**.
+        * Enter 60 into **Buffer interval** under **S3 Buffer** to set the frequency of S3 deliveries once per minute.
+        * Scroll down to the bottom of the page and select **Create new or Choose** from **IAM role**. In the new tab, click **Allow**.
+        * Select **Next**. Review the delivery stream details and select **Create delivery stream**.
+    * Create an Amazon Athena table
+        * Select **Services** then select **Athena** in the Analytics section.
+        * If prompted, select **Get started** and exit the first-run tutorial by hitting the x in the upper right hand corner of the modal dialog.
+        * Copy and paste the following SQL statement to create the table. Replace the **YOUR_BUCKET_NAME_HERE** placeholder with your bucket name (e.g. wildrydes-data-johndoe) in the LOCATION clause:
+        ```
+        CREATE EXTERNAL TABLE IF NOT EXISTS wildrydes (
+            Name string,
+            StatusTime timestamp,
+            Latitude float,
+            Longitude float,
+            Distance float,
+            HealthPoints int,
+            MagicPoints int
+            )
+            ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
+            LOCATION 's3://YOUR_BUCKET_NAME_HERE/';
+        ```
+        * Select **Run Query**.
+        * Verify the table wildrydes was crerated by ensuring it has been added to the list of tables in the left navigation.
+    * Explore the batched data files
+        * Select **Services** then select **S3** in the Storage section.
+        * Enter the bucket name you created in the first section in the **Search for buckets** text input.
+        * Select the bucket and navigate through the year, month, day, and hour folders to ensure that files are being populated in your bucket.
+        * Select one of the files and select **Download**. Open the file with a text editor and explore its content.
+        ```
+        ./producer -name Rocinante
+        ```
+        * Select the **Monitor** tab and explore the metrics available to monitor the function. Select **Jump to Logs** to explore the function's log output.
+    * Query the data files
+        * Select **Services** then select **Athena** in the Analytics section.
+        * Copy and paste the following SQL query:
+        ```
+        SELECT * FROM wildrydes
+        ```
+        * Select **Run Query**.
+        ![Query](./img/query.png)
+
+*Cost 120 minutes, finished on Dec 4th, 2018.*
+____
