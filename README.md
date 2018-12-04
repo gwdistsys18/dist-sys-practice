@@ -287,7 +287,34 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
  - you can also create your own docker container containing your model and access it from within sagemaker just as in example (1)
  - Basically this is everything you need to run ML and deep learning in the cloud without managing any infrastructure and having full scalability options
 #### AWS Tutorial: AWS SageMaker (60 min)
- - TODO
+ - For this tutorial I will go through the steps suggested for first time users of AWS Sagemaker found in the link provided (I think that is what you want us to do)
+ - How it works:
+  - Sagemaker is a fully maanged ML platform that provides an interface to load data, train a model, and make it accessible to other applications
+  - A Jupyter notebook environment is provided so you can preprocess your data and get it in the desired format
+  - Once you are ready to train a model, you must create a training job.  Some key elements of this will be: location of training data and where to put output, where the learning code lives (AWS provides some basic learning algorithms), and the actual compute resources to use for the job
+  - After you have trained your model, you can now create an endpoint to make it accessible to other services
+  - You do not have to do this, however.  You could simply load data from a s3 bucket and generate predictions from the AWS console.  But that is not very friendly to other services.
+  - Sagemaker also provides variuos ways to perform online and/or offline validation of your model.  You can send the unvalidated model a subset of the data and compare with the validated model output (online validation).  Or you can perform traditional k-fold cross validation on a test set left out during training.  In either case Sagemaker provides an interface to make it relatively easy.
+  - as this is a platform as a service, they rely heavily on APIs and SDKs to make it accessible to other systems and services.  
+ - Getting Started & Train & build a model:
+  - Now we actually get to do some fun stuff and make a Sagemaker based predictor
+  - You will need an AWS account and an S3 bucket
+  - Now we can create a Sagemaker Notebook instance via the Sagemaker console.  This will spin up the compute instance containing the jupyter environment and everything else needed to make our Sagemaker app
+  - NOTE: You will need to create a new IAM role that will allow Sagemaker access to your S3 bucket
+  - Once your instance is created you can open the Jupyter notebook and use it just like any other Jupyter notebook, with the added benefit of it having access to all the Sagemaker APIs and such
+  - Now, from within the Jupyter notebook, we can download the MNIST data, transform it however we want, and upload it to our S3 bucket.
+  - NOTE: AWS Sagemaker algorithms prefer data in RecordIO Protobuf format.  They provide some useful libraries to make this conversion seamless from something like a Numpy nd array.  ex:
+  ``` 
+  from sagemaker.amazon.common import write_numpy_to_dense_tensor
+  # Convert the training data into the format required by the SageMaker KMeans algorithm
+  buf = io.BytesIO()
+  write_numpy_to_dense_tensor(buf, train_set[0], train_set[1])
+  buf.seek(0)
+```
+  - You can now create a training job using one of the built-in AWS sagemaker algorithms (i.e., Kmeans)
+  - In order to deploy a model, you must first create a model, then create an endpoint configuration, and finally create an endpoint
+  - Dont forget to delete all your resources!
+  
 #### Build a Serverless Real-Time Data Processing App (2 hour)
  - TODO
  
