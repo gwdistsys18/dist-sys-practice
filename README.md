@@ -1,12 +1,12 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+Blog Post accessible at: https://bbowman410.github.io/dist-sys-practice/
 
 ## Table of Contents  
 - [Area 1 - Docker & Containers](#area-1---docker--containers)
 - [Area 2 - Big Data and Machine Learning](#area-2---big-data-and-machine-learning)
 - [Area 3 - Cloud Web Apps](#area-3---cloud-web-apps)
-
 
 ## Area 1 - Docker & Containers
 ### Beginner Courses:
