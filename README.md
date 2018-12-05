@@ -1204,7 +1204,7 @@ ____
         * <strong>Bucket name</strong>
         * Replace <strong>NUMBER</strong> with a random number
         * Copy the name of your bucket to your text editor
-        * Click <strong>Create
+        * Click <strong>Create</strong>
     * Upload the <strong>restaurants.data</strong> file into new bucket
         * Click the bucket you created
         * Click <strong>Upload</strong>
