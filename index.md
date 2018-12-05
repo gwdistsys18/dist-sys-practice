@@ -27,6 +27,37 @@ TODO sagemaker description
 First, we need a training dataset.  Now, we could use some large open source historic datasets of stock movement, but that is not very exciting.  Ideally, we want to use some data source which we can get both historical, and real time stock price data.  This way, we can train our model, and test it against real time data!
 
 For no particular reason, I chose to use the Alpha Vantage free API service (https://www.alphavantage.co/documentation/). There are many of these stock APIs available all offering different value at different price points.  If you get really into this, maybe you would want to pay for this service.  For the purposes of this tutorial, this free service will be sufficient. You will need to sign up and get an API key, and then usage is simple.  Here is an example cURL command for the Apple stock ticker data for a day TODO.
+``` curl https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=<API_KEY> ```
+
+Sample Output: 
+```
+{
+    "Meta Data": {
+        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
+        "2. Symbol": "MSFT",
+        "3. Last Refreshed": "2018-12-04",
+        "4. Output Size": "Compact",
+        "5. Time Zone": "US/Eastern"
+    },
+    "Time Series (Daily)": {
+        "2018-12-04": {
+            "1. open": "111.9400",
+            "2. high": "112.6373",
+            "3. low": "108.2115",
+            "4. close": "108.5200",
+            "5. volume": "44571989"
+        },
+        "2018-12-03": {
+            "1. open": "113.0000",
+            "2. high": "113.4200",
+            "3. low": "110.7300",
+            "4. close": "112.0900",
+            "5. volume": "34732772"
+        },
+        ...
+    }
+}
+```
 
 Now that we know we have a way to build a dataset, let's jump into Sagemaker.  As mentioned previously, Sagemaker provides a very friendly Jupyter environment where we can generate and preprocess our data directly on AWS infrastructure, rather than downloading it to our local computer first.
 
