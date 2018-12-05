@@ -1,7 +1,7 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/), visit [blog](https://1988warren.github.io/dist-sys-practice.github.io) to see all notes.
 
-## Cloud Web Apps
+## Cloud Web Apps (Round 1)
 
 ### Beginner
 - [AWS Tutorial: Launch a VM](https://1988warren.github.io/dist-sys-practice.github.io/cloud-web-apps-launch-ec2-vm/) - 45 min
@@ -20,11 +20,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Docker
 
-### Beginner
+### Beginner (Round 1)
 - [Video: Why Docker?](https://1988warren.github.io/dist-sys-practice.github.io/docker-why-docker/) - 10 min
 - [Lab: DevOps Docker Beginners Guide](https://1988warren.github.io/dist-sys-practice.github.io/docker-lab-devops-guide/) - 60 min
 
-### Intermediate
+### Intermediate (Round 2)
 - [Video: What are Containers?](https://1988warren.github.io/dist-sys-practice.github.io/docker-what-are-containers/) - 30 min
 - [Video: VMs Versus Containers](https://1988warren.github.io/dist-sys-practice.github.io/docker-vm-vs-container/) - 15 min
 - [Lab: Docker Intro](https://1988warren.github.io/dist-sys-practice.github.io/docker-lab-intro/) - 45 min
@@ -38,7 +38,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - [Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them](https://1988warren.github.io/dist-sys-practice.github.io/docker-kubernetes-on-ec2-cluster/) - 120 min
 - [AWS Tutorial: Break a Monolith Application into Microservices](https://1988warren.github.io/dist-sys-practice.github.io/docker-break-app-into-microservices/) - 180 min
 
-## Big Data
+## Big Data (Round 2)
 
 ### Beginner
 - [Video: Hadoop Intro](https://1988warren.github.io/dist-sys-practice.github.io/bigdata-hadoop-intro/) - 30 min
