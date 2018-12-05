@@ -8,13 +8,13 @@ how to deploy an app as Pod in the cluster and demonstrates
 the key feature of Kubernetes system - automatic desired state management by accidentally shutting down one worker node.
 The lab also demonstrates how to scale up/down the replicas of app using kubectl.
 
-## Official Links
+## Learning Outcomes
 
-- [Kubernetes Basics Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
-- [Install kubeadm](https://kubernetes.io/docs/setup/independent/install-kubeadm/)
-- [Create Cluster with kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
-- [Deploy Application with kubectl](https://kubernetes.io/docs/tasks/access-application-cluster/service-access-application-cluster/)
-- [Install Docker on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package)
+- How to use kubeadm to start a Docker cluster
+- Roles in cluster: Master node and Worker node
+- How to use kubectl to deploy an app
+- How to use kubectl to scale up/down replicas
+- Observe automatic desired state management achieved by K8s by shutting down a worker node
 
 ## Road Map
 
@@ -341,3 +341,11 @@ kubectl delete services example-service
 ```bash
 kubectl delete deployment hello-world
 ```
+
+## Official Links
+
+- [Kubernetes Basics Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+- [Install kubeadm](https://kubernetes.io/docs/setup/independent/install-kubeadm/)
+- [Create Cluster with kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
+- [Deploy Application with kubectl](https://kubernetes.io/docs/tasks/access-application-cluster/service-access-application-cluster/)
+- [Install Docker on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package)

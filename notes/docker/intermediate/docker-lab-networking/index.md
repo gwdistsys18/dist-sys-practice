@@ -8,9 +8,12 @@ date: "2018-10-31T22:12:03.284Z"
 Examples are shown to prove both types of networking can work properly in NAT (PAT) and
 Swarm mode. 
 
-## Official Links
+## Learning Outcomes
 
-[Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)
+- What is Docker network and how it relates to Linux network
+- What are the differences between Bridge Networking and Overlay Networking
+- How to configure them
+- How overlay networking works in Swarm mode
 
 ## Operations
 
@@ -251,3 +254,7 @@ docker kill yourcontainerid1 yourcontainerid2
 ```bash
 docker swarm leave --force
 ```
+
+## Official Links
+
+[Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)

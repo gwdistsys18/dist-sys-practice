@@ -4,12 +4,16 @@ date: "2018-10-28T22:12:03.284Z"
 ---
 
 > This lab demonstrates 3 ways of running docker containers,
-how to package a docker image using Dockerfile,
+how to package a Docker image using Dockerfile,
 and how to use "bind mount" to map a host directory inside container.
 
-## Official Links
+## Learning Outcomes
 
-[Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)
+- How to use container to run a single task
+- How to run container interactively
+- How to run container in background
+- How to package a Docker image and run a container upon it
+- How to bind mount a host directory to container
 
 
 ## Prerequisites
@@ -158,3 +162,7 @@ Then make a change to the index page, the change will take effect immediately,
 ```bash
 cp index-new.html index.html
 ```
+
+## Official Links
+
+[Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)

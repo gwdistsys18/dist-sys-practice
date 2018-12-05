@@ -5,11 +5,8 @@ date: "2018-11-04T22:12:03.284Z"
 
 > Discover more insights on Kubernetes
 
-## Official Links
+## Learning Outcomes
 
-[Kubernetes](https://kubernetes.io/)
-
-## Road Map
 - Kubernetes as a platform
 - Desired state management eliminates the need for orchestration
 - Kubernetes Components
@@ -80,3 +77,7 @@ which converts the YAML file to JSON when making API requests to Kubernetes syst
 ```bash
 kubectl create -f https://k8s.io/examples/application/deployment.yaml --record
 ```
+
+## Official Links
+
+[Kubernetes](https://kubernetes.io/)

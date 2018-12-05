@@ -8,6 +8,14 @@ date: "2018-11-07T22:12:03.284Z"
         src="//www.youtube.com/embed/jKCj4BxGTi8" frameborder="0"/>
 </div>
 
+## Learning Outcomes
+
+- What is Hadoop
+- Hadoop Characteristics
+- RDBMS vs. Hadoop
+- Big Data Processing
+- Hadoop Ecosystem Components
+
 ### What is Hadoop?
 
 Hadoop is a framework that allows distributed processing of large data sets

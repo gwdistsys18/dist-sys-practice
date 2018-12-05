@@ -5,21 +5,30 @@ date: "2018-11-06T22:12:03.284Z"
 
 > This lab introduces an architectural evolvement of a simple web service application,
 from monolith to microservice. Both architectures are containerized with Docker.
-The lab also shows the advantages in scalability of microservice, which could be easily
-achieved via changing some configurations in AWS console, even without having to shut down the application.
+The lab also shows the advantages gained in system scalability by using microservice, which could be easily
+achieved via changing some configurations in AWS console, and even without having to shut down the application.
+
+## Learning Outcomes
+
+- How to use aws-cli commands to set up host env via CloudFormation
+- How microservices work and how to deploy them as cluster in Target Groups
+- How to configure flow table entries in ALB (a software defined network)
+
+
+## Interaction Logic of Components
+
+- The Application Load Balancer (ALB) lets your service accept incoming traffic.
+- Containerized microservers work in cluster as Target Groups, and ready to handle requests.
+- ALB routes incoming requests to Target Groups based on match of path (forward or drop).
+
+## Migration of Architecture
 
 ![deploy micro](https://d1.awsstatic.com/Developer%20Marketing/containers/5786%20Monolith%20Containers_6-switching-traffic.d54c5d1d16f4e86f2a712f862988fa05aa885b22.png)
 
-- At first (1), the web service application is monolithic, which is accessible via a generic target group _api_, where ALB routes all requests to.
+- At first (1), the web service application is monolithic, which is accessible via a generic target group _api_, where ALB routes all HTTP requests to.
 - Then (2) (3) we will break the application into 3 smaller but independent services, with each one containerized. 3 new target groups are created and
 linked to the microservices, and ALB routes requests to them according to pre-defined patterns of path.
-- Finally (4), the monolithic application is shut down, and the entire application is migrated to microservice architecture.
-
-
-## Official Links
-
-[AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)
-
+- Finally (4), the monolithic application is shut down, and the entire application is migrated to microservice architecture from monolithic.
 
 ## Prerequisites
 
@@ -259,3 +268,7 @@ You should see a message 'Ready to receive requests'.
     - http://[DNS_name]/api/users
     - http://[DNS_name]/api/threads
     - http://[DNS_name]/api/posts
+
+## Official Links
+
+[AWS Tutorial: Break a Monolith Application into Microservices](https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card)

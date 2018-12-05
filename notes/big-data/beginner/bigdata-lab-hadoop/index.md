@@ -8,6 +8,11 @@ the provided script creates a Hive table, parses the log file using Regular Expr
 Serializer/Deserializer, writes parsed result to table, submits a HiveQL query to retrieve
 the total requests per OS for a given time frame, and writes the query result to S3 bucket.
 
+## Learning Outcomes
+
+- How to set up an EMR cluster
+- How to use Hive Script to process data
+
 ## Official Links
 
 [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)

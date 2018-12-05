@@ -8,8 +8,9 @@ merging source code updates from developers, conducting tests and building artif
 the shared mainline. Disasters used to happen during a code merge when a developer works
 in isolation and drifts too far from the work of others. CI offers a fail-fast mitigation by
 automating the tasks of constantly building and testing the integrated artifact, which saves Ops team
-from human efforts beyond imagination. This article will focus on a demo solution
-of setting up private CI environment.
+from human efforts beyond imagination. This article compares 2 possible CI solutions, and
+introduces how to set up a private CI environment in detail, hopefully it will help if you are trying
+to deploy CI in an enterprise environment.
 
 ## Tech Overview
 
@@ -22,40 +23,40 @@ solutions under one workflow.
 
 ![work flow](work_flow.svg)
 
-- Developers push code to version control system (Git or Github)
+- Developers push code to version control system (Git, Github, Subversion)
 - Version control system notifies CI manager (Jenkins or Travis) about the update
 - CI manager pulls the latest code, conducts unit test and builds artifact
 - If all tests are passed, the artifact will be staged for deployment, if not, dev team will be notified by email.
 
 ### Comparisons between the 2 Solution Stacks
 
+#### Use Case & Cost
 The path on the left suggests a completely private CI solution, in which all the components could be installed inside the LAN
-environment of enterprise without public accessibility, also the solution is free of software charges.
+environment of enterprise without public accessibility, also the solution is free of software licence charges.
 
-In contrast, the path on the right is more suitable for open source projects, in which anything is accessible by anyone.
-As long as you keep the project open-source, the CI solution is free of charge, however, once for private projects, the monthly cost could be 
+In contrast, the path on the right is more suitable for open source projects.
+As long as you keep your project open-source, the CI solution is free of charge, 
+however, once you turn your project into private, the monthly cost could go up to
 a few hundreds of dollars.
-
-This demo focuses on the implementation of the private CI solution on the left path, hopefully it will help if you attempt to build a similar CI system.
 
 #### Git vs. GitHub
 
 Git is a well-known open source version control system, which applies client-server architecture.
 It is possible for an enterprise to set up a private Git server to manage internal code repositories.
 
-GitHub, the largest open source code management community, builds its service on Git, and gains popularity over years.
+GitHub, perhaps the largest open source code management community for now, builds its service on Git, and gains popularity over years.
 By default, code repositories on GitHub are publicly accessible to anyone to fork, star, or even send pull requests. 
 However, if you pay $7 per month, GitHub also allows to manage private repositories for you.
 
-In order to react to version control system events, Git provides native _Git Hook_, which is a _bash_, _Python_ or _Ruby_ script that
+In order to notify about version control system events, Git provides native _Git Hook_, which is a _bash_, _Python_ or _Ruby_ script that
 could be triggered by events such as receiving a push from client. For GitHub, it provides a web service called _Webhook_, which
-is configurable on GitHub website, upon specified events, sends an HTTP POST request to the URLs you provide.
+is configurable on GitHub website, upon specified events, sends out an HTTP _POST_ request to the URLs you provide.
 
-In this demo, the _post-receive_ Git hook is used, which is written in a short _bash_ script that calls _Jenkins_ web API to trigger a build upon client pushes code to Git server.
+In this demo, the _post-receive_ Git hook is used, which is written in a short _bash_ script that calls _Jenkins_ web API to trigger a build upon client pushes code to the private Git server.
 
 #### Jenkins vs. Travis-CI
 
-Both Jenkins and Travis-CI are popular CI tools, however, they are better suited for different types
+Both Jenkins and Travis-CI are popular CI management tools, however, they are for different types
 of projects.
 
 Jenkins is a Java-based, open source software, which is supported by a massive set of plugins that
@@ -69,7 +70,7 @@ For private projects, Travis-CI has monthly charges starting from $69 to $489.
 In this demo, Jenkins is used along with a Docker build plugin. The building and testing of app code could be
 managed by Jenkins as there are quite many plugin supports. 
 Also, these SDLC processes could happen in Docker engine, directed by a Dockerfile that sits along with the app
-code, which is the case in demo.
+code.
 
 #### Registry vs. Docker Hub
 
@@ -78,15 +79,15 @@ The Registry requires Docker engine version 1.6.0 or higher, the software itself
 on Docker Hub as a Docker Image. It suits best for in-house integration of Docker image storage
 and distribution. As a result, the responsibility of configuration and maintenance falls upon
 dev team again. However, once set up, Registry stores unlimited private repositories
-free of charge.
+free of further charges.
 
 Docker Hub is the most well known alternative, also the default Docker image registry.
 It is a ready-to-go solution that requires almost zero configuration and maintenance (well, you
 still need a Docker Hub account). Docker Hub allows only 1 free private repository, if you
-intend to store more, you need to upgrade to Docker Hub Enterprise plans, which allows maximum 100 private
-repositories with monthly charge starting from $7 to $100.
+intend to have more, you need to upgrade to the Docker Hub Enterprise plan, which allows maximum 100 private
+repositories with monthly charge starting from $7 up to $100.
 
-In this demo, a private Registry container is installed on a dedicated server, which stores the artifact image
+In this demo, a private Registry container is installed on a dedicated server, which stores the artifact Docker image
 pushed by Jenkins server.
 
 ## Implementation Road Map
@@ -100,7 +101,7 @@ pushed by Jenkins server.
 
 ## Prerequisites
 
-- 3 Amazon Linux2 Machines (hosted on Amazon EC2)
+- 3 Amazon Linux2 Virtual Machines (hosted on Amazon EC2)
 
 ## Server Network Configurations
 
@@ -128,11 +129,6 @@ For any server above, update system packages before conducting other operations
 ```bash
 sudo yum -y update
 ```
-
-## Reference Links
-
-- [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-- [How To Enable Docker Remote API](https://scriptcrunch.com/enable-docker-remote-api/)
 
 ## Operations
 
@@ -510,3 +506,8 @@ curl ec2-18-206-231-25.compute-1.amazonaws.com:5000/v2/demo/tags/list
 
 {"name":"demo","tags":["v15","v16"]}
 ```
+
+## Reference Links
+
+- [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+- [How To Enable Docker Remote API](https://scriptcrunch.com/enable-docker-remote-api/)

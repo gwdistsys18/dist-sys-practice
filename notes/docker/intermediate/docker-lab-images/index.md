@@ -6,9 +6,13 @@ date: "2018-10-29T22:12:03.284Z"
 > This lab works on 2 ways of creating a docker image, namely, from binary files of container or from Dockerfile.
 The advantages of using Dockerfile and how Dockerfile relates to image layers are both discussed.
 
-## Official Links
+## Learning Outcomes
 
-[Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)
+- How to create a Docker image from a container binary
+- How to create a Docker image from a Dockerfile
+- Advantages of using Dockerfile
+- What are Docker image layers, how they relate to a Dockerfile
+
 
 ## Operations
 
@@ -137,3 +141,7 @@ For the custom image,
 ```bash
 docker image inspect --format "{{ json .RootFS.Layers }}" <image ID>
 ```
+
+## Official Links
+
+[Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)

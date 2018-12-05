@@ -8,9 +8,11 @@ work as a stack. The stack exposes its functional components as services, each s
 could be distributed to multiple worker nodes as task replicas (one container per replica). 
 At last, we see how to dynamically scale up the task replicas of a service.
 
-## Official Links
+## Learning Outcomes
 
-[Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/)
+- What is a Docker stack
+- How to use Swarm to orchestrate multiple containers to form services and work as a stack
+- How to dynamically scale up the task replicas of a service in Swarm
 
 ## Operations
 
@@ -85,3 +87,7 @@ docker service scale voting_stack_vote=5
 ```
 
 ![visualizer scaled](visualizer-scaled.png)
+
+## Official Links
+
+[Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/)
