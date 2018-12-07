@@ -316,9 +316,25 @@ Blog Post accessible at: https://bbowman410.github.io/dist-sys-practice/
   - Dont forget to delete all your resources!
   
 #### Build a Serverless Real-Time Data Processing App (2 hour)
- - TODO
+ - In this tutorial we will use:
+  - AWS Lambda to process real-time streams
+  - Amazon DynamoDB to persist records in a NoSQL database
+  - Amazon Kinesis Data Analytics to aggregate data
+  - Amazon Kinesis Data Firehose to archive the raw data to Amazon S3
+  - Amazon Athena to run ad-hoc queries against the raw data
+ - We will use AWS Cloud 9 which is an IDE that runs in the browser and will have access to all AWS resources we need.  Basically its an AWS service for writing code for AWS services (genius)
+ - We use Amazon Kinesis for creating data streams this is a place where we can stream data to, and pull data from
+ - We can use an Amazon Kinesis Analytic Application to perform analytics on a stream.  We can then use another Amazon Kinesis stream as the output for that analytic.  So, we will have 1 data stream with all the data, 1 analytic processing data on that stream every time_interval, and one analytic stream which is the streaming output of the analytic
+ - The analytic application has an auto-schema detection (pretty nice) so it can automatically determine your data if it is formatted in some standard way (like JSON).
+ - Analytics support standard SQL style queries
+ - We can also use AWS lambda to process data from our Kinesis streams
+ - We can write a simple NodeJS app which will get triggered whenever a new row populates our Kinesis stream
+ - We can do something like make the NodeJS app write to a DynamoDB.  Now we have streaming data getting getting analyzed by our analytic, then triggering our Lambda function, which then populates it into persistent storage.  Pretty cool.
+ - An alternative way to store and process our data is to create a (cleverly named) data firehose which, just as it sounds, will blast out the streaming data to S3 in batches
+ - We can also use Amazon Athena to query data in place in S3
+ - So this represents two ways to process and store streaming data.  It all starts with a Kinesis data stream.  This stream can then be analyzed by analytics directly.  We can create a Lambda function to periodically move our streaming data into a persistent storage (i.e., DynamoDB).  Alternatively, we could use the Firehose to batch write data to S3.  Then, we can use Athena to process and query the data directly in S3
+ - remember to clean up!  Don't want to spend another $40...
  
-#### TODO Dont forget to do the blogpost write-up
 ## Area 3 - Cloud Web Apps
 ### Beginner Courses
 #### AWS Tutorial: Launch a VM (20 min)
