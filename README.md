@@ -69,6 +69,7 @@ Can store as much of the data and decide to use it later.
     	Based on the map and reduce programming model Commonly used
     	An extensive and mature fault tolerance framework
     * Spark:
+    Instead of storage data, Spark optimizes dealing with consistent data stream.
     An open-source cluster computing framework
     Provides 100 times faster performance as compared to MapReduce
     Support Machine learning, Business intelligence, Streaming, and 
