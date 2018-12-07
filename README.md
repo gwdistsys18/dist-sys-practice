@@ -439,7 +439,7 @@ aws cloudformation deploy \
 
 **Break the Monolith into micro service**
 
-Why Microservices?**
+**Why Microservices?**
 
 * Isolation of Crashes
 
@@ -500,7 +500,7 @@ In this lab, I know that Amazon EMR not only can support powerful Hadoop tools, 
 
 ### Intermediate Level
 
-*Data Storage part:
+*Data Storage part*:
 
 [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
@@ -537,6 +537,49 @@ Bucket policy can be used to control access to a whole bucket or to specific dir
 We can use versioning to preserve, retrieve, and restore every version of every object stored in Amazon S3 Bucket.
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%2023.27.06.png?raw=true)
+
+****
+
+[QwikLab: Intro to Amazon Redshift ](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
+
+Time: 45min
+
+Task1: Launch an Amazon Redshift Cluster.
+
+The node type determines the CPU, RAM, storage capacity, and sorage drive type for each node. The role grants permission for Amazon Redshift to read data from Amazon S3.
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%2022.40.42.png?raw=true)
+
+Task2: Launch Pgweb to Communicate with your Redshift Cluster
+
+Amazon Redshift can be used via industry-standard SQL. Pgweb can provide a friendly interface to Redshift. 
+
+Task3: Create a Table 
+Create a table in Redshift through executing SQL commands. 
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%2022.57.14.png?raw=true)
+
+Task4: Load Smaple Data from Amazon S3
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%2023.08.17.png?raw=true)
+
+Task5: Query Data
+Query the data using SQL select statements and queries.
+
+Challenge: write a query for these requirements.
+
+```
+SELECT firstname, lastname
+FROM users
+WHERE liketheatre AND likeclassical AND lastname = 'Smith';
+```
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%2023.09.34.png?raw=true)
+
+Amazon Redshift handles large scale data sets and database migrations.Redshift differs from Amazon's other hosted database offering, Amazon RDS, in its ability to handle analytic workloads on big data data sets stored by a column-oriented DBMS principle.
+
+****
+
+
 
 
 
