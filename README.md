@@ -579,6 +579,42 @@ Amazon Redshift handles large scale data sets and database migrations.Redshift d
 
 ****
 
+*Big Data Analytics part*:
+
+[Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
+
+Time: 10min
+
+There are three layers of the machine learning stack in AWS. Experts who are comfortable building and training their own machine learning models can take advantage of AWS’s Framework & Interfaces layer. Developers and data scientists can leverage AWS’s ML Platforms layer using Amazon SageMaker to build, train, and deploy machine learning models without having specialized expertise in ML or having to think about the infrastructure like you would at the Framework & Interface layer. Developers who want to make calls to APIs to add machine learning services to their applications without building and training their own models can take advantage of the Application Services layer. Simply call APIs to perform image processing, voice recognition, video processing, speech synthesis, or other machine learning services.
+
+[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+
+Time: 60min
+
+From this project lab, I learnt that with EMR File System (EMRFS), Amazon EMR gives Hadoop the ability to directly access data stored in Amazon S3, just like when using an HDFS file system. In a cluster, I can use HDFS or Amazon S3 as a file system. Amazon S3 is most commonly used to store input and output data and intermediate results stored in HDFS. 
+
+Hadoop MapReduce is an open source programming model for distributed computing. The Map function maps data to a series of key-value pairs called intermediate results. The Reduce function summarizes these intermediate results, applies other calculations, and produces the final output. There are several frameworks available for MapReduce, such as Hive that automatically generate Map and Reduce programs.
+
+Here are some details to note when we launch a cluster using the Quick cluster configuration page in the Amazon EMR console.
+
+* Logging can only be enabled when we create the cluster and the setting can't be changed later. 
+
+* Some Amazon EMR features and applications may not be available when using earlier Amazon EMR release versions, so recommend to use the latest release version whenever possible.
+
+* Terminate the Cluster and Delete the Bucket are important. 
+
+Traditional big data solutions are not desirable when the amount of data rises above the processor's processing limit. Hadoop uses MapReduce algorithm to run programs, and data is placed in parallel processing on different CPU nodes. In short, Hadoop can run programs on computer clusters, which can realize complex statistical analysis of huge data.
+
+****
+
+
+
+
+
+
+
+
+
 
 
 
