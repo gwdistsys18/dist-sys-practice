@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Hugo LAMP</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://sebastian2696.github.io/dist-sys-practice/post/</link>
     <description>Recent content in Posts on Hugo LAMP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 May 2018 14:09:24 +0700</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sebastian2696.github.io/dist-sys-practice/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cover Post Example</title>
-      <link>http://localhost:1313/post/cover-example/</link>
+      <link>https://sebastian2696.github.io/dist-sys-practice/post/cover-example/</link>
       <pubDate>Mon, 28 May 2018 14:09:24 +0700</pubDate>
       
-      <guid>http://localhost:1313/post/cover-example/</guid>
+      <guid>https://sebastian2696.github.io/dist-sys-practice/post/cover-example/</guid>
       <description>Cover post example Cover post example</description>
     </item>
     
