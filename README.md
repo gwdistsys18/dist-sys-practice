@@ -476,6 +476,36 @@ Deploy Monolith application and break it into microservices shows how Docker ima
 
 ****
 
+## Big Data and Machine Learning
+
+### Beginner Level
+
+****
+
+[Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
+
+Time: 20min
+
+Challenges of Distributed Systems that Hadoop can solve include high chances of system failure, limit on bandwidth and high programming complexity. Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models. The four key characteristics of Hadoop are economical, reliable, scalable and flexible. There are 12 components of the Hadoop ecosystem and each part has its own role. And there are four stages of  big data processing. They are ingest processing analyze and access.
+
+****
+
+[QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/home?locale=en)
+
+Time: 50min
+
+In this lab, I know that Amazon EMR not only can support powerful Hadoop tools, but also can manage service effictively to run Apache Hadoop and Spark to process massive data. During deploying a fully functional Hadoop cluster by lauching an Amazon EMR cluster, I learnt that HiveQL is a SQL-like scipting language for data warehousing and analysis. And I find that the advantage of hive is that the learning cost is low, and the simple MapReduce statistics can be quickly realized by the SQL-like statement. It is not necessary to develop a dedicated MapReduce application, which is very suitable for statistical analysis of the data warehouse.
+
+****
+
+### Intermediate Level
+
+
+
+
+
+****
+
 ## Cloud Web Applications
 
 ### Beginner Level
