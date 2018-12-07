@@ -882,6 +882,11 @@ docker container run alpine ls -l
 *Cost 60 minutes, finished on Nov 12th, 2018.*
 ____
 
+#### What I Learned
+* The basic concept of Docker including images, containers, client and so on.
+* How to create and run docker container and image.
+____
+
 ## [Big Data and Machine Learning](https://gwdistsys18.github.io/learn/bigdata/)
 ### Beginner Level
 #### [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
@@ -960,6 +965,15 @@ ____
         * Writes the query results to your Amazon S3 output bucket.
 
 *Cost 60 minutes, finished on Nov 13th, 2018.*
+____
+
+#### What I Learned
+* The concepts and characteristics of Hadoop.
+* Hadoop Ecosystem.
+* Amazon EMR introduction.
+* How to launch an Amazon EMR cluster.
+* Amazon CloudFront Introduction.
+* How to process data by running a Hive Script.
 ____
 
 ### Intermediate Level
@@ -1811,4 +1825,31 @@ ____
         ![Query](./img/query.png)
 
 *Cost 120 minutes, finished on Dec 4th, 2018.*
+____
+
+#### What I Learned
+* Introduction to Amazon Redshift
+* How to launch an Amazon Redshift Cluster
+* How to launch a Pgweb to communicate with Redshift Cluster
+* The Three Layer of Amazon Machine Learning
+* Introduction to Amazon EMR
+* The Benefits of Amazon EMR
+* The Architecture of Amazon EMR
+* How to launch an Amazon EMR Cluster
+* SSH Connections to the Amazon EMR Cluster
+* Introduction to Amazon EMR Notebook
+* How to create Clusters for Notebooks
+* Security of Amazon EMR Notebook
+* How to create Datasource for Amazon Machine Learning
+* How to create to test Machine Learning Model from Datasource
+* How to generate Predictions from Machine Learning Model
+* Introduction of Amazon SageMaker
+* The Workflow of Amazon SageMaker for creating Machine Learning Model
+* How to train a Model with Amazon SageMaker
+* Incremental Training in Amazon SageMaker
+* Monitor and Analyze Training Jobs Using Metrics
+* How to deploy Model
+* How to validate Machine Learning Model
+* The Amazon SageMaker Programming Model
+* How to build a Serverless Real-Time Data Processing App on AWS
 ____
