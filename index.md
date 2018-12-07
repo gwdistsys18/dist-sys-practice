@@ -16,11 +16,23 @@ Stocks.  What are stocks?  Well, they are probably the easiest way to build weal
 But - stock values fluctuate sometimes WILDLY from day-to-day, hour-to-hour, even second-to-second.  And these flucations aren't due to the second-to-second performance of the employees at Apple.  No, they are the result of many variables from news articles to tweets to celestial phenomena.  That being said, because of these flucations in value, there is always money to be made.  If we knew with relatively high probability that in 30 minutes, the stock price would be 1 cent higher then it is currently, you could make lots of money.
 
 ## Machine Learning
-Machine Learning.  What is machine learning?  Well, it's magic.  Atleast for the purposes of this article.  Writing machine learning algorithms, training, testing, can all be a daunting task.  Luckily, Amazon came to the rescue with their platform AWS Sagemaker.  Sagemaker is a ML platform built inside AWS that allows for quick and easy generation of ML models.
+Machine Learning.  What is machine learning?  Well, it's magic.  Atleast for the purposes of this article.  Writing machine learning algorithms, training, testing, can all be a daunting task.  Luckily, Amazon came to the rescue with their platform AWS Sagemaker.  Sagemaker is a ML platform built inside AWS that allows for quick and easy generation of ML models. In order to use Sagemaker, you basically need to know a little big about how to use AWS, and a little bit about machine learning.
+
+For the machine learning part, you need to know that there are three main components:
+1.  Labled Training Data
+2.  Model Training
+3.  Model Evaluation
+
+All machine learning models require some type of data to learn from.  To make an analogy, imagine our ML algorithm is a baby slowly learning the way of the world.  In order for the baby to learn how to do something, like, for instance, talk, we need to provide them with training data.  Training data, in this example, would take the form of spoken language as heard by the baby, and the label would take the form of the outcome of that language.  In this way, a child may learn that key words, such as "Dad", or "Mom", or "food", may have very specific outcomes.
+
+Well, machine learning is really no different.  We provide algorithms with a bunch of training data (in our case here, it will be historical stock price data).  We tell it what happened with that data (in our case here, we will know weather or not the price went UP or DOWN).  And then we will train the model, the magic will happen, and it will then be able to tell us stuff.
 
 ## AWS Sagemaker
 
-TODO sagemaker description
+Sagemaker is a fully managed Machine Learning platform-as-a-service.  It is basically a fancy GUI on top of some APIs that allow one to perform the core machine learning logic mentioned previously.  Here is a nice figure provided by Amazon showing exactly what Sagemaker provides.
+<TODO put in figure from "what is sagemaker" page>
+
+So, we see that AWS handles the full ML lifecycle for us, from providing in an interface to generate our training data, to training, and to final deployment and evaluation.  So, since Sagemaker provides everything for us, there is really not much setup to do before jumping into the Sagemaker console.
 
 # Dataset
 
