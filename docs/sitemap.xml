@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://localhost:1313/amp/getting-started/</loc>
+    <lastmod>2018-05-31T07:11:59+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/cover-example/</loc>
+    <lastmod>2018-05-28T14:09:24+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/hugo/getting-started/</loc>
+    <lastmod>2018-05-28T13:22:14+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/amp/</loc>
+    <lastmod>2018-05-31T07:11:59+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/amp/</loc>
+    <lastmod>2018-05-31T07:11:59+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/hugo/</loc>
+    <lastmod>2018-05-28T13:22:14+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2018-05-31T07:11:59+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/hugo/</loc>
+    <lastmod>2018-05-28T13:22:14+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2018-05-28T14:09:24+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2018-05-31T07:11:59+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/theme/</loc>
+    <lastmod>2018-05-31T07:11:59+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
