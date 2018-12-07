@@ -4,7 +4,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 Name: Qi Bao <br>
 Github Name: [C91CBQ](https://github.com/C91CBQ)
 
-Round 2 Blog Link: https://c91cbq.blogspot.com/2018/12/introduction-to-mapreduce.html
+Round 2 Blog: [Introduction to MapReduce](https://c91cbq.blogspot.com/2018/12/introduction-to-mapreduce.html)
 
 ## Check List
 ##### Docker and Containers
