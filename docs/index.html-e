@@ -27,7 +27,7 @@
   <meta name="twitter:site" content="@twitter_username" />
   <meta name="twitter:title" content="Hugo Blog Title (SEO Version)" />
   <meta name="twitter:description" content="A light responsive Hugo AMP theme for blogger" />
-  <meta name="twitter:image" content="https://sebastian2696.github.io/dist-sys-practice/img/avatar.jpg" />
+  <meta name="twitter:image" content="https://sebastian2696.github.io/img/avatar.jpg" />
 
 
 
@@ -50,9 +50,9 @@
 <meta name="msvalidate.01" content="bing_site_verification_code" />
 
 
-<link rel="icon" href="/dist-sys-practice/img/favicon.ico" />
+<link rel="icon" href="/img/favicon.ico" />
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" sizes="120x120" href="/dist-sys-practice/img/avatar.jpg">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
 
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
@@ -83,7 +83,7 @@
     width="128px"
     height="128px"
     class="logo"
-    src="/dist-sys-practice/img/avatar.jpg"
+    src="dist-sys-practice/img/avatar.jpg"
     sizes="(max-width: 800px) 36px, 128px">
   </amp-img>
   
