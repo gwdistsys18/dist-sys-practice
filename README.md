@@ -740,4 +740,4 @@ Ingest -> Processing -> Analyze -> Access
 ![haddop_workflow](hadoop_workflow.png)
 
 
-## [Blogpost](sebastian2696.github.io/dist-sys-practice)
+## [Blogpost](https://sebastian2696.github.io/dist-sys-practice)
