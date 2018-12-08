@@ -213,3 +213,30 @@ CMD ["node","index.js"]
 #### 3.5 [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
 
 ### 4. Networking and Orchestration
+#### 4.1 [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)
++ We can inspect the container information using the command like 
+> 1. ```docker info```
+> 2. ```docker network ls ```
+> 3. ```docker network inspect bridge```
+> 4. ```docker network```
++ We have to have the Linux bridge installed. Use ```brctl show ``` and ```ip a ``` to list the details of the bridges on Docker host and view details of a specific bridge.
++ Then create a new container using ```docker run -dt sleep infinity``` and keep it running in the background.
++ The bridge we created before will be added to the bridge network since no ```docker run``` has been called.
++ We can get the ip address of the container using the command ```docker network inspect bridge```. Then we can test the connectivity by ping the ip address of the container. Success! ![network_test](/src/network_test.png)
++ We can also test whether the container are connect to the outside world after we run a shell in the container. We can use ```docker ps``` to get container ID and use ```docker exec -it <container ID> /ID/bash```. ![ping_github](/src/ping_github.png)
++ To configure NAT for external connectivity, we need to start a new container based on NGINX image. And make sure it maps port 8080 on all container ins running inside the `web1` container 
++ I have initialized a new Swarm and make two nodes part of it using command ```docker swarm init --advertise-addr $(hostname -i)``` and the ```docker swarm join ...``` command which the former command generates. ![swarm](/src/swarm.png)
++ After got the Swarm working, we can create a new overlay network using ```docker network create -d overlay <name>```
++ Then create a service using ```docker service create --name <name> --network <network name> --replicate 2 ubuntu sleep infinity```. As we create two replicates, we will see two service running on two nodes. ![service](service.png)
++ We can open a shell in the container 1 to ping container 2 to see the connectivity. [ping_2](/src/ping_2.png)
++ We can also test the connectivity between containers and the service we have created. [ping_3](/src/ping_3.png)
+
+#### 4.2 [Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/)
+
+#### 4.3 [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)
+
+#### 4.4 [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)
+
+#### 4.5 [Kubernetes](https://kubernetes.io/)
+
+#### 4.6 install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them
