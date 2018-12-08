@@ -22,7 +22,20 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [AWS Tutorial: Build a Serverless Web Application](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Build-a-Serverless-Web-Application)  
 		- [AWS Tutorial: Build a Modern Web Application](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Build-a-Modern-Web-Application)  
 		
-
+- [Big Data and Machine Learning](https://github.com/JackTedo/dist-sys-practice/#Big-Data-and-Machine-Learning)  
+	- [Beginner Level: Big Data and Machine Learning](https://github.com/JackTedo/dist-sys-practice/#Beginner-Level-Big-Data-and-Machine-Learning)
+		- [Video: Hadoop Intro](https://github.com/JackTedo/dist-sys-practice/#Video-Hadoop-Intro)  
+		- [QwikLab: Analyze Big Data with Hadoop](https://github.com/JackTedo/dist-sys-practice/#QwikLab-Analyze-Big-Data-with-Hadoop)  
+	- [Intermediate Level](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Big-Data-and-Machine-Learning)  
+		- [QwikLab: Intro to S3](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-S3)  
+		- [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Install-a-LAMP-Web-Server-on-Amazon-Linux-2)  
+		- [S3 versus an EC2 VM](https://github.com/JackTedo/dist-sys-practice#S3-versus-an-EC2-VM)  
+		- [QwikLab: Intro to DynamoDB](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-DynamoDB)  
+		- [AWS Tutorial: Deploy a Scalable Node.js Web App](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Deploy-a-Scalable-Nodejs-Web-App)  
+		- [QwikLab: Intro to AWS Lambda ](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-AWS-Lambda)  
+		- [QwikLab: Intro to Amazon API Gateway](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-Amazon-API-Gateway)  
+		- [AWS Tutorial: Build a Serverless Web Application](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Build-a-Serverless-Web-Application)  
+		- [AWS Tutorial: Build a Modern Web Application](https://github.com/JackTedo/dist-sys-practice#AWS-Tutorial-Build-a-Modern-Web-Application)  
 
 
 ## Docker Container
