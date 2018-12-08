@@ -692,3 +692,49 @@ In this module, we use AWS Lambda function to tract some statistics. In addition
 
 Learned how to use the SAM cli with the CloudFormation as well as the
 API endpoint it creates.
+
+## Big DAta and Machine Learning
+
+[Video: Hadoop Intro](https:/youtu.be/jKCj4BxGTi8)
+
+Before the 00's data was small and when it grew, we used more powerfull
+processors to process them. 
+But since then, data has grow at a ridiculous space. According to IBM,
+2.5 Exobytes of data are produced everyday. We use Distributive Systems
+to solve this issue. Hadoop is a framework that allows for distributed
+processing of large datasets across clusters of commodity computers
+using simple programming models.
+
+It has 4 characteristics:
+- Economical: Doesn't require high performance computers
+- Reliable Multiple copies of data
+- Scalable: Horizontal / Vertical 
+- Flexible Can store a lot
+
+Traditionally : Retalional Database Management System (RDBMS) to Hadoop
+File System (HDFS)
+
+![components](hadoop_components.png)
+
+Components:
+
+- HDFS: Hadoop file system
+- HBASE: NoSQL DB that back HDFS
+- SQOOP: Import data from Relational DB to HDFS and vice-versa
+- Flume: A distributive system service for ingesting streaming data
+- Spark: Cluster framework -> process data in HDFS ( x100 faster than
+    Map-Reduce)
+- Map-Reduce: Framework -> Map and Reduce programming model that is very
+    fault tolerant
+- Pig Analytics: Creates Map-Reduce code that allows for Ad-hoc queries
+- Impala Analytics: SQL Engine
+- Hive Analytics: similar to Impala, best for data processing
+- Cloudera: Easy-use front end searcher
+- OOzie: Coordinates Hadoop jobs and woreflows
+- HUE: Hadoop User Experience
+
+Workflow:
+
+Ingest -> Processing -> Analyze -> Access
+
+![haddop_workflow](hadoop_workflow.png)
