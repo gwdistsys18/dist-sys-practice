@@ -607,6 +607,32 @@ Traditional big data solutions are not desirable when the amount of data rises a
 
 ****
 
+[QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)
+
+Time: 60min
+
+![]()
+
+From this lab, I find I can create multiple models from a single datasource, which is useful when evaluating whether the parameters used to create one model perform better or worse than the parameters used to create a second model. Evaluating the performance of a model is a key step in the process, and it is not uncommon to iterate over several models before landing on the one that generate the most accurate predictions.
+
+![]()
+
+There is a critical step to evaluate the model. The datasource used to create the model is actually split into two different data sets. The first, which consists of 70% of the data, is used to train the model. The second, which consists of 30% of the data, is used to evaluate the model.
+
+![]()
+
+While it might seem counterintuitive, you actually do not want to see the model correctly predict the target values 100% of the time. This is because it could be a sign that the model is over-fitted, which means that instead of generalizin, the model is just memorizing the dataset used to train it.
+
+![]()
+
+At task 5, I know that there are two ways to generate predictions from an ML model: batch mode and real-time mode. In batch mode, I can define a new datasource consisting of the obervations for which you want to generate predictions. And the second way to generate predictions is in real-time. This is the approach as the predictions I want to generate are based on information being submitted through the web application. To do this we must enable real-time predictions for our model.
+
+
+
+
+
+
+
 
 
 
