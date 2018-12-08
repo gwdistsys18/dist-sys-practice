@@ -139,3 +139,23 @@ iOS        794
 + Every time I use ```docker run``` to start a container, it is a separate container. Each container has a separate file system and runs in a different namespace. And by default there is no way for a container to communicate with another container.
 + I can use ```docker container start <container ID>``` to start the container again. And then I can see the hello.txt file I have created. 
 ![docker](/src/docker.png)
+
+### 3. Container
+#### 3.1 [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)
+
+#### 3.2 [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)
+
+#### 3.3 [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)
++ After cloned the Github repo, I have run several simple Docker containers: ![task 1.1](/src/task_1.1.png) After the ```hostname``` is executed, the container stops. However, Docker will not reclaim the resources by default. As a result, we can see the container is still exists in the ```Exited``` state. ![task 1.2](/src/task_1.2.png)
++ I have tried to run a Ubuntu container use the command ``` docker container run --interactive --tty --rm ubuntu bash``` 
+> a). ```--interactive``` -> starts an interactive section.
+> b). ```--tty```         -> allocates a pseudo-tty.
+> c). ```--rm```          -> remove the container after it's done executing.
++ The result would be like: ![task_ubuntu](/src/task_ubuntu.png)
+
+
+#### 3.4 [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)
+
+#### 3.5 [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
+
+### 4. Networking and Orchestration
