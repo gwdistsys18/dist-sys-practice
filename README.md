@@ -693,7 +693,7 @@ In this module, we use AWS Lambda function to tract some statistics. In addition
 Learned how to use the SAM cli with the CloudFormation as well as the
 API endpoint it creates.
 
-## Big DAta and Machine Learning
+## Big Data and Machine Learning
 
 [Video: Hadoop Intro](https:/youtu.be/jKCj4BxGTi8)
 
@@ -738,3 +738,6 @@ Workflow:
 Ingest -> Processing -> Analyze -> Access
 
 ![haddop_workflow](hadoop_workflow.png)
+
+
+## [Blogpost](sebastian2696.github.io/dist-sys-practice)
