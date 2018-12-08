@@ -637,23 +637,25 @@ Time: 30min
 
 Step 1: Prepare Your Data. At this step, I find getting the data and ensuring that the data has the correct format is the first step in machine learning.
 
-Step 2: Create a training datasource. In order to create a datasource, what we need to provide are The Amazon S3 location of your data and permission to access the data; the schema, which includes the names of the attributes in the data and the type of each attribute (Numeric, Text, Categorical, or Binary) and the name of the attribute that contains the answer that you want Amazon ML to learn to predict, the target attribute.
+Step 2: Create a training datasource. In order to create a datasource, what we need to provide are the Amazon S3 location of your data and permission to access the data; the schema, which includes the names of the attributes in the data and the type of each attribute and the name of the attribute that contains the answer that you want Amazon ML to learn to predict, the target attribute.
 
 Here, a new concept has emerged, schema. A schema is the information Amazon ML needs to interpret the input data for an ML model, including attribute names and their assigned data types, and the names of special attributes.
 
 Step 3: Create an ML Model. Amazon almost do everything for us...
 
-Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold. It is not difficult to see that this step is very necessary. We need to see if the model is sufficient for use. Amazon ML calculates an industry-standard quality metric called the area under the curve (AUC) metric that represents the performance quality of the ML model. Amazon ML also parses AUC metrics to let you know if the quality of ML models is sufficient for most machine learning applications. Amazon ML gives us the conditions to optimize model prediction performance.
+Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold. It is not difficult to see that this step is very necessary. We need to see if the model is sufficient for use. Amazon ML calculates an industry-standard quality metric called the area under the curve metric that represents the performance quality of the ML model. Amazon ML also parses AUC metrics to let you know if the quality of ML models is sufficient for most machine learning applications. Amazon ML gives us the conditions to optimize model prediction performance.
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-08%2001.44.39.png?raw=true)
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-08%2001.46.23.png?raw=true)
 
-Step 5: Use the ML Model to Generate Predictions. In this lab, the price of the batch prediction is about 1 dollar per 10,000 predictions.
+Step 5: Use the ML Model to Generate Predictions. Use batch predictions for applications that require predictions for set of observations or predictions that don't use results interactively. In this lab, the price of the batch prediction is about 1 dollar per 10,000 predictions.
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-08%2002.04.56.png?raw=true)
 
-Step 6: Clean Up. To avoid accruing additional Amazon Simple Storage Service (Amazon S3) charges, delete the data stored in Amazon S3. You are not charged for other unused Amazon ML resources, but we recommend that you delete them to keep your workspace clean.
+Step 6: Clean Up. To avoid accruing additional Amazon Simple Storage Service charges, delete the data stored in Amazon S3. 
+
+****
 
 
 
