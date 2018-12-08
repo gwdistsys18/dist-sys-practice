@@ -74,4 +74,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * S3 stands for Simple Storage Service, which provides online storage
 * User can manage the permission on each object, or change the permission of the entire bucket by editing the bucket policy
 * S3 can store different version of each object by enabling versioning
+3. Video: Virtualization
+4. AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2
+* Setting up Apache Httpd + mariaDB + php on the server
+* Use the phpMyAdmin to manage the database
+* For addtional security, we can configure the SSL/TLS for the web server
+The tutorial goes through the steps to set up a web server on EC2. Besides the installation of required softwares, setting up the proper permission is also important. For example, to allow traffic enter the EC2 instance, we need to add a security rule for incoming traffic. It is important not to change the existing rule for SSH, otherwise it will block the attempt to SSH into the instance.
 
