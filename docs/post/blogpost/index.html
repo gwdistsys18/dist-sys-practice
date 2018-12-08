@@ -155,14 +155,14 @@ There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among other
 
 <p>A container is a software that packages software and code with all of it&rsquo;s dependencies. This allows an application to run from one environment to another seemlessly. Popularized in 2013, a Docker container image is lighter than a VM, is standalone and can execute everything you need to run an application: code, runtime, system tools, system libraries and settings.</p>
 
-<p><img src="dist-sys-practice/dist-sys-practice/img/docker_container.png" alt="Docker Container" /></p>
+<p><img src="/dist-sys-practice/img/docker_container.png" alt="Docker Container" /></p>
 
 <p>There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among others), but in this entry we will mostly focus on Docker&rsquo;s version. Dockers is developed primarly for Linux. This is due to the fact that Linux provides very powerfull resource isolation that do not involved a full hypervisor. It leverages the use of tools such as cgroups, kernel namespaces and a union-capable file system (OverlayFS), these are mostly provided by the Linux Kernel.
 The isolation comes from the kernel namespace, allowing for isolation of an application view of the operating environment (Process trees, network, user ID&rsquo;s and mounted file systems) and through the use of cgroups, this limits the amount of memory usage as well as CPU, essentially isolating multiple userspace instances. What you need to know is that it limits, accounts and isolates resources.</p>
 
 <p>Key word in this explanation is Kernel. Is other words you can create as many conrainers as you desire as long as they share the same kernel. This allows us to have a container running different distributions of Linux and seamlessly work with each other. this means that a Ubuntu instance, a Fedora instance and Mint instance can run together. Recently Microsoft allowed the usage of Docker Windows containers, this in theory allows the usage of Windows with Linux instances. But in reality, the OS will launch a fully fledged Windows Image in a Virtual Machine (Hyper-V or Oracle&rsquo;s VitualBox).</p>
 
-<p><img src="dist-sys-practice/dist-sys-practice/img/docker_windows.png" alt="Docker Windows" /></p>
+<p><img src="/dist-sys-practice/img/docker_windows.png" alt="Docker Windows" /></p>
 
 <h2 id="virtual-machines-vs-containers">Virtual Machines Vs Containers</h2>
 
@@ -173,7 +173,7 @@ A Container virtualizs the operating system, specifically the Kernel, instead of
 The main reason lies in that containers use regular system call and not a hypercall or such.
 The beauty lies in the fact that you can combine both concepts and have a very flexible application that is modular and performant. This is what cloud services use to provide container usage (AWS, Azure, IBM Cloud).</p>
 
-<p><img src="dist-sys-practice/dist-sys-practice/img/vmandcontainers.png" alt="VmandContainers" /></p>
+<p><img src="/dist-sys-practice/img/vmandcontainers.png" alt="VmandContainers" /></p>
 
 <h1 id="docker-container-componenets">Docker container componenets</h1>
 
