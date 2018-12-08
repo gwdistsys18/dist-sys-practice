@@ -148,9 +148,9 @@ iOS        794
 #### 3.3 [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)
 + After cloned the Github repo, I have run several simple Docker containers: ![task 1.1](/src/task_1.1.png) After the ```hostname``` is executed, the container stops. However, Docker will not reclaim the resources by default. As a result, we can see the container is still exists in the ```Exited``` state. ![task 1.2](/src/task_1.2.png)
 + I have tried to run a Ubuntu container use the command ``` docker container run --interactive --tty --rm ubuntu bash``` 
-> a). ```--interactive``` -> starts an interactive section.
-> b). ```--tty```         -> allocates a pseudo-tty.
-> c). ```--rm```          -> remove the container after it's done executing.
+> 1. ```--interactive``` -> starts an interactive section.
+> 2. ```--tty```         -> allocates a pseudo-tty.
+> 3. ```--rm```          -> remove the container after it's done executing.
 + The result would be like: ![task_ubuntu](/src/task_ubuntu.png)
 
 
