@@ -97,6 +97,26 @@ Time: 60 min
 19. When you are developing a new Hadoop application, we recommend that you enable debugging and process a small but representative subset of your data to test the application. You may also want to run the application step-by-step to test each step separately. 
 20. You can access the functionality provided by the Amazon EMR API by calling wrapper functions in one of the AWS SDKs. The AWS SDKs provide language-specific functions that wrap the web service's API and simplify connecting to the web service, handling many of the connection details for you.
 
+#### [QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)  
+Time: 45 min   
+1. Uploading Training Data
+2. Create a Datasouce
+3. Evaluate an ML Model
+
+#### [Docs: AWS Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)  
+Time: 60 min   
+1. Amazon Machine Learning (Amazon ML) is a robust, cloud-based service that makes it easy for developers of all skill levels to use machine learning technology. Amazon ML provides visualization tools and wizards that guide you through the process of creating machine learning (ML) models without having to learn complex ML algorithms and technology.
+2. Machine learning (ML) can help you use historical data to make better business decisions. ML algorithms discover patterns in data, and construct mathematical models using these discoveries. Then you can use the models to make predictions on future data. 
+3. With Amazon Machine Learning (Amazon ML), you can build and train predictive models and host your applications in a scalable cloud solution.
+4. You can use Amazon ML datasources to train an ML model, evaluate an ML model, and generate batch predictions using an ML model.
+5. The process of training an ML model involves providing an ML algorithm with training data to learn from
+6. Machine learning models are only as good as the data that is used to train them. 
+7. You should always evaluate a model to determine if it will do a good job of predicting the target on new and future data.
+8. Amazon ML provides two mechanisms for generating predictions: asynchronous (batch-based) and synchronous (one-at-a-time). 
+9. Amazon ML provides four objects that you can manage through the Amazon ML console or the Amazon ML API: Datasources, ML models, Evaluations, Batch predictions
+10. Amazon ML automatically sends metrics to Amazon CloudWatch so that you can gather and analyze usage statistics for your ML models.
+11. Organize and manage your Amazon Machine Learning objects by assigning metadata to them with tags. A tag is a key-value pair that you define for an object.
+
 
 
 
