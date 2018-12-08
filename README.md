@@ -76,8 +76,15 @@ Time: 2 min
 
 #### [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)  
 Time: 60 min   
-
-
+1. Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. By using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads.
+2. Amazon EMR service architecture consists of several layers, each of which provides certain capabilities and functionality to the cluster. 
+3. Launch your sample cluster by using Quick Options in the Amazon EMR console and leaving most options to their default values.
+4. Allow SSH Connections to the Cluster From Your Client.
+5. Process Data By Running The Hive Script as a Step
+6. Cleanup.
+7. EMR Notebooks is pre-configured with the following kernels and libraries packages installed. PySpark, PySpark3, Python3, Spark, SparkR.
+8. Create an EMR notebook using the Amazon EMR console
+9. 
 
 
 
