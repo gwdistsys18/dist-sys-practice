@@ -6,7 +6,7 @@ In this short write up, we will look at containers, what they are, and how easy 
 
 The easiest way to understand a container is to compare it with a virtaul machine.  Virtual machines as most of you know is an entire virtualized computer which runs on top of a real physical computer.  The virtual machine will make system calls and try to access physical hardware which will then get intercepted by the real operating system and handled on the real physical hardware, all without the VM even knowing this is happening.
 
-PIC
+![container_vs_vm.png](/images/container_vs_vm.PNG)
 source: https://www.docker.com/resources/what-container
 
 This is great - however this 'fake' operating system that is running in the virtual machine is really just a middle man.  It does not perform any important actions other than brokering OS related calls from the virtual machine to the physical machine.  Thus we have containers which essentially cut out the middle 'fake' operating system.  Containers have everything else such as file systems, network devices, and even operating systems (minus the kernel).  The kernel is the portion of operating system code that does the low level integration with the hardware system.  This is what is shared across all containers.  This means windows containers can not run on a Linux host because they will have different underlying kernels.
@@ -21,31 +21,32 @@ After you have your installation up and running, run the command 'docker run hel
 
 The output of the hello-world container gives us a nice description of what just happened.
 
-INSERT screen shot from docker hello world
+![docker-hello_world.png](/images/docker-hello_world.PNG)
 
 The output even challenges us to do something more interesting.  We can run a bash shell with the command: docker run -it ubuntu bash.  The -it stands for interactive.  Ubuntu stands for the container, and bash stands for the program in that container.
 
 Cool!  So we have access to a bunch of containers.  But what if we want to build a container?  Well that is pretty easy too.  First, create a new directory 'my_build' which we will be working inside of.  Inside of that directory create a file called 'Dockerfile' with the following contents:
-'''
+
+```
 FROM python:3
 ADD my_script.py /
 RUN pip install pystrich
 CMD [ "python", "./my_script.py" ]
-'''
+```
 
 This file is essnetially telling docker what to do.  The first line specifies the base docker container which is a Python 3 container.  It is then telling docker to add my_script.py into the container (we have not written my_script.py yet, but we will).  Next it is telling the container to run a pip command to install a python package.  We will not actually be using this package, but it is useful to know that this is how you would do it.  And finally, the CMD line is telling the container what to actually execute when it is run, which in our case is to execute the my_script.py script with the python interpreter.
 
 Now, we need write out my_script.py file.  Use your favorite editor and make a simple python script.  This script can be as complex or simple as you want.  But remember, if you want to use and external python packages you will need to add them as a pip install command to the Dockerfile as shown above.
 
-To keep it simple, my python script has a single line of code: print("hello from python!").
+To keep it simple, my python script has a single line of code: `print("hello from python!")`
 
 Now, we need to build our container.  Again this is as easy as a single command from within our my_build directory.  Simple run: docker build test .
 
-INSERT DOCKER BUILD
+![docker_build.png](/images/docker_build.PNG)
 
 And it's done!  Now running it is as simple as docker run test.
 
-INSERT DOCKER RUN TEST
+![docker_test.png](/images/docker_test.PNG)
 
 # Conclusion
 
