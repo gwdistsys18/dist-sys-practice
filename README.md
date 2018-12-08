@@ -84,7 +84,22 @@ Time: 60 min
 6. Cleanup.
 7. EMR Notebooks is pre-configured with the following kernels and libraries packages installed. PySpark, PySpark3, Python3, Spark, SparkR.
 8. Create an EMR notebook using the Amazon EMR console
-9. 
+9. When you launch an Amazon EMR cluster, you must specify a region. You might choose a region to reduce latency, minimize costs, or address regulatory requirements.
+10. HDFS and EMRFS are the two main file systems used with Amazon EMR. 
+11. The most common scenario is to upload input data into Amazon S3.
+12. The most common output format of an Amazon EMR cluster is as text files. Typically, these are written to an Amazon S3 bucket. This bucket must be created before you launch the cluster. You specify the S3 bucket as the output location when you launch the cluster. 
+13. The EMR File System (EMRFS) is an implementation of HDFS that all Amazon EMR clusters use for reading and writing regular files from Amazon EMR directly to Amazon S3. 
+14. Control Cluster Termination
+15. Working with Amazon Linux AMIs in Amazon EMR. Amazon EMR uses an Amazon Linux Amazon Machine Image (AMI) to initialize Amazon EC2 instances when you create and launch a cluster. The AMI contains the Amazon Linux operating system, other software, and the configurations required for each instance to host your cluster applications. 
+16. When you select a software release, Amazon EMR uses an Amazon Machine Image (AMI) with Amazon Linux to install the software that you choose when you launch your cluster, such as Hadoop, Spark, and Hive.
+17. Amazon EMR provides several features to help secure cluster resources and data.
+18. Amazon EMR provides several tools you can use to connect to and control your cluster. 
+19. When you are developing a new Hadoop application, we recommend that you enable debugging and process a small but representative subset of your data to test the application. You may also want to run the application step-by-step to test each step separately. 
+20. You can access the functionality provided by the Amazon EMR API by calling wrapper functions in one of the AWS SDKs. The AWS SDKs provide language-specific functions that wrap the web service's API and simplify connecting to the web service, handling many of the connection details for you.
+
+
+
+
 
 
 
