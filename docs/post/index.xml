@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Hugo LAMP</title>
+    <title>Posts on Distributive Systems Blog Post</title>
     <link>https://sebastian2696.github.io/dist-sys-practice/post/</link>
-    <description>Recent content in Posts on Hugo LAMP</description>
+    <description>Recent content in Posts on Distributive Systems Blog Post</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 May 2018 14:09:24 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 07 Dec 2018 22:59:23 +0700</lastBuildDate>
     
 	<atom:link href="https://sebastian2696.github.io/dist-sys-practice/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Containers</title>
+      <link>https://sebastian2696.github.io/dist-sys-practice/post/blogpost/</link>
+      <pubDate>Fri, 07 Dec 2018 22:59:23 +0700</pubDate>
+      
+      <guid>https://sebastian2696.github.io/dist-sys-practice/post/blogpost/</guid>
+      <description>What are Containers? A small taste A container is a software that packages software and code with all of it&amp;rsquo;s dependencies. This allows an application to run from one environment to another seemlessly. Popularized in 2013, a Docker container image is lighter than a VM, is standalone and can execute everything you need to run an application: code, runtime, system tools, system libraries and settings.
+There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among others), but in this entry we will mostly focus on Docker&amp;rsquo;s version.</description>
+    </item>
     
     <item>
       <title>Cover Post Example</title>
