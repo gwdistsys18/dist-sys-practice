@@ -21,14 +21,5 @@
 There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among others), but in this entry we will mostly focus on Docker&amp;rsquo;s version.</description>
     </item>
     
-    <item>
-      <title>Cover Post Example</title>
-      <link>https://sebastian2696.github.io/dist-sys-practice/post/cover-example/</link>
-      <pubDate>Mon, 28 May 2018 14:09:24 +0700</pubDate>
-      
-      <guid>https://sebastian2696.github.io/dist-sys-practice/post/cover-example/</guid>
-      <description>Cover post example Cover post example</description>
-    </item>
-    
   </channel>
 </rss>
