@@ -152,7 +152,18 @@ iOS        794
 > 2. ```--tty```         -> allocates a pseudo-tty.
 > 3. ```--rm```          -> remove the container after it's done executing.
 + The result would be like: ![task_ubuntu](/src/task_ubuntu.png)
-
++ Use the command ```docker container run --detach --name mydb -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql:latest```
+> 1. ```--detach``` -> run a container in the background
+> 2. ```--name``` -> give it a name. 
+> 3. ```-e``` -> use an environment variable to specify the root password. 
++ Use several commands like: ```docker container ls```; ```docker container logs mydb```; etc to check the information of the mysql container. 
++ Use ```docker exec -it mydb sh``` to connect to a new shell process inside the already running container. Then we could use Mysql commands to do whatever we want. ![task_mysql](/src/task_mysql.png)
++ Run the command: ```docker image build --tag $DOCKERID/linux_tweet_app:1.0 .``` to create a new Docker image using the instructions in the Dockerfile.
++ Use ```docker container run --detach --publish 80:80 --name linux_tweet_app $DOCKER/linux_tweet_app:1.0``` to create a new container from the image we just created. Then the website is running ![website_img](/src/website_img.png)
++ Docker provides some kind of ways to mount a file or a directory on the host machine into a container running on the same host.
++ Start the web app using bind mount ```docker container run --detach --publish 80:80 --name linux_tweet_app --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html $DOCKERID/linux_tweet_app:1.0```
++ Then if we change the layout of the website, it will automatically reflect on the website. ![web_bindMount](/src/web_bindMount.png)
++ We can also push the img we created to the DockerHub. ![Docker_hub](/src/Docker_hub.png)
 
 #### 3.4 [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)
 
