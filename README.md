@@ -135,7 +135,7 @@ iOS        794
 + The first time I start the Docker, I have no images stored locally. As a result, Docker engine goes to its default Docker registry to look for an image named "hello-world".
 + Docker is different from virtual machine because VM is pretty much a hardware abstraction while a contain is an application abstraction. 
 + ``` docker container run -it alpine /bin/sh ``` could run a Linux shell inside the container. And I can run some Linux commands on it. 
-+ Docker basically using ```docker run```` command to start a container and run something on it.
++ Docker basically using ```docker run``` command to start a container and run something on it.
 + Every time I use ```docker run``` to start a container, it is a separate container. Each container has a separate file system and runs in a different namespace. And by default there is no way for a container to communicate with another container.
 + I can use ```docker container start <container ID>``` to start the container again. And then I can see the hello.txt file I have created. 
 ![docker](/src/docker.png)
