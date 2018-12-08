@@ -84,7 +84,6 @@ The tutorial went through the steps to set up a web server on EC2. Besides the i
 5. S3 vs EC2 + Database
 * S3 has cheaper storage but EC2 is more flexible
 * S3 has a very user-friendly interface
-
 6. QwikLab: Intro to DynamoDB
 * Use the AWS DynamoDB console to create/delete table
 * Add items to DynamoDB and query the database
