@@ -117,6 +117,17 @@ Time: 60 min
 10. Amazon ML automatically sends metrics to Amazon CloudWatch so that you can gather and analyze usage statistics for your ML models.
 11. Organize and manage your Amazon Machine Learning objects by assigning metadata to them with tags. A tag is a key-value pair that you define for an object.
 
+#### [AWS Tutorial: Build a Machine Learning Model](https://aws.amazon.com/getting-started/projects/build-machine-learning-model/?trk=gs_card)  
+Time: 60 min   
+1. With Amazon Machine Learning, you can build and train predictive models and host your applications in a scalable cloud solution. 
+2. Using Amazon ML to Predict Responses to a Marketing Offer .
+3. Creating and Using Datasources. You can use Amazon ML datasources to train an ML model, evaluate an ML model, and generate batch predictions using an ML model.
+4. Training ML Models. The process of training an ML model involves providing an ML algorithm (that is, the learning algorithm) with training data to learn from. The term ML model refers to the model artifact that is created by the training process. 
+5. Data Transformations for Machine Learning. Machine learning models are only as good as the data that is used to train them. 
+6. Evaluating ML Models. You should always evaluate a model to determine if it will do a good job of predicting the target on new and future data. 
+7. Generating and Interpreting Predictions. 
+8. Amazon ML provides two mechanisms for generating predictions: asynchronous (batch-based) and synchronous (one-at-a-time). 
+
 
 
 
