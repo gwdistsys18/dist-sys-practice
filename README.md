@@ -59,6 +59,14 @@ Amazon EMR use the hadoop to process big data.
 ### Intermediate Level: Big Data and Machine Learning
 #### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
 Time: 45 min   
+I have practiced S3 several times. In first round practice has the notes.
+
+
+       1. the launching of a Amazon Redshift
+        2. Connecting the Pgweb to the Redshift cluster such that we can communicate with the Redshift cluster.
+        3. Create a table in the Redshift cluster.
+        4. load the data from an Amazon S3 bucket to the cluster.( by SQL query)
+        5. Make some queries from the Pgweb to the Redshift.
 
 
 
