@@ -42,7 +42,7 @@ Now, we need write out my_script.py file.  Use your favorite editor and make a s
 
 To keep it simple, my python script has a single line of code: `print("hello from python!")`
 
-Now, we need to build our container.  Again this is as easy as a single command from within our my_build directory.  Simple run: docker build test .
+Now, we need to build our container.  Again this is as easy as a single command from within our my_build directory.  Simply run: `docker build test .`
 
 ![docker_build.png](/images/docker_build.PNG)
 
