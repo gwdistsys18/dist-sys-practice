@@ -61,12 +61,23 @@ Amazon EMR use the hadoop to process big data.
 Time: 45 min   
 I have practiced S3 several times. In first round practice has the notes.
 
+#### [QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)  
+Time: 45 min   
+1. Launching Amazon Redshift
+2. Connect the Pgweb to the Redshift cluster so that we can communicate with the Redshift cluster.
+3. Create a table in the Redshift cluster.
+4. Load the data from an Amazon S3 bucket to the cluster.
+5. Make some queries from the Pgweb to the Redshift.
 
-       1. the launching of a Amazon Redshift
-        2. Connecting the Pgweb to the Redshift cluster such that we can communicate with the Redshift cluster.
-        3. Create a table in the Redshift cluster.
-        4. load the data from an Amazon S3 bucket to the cluster.( by SQL query)
-        5. Make some queries from the Pgweb to the Redshift.
+#### [Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)  
+Time: 2 min   
+1. Amazon Machine Learning is a managed service for building ML models and generating predictions, enabling the development of robust, scalable smart applications. Amazon Machine Learning enables you to use powerful machine learning technology without requiring an extensive background in machine learning algorithms and techniques.
+2. AWS can help to develop Machine learning application in three layers: Framework, platform, application service.
+
+#### [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)  
+Time: 60 min   
+
+
 
 
 
