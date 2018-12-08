@@ -1,86 +1,52 @@
-
 # Introduction
 
-Are you tired of your job?  Do you want to be filthy, filthy rich?  Well, I do.  And today we're going to look at a way to everage your ML knowledge, as well as the wide availability of big data cloud infrastructure, to make this dream happen.  
+In this short write up, we will look at containers, what they are, and how easy it is to use them.  If you work in any type of software development environment, you know how complicated systems and services can get as they interact.  With many different developers working on different parts of the software, using their own languages and programming styles, things can get messy quick.  Containers is almost a programming paradigm whereby individual pieces of functionality can run in their own isolated environment, but without all the extra overhead of spining up an entire virtual machine.
 
-In short, we are going to build Skynet for Stocks.
+# What is a container?
 
-But, really, we are going to be using the AWS Sagemaker platform and some free Stock APIs to build a model capable of predicting stock price movement.
+The easiest way to understand a container is to compare it with a virtaul machine.  Virtual machines as most of you know is an entire virtualized computer which runs on top of a real physical computer.  The virtual machine will make system calls and try to access physical hardware which will then get intercepted by the real operating system and handled on the real physical hardware, all without the VM even knowing this is happening.
 
-# Background
+PIC
+source: https://www.docker.com/resources/what-container
 
-## Stocks
+This is great - however this 'fake' operating system that is running in the virtual machine is really just a middle man.  It does not perform any important actions other than brokering OS related calls from the virtual machine to the physical machine.  Thus we have containers which essentially cut out the middle 'fake' operating system.  Containers have everything else such as file systems, network devices, and even operating systems (minus the kernel).  The kernel is the portion of operating system code that does the low level integration with the hardware system.  This is what is shared across all containers.  This means windows containers can not run on a Linux host because they will have different underlying kernels.
 
-Stocks.  What are stocks?  Well, they are probably the easiest way to build wealth.  Stocks represent a share of a company.  If a company does really great things, typically that would result in the company being worth more money, and hence every share of that company increasing.  And, obviously, the opposite is true as well.  
+# Create a Container
 
-But - stock values fluctuate sometimes WILDLY from day-to-day, hour-to-hour, even second-to-second.  And these flucations aren't due to the second-to-second performance of the employees at Apple.  No, they are the result of many variables from news articles to tweets to celestial phenomena.  That being said, because of these flucations in value, there is always money to be made.  If we knew with relatively high probability that in 30 minutes, the stock price would be 1 cent higher then it is currently, you could make lots of money.
+First you will need to install Docker.  Docker has stable releases for Windows, Mac, and Linux.  Head over to their website  and follow the instructions to install Docker on your system.
 
-## Machine Learning
-Machine Learning.  What is machine learning?  Well, it's magic.  Atleast for the purposes of this article.  Writing machine learning algorithms, training, testing, can all be a daunting task.  Luckily, Amazon came to the rescue with their platform AWS Sagemaker.  Sagemaker is a ML platform built inside AWS that allows for quick and easy generation of ML models. In order to use Sagemaker, you basically need to know a little big about how to use AWS, and a little bit about machine learning.
+If you are like me and have a home version of Windows, then you will need to install the docker toolbox which will allow you to run docker images using VirtualBox.
 
-For the machine learning part, you need to know that there are three main components:
-1.  Labled Training Data
-2.  Model Training
-3.  Model Evaluation
+After you have your installation up and running, run the command 'docker run hello-world'.  Once you do this, you will see how docker looks for the container image locally, does not find it, then downloads it from the default container registry, and runs the container.
 
-All machine learning models require some type of data to learn from.  To make an analogy, imagine our ML algorithm is a baby slowly learning the way of the world.  In order for the baby to learn how to do something, like, for instance, talk, we need to provide them with training data.  Training data, in this example, would take the form of spoken language as heard by the baby, and the label would take the form of the outcome of that language.  In this way, a child may learn that key words, such as "Dad", or "Mom", or "food", may have very specific outcomes.
+The output of the hello-world container gives us a nice description of what just happened.
 
-Well, machine learning is really no different.  We provide algorithms with a bunch of training data (in our case here, it will be historical stock price data).  We tell it what happened with that data (in our case here, we will know weather or not the price went UP or DOWN).  And then we will train the model, the magic will happen, and it will then be able to tell us stuff.
+INSERT screen shot from docker hello world
 
-## AWS Sagemaker
+The output even challenges us to do something more interesting.  We can run a bash shell with the command: docker run -it ubuntu bash.  The -it stands for interactive.  Ubuntu stands for the container, and bash stands for the program in that container.
 
-Sagemaker is a fully managed Machine Learning platform-as-a-service.  It is basically a fancy GUI on top of some APIs that allow one to perform the core machine learning logic mentioned previously.  Here is a nice figure provided by Amazon showing exactly what Sagemaker provides.
-<TODO put in figure from "what is sagemaker" page>
+Cool!  So we have access to a bunch of containers.  But what if we want to build a container?  Well that is pretty easy too.  First, create a new directory 'my_build' which we will be working inside of.  Inside of that directory create a file called 'Dockerfile' with the following contents:
+'''
+FROM python:3
+ADD my_script.py /
+RUN pip install pystrich
+CMD [ "python", "./my_script.py" ]
+'''
 
-So, we see that AWS handles the full ML lifecycle for us, from providing in an interface to generate our training data, to training, and to final deployment and evaluation.  So, since Sagemaker provides everything for us, there is really not much setup to do before jumping into the Sagemaker console.
+This file is essnetially telling docker what to do.  The first line specifies the base docker container which is a Python 3 container.  It is then telling docker to add my_script.py into the container (we have not written my_script.py yet, but we will).  Next it is telling the container to run a pip command to install a python package.  We will not actually be using this package, but it is useful to know that this is how you would do it.  And finally, the CMD line is telling the container what to actually execute when it is run, which in our case is to execute the my_script.py script with the python interpreter.
 
-# Dataset
+Now, we need write out my_script.py file.  Use your favorite editor and make a simple python script.  This script can be as complex or simple as you want.  But remember, if you want to use and external python packages you will need to add them as a pip install command to the Dockerfile as shown above.
 
-First, we need a training dataset.  Now, we could use some large open source historic datasets of stock movement, but that is not very exciting.  Ideally, we want to use some data source which we can get both historical, and real time stock price data.  This way, we can train our model, and test it against real time data!
+To keep it simple, my python script has a single line of code: print("hello from python!").
 
-For no particular reason, I chose to use the Alpha Vantage free API service (https://www.alphavantage.co/documentation/). There are many of these stock APIs available all offering different value at different price points.  If you get really into this, maybe you would want to pay for this service.  For the purposes of this tutorial, this free service will be sufficient. You will need to sign up and get an API key, and then usage is simple.  Here is an example cURL command for the Apple stock ticker data for a day TODO.
-``` curl https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=<API_KEY> ```
+Now, we need to build our container.  Again this is as easy as a single command from within our my_build directory.  Simple run: docker build test .
 
-Sample Output: 
-```
-{
-    "Meta Data": {
-        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
-        "2. Symbol": "MSFT",
-        "3. Last Refreshed": "2018-12-04",
-        "4. Output Size": "Compact",
-        "5. Time Zone": "US/Eastern"
-    },
-    "Time Series (Daily)": {
-        "2018-12-04": {
-            "1. open": "111.9400",
-            "2. high": "112.6373",
-            "3. low": "108.2115",
-            "4. close": "108.5200",
-            "5. volume": "44571989"
-        },
-        "2018-12-03": {
-            "1. open": "113.0000",
-            "2. high": "113.4200",
-            "3. low": "110.7300",
-            "4. close": "112.0900",
-            "5. volume": "34732772"
-        },
-        ...
-    }
-}
-```
+INSERT DOCKER BUILD
 
-Now that we know we have a way to build a dataset, let's jump into Sagemaker.  As mentioned previously, Sagemaker provides a very friendly Jupyter environment where we can generate and preprocess our data directly on AWS infrastructure, rather than downloading it to our local computer first.
+And it's done!  Now running it is as simple as docker run test.
 
-# Make some Sage
+INSERT DOCKER RUN TEST
 
-TODO this will be bulk of tut
-walk through sagemaker setup notebook creation
-download some data for a ticker, preprocess, upload to S3 bucket
-createa  model, training job, evaluation
-maybe, show real time prediction.  write a little script to poll Alpha API and call our model endpoint.
-done
+# Conclusion
 
-
-# Profit
+Containers are astoundingly easy to get up and running once you have Docker installed and working.  You are able to leverage many base containers containg programs such as Python, busy-box, and even Ubuntu.  Building on top of these contains is as easy as specifying a Dockerfile which explains what base image you will be using, and how you will be modifying it.  You can imagine taking something like your database application, which requires a big VM with a custom install image and manual processes to get it up and running, and turning it into a nice clean Dockerfile which can be started with one single command.  Container are very useful and versatile and easy to get started with!
