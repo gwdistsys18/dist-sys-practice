@@ -143,7 +143,7 @@ There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among other
   <section class="main post-detail">
     <header class="post-header">
       <h1 class="post-title">Containers</h1>
-      <p class="entry-meta"><span class="entry-time">Dec 7, 2018</span> 8 min read</p>
+      <p class="entry-meta"><span class="entry-time">Dec 7, 2018</span> 7 min read</p>
     </header>
     
 
@@ -155,14 +155,14 @@ There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among other
 
 <p>A container is a software that packages software and code with all of it&rsquo;s dependencies. This allows an application to run from one environment to another seemlessly. Popularized in 2013, a Docker container image is lighter than a VM, is standalone and can execute everything you need to run an application: code, runtime, system tools, system libraries and settings.</p>
 
-<p><img src="dist-sys-practice/docker_container.png" alt="Docker Container" /></p>
+<p><img src="dist-sys-practice/dist-sys-practice/img/docker_container.png" alt="Docker Container" /></p>
 
 <p>There are various form of containers (lmctfy, Turbo, Docker, ROCKET, among others), but in this entry we will mostly focus on Docker&rsquo;s version. Dockers is developed primarly for Linux. This is due to the fact that Linux provides very powerfull resource isolation that do not involved a full hypervisor. It leverages the use of tools such as cgroups, kernel namespaces and a union-capable file system (OverlayFS), these are mostly provided by the Linux Kernel.
 The isolation comes from the kernel namespace, allowing for isolation of an application view of the operating environment (Process trees, network, user ID&rsquo;s and mounted file systems) and through the use of cgroups, this limits the amount of memory usage as well as CPU, essentially isolating multiple userspace instances. What you need to know is that it limits, accounts and isolates resources.</p>
 
 <p>Key word in this explanation is Kernel. Is other words you can create as many conrainers as you desire as long as they share the same kernel. This allows us to have a container running different distributions of Linux and seamlessly work with each other. this means that a Ubuntu instance, a Fedora instance and Mint instance can run together. Recently Microsoft allowed the usage of Docker Windows containers, this in theory allows the usage of Windows with Linux instances. But in reality, the OS will launch a fully fledged Windows Image in a Virtual Machine (Hyper-V or Oracle&rsquo;s VitualBox).</p>
 
-<p><img src="dist-sys-practice/docker_windows.png" alt="Docker Windows" /></p>
+<p><img src="dist-sys-practice/dist-sys-practice/img/docker_windows.png" alt="Docker Windows" /></p>
 
 <h2 id="virtual-machines-vs-containers">Virtual Machines Vs Containers</h2>
 
@@ -173,29 +173,34 @@ A Container virtualizs the operating system, specifically the Kernel, instead of
 The main reason lies in that containers use regular system call and not a hypercall or such.
 The beauty lies in the fact that you can combine both concepts and have a very flexible application that is modular and performant. This is what cloud services use to provide container usage (AWS, Azure, IBM Cloud).</p>
 
-<p><img src="dist-sys-practice/vmandcontainers.png" alt="VmandContainers" /></p>
+<p><img src="dist-sys-practice/dist-sys-practice/img/vmandcontainers.png" alt="VmandContainers" /></p>
 
 <h1 id="docker-container-componenets">Docker container componenets</h1>
 
 <p>Docker software stack consist of 3 main components:</p>
 
-<pre><code>- Software: The Docker daemon, know as `dockerd`, is a process that manages Docker containers and handles container objects. We could say that the deamon is the brains of the operation, always listeing for request via the Docker Engine API. If the daemon is the &quot;server&quot;, there is a need for a &quot;client&quot; to make these requests. The Docker client, called `docker`, is reponsible for the command-line interface or Cli, that allows users to interact with the Docker daemon. The idea is to be able to specify a container, usually a Dockerfile, and the daemon is resposible to understand what file has and produce the image accurately over different machines. If you have trouble understanding the daemon, it's responsible for example to use the TCP/IP network stack on a particular container.
+<ul>
+<li><p>Software: The Docker daemon, know as <code>dockerd</code>, is a process that manages Docker containers and handles container objects. We could say that the deamon is the brains of the operation, always listeing for request via the Docker Engine API. If the daemon is the &ldquo;server&rdquo;, there is a need for a &ldquo;client&rdquo; to make these requests. The Docker client, called <code>docker</code>, is reponsible for the command-line interface or Cli, that allows users to interact with the Docker daemon. The idea is to be able to specify a container, usually a Dockerfile, and the daemon is resposible to understand what file has and produce the image accurately over different machines. If you have trouble understanding the daemon, it&rsquo;s responsible for example to use the TCP/IP network stack on a particular container.</p></li>
 
-- Objects: The object are the foundation of a Docker application. There are 3 outstanding classes:
-+ Container: It'a well defined unit that encapsulates the environment in which the application is runned. It's managed through the CLI or Docker API
-+ Image: It's a read-only template from which containers are built. Images are used to store applications and are the prefered method of distribution.
-+ Services: It's what allows scalability. It permits contrainer to be run across multiple Docker daemons. This is whay is behind the &quot;swarm&quot;. Multiple containers talking to each other through the Docker API.
+<li><p>Objects: The object are the foundation of a Docker application. There are 3 outstanding classes:</p>
 
-- Registries: Are a repository for the images. Think of it as Github with Git version control API. You can &quot;Pull&quot;/&quot;Push&quot; images. They can be Public / Private. The 2 main registries are Docker Hub and Docker Cloud.
-</code></pre>
+<ul>
+<li>Container: It&rsquo;a well defined unit that encapsulates the environment in which the application is runned. It&rsquo;s managed through the CLI or Docker API</li>
+<li>Image: It&rsquo;s a read-only template from which containers are built. Images are used to store applications and are the prefered method of distribution.</li>
+<li>Services: It&rsquo;s what allows scalability. It permits contrainer to be run across multiple Docker daemons. This is whay is behind the &ldquo;swarm&rdquo;. Multiple containers talking to each other through the Docker API.</li>
+</ul></li>
+
+<li><p>Registries: Are a repository for the images. Think of it as Github with Git version control API. You can &ldquo;Pull&rdquo;/&ldquo;Push&rdquo; images. They can be Public / Private. The 2 main registries are Docker Hub and Docker Cloud.</p></li>
+</ul>
 
 <p>The Docker software are has tools:</p>
 
-<pre><code>- Docker Compose: It's a tool that defines and runs multi-container applications. It uses YAML files, similar to AWS JSON files, to configure the application services (defined above), as well as the creation and initialization of the container. The CLI `docker-compose` allows users to run commands in multiple container simultaneously (building, scaling, starting, stopping, etc).
-- Docker Swarm: This is what makes Docker container so powerfull in the world of cloud and distributive computing. The idea was alluded earlier. The concept is to turn manmy Docker engines into one that interact through the Docker API. Each deamon is called a node and interact through the `docker node` CLI. This command0line interface allows us to add/remove nodes for example. The service uses the idea of Workers and Managers. Managers maintain the cluster state, schedule services and serve the API endpoints. Workers only execute containers and run jobs. It's important to note that a Manager node is a worker node. By this, it's suggested to not shcedule any jobs on the Manager.
-</code></pre>
+<ul>
+<li>Docker Compose: It&rsquo;s a tool that defines and runs multi-container applications. It uses YAML files, similar to AWS JSON files, to configure the application services (defined above), as well as the creation and initialization of the container. The CLI <code>docker-compose</code> allows users to run commands in multiple container simultaneously (building, scaling, starting, stopping, etc).</li>
+<li>Docker Swarm: This is what makes Docker container so powerfull in the world of cloud and distributive computing. The idea was alluded earlier. The concept is to turn manmy Docker engines into one that interact through the Docker API. Each deamon is called a node and interact through the <code>docker node</code> CLI. This command0line interface allows us to add/remove nodes for example. The service uses the idea of Workers and Managers. Managers maintain the cluster state, schedule services and serve the API endpoints. Workers only execute containers and run jobs. It&rsquo;s important to note that a Manager node is a worker node. By this, it&rsquo;s suggested to not shcedule any jobs on the Manager.</li>
+</ul>
 
-<p><img src="disy-sys-practice/dockerswarm.png" alt="DockerSwarmDiagram" /></p>
+<p><img src="disy-sys-practice/dist-sys-practice/img/dockerswarm.png" alt="DockerSwarmDiagram" /></p>
 
 <h1 id="kubernetes">Kubernetes</h1>
 
@@ -214,19 +219,20 @@ Swarm uses a lo of tools that regular Docker containers use. So that brings simp
 <p>Amazon Web Services, know as AWS, offers various services and tool on their cloud services for operation with containers. These services debuted in November 2014.
 These services are the Amazon Elastic Container Service (ECS) and Amazon Elastic Container Registry (ECR):</p>
 
-<pre><code>- Amazon Elastic Container Service is a highly scalable, high-performance container orchestration service. It supports Docker as it's container image and services. ECS allows for an user to easely run and scale containerized applications. This is due to the fact that there is no need to manage any orchestration software such as Kubernetes or Docker Swarm. Amazon offers an easy API, CLI and Web interface to manage these. You can even use Amazon Fargate to deploy containers without worrying about the underlying infraestructure aka an EC2 instance. Additionally, you can still use your containers to run micro-services or long heavy applications. 
+<ul>
+<li><p>Amazon Elastic Container Service is a highly scalable, high-performance container orchestration service. It supports Docker as it&rsquo;s container image and services. ECS allows for an user to easely run and scale containerized applications. This is due to the fact that there is no need to manage any orchestration software such as Kubernetes or Docker Swarm. Amazon offers an easy API, CLI and Web interface to manage these. You can even use Amazon Fargate to deploy containers without worrying about the underlying infraestructure aka an EC2 instance. Additionally, you can still use your containers to run micro-services or long heavy applications.</p></li>
 
-- Amazon Elastic Container Registry is a fully-manged Docker container registry that lives in the cloud. It is identical to the Docker Cloud or Docker Hub. ECR allows for near seamless interaction with ECS, given that the mangement of the container repositories is on AWS servers. Futhermore, the ECS integration allows for on demand images to scale when needed without worrying about the underlying architecture (registy). The ECR CLI allows usage with the Docker CLI `aws ecr get-login --no-include-email --region [region]` would provide the login for the Docker CLI and by using tags you can mark the location on the destination registry. `docker push` with the tag is enough to push the image to the AWS ECR instance. 
-</code></pre>
+<li><p>Amazon Elastic Container Registry is a fully-manged Docker container registry that lives in the cloud. It is identical to the Docker Cloud or Docker Hub. ECR allows for near seamless interaction with ECS, given that the mangement of the container repositories is on AWS servers. Futhermore, the ECS integration allows for on demand images to scale when needed without worrying about the underlying architecture (registy). The ECR CLI allows usage with the Docker CLI <code>aws ecr get-login --no-include-email --region [region]</code> would provide the login for the Docker CLI and by using tags you can mark the location on the destination registry. <code>docker push</code> with the tag is enough to push the image to the AWS ECR instance.</p></li>
+</ul>
 
 <h3 id="links-1">Links:</h3>
 
 <ul>
 <li><a href="https://aws.amazon.com/ecr">Elastic Container Registry</a></li>
-<li><a href="https://aws.amazon.com/ecs">Elastic COntainer Service</a></li>
+<li><a href="https://aws.amazon.com/ecs">Elastic Container Service</a></li>
 </ul>
 
-<p>There are many more details that I either didn&rsquo;t go over or that I briefly mentioned. This entry was designed to give the reader an easy way to understand what containers are and a basic understanding on what services and tools are at their disposal. If you are curious, I would recommend doing some Quicklab assignments on basic Docker usage as well as more robust AWS tutorials that give you an idea on how to use the AWS service. If you don&rsquo;t know where to start Dr. Woods&rsquo;s Distributive Systems course at GWU has a very good tutorial <a href="https://gwdistsys18.github.io/learn/docker/">links</a> where you can learn more about Containers, Docker, VM&rsquo;s, Kubernetes and Amazon Web Services.</p>
+<p>There are many more details that I either didn&rsquo;t go over or that I briefly mentioned. This entry was designed to give the reader an easy way to understand what containers are and a basic understanding on what services and tools are at their disposal. If you are curious, I would recommend doing some Quicklab assignments on basic Docker usage as well as more robust AWS tutorials that give you an idea on how to use the AWS service. If you don&rsquo;t know where to start Dr. Wood&rsquo;s Distributive Systems course at GWU has a very good tutorial <a href="https://gwdistsys18.github.io/learn/docker/">links</a> where you can learn more about Containers, Docker, VM&rsquo;s, Kubernetes and Amazon Web Services.</p>
 </article>
     <footer class="post-footer">
       
