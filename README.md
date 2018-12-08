@@ -75,9 +75,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * User can manage the permission on each object, or change the permission of the entire bucket by editing the bucket policy
 * S3 can store different version of each object by enabling versioning
 3. Video: Virtualization
+The video introduced the history and different types of virtual machine (same as the materials discussed during lecture) as well as how cloud providers today build on this technology. The idea of vitualization went back to the era of mainframe computer. Even with some performance overhead, virtualization provides more flexibility and ability to run different OS on different architecture. VM supports such as Intel VT-x boost the performance.
 4. AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2
 * Setting up Apache Httpd + mariaDB + php on the server
 * Use the phpMyAdmin to manage the database
 * For addtional security, we can configure the SSL/TLS for the web server
-The tutorial goes through the steps to set up a web server on EC2. Besides the installation of required softwares, setting up the proper permission is also important. For example, to allow traffic enter the EC2 instance, we need to add a security rule for incoming traffic. It is important not to change the existing rule for SSH, otherwise it will block the attempt to SSH into the instance.
-
+The tutorial went through the steps to set up a web server on EC2. Besides the installation of required softwares, setting up the proper permission is also important. For example, to allow traffic enter the EC2 instance, we need to add a security rule for incoming traffic. It is important not to change the existing rule for SSH, otherwise it will block the attempt to SSH into the instance.
+5. S3 vs EC2 + Database
+6. QwikLab: Intro to DynamoDB
