@@ -90,5 +90,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * DynamoDB is a NoSQL database. Some advantages of NoSQL database includes flexibility (no need to have same columns) and great scalability. DynamoDB can be used with other AWS services.
 7. AWS Tutorial: Deploy a Scalable Node.js Web App
 * Use Elastic Beanstalk to deploy scalable web application (Node.js)
-* The Elastic Beanstalk can be configured using configuration files inside the application, which can automatically create or refer to DynamoDB tables. The load-balancer is used to both protect the EC2 instances and automatically distribute the traffic to instances. To enable the access to Internet traffic and other AWS services, we need to edit the security role. However, the tutorial is outdated and apparently does not work for free-tier single instance environment. This is the case for many AWS tutorials and documentation.
+* The Elastic Beanstalk can be configured using configuration files inside the application, which can automatically create or refer to DynamoDB tables. The load-balancer is used to both protect the EC2 instances and automatically distribute the traffic to instances. To enable the access to Internet traffic and other AWS services, we need to edit the security role. However, the tutorial is outdated and apparently does not work for free-tier single instance environment. (https://github.com/aws-samples/eb-node-express-sample/issues/5) This is the case for many AWS tutorials and documentation.
 8. QwikLab: Intro to AWS Lambda
+* Setting up a simple Lambda function (Python) that interacts with S3 buckets
+* Using the Testing and Logging functions on the console
+* A lambda function is made of a trigger and an corresponding action. In the example, the trigger event is any new upload to a S3 bucket and the action is to run the simple Python function to resize and store the copy into another S3 bucket. Before deployment, it is necessary to run some tests using the provided events. To properly access other AWS services, we need to set the permission in the IMA role page.
+9. QwikLab: Intro to Amazon API Gateway
