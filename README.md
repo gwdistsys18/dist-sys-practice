@@ -166,6 +166,29 @@ iOS        794
 + We can also push the img we created to the DockerHub. ![Docker_hub](/src/Docker_hub.png)
 
 #### 3.4 [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)
++ We can use ```docker container commit <CONTAINER_ID>``` to create an image locally on the system running the Docker engine.
++ Then we can run a container based on the image we just created: ![new_container](/src/new_container.png)
++ Instead creating a static binary image, we can also called Dockerfile to create an image. 
++ Create a "index.js" file contains content below:
+```
+var os = require("os");
+var hostname = os.hostname();
+console.log("hello from " + hostname);
+```
++ Create a "Dockerfile" which contains content below:
+```
+FROM alpine
+RUN apk update && apk add nodejs
+COPY . /app
+WORKDIR /app
+CMD ["node","index.js"]
+```
++ Then we can build the image based on the Dockerfile we just created. ```docker image build -t hello:v0.1 .``` Successfull! ![Dockerfile](/src/Dockerfile.png)
++ We can use ```docker image inspection <image ID>``` to inpsect the deal of an image.
++ Our "Hello" image has 3 layers: 
+> 1. the basic Apline layer; 
+> 2. the RUN command which install some packages;
+> 3. the COPY command to add the javascript code. 
 
 #### 3.5 [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
 
