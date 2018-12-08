@@ -142,8 +142,28 @@ iOS        794
 
 ### 3. Container
 #### 3.1 [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)
++ Basically a sandbox for a process. Sandbox -> process has its own process namespace; Cgourps (capabilities, resources, etc).
++ Container is used: one processor one container. The container process and container itself is tied. 
++ Contianer image: binary representation. Images are arranged in some kind of hierarchy. There are multiple advantages for that: 
+> 1. share images 
+> 2. allows you to concentrate specific things in specific place.
++ Image -> class; runtime application -> instances 
++ Dockerfile: an environment in a file. The start of a Dockerfile is always FROM.
++ We use Dockerfile and Docker build to create image tree which is used to create the instance we want.
++ Don't have to start with Dockerfile, we can make some changes in the instances and then commit it as an image and use that image to create more containers.
++ When running a container, container hold pretty much dependencies on this own.
++ Only pull and push the bits it needs (binary). The Docker Host has a image cache which contains the images.
++ There is a client manages the lifecycle of containers inside the Docker Host. It also designed to configure the infrastructure inside the DockerHost
+> 1. Network configuration (kind of like network visualization)
+> 2. Storage configuration 
 
 #### 3.2 [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)
++ Virtual machine basically talks to a virtual hardware layer.
++ User can size the virtual machine. (workload, operating system)
++ Hypervisor hides all of the hardware from the operating system above it.
++ The Docker engine is loaded in the operating system. 
++ Container image contains the application and operating system dependencies. while the operating system dependencies are part of the operating system of the virtual machine.
++ It will be better to combine container with the virtual machine and still have some kind of hypervisor to deal with all of the drivers and interact with hardware. This will reduce the load of the operating system. 
 
 #### 3.3 [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)
 + After cloned the Github repo, I have run several simple Docker containers: ![task 1.1](/src/task_1.1.png) After the ```hostname``` is executed, the container stops. However, Docker will not reclaim the resources by default. As a result, we can see the container is still exists in the ```Exited``` state. ![task 1.2](/src/task_1.2.png)
