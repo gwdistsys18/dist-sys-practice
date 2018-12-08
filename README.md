@@ -26,7 +26,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	- [Beginner Level: Big Data and Machine Learning](https://github.com/JackTedo/dist-sys-practice/#Beginner-Level-Big-Data-and-Machine-Learning)
 		- [Video: Hadoop Intro](https://github.com/JackTedo/dist-sys-practice/#Video-Hadoop-Intro)  
 		- [QwikLab: Analyze Big Data with Hadoop](https://github.com/JackTedo/dist-sys-practice/#QwikLab-Analyze-Big-Data-with-Hadoop)  
-	- [Intermediate Level](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Big-Data-and-Machine-Learning)  
+	- [Intermediate Level: Big Data and Machine Learning](https://github.com/JackTedo/dist-sys-practice#intermediate-level-Big-Data-and-Machine-Learning)  
 		- [QwikLab: Intro to S3](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-S3)  
 		- [QwikLab: Intro to Amazon Redshift](https://github.com/JackTedo/dist-sys-practice#QwikLab-Intro-to-Amazon-Redshift)  
 		- [Video: Short AWS Machine Learning Overview](https://github.com/JackTedo/dist-sys-practice#Video-Short-AWS-Machine-Learning-Overview)  
@@ -44,13 +44,21 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 #### [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)  
 Time: 15 min   
 
-1. Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. Using Docker, you can quickly deploy and scale applications into any environment and know your code will run. 
-2. Amazon ECS uses Docker images in task definitions to launch containers on EC2 instances in your clusters.
+1. Hadoop is an Apache open source framework written in java that allows distributed processing of large datasets across clusters of computers using simple programming models. A Hadoop frame-worked application works in an environment that provides distributed storage and computation across clusters of computers. Hadoop is designed to scale up from single server to thousands of machines, each offering local computation and storage.
+2. Advantange: reliable, economical, scalable, flexible.
+
 
 #### [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)  
 Time: 45 min
+1. Create a S3 bucket to store the sample data and output.
+2. Create a cluster which is used to process data.
+3. Assign jobs to the cluster.
+4. This lab shows how to launch a cluster, create a S3 bucket, help to get familiar with the process in which the 
+Amazon EMR use the hadoop to process big data.
 
-
+### Intermediate Level: Big Data and Machine Learning
+#### [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)  
+Time: 45 min   
 
 
 
