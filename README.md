@@ -38,6 +38,39 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		- [Build a Serverless Real-Time Data Processing App](https://github.com/JackTedo/dist-sys-practice#Build-a-Serverless-Real-Time-Data-Processing-App)  
 
 
+
+## Big Data and Machine Learning
+### Beginner Level: Big Data and Machine Learning
+#### [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)  
+Time: 15 min   
+
+1. Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. Using Docker, you can quickly deploy and scale applications into any environment and know your code will run. 
+2. Amazon ECS uses Docker images in task definitions to launch containers on EC2 instances in your clusters.
+
+#### [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)  
+Time: 45 min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Docker Container
 ### Beginner Level: Docker Container
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
