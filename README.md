@@ -137,7 +137,41 @@ Time: 60 min
 #### [AWS Tutorial: AWS SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)  
 Time: 60 min
 1. Amazon SageMaker provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don't have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. 
-2. 
+2. Amazon SageMaker is a fully managed service that enables you to quickly and easily integrate machine learning-based models into your applications.
+3. An Amazon SageMaker notebook instance is a fully managed machine learning (ML) EC2 compute instance running the Jupyter Notebook App
+4. Train a Model with a Built-in Algorithm and Deploy It.
+5. Amazon SageMaker automatic model tuning, also known as hyperparameter tuning, finds the best version of a model by running many training jobs on your dataset using the algorithm and ranges of hyperparameters that you specify.
+6. Using Elastic Inference in Amazon SageMaker. By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint.
+7. An Amazon SageMaker notebook instance is a fully managed ML compute instance running the Jupyter Notebook App. Amazon SageMaker manages creating the instance and related resources.
+8. Using Augmented Manifest Files in Training Jobs.
+9. Using Built-in Algorithms with Amazon SageMaker.A machine learning algorithm uses example data to create a generalized solution (a model) that addresses the business question you are trying to answer. 
+10. Using Your Own Algorithms with Amazon SageMaker . You can easily package your own algorithms for use with Amazon SageMaker, regardless of programming language or framework. Amazon SageMaker is highly flexible.
+11. Amazon SageMaker Inference Pipelines. An inference pipeline is an Amazon SageMaker model composed of a linear sequence of two to five containers that process requests for inferences on data. Amazon SageMaker Inference Pipelines enable the definition and deployment of any combination of pretrained Amazon SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers.
+12. Automatically Scaling Amazon SageMaker Models. Amazon SageMaker supports automatic scaling for production variants. Automatic scaling dynamically adjusts the number of instances provisioned for a production variant in response to changes in your workload.
+13. Amazon SageMaker integrates with AWS Marketplace, enabling developers to charge other Amazon SageMaker users for the use of their algorithms and model packages. 
+14. Manage Machine Learning Experiments with Search .
+15. Amazon SageMaker Neo. Neo is a new capability of Amazon SageMaker that enables machine learning models to train once and run anywhere in the cloud and at the edge. 
+16. Using TensorFlow with Amazon SageMaker. You can use Amazon SageMaker to train a model using custom TensorFlow code.
+17. Using Apache MXNet with Amazon SageMaker
+18. You can use Amazon SageMaker to train and deploy a model using custom Chainer code. 
+19. You can use Amazon SageMaker to train and deploy a model using custom PyTorch code. 
+20. Using Apache Spark with Amazon SageMaker.
+21. Reinforcement learning (RL) is a machine learning technique that attempts to learn a strategy, called a policy, that optimizes an objective for an agent acting in an environment.
+22. Access to Amazon SageMaker requires credentials. Those credentials must have permissions to access AWS resources, such as an Amazon SageMaker notebook instance or an Amazon Elastic Compute Cloud (Amazon EC2) instance.
+23. Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon SageMaker and your other AWS solutions. 
+24. Create robust endpoints when hosting your model. Amazon SageMaker endpoints can help protect your application from Availability Zone outages and instance failures.
+25. To train a machine learning model, you need a large, high-quality, labeled dataset. Ground Truth helps you build high-quality training datasets for your machine learning models. With Ground Truth, you can use workers from either Amazon Mechanical Turk, a vendor company that you choose, or an internal, private workforce along with machine learning to enable you to create a labeled dataset.
+
+
+#### [Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)  
+Time: 60 min
+
+
+
+
+
+
+
 
 
 
