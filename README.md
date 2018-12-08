@@ -82,4 +82,6 @@ The video introduced the history and different types of virtual machine (same as
 * For addtional security, we can configure the SSL/TLS for the web server
 The tutorial went through the steps to set up a web server on EC2. Besides the installation of required softwares, setting up the proper permission is also important. For example, to allow traffic enter the EC2 instance, we need to add a security rule for incoming traffic. It is important not to change the existing rule for SSH, otherwise it will block the attempt to SSH into the instance.
 5. S3 vs EC2 + Database
+S3 has cheaper storage but EC2 is more flexible. S3 has a very user-friendly interface. 
 6. QwikLab: Intro to DynamoDB
+
