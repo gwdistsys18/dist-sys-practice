@@ -94,5 +94,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 8. QwikLab: Intro to AWS Lambda
 * Setting up a simple Lambda function (Python) that interacts with S3 buckets
 * Using the Testing and Logging functions on the console
-* A lambda function is made of a trigger and an corresponding action. In the example, the trigger event is any new upload to a S3 bucket and the action is to run the simple Python function to resize and store the copy into another S3 bucket. Before deployment, it is necessary to run some tests using the provided events. To properly access other AWS services, we need to set the permission in the IMA role page.
+* A lambda function is made of a trigger and an corresponding action. In the example, the trigger event is any new upload to a S3 bucket and the action is to run the simple Python function to resize and store the copy into another S3 bucket. Before deployment, it is necessary to run some tests using the provided events. To properly access other AWS services, we need to set the permission in the IAM role page.
 9. QwikLab: Intro to Amazon API Gateway
+* Setting up a simple Lambda function (Python) that interacts with Amazon API Gateway
+* This lab is similar to the one above. Instead of interacting with S3, this lambda function handles the REST coming from API Gateway. API call is a good pratice for different components of a microservice application. 
+10. AWS Tutorial: Build a Serverless Web Application
