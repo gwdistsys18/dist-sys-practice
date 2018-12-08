@@ -85,4 +85,7 @@ The tutorial went through the steps to set up a web server on EC2. Besides the i
 * S3 has cheaper storage but EC2 is more flexible
 * S3 has a very user-friendly interface
 6. QwikLab: Intro to DynamoDB
-
+* Use the AWS DynamoDB console to create/delete table
+* Add items to DynamoDB and query the database
+DynamoDB is a NoSQL database. Some advantages of NoSQL database includes flexibility (no need to have same columns) and great scalability. DynamoDB can be used with other AWS services.
+7.AWS Tutorial: Deploy a Scalable Node.js Web App
