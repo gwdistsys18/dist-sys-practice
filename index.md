@@ -25,6 +25,8 @@ The output of the hello-world container gives us a nice description of what just
 
 The output even challenges us to do something more interesting.  We can run a bash shell with the command: docker run -it ubuntu bash.  The -it stands for interactive.  Ubuntu stands for the container, and bash stands for the program in that container.
 
+![docker_ubuntu.png](/images/docker_ubuntu.PNG)
+
 Cool!  So we have access to a bunch of containers.  But what if we want to build a container?  Well that is pretty easy too.  First, create a new directory 'my_build' which we will be working inside of.  Inside of that directory create a file called 'Dockerfile' with the following contents:
 
 ```
@@ -46,7 +48,7 @@ Now, we need to build our container.  Again this is as easy as a single command 
 
 And it's done!  Now running it is as simple as docker run test.
 
-![docker_test.png](/images/docker_test.PNG)
+![docker_run_test.png](/images/docker_run_test.PNG)
 
 # Conclusion
 
