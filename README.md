@@ -15,9 +15,8 @@
     * [Docker Swarm vs Kubernetes](#swarmkuber)
     * [Break a Monolith Application into Microservices](#breakservice)
     
-# BIG DATA AND MACHINE LEARNING
+# BIG DATA AND MACHINE LEARNING (Intermediate)
 
-## Big Data and Machine Learning (Intermediate)
 1. [Hadoop Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
 3. [Introduction to Amazon Simple Storage Service](#s3)
