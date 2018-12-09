@@ -375,6 +375,102 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
     - Allowed SSH connections to cluster
     
-The script also analyzes CloudFront log files and determines the number of requests for each OS 
+* **cluster** : a collection of Amazon Elastic Compute Cloud (Amazon EC2) instances. Each instance in the cluster is called a node. Each node has a role within the cluster, referred to as the node type. 
+
+* Master node: A node that manages the cluster by running software components to coordinate the distribution of data and tasks among other nodes for processing. The master node tracks the status of tasks and monitors the health of the cluster. Every cluster has a master node, and it's possible to create a single-node cluster with only the master node.
+
+* Core node: A node with software components that run tasks and store data in the Hadoop Distributed File System (HDFS) on your cluster. Multi-node clusters have at least one core node.
+
+* Task node: A node with software components that only runs tasks and does not store data in HDFS. Task nodes are optional.
+
+* **Benefits**
+
+    - Cost Savings
+
+    - AWS Integration
+
+    - Deployment
+    
+    - Flexibility
+
+    - Reliability
+
+    - Security 
+
+    - Monitoring
+
+![](./1.png)
+
+> **QwikLab: Intro to Amazon Machine Learning (45 min)**
+
+* Amazon Machine Learning (Amazon ML) : a platform which specializes in the training and storage of ML models in their cloud infrastructure.
+    
+    - A datasource contains metadata about input data but not the data itself
+    
+    - An ML model generates predictions
+
+    - An evaluation measures ML model quality
+
+    - Batch predictions generate predictions for a set of observations
+    
+    - Real-time predictions generate predictions for single input observations with low latency
+
+* Keys :
+
+    - Upload Training Data by adding data to an S3 bucket
+    
+        - by default reserves 70% of data for training and 30% for evaluation
+    
+    - Create a Datasource
+    
+    - Create an ML Model from the Datasource
+    
+    - Evaluate an ML Model
+    
+    - Generate Predictions From Your ML Model
+        
+        - Real-time predictions can be done without submitting all of the input data values
+        
+        - Real-time predictions show predicted scores (adding up to 1) for each category
+
+> **AWS Tutorial: Build a Machine Learning Model (30 min)**
+
+* Proceed with different data compared to prior lab
+
+* AUC (Area Under a Curve) : a quality metric for ML models
+
+* The score threshold can be adjusted to choose a balance of false positives and false negatives
+
+* Batch predictions can be done by linking to a new spreadsheet of input data
+
+* The results spreadsheet gives the best answer and the score 
+
+* The score threshold determines the best answer based on the score
+
+> **Video Tutorial: Overview of AWS SageMaker (30 min)**
+
+* SageMaker is a machine learning service consisting of four parts: 
+
+    - notebook instances, jobs, models, and endpoints
+
+* It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don't have to manage servers. 
+
+* It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment.
+
+* keys :
+
+    - use the shelf model
+    
+    - use library (e.g., tensorflow, mxnet) and your own custom model creation and trainings cript 
+    
+    - bring your own pretrained model and simply deploy it and create an endpoint
+
+    - or create your own docker container containing your model and access it from within sagemaker 
+
+* workflow : 1.Generate example data 2.Train a model 3.Deploy the model
+
+![](./workflow2.png)
+
+
 
 
