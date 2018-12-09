@@ -165,9 +165,18 @@ Time: 60 min
 
 #### [Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)  
 Time: 60 min
-
-
-
+1. Lear to build a serverless app to process real-time data streams and build infrastructure for a fictional ride-sharing company. So it needs to enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
+2. Serverless applications don’t require you to provision, scale, and manage any servers. You can build them for nearly any type of application or backend service, and everything required to run and scale your application with high availability is handled for you.
+3. Serverless architectures can be used for many types of applications
+4. Create an Amazon Kinesis stream to collect and store sensor data from our unicorn fleet.The architecture for this module involves an Amazon Kinesis stream, a producer, and a consumer.
+5. Produce messages into the stream
+6. Read messages from the stream.
+7. Create an Amazon Cognito identity pool to grant unauthenticated users access to read from your Kinesis stream. 
+8. Add a new policy to the unauthenticated role to allow the dashboard to read from the stream to plot the unicorns on the map.
+9. Use the Unicorn Dashboard to see the unicorn on a real-time map.
+10. Experiment with the producer.
+11. Aggregate data
+12. 
 
 
 
