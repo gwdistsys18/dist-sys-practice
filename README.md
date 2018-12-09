@@ -46,6 +46,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The sample app creates the DynamoDB table using configuration files, but in a production environment the table should be created outside the environment; this can be done by creating the table; adding the name to the configuration file, and redeploying
   * Configuring the auto scaling group with a higher minimum instance count helps with availability
   ![](elastic-beanstalk.png)
+* QwikLab: Intro to AWS Lambda (took ~20 minutes)
+  * Created S3 buckets for source and target
+  * Lambda functions can be from scratch, using blueprints, or from the AWS Serverless Application Repository
+  * The example code gets the bucket and key from the record for the event, downloads the file, resizes the image, and uploads it to the target bucket
+  * The test took 891.68 ms and used up to 50 MB
+  * Monitoring shows the invocations count, duration, errors, throttles, and more
+  * The CLoudWatch Logs can be used to view print statements from the functions
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
