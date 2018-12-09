@@ -295,3 +295,20 @@ First 50 TB/ month	$0.023 / GB
 Next 450 TB/ month	$0.022 / GB  
 Over 500 TB/ month	$0.021 / GB  
 
+* [QwikLab: Intro to DynamoDB](https://awseducate.qwiklabs.com/focuses/23?parent=catalog) (20 min)  
+
+Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and supports both document and key-value data models.  
+In this lab,  
+Create a new table.  
+Add Data.  
+Modify an existing item.  
+Query the table.  
+Delete the table.  
+
+* [AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/cn/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card) (30 min)  
+
+Deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB.  
+Launch a Node.js web application environment using AWS Elastic Beanstalk and Amazon DynamoDB.  
+Deploy a web application using AWS Elastic Beanstalk.  
+Receive email notifications with Amazon Simple Notification Service (SNS).  
+
