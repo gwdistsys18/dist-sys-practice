@@ -492,6 +492,8 @@ Challenges of Distributed Systems that Hadoop can solve include high chances of 
 
 [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/home?locale=en)
 
+*Unfortunately, this lab is not available now. But you can find other learnable content under this link.*
+
 Time: 50min
 
 In this lab, I know that Amazon EMR not only can support powerful Hadoop tools, but also can manage service effictively to run Apache Hadoop and Spark to process massive data. During deploying a fully functional Hadoop cluster by lauching an Amazon EMR cluster, I learnt that HiveQL is a SQL-like scipting language for data warehousing and analysis. And I find that the advantage of hive is that the learning cost is low, and the simple MapReduce statistics can be quickly realized by the SQL-like statement. It is not necessary to develop a dedicated MapReduce application, which is very suitable for statistical analysis of the data warehouse.
