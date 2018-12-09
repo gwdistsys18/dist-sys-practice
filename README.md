@@ -1,12 +1,8 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Area 1
 
-- Analyze Big data with Hadoop
-- Video Hadoop Introduction
-
-## Area 2
+## Docker
 - Docker Images Lab
 - Amazon Lab
 - Docker Networking Hands
@@ -14,3 +10,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Play with Docker Classroom
 - Video about VMs and Containers
 - Why docker
+
+## Big Data
+
+- Analyze Big data with Hadoop
+- Video Hadoop Introduction
+
+## Web Application
