@@ -99,3 +99,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Setting up a simple Lambda function (Python) that interacts with Amazon API Gateway
 * This lab is similar to the one above. Instead of interacting with S3, this lambda function handles the REST coming from API Gateway. API call is a good pratice for different components of a microservice application. 
 10. AWS Tutorial: Build a Serverless Web Application
+* To host a static website, simply upload everything to S3 bucket, enable public access (json for permission rules) and configure the bucket as "staic website hosting"
+* Cognito can be used for user verification by sending out email with verification code
+* Having issue when deploying the API Gateway. The lambda function cannot get proper request. This is tutorial is another example for outdated + having issue
