@@ -263,10 +263,35 @@ Amazon EC2:
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change. Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use. Amazon EC2 provides developers the tools to build failure resilient applications and isolate them from common failure scenarios.  
 
 Benefits  
-Elastic Web-scale Computing, Completely Controlled, Flexible Cloud Hosting Services, Integrated, Reliable, Secure, Inexpensive, Easy to Start  
+Elastic Web-scale Computing  
+Completely Controlled  
+Flexible Cloud Hosting Services  
+Integrated  
+Reliable  
+Secure  
+Inexpensive  
+Easy to Start  
 
 Price  
 General Purpose - Current Generation  
 c3.2xlarge	$0.420 per Hour  
 c3.4xlarge	$0.840 per Hour  
 c3.8xlarge	$1.680 per Hour  
+
+Amazon S3:  
+Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data for a range of use cases, such as websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. Amazon S3 provides easy-to-use management features so you can organize your data and configure finely-tuned access controls to meet your specific business, organizational, and compliance requirements. Amazon S3 is designed for 99.999999999% (11 9's) of durability, and stores data for millions of applications for companies all around the world.  
+
+Benefits  
+Industry-leading performance, scalability, availability, and durability  
+Wide range of cost-effective storage classes  
+Unmatched security, compliance, and audit capabilities  
+Management tools for granular data control  
+Query-in-place services for analytics  
+Most supported cloud storage service  
+
+Price  
+S3 Standard  
+First 50 TB/ month	$0.023 / GB  
+Next 450 TB/ month	$0.022 / GB	 
+Over 500 TB/ month	$0.021 / GB  
+
