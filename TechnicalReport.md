@@ -1,7 +1,6 @@
 # Build a Machine Learning Model by SageMaker
 
-## Why SageMaker
-Today I will talk about Amazon Sagemaker, a fully-managed machine learning service and it will mainly focus on two point: why we need it and how it works.
+> Today I will talk about Amazon Sagemaker, a fully-managed machine learning service and it will mainly focus on two point: why we need it and how it works.
 
 ## What I care most?
 Machine learning is a method of data analysis that automates analytical model building and it is become more and more popular in recent years. Nowadays, even my own laptop can build and train some simple machine learning models such as MLP and SVM. However, when dealing with deep neural networks, real time straming processing or large bunch of data, it will kill lots of time and make my laptop crashed.  
