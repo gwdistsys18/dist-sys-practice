@@ -176,8 +176,22 @@ Time: 60 min
 9. Use the Unicorn Dashboard to see the unicorn on a real-time map.
 10. Experiment with the producer.
 11. Aggregate data
-12. 
-
+12. Create an Amazon Kinesis Data Analytics application to aggregate sensor data from the unicorn fleet in real-time. The application will read from the Amazon Kinesis stream, calculate the total distance traveled, and minimum and maximum health and magic points for each unicorn currently on a Wild Ryde and output these aggregated statistics to an Amazon Kinesis stream every minute.
+13. Build an Amazon Kinesis Data Analytics application which reads from the wildrydes stream built in the previous module and emits a JSON object.
+14. Process streaming data.
+15. Use AWS Lambda to process data from the wildrydes Amazon Kinesis stream created earlier. We’ll create and configure a Lambda function to read from the stream and write records to an Amazon DynamoDB table as they arrive.
+16. Use the Amazon DynamoDB console to create a new DynamoDB table. 
+17. Create an IAM role for your Lambda function.
+18. Create a Lambda function called WildRydesStreamProcessor that will be triggered whenever a new record is available in the wildrydes stream.
+19. Monitor the Lambda function. Verify that the trigger is properly executing the Lambda function. View the metrics emitted by the function and inspect the output from the Lambda function.
+20. Store and query Data
+21. Create an Amazon Kinesis Data Firehose to deliver data from the Amazon Kinesis stream created in the first module to Amazon Simple Storage Service (Amazon S3) in batches.
+22. Create an Amazon S3 bucket.
+23. Create an Amazon Kinesis Data Firehose delivery stream named wildrydes that is configured to source data from the wildrydes stream and deliver its contents in batches to the S3 bucket created in the previous section.
+24. Create an Amazon Athena table to query the raw data in place on Amazon S3 using a JSON SerDe.
+25. Explore the batched data files.
+26. Query the Amazon Athena table to see all records that have been delivered via Kinesis Data Firehose to S3.
+27. Learned how to develop a serverless data processing app. 
 
 
 
