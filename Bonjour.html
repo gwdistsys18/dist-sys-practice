@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>FAQ</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+            
+            <style>
+                
+                body {
+                    margin: 0px;
+                    padding: 0px;
+                    
+                    font-family: Verdana, Verdana, Geneva, Arial, Helvetica, sans-serif;
+                    font-size: 18px;
+                    
+                    /* Turn off font resizing */
+                    -webkit-text-size-adjust: none;
+                    
+                }
+            .title_page{
+                color: #82c53a;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .title_01 {
+                color: #222222;
+                font-size: 19px;
+                font-weight: bold;
+            }
+            .title_02 {
+                color: #222222;
+                font-size: 17px;
+                font-weight: bold;
+            }
+            
+                </style>
+            
+</head>
+<body>
+    
+    <br><br>
+    
+    <center>
+        <table width="95%">
+            <tbody><tr>
+                <br>
+                <br>  <br>
+                <br>
+                <td align="center"><b><u><font size="+3">Bonjour: Zero-Configuration Networking </font></u></b></td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <br>
+                    
+                    <ol>
+                        
+                            <p> <span class="title_01">1. What is Bonjour?</span></p>
+
+
+                            <p>I have seen a lot of questions asked in some forums: what is Bonjour, can I uninstall it?<br>
+                            
+                            <p>
+Bonjour, also known as zero-configuration networking, enables automatic discovery of devices and services on a local network using industry standard IP protocols. Bonjour makes it easy to discover, publish, and resolve network services with a sophisticated, easy-to-use programming interface that is accessible from Cocoa, Ruby, Python, and other languages. (From Apple Inc. Doc)</li>
+<br>
+
+<p>This formal definition may come up too general to understand. As we know, in iOS, we could easily find other iOS devices and share files between them with AirDrop. This application is using Bonjour. Other applications, such as iTune shared music, finding other users on your local network in iChat, Proteus, Adium, Fire, Skype, and Gizmo Project, finding the printers in the network, are using Bonjour as well. Bonjour service is also widely used in Windows OS.</li>
+<br></li>
+<br>
+
+<p> <span class="title_01">2. Why is Bonjour</span></p>
+
+<p>Bonjour make life easier. No configuration, no complicated and complicated. Thanks to Bonjour technology, it makes the collaboration between computers and smart devices as easy as connecting them. Computers and devices using Bonjour technology can automatically spread their own services and explore services for other devices. Your computer can see the printer that can be printed.
+<br>
+
+<p>Let us go through the IP connection process to connect two devices or services. To connect by IP, we need to know both parties IP address and port number. We need both parties to set up the sockets and connect. It needs a lot of steps and configurations.
+<br>
+
+<p>If we use UDP broadcasting, one endpoint needs to continue to send UDP broadcasts message. Another endpoint receives it and starts to connect. This may cause the network traffic jam. Due to the interval and instability of UDP broadcasts, the speed and stability of our acquisition of the device are insufficient. Usually, the mobile device is resource limited, so the power consumption for UDP broadcasting is not acceptable.
+<br>
+
+<p>As a developer, it may need many codes and logic to implement this.
+<br>
+<br>
+
+
+<p> <span class="title_01">3. How to use Bonjour</span></p>
+
+<br>
+
+<p>
+The zeroconf Working Group’s requirements and proposed solutions for zero-configuration networking over IP essentially cover three areas:
+<br>
+
+<p>addressing (allocating IP addresses to hosts)
+<br>
+
+<p>naming (using names to refer to hosts instead of IP addresses)
+<br>
+
+<p>service discovery (finding services on the network automatically)
+(From Apple Inc. doc)
+<br>
+
+<p>Bonjour has a zero-configuration solution for all these areas.
+<br>
+
+<p>
+
+<p> <span class="title_02">a. Addressing</span></p>
+
+<br>
+
+<p>In the traditional network environment, the IP address of the device is obtained in two ways. One is static configuration. The device is manually assigned an IP address. The other is dynamic configuration. The device obtains a dynamic IP address through the DHCP service of the router.
+<br>
+
+<p>In a network environment without a central server, there is no central server to provide DHCP service. It is also very inconvenient for the user to manually configure the IP address. This requires a new way to help the device obtain an IP address. It is hoped that the device can actively assign one to itself. Available IP address.
+<br>
+
+<p>For the IPV6 standard, the IP protocol already includes the ability to automatically find an IP address. However, IPV4, which is still commonly used today, does not include local link addressing. Then the solution is to select a random IP address for testing on the local network, and if it is already occupied, continue to pick another address.
+
+<br>
+<p> <span class="title_02">b. Naming</span></p>
+
+
+<p>We could give a name to our service instead of using the cold IP address as a sign of our service. Bonjour help us achieve the function of naming and parsing. The name of our service is guaranteed to be unique on the local network, and the query of someone else's name is directed to the correct IP address and port.
+<br>
+
+<p>In a traditional network environment, the correspondence between names and IP addresses is resolved through the DNS service. When a device needs to access a domain name, such as "www.mydomain.com", the device sends "www.mydomain.com" to the DNS server. The server returns the IP address corresponding to the domain name, and the device uses the returned IP address to the target server.
+<br>
+
+<p>In a network environment without a central server, no DNS server provides domain name resolution services, and name resolution becomes a serious problem. To solve this problem, the industry solution is mDNS. The principle of "multicast DNS" is very simple. When a device needs to resolve a name, such as "my.local", the device broadcasts a message to all devices on the local network through the UDP protocol, asking who is "my.local". If a device on the local network thinks it is "my.local", it will respond and say its own IP address.
+<br>
+
+<p>Because "multicast DNS" is based on the UDP protocol, it uses broadcast messages, so you do not need a central server to provide DNS resolution services to complete local name resolution.
+<br>
+
+<p>Bonjour is also based on the mDNS protocol, but Bonjour has been extended on the mDNS protocol to enhance the ability of devices to respond to "multicast DNS" requests. Under the Bonjour protocol, an application only needs to register a name, and the work of responding to the "multicast DNS" request can be handled by the underlying. That is to say, under the Bonjour protocol, the application does not need to listen to and respond to the "multicast DNS" request of the local network, which is done by the underlying system.
+ <br>
+
+
+<p> <span class="title_02">c. Service Discovery</span></p>
+
+
+<p>When a device(service provider) obtains an IP address and a domain name, it still cannot meet the user's needs. What the user needs is a certain service, such as print service. The user does not care about the server name and its IP address corresponding to these services.
+<br>
+
+<p>Let's take printer discovery as an example. The device(iPhone, iPad, etc..) makes a request on the local network, saying that I need a service, for example, I want a printer service. All printer service devices respond to their names.
+<br>
+<br>
+
+
+<p> <span class="title_01">4. Security</span></p>
+
+
+<p>
+In wireless environments, WPA2-PSK or better encryption should be used to ensure only trusted parties are active on the network. In open network environments (e.g., Wi-Fi hotspots) administrators should implement appropriate mitigations. (From Apple Inc. doc)
+<br>
+
+<p>
+So here comes to the question: should I uninstall Bonjour? With Bonjour, you can exchange data between your Apple devices and your computer(both for Mac OS and window OS), so we automatically install this software when installing iTunes. If you disable or uninstall the service process of Bonjour on your computer, you can't use iTunes normally. So if you want to continue to use data sharing between Apple's devices and computer, you can't uninstall this bonjour.
+
+<br>
+
+<br>
+<br>
+<p> <span class="title_01">5. Development</span></p>
+<br>
+
+<p>
+For iOS/Mac OS developer, usually, there is no need to use Bonjour directly. Apple has a high-level frame NSNetServices and CFNetServices that are easier to use.
+<br>
+
+<p>
+a. As a client to discover Bonjour service
+<br>
+
+<p>iOS development can use the NSNetServiceBrowser class in the NSNetService framework to discover local services. The basic code:<br>
+
+serviceBrowser = [[NSNetServiceBrowser alloc] init];<br>
+
+serviceBrowser.delegate = self;<br>
+
+[serviceBrowser searchForServicesOfType:@"_http._tcp." inDomain:@"local."];<br>
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didFindService:(NSNetService *)netService moreComing<br>
+:(BOOL)moreServicesComing<br>
+
+{｝<br>
+
+<br>
+
+<p>
+b. As a Server to register Bonjour service as a server
+<br>
+
+<p>To register as a Bonjour service, we can create NSNetService instances directly.<br>
+
+service = [[NSNetService alloc] initWithDomain:@"local." type:@"_http._tcp." name:@"DamonWebServer" port:port];<br>
+
+
+[service setDelegate:self];<br>
+
+[service publish];<br>
+
+
+<br>
+
+<br>
+<br>
+
+<p> <span class="title_01">6. Summary</span></p>
+<br>
+
+<p>
+Although Apple provides various Bonjour services, Bonjour also works on other operating systems such as Windows OS. Apple has made the source code of the Bonjour multicast DNS responder, the core component of service discovery, available as a Darwin open source project. The project provides source code to build the responder daemon for a wide range of platforms, including macOS, Linux, *BSD, Solaris, VxWorks, and Windows. (From Wiki)
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>
+
+(I have some experience on iOS networking and have interest about Bonjour, so have this article. Some part are from Apple Inc. documents and Wiki.)
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
