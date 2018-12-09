@@ -31,7 +31,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Someone [kept track of costs](https://medium.com/@bezdelev/cost-breakdown-for-a-static-website-on-aws-after-18-months-in-production-d97a932d2d25) for a static website using S3, CloudFront, and Lambda, and it was less than a dollar per month after the first month
   * An EC2 t2.micro instance costs $0.0116 per hour, which would be around $8 to $9 per month. There are also charges for sending out more than 1 GB of data per month
   * EC2 servers must be set up with the correct amount of memory and storage for the website and may need to be adjusted to improve performance, while S3 optimizes performance automatically
-
+* QwikLab: Intro to DynamoDB (took ~15 minutes)
+  * DynamoDB is a NoSQL DB service with single-digit millisecond latency at any scale
+  * It supports document and key-value data models
+  * The default settings have "provisioned capacity set to 5 reads and 5 writes"
+  * Items are like rows, and attributes are like columns; however, items can have different attributes
+  * The Console GUI supports creating tables and adding items
+  * A query uses the partition key and sort key and is the most efficient way to retrieve data
+  * A scan involves looking through every item in a table but does not require a partition key
+  
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
