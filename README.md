@@ -39,7 +39,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The Console GUI supports creating tables and adding items
   * A query uses the partition key and sort key and is the most efficient way to retrieve data
   * A scan involves looking through every item in a table but does not require a partition key
-  
+* AWS Tutorial: Deploy a Scalable Node.js Web App (took ~45 minutes)
+  * Elastic Beanstalk automatically handles deployment, load balancing, auto-scaling, etc. after the user uploads code
+  * An Elastic Beanstalk environment includes an EC2 instance, a load balancer with a security group, an auto scaling group, and an S3 bucket
+  * The sample app writes to a DynamoDB table when the user submits the form
+  * The sample app creates the DynamoDB table using configuration files, but in a production environment the table should be created outside the environment; this can be done by creating the table; adding the name to the configuration file, and redeploying
+  * Configuring the auto scaling group with a higher minimum instance count helps with availability
+  ![](elastic-beanstalk.png)
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
