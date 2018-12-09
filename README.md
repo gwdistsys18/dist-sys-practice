@@ -211,4 +211,19 @@ Create a bucket policy. A bucket policy is a set of permission associated with A
 Explore versioning. Versioning is a means of keeping multiple variants of an object in the same bucket. Can be used to preserve, retrieve, and restore every version of every object stored in Amazon S3 bucket.  
 
 ### Intermediate Level
-a
+* [Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk) (10 min) 
+
+The idea of running a virtual machine, a viritual computer on top of the physical computer, you can actually run multiple virtual machines at the same time. 
+VMWARE: 2 different levels of privilege to run software on computers: OS(Operating system) and APP(Applications)
+Ring 0 for OS, Ring 3 for APP, Ring 1 and 2 are not commonly used. 
+Xen: Hypervisor(Ring 0) 
+Ability to run legacy operating system like Windows NT4 
+
+* [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html) (40 min) 
+
+To prepare the LAMP server, 
+1. Connect to your instance. 
+2. Esure that all of your software packages are up to date, perform a quick software update on your instance. 
+3. Install the lamp-mariadb10.2-php7.2 and php7.2 Amazon Linux Extras repositories to get the latest versions of the LAMP MariaDB and PHP packages for Amazon Linux 2. 
+4. Use the yum install command to install multiple software packages and all related dependencies at the same time. 
+5. 
