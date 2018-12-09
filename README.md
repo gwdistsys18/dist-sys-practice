@@ -222,8 +222,8 @@ Ability to run legacy operating system like Windows NT4
 * [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html) (40 min) 
 
 To prepare the LAMP server, 
-1 Connect to your instance. 
-1 Esure that all of your software packages are up to date, perform a quick software update on your instance. 
+1. Connect to your instance. 
+2. Esure that all of your software packages are up to date, perform a quick software update on your instance. 
 3. Install the lamp-mariadb10.2-php7.2 and php7.2 Amazon Linux Extras repositories to get the latest versions of the LAMP MariaDB and PHP packages for Amazon Linux 2. 
 4. Use the yum install command to install multiple software packages and all related dependencies at the same time. 
 5. 
