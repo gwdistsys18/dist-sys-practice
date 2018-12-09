@@ -204,3 +204,10 @@ Serverless applications don’t require you to provision, scale, and manage any 
 6. Kinesis can collect data stream. It uses as monitor or dectactor.
 7. Cognito, Amazon service, is used to sychronized data.
 8. IAM, Identity and Access Management. Use this to create a policy.
+![](https://github.com/GuanYuankai/dist-sys-practice/blob/master/Image/Serverless%20app%201.png?raw=true)
+9. It is easy to run multi-thread. Just rename them.
+10. Use Kinesis analytic application will get SQL-like application.
+11. DynamoDB， is used to manage NoSQL Database.
+12. Lambda.
+13. Kinesis can dilivery stream to S3. So that S3 can use to store data.
+14. Athena, query data in S3
