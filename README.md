@@ -211,6 +211,15 @@ CMD ["node","index.js"]
 > 3. the COPY command to add the javascript code. 
 
 #### 3.5 [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)
++ Size:
+> 1. Inside the image of VM we have kernel, init system, userspace program and application.
+> 2. Inside the image of container we have user space and applications (and dependencies). ------> much smaller
++ Isolation:
+> 1. VM: straightforward which is a boundary.
+> 2. Container; the popularity of container make the security community aware of the bugs could happen. -------> not that bad
++ Boot time:
+> 1. VM: system check section (3-4 seconds), process startup (500 ms). -------> could be brought to as fast as container
+> 2. Container: kernel process which setup the process sandbox, starting up the application.
 
 ### 4. Networking and Orchestration
 #### 4.1 [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)
@@ -245,8 +254,17 @@ CMD ["node","index.js"]
 
 
 #### 4.3 [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)
++ Docker Swarm enable you to run your container on a cluster.
++ Docker Swarm is a kind of orchestrate system.
++ Kubernetes is used in almost all of the applications in real life. Because it contains far more features.
 
 #### 4.4 [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)
++ Desired state management: feed the cluster service a specific configuration and cluster services will go out and run that configuration.
++ Kubernets cluster service has an API service.
++ Worker: is a container host. It has a cubelet process runs which is responsible for communicating with the Kubernetes cluster services.
++ There is a .yaml file which contains a bunch of configuration informations. (deployment file) There are two fundamental pieces:
+> 1. Pod configuration -> pod is the smallest unit of deployment in Kubernetes. In a pod we can have one or more containers. so we need to specify some kind of container images. Replication number of the pods will be included.
++ If one of the workers are down. the scheduler of Kubernetes will pick another worker to instantiate the dropping replication of pod.
 
 #### 4.5 [Kubernetes](https://kubernetes.io/)
 
