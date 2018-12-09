@@ -75,6 +75,20 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Added the URL to the config file
   * Confirmed that the web page could use the API
   ![](wile-rydes-serverless-app.png)
+* AWS Tutorial: Build a Modern Web Application (took ~40 minutes so far)
+  * Module 1: Build a Static Website
+    * Set up a Cloud9 environment and cloned repo for the website
+    * Created bucket on command line using `aws s3 mb s3://mod-app-bucket` where `mod-app-bucket` was the bucket name
+    * Made the bucket publicly readable by updating the policy
+  * Module 2: Host Your Application on a Web Server
+    * AWS Fargate allows deploying containers without managing clusters or servers
+    * Deployed a CloudFormation template to set up a virtual network environment with two network address translation (NAT) gateways, a DynamoDB VPC endpoint, a security group, and IAM roles
+    * Built a Docker image with the Flask app written in Python
+    ![](docker-flask-setup.png)
+    * Pushed the image to the Amazon Elastic Container Registry (ECR)
+    * Created a cluster in Amazon Elastic Container Service (ECS) and a log group for it
+    * Registered an ECS task definition to declare set of containers with resources and configuration
+    
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
