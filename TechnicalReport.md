@@ -5,7 +5,9 @@ Today I will talk about Amazon Sagemaker, a fully-managed machine learning servi
 
 ## What I care most?
 Machine learning is a method of data analysis that automates analytical model building and it is become more and more popular in recent years. Nowadays, even my own laptop can build and train some simple machine learning models such as MLP and SVM. However, when dealing with deep neural networks, real time straming processing or large bunch of data, it will kill lots of time and make my laptop crashed.  
+  
 To solve this problem, I would like to use some distributed system techniques like EC2 Instance for computing, S3 for storage and Microservices for deployment but it is still a hard work to organize all of it.  
+  
 Fourtunately, Amazon provides us a solution SageMaker combining all of these techniques and optimizing in each step.
 
 ## SageMaker Procedure
