@@ -55,7 +55,37 @@
 
 > Summary: EC2 service gives allows us to build a Linux VM service conviently and we should use a set of keypairs to manage the entrances of it and keep it safe. In the future work, I may use it to do some small Linux env needed lab with my windows or mac laptop and it is time saving.
 
+<a name="wp3"></a>
+# Introduction to Amazon Simple Storage Service (S3) (30mins) 
+[Back to Menu](#menu)
+### Task 1-3: 
+1. Create bucket.
+2. Upload image file. 
+3. Open the read access manually.
+### Task 4: Create a Bucket Policy
+    Use AWS Policy Generator to generate S3 Bucket.
+    Select S3 Bucket Policy, write ‘*’ in Principal and paste ARN (Amazon Resource Name).
+    The policy looks like:
+    {
+      "Id": "Policy***************",
+      "Version": "2012-10-17",
+      "Statement": [
+            {
+              "Sid": "Stmt*************",
+              "Action": [
+                "s3:GetObject"
+              ],
+              "Effect": "Allow",
+              "Resource": "arn:aws:s3:::********(bucket name)/*",
+              "Principal": "*"
+            }
+        ]
+    }
+    After generation of policy and being applied in the Bucket Policy, the bucket is public accessible now.
+### Task 5: Explore Versioning:
+    Add action “s3:GetObjectVersion” in “Action” will allow access old version of a file.
 
+> Summary: S3 is very easy to use and is a Object Storage service. In my Round 1 lab, all my img link is provided by AWS S3 and I can easily manage it with the S3 bucket.
 
 <a name ="containers"></a>
 ## Containers
