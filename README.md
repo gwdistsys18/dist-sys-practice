@@ -259,14 +259,14 @@ To secure the MariaDB server,
 
 * Compare the performance, functionality, and price when serving web content from S3 versus an EC2 VM (30 min) 
 
-Amazon EC2: 
+Amazon EC2:  
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change. Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use. Amazon EC2 provides developers the tools to build failure resilient applications and isolate them from common failure scenarios. 
 
-Benefits 
-Elastic Web-scale Computing, Completely Controlled, Flexible Cloud Hosting Services, Integrated, Reliable, Secure, Inexpensive, Easy to Start 
+Benefits  
+Elastic Web-scale Computing, Completely Controlled, Flexible Cloud Hosting Services, Integrated, Reliable, Secure, Inexpensive, Easy to Start  
 
 Price 
-General Purpose - Current Generation 
-c3.2xlarge	$0.420 per Hour 
-c3.4xlarge	$0.840 per Hour 
-c3.8xlarge	$1.680 per Hour 
+General Purpose - Current Generation  
+c3.2xlarge	$0.420 per Hour  
+c3.4xlarge	$0.840 per Hour  
+c3.8xlarge	$1.680 per Hour  
