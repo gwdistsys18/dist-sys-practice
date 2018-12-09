@@ -237,3 +237,58 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Area 3 Big Data and Machine Learning
 ### Beginner
+1. Hadoop Intro
+	- Data is growing so rapidly that our previous solutions for handling
+	more data no longer work.
+	- The idea of distributed systems helps to improve the solution from
+	buying more machines to using a group of machines in an intelligent 
+	way.
+	- When using a distributed system to help process large amounts of
+	data throughput increases greatly but at the tradeoff of having a
+	higher chance of failure by the introduction of more machines into
+	the system. Another problem introduced by distrubuted sytems is the
+	need to synchronization and the inability to guarantee that at any
+	give time data is not consistent accross multiple machines.
+	- Hadoop claims to offer solutions to the challenges faced by distributed
+	systems. Being able to handle these challenges means that a person
+	can have the benefits of more computing power without the inherint
+	drawbacks of distribution.
+	- Hadoop runs on commodity hardware and uses multiple copies of data
+	to ensure redundancy.
+	- Hadoop completely reverses the way data is processed. A central
+	program distributes the data amongst the system and performs 
+	processing on the data where it is store instead of having the
+	data sent to the program it brings the program to the data.
+	- The Hadoop ecosystem:
+		* HDFS: Storage layer, streaming access to fs data and authentication
+		* HBASE: Stores data in HDFS non-relational DB, high throughput
+		* Sqoop: Imports and Exports data to and from relationals DBs
+		* Flume: Collects event data and transfers it to HDFS
+		* Spark: Data processing component, cluster computing processing
+		* Map Reduce: Original Hadoop processing engine, fault tolerant
+		* Pig: Open source high level data flow system
+		* Impala: SQL Engine, interactice analysis with low latency
+		* Hive: Abstraction layer similar to impala but better for ETL ops
+		* Cloudera Search: Near-real-time access no skills required
+		* Oozie: Coordinating map-reduce workflows from other apps
+		* HUE: User level interaction with previousls mentioned components
+	- These tools help to abstract the map reduce writing portion of development
+	away from the user. One of the problems with distributed systems is that
+	they require complex code to preform well. This helps to solve that
+	problem by not making the user write the code.
+	- A lot of the problems introduced by distribution are solved by these
+	components. They make writing the code for these systems easier and
+	provide levels of fault tolerance otherwise lost on large distributed
+	systems.
+	- The four steps of big data processing:
+		* Ingest: Scoop and Flume transfer data to Hadoop
+		* Processing: HDFS->Hbase->Map Reduce||Spark
+		* Analyze: Pig, Hive and  Impala
+		* Access: Hue or Cloudera Search
+
+
+
+
+
+
+ 
