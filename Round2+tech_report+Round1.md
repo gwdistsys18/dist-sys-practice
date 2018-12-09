@@ -45,56 +45,8 @@
 
 
 
-# Cloud Web Application
-
-<a name ="launchvm"></a>
-### Launch a VM
-[Back to Menu](#menu)
-> Foreword: In this section, I will use AWS EC2 to build a VM Instance, keep it's Keypair and link to it.
-* step 1: Launch an Amazon EC2 Instance. In this step, we need to remember to create a new key pair and move it to .ssh path on mac. After instance launched, we can view its details at the EC2 Instance page.
-![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5instance.png)
-* step 2(optional): this step is not in the tutorial, however, I found that there is a permission denied with error "Permissions 0644 for '/Users/unlimitediw/.ssh/MyKeyPair.pem' are too open." and it is due to EC2 instances will not accept a .pem key if it is publicly visible. I figure this problem with two commands ```chmod 400``` and ```chmod 400 ~/MyKeyPair.pem``` which give the keypair a more security and appropriate setting.
-![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5chmod.png)
-* STEP 3: Link to the VM instance we just lanuched with command ```/Users/unlimitediw/.ssh/MyKeyPair.pem' ec2-user@54.210.136.241``` and it is validated.
-![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5validate.png)
-
-> Summary: EC2 service gives allows us to build a Linux VM service conviently and we should use a set of keypairs to manage the entrances of it and keep it safe. In the future work, I may use it to do some small Linux env needed lab with my windows or mac laptop and it is time saving.
-
-<a name="wp3"></a>
-# Introduction to Amazon Simple Storage Service (S3) (30mins) 
-[Back to Menu](#menu)
-### Task 1-3: 
-1. Create bucket.
-2. Upload image file. 
-3. Open the read access manually.
-### Task 4: Create a Bucket Policy
-    Use AWS Policy Generator to generate S3 Bucket.
-    Select S3 Bucket Policy, write ‘*’ in Principal and paste ARN (Amazon Resource Name).
-    The policy looks like:
-    {
-      "Id": "Policy***************",
-      "Version": "2012-10-17",
-      "Statement": [
-            {
-              "Sid": "Stmt*************",
-              "Action": [
-                "s3:GetObject"
-              ],
-              "Effect": "Allow",
-              "Resource": "arn:aws:s3:::********(bucket name)/*",
-              "Principal": "*"
-            }
-        ]
-    }
-    After generation of policy and being applied in the Bucket Policy, the bucket is public accessible now.
-### Task 5: Explore Versioning:
-    Add action “s3:GetObjectVersion” in “Action” will allow access old version of a file.
-
-> Summary: S3 is very easy to use and is a Object Storage service. In my Round 1 lab, all my img link is provided by AWS S3 and I can easily manage it with the S3 bucket.
-
 <a name ="containers"></a>
-## Containers
-*All material in the report is original except several concept definitions from [Docker Doc](https://docs.docker.com/) and [Docker classroon](https://training.play-with-docker.com/)
+# Containers
 <a name ="whatcontainer"></a>
 ### Containers Introduction
 [Back to Menu](#menu)
@@ -620,7 +572,52 @@ But when looking at custom Hello image, we can see three layers in our applicati
    * In a cluster, we can set one container or multiple containers with different image. The strengths of multiple microservices are that you can easily adjust each unit, no matter turn on/off, update or duplicate. Furthermore, it is more reliable since they are isolated and the whole system may not be influenced even if some of them are crashed.
    * With AWS, we can easily divied the monolith program into multiple small service and its user-friendly interface lets us only need to consider how to spilt the monolith service into microservices.
    
-   
+# Cloud Web Application
+
+<a name ="launchvm"></a>
+### Launch a VM
+[Back to Menu](#menu)
+> Foreword: In this section, I will use AWS EC2 to build a VM Instance, keep it's Keypair and link to it.
+* step 1: Launch an Amazon EC2 Instance. In this step, we need to remember to create a new key pair and move it to .ssh path on mac. After instance launched, we can view its details at the EC2 Instance page.
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5instance.png)
+* step 2(optional): this step is not in the tutorial, however, I found that there is a permission denied with error "Permissions 0644 for '/Users/unlimitediw/.ssh/MyKeyPair.pem' are too open." and it is due to EC2 instances will not accept a .pem key if it is publicly visible. I figure this problem with two commands ```chmod 400``` and ```chmod 400 ~/MyKeyPair.pem``` which give the keypair a more security and appropriate setting.
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5chmod.png)
+* STEP 3: Link to the VM instance we just lanuched with command ```/Users/unlimitediw/.ssh/MyKeyPair.pem' ec2-user@54.210.136.241``` and it is validated.
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5validate.png)
+
+> Summary: EC2 service gives allows us to build a Linux VM service conviently and we should use a set of keypairs to manage the entrances of it and keep it safe. In the future work, I may use it to do some small Linux env needed lab with my windows or mac laptop and it is time saving.
+
+<a name="wp3"></a>
+# Introduction to Amazon Simple Storage Service (S3) (30mins) 
+[Back to Menu](#menu)
+### Task 1-3: 
+1. Create bucket.
+2. Upload image file. 
+3. Open the read access manually.
+### Task 4: Create a Bucket Policy
+    Use AWS Policy Generator to generate S3 Bucket.
+    Select S3 Bucket Policy, write ‘*’ in Principal and paste ARN (Amazon Resource Name).
+    The policy looks like:
+    {
+      "Id": "Policy***************",
+      "Version": "2012-10-17",
+      "Statement": [
+            {
+              "Sid": "Stmt*************",
+              "Action": [
+                "s3:GetObject"
+              ],
+              "Effect": "Allow",
+              "Resource": "arn:aws:s3:::********(bucket name)/*",
+              "Principal": "*"
+            }
+        ]
+    }
+    After generation of policy and being applied in the Bucket Policy, the bucket is public accessible now.
+### Task 5: Explore Versioning:
+    Add action “s3:GetObjectVersion” in “Action” will allow access old version of a file.
+
+> Summary: S3 is very easy to use and is a Object Storage service. In my Round 1 lab, all my img link is provided by AWS S3 and I can easily manage it with the S3 bucket.   
 
 
 # BIG DATA AND MACHINE LEARNING
