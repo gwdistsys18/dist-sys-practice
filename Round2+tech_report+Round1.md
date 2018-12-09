@@ -34,7 +34,29 @@
 8. [AWS SageMaker](#segmaker)
 9. [Build a Serverless Real-Time Data Processing APP](#app)
 10. [Conclusion for the Unicorn project](#unicorn)
-    
+
+# Cloud Web Application
+### (Beginner)
+1. [Launch a VM](#launchvm)
+2. [Intro to S3](#intros3)
+
+# Cloud Web Application
+
+<a name ="launch"></a>
+### Launch a VM
+[Back to Menu](#menu)
+> Foreword: In this section, I will use AWS EC2 to build a VM Instance, keep it's Keypair and link to it.
+* step 1: Launch an Amazon EC2 Instance. In this step, we need to remember to create a new key pair and move it to .ssh path on mac. After instance launched, we can view its details at the EC2 Instance page.
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5instance.png)
+* step 2(optional): this step is not in the tutorial, however, I found that there is a permission denied with error "Permissions 0644 for '/Users/unlimitediw/.ssh/MyKeyPair.pem' are too open." and it is due to EC2 instances will not accept a .pem key if it is publicly visible. I figure this problem with two commands ```chmod 400``` and ```chmod 400 ~/MyKeyPair.pem``` which give the keypair a more security and appropriate setting.
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5chmod.png)
+* STEP 3: Link to the VM instance we just lanuched with command ```/Users/unlimitediw/.ssh/MyKeyPair.pem' ec2-user@54.210.136.241``` and it is validated.
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/5validate.png)
+
+> Summary: EC2 service gives allows us to build a Linux VM service conviently and we should use a set of keypairs to manage the entrances of it and keep it safe. In the future work, I may use it to do some small Linux env needed lab with my windows or mac laptop and it is time saving.
+
+
+
 <a name ="containers"></a>
 ## Containers
 *All material in the report is original except several concept definitions from [Docker Doc](https://docs.docker.com/) and [Docker classroon](https://training.play-with-docker.com/)
