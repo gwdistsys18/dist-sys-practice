@@ -266,6 +266,11 @@ CMD ["node","index.js"]
 > 1. Pod configuration -> pod is the smallest unit of deployment in Kubernetes. In a pod we can have one or more containers. so we need to specify some kind of container images. Replication number of the pods will be included.
 + If one of the workers are down. the scheduler of Kubernetes will pick another worker to instantiate the dropping replication of pod.
 
-#### 4.5 [Kubernetes](https://kubernetes.io/)
-
-#### 4.6 install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them
+#### 4.5 install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them
++ I have followed some blogs to setup Kubernet CLuster on AWS.
++ I first create an S3 bucket for kops to use to store the state of the Kubernetes Cluster and its configuration.
++ Then I use ```kops create cluster``` to generate the cluster configuration.
++ After that we can create the cluster is EC2. In this case, we have one master and two slaves. 
++ I have to wait for some time until the node are started. After the nodes are started, we can use ```kubectl get node``` to see the information of all nodes.
+![kos_validate](/src/kos_validate.png)
+![kubectl](/src/kubectl.png)
