@@ -164,7 +164,7 @@ Time: 60 min
 
 
 #### [Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)  
-Time: 60 min
+Time: 180 min
 1. Lear to build a serverless app to process real-time data streams and build infrastructure for a fictional ride-sharing company. So it needs to enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
 2. Serverless applications don’t require you to provision, scale, and manage any servers. You can build them for nearly any type of application or backend service, and everything required to run and scale your application with high availability is handled for you.
 3. Serverless architectures can be used for many types of applications
@@ -192,26 +192,6 @@ Time: 60 min
 25. Explore the batched data files.
 26. Query the Amazon Athena table to see all records that have been delivered via Kinesis Data Firehose to S3.
 27. Learned how to develop a serverless data processing app. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
