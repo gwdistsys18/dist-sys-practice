@@ -53,6 +53,20 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The test took 891.68 ms and used up to 50 MB
   * Monitoring shows the invocations count, duration, errors, throttles, and more
   * The CLoudWatch Logs can be used to view print statements from the functions
+* AWS Tutorial: Build a Serverless Web Application (took ~80 minutes)
+  * The first step is to host a static website using S3
+  * Next, used Cognito to create a user pool for user sign-up and authentication
+    * This includes email verification by sending a code
+  * The Lambda function used node.js code to take input, add to a DynamoDB table, and return data
+    * An IAM role had to be created to allow access to the table
+  * The Amazon API Gateway allows exposing a Lambda function as a RESTful API
+    * The endpoints can be regional or edge optimized using CloudFront
+  * Created an authorizer that uses JWT tokens from Cognito User Pools
+  * Created a resource with a POST method that uses a Lambda function
+  * Deployed the API and got a URL
+  * Added the URL to the config file
+  * Confirmed that the web page could use the API
+  ![](wile-rydes-serverless-app.png)
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
