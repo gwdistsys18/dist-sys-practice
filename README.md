@@ -212,21 +212,21 @@ Explore versioning. Versioning is a means of keeping multiple variants of an obj
 
 ### Intermediate Level
 #### Virtual Machines, Websites, and Databases
-* [Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk) (10 min) 
+* [Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk) (10 min)  
 
-The idea of running a virtual machine, a viritual computer on top of the physical computer, you can actually run multiple virtual machines at the same time. 
-VMWARE: 2 different levels of privilege to run software on computers: OS(Operating system) and APP(Applications)
-Ring 0 for OS, Ring 3 for APP, Ring 1 and 2 are not commonly used. 
-Xen: Hypervisor(Ring 0) 
-Ability to run legacy operating system like Windows NT4 
+The idea of running a virtual machine, a viritual computer on top of the physical computer, you can actually run multiple virtual machines at the same time.  
+VMWARE: 2 different levels of privilege to run software on computers: OS(Operating system) and APP(Applications)  
+Ring 0 for OS, Ring 3 for APP, Ring 1 and 2 are not commonly used.  
+Xen: Hypervisor(Ring 0)  
+Ability to run legacy operating system like Windows NT4  
 
-* [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html) (40 min) 
+* [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html) (40 min)  
 
-Step 1: Prepare the LAMP Server 
-Prerequisites 
-Have already launched a new instance using Amazon Linux 2, with a public DNS name that is reachable from the internet. Must also have configured security group to allow SSH (port 22), HTTP (port 80), and HTTPS (port 443) connections. 
+Step 1: Prepare the LAMP Server  
+Prerequisites  
+Have already launched a new instance using Amazon Linux 2, with a public DNS name that is reachable from the internet. Must also have configured security group to allow SSH (port 22), HTTP (port 80), and HTTPS (port 443) connections.  
 
-To prepare the LAMP server, 
+To prepare the LAMP server,  
 1. Connect to the instance. 
 2. Esure that all of software packages are up to date, perform a quick software update on the instance. 
 3. Install the lamp-mariadb10.2-php7.2 and php7.2 Amazon Linux Extras repositories to get the latest versions of the LAMP MariaDB and PHP packages for Amazon Linux 2. 
@@ -236,15 +236,15 @@ To prepare the LAMP server,
 7. Add a security rule to allow inbound HTTP (port 80) connections to the instance if it has not been done. By default, a launch-wizard-N security group was set up for the instance during initialization. This group contains a single rule to allow SSH connections. 
 8. Test the web server. 
 
-To set file permissions, 
+To set file permissions,  
 1. Add user to the apache group.
 2. Log out and then log back in again to pick up the new group, and then verify your membership.
 3. Change the group ownership of /var/www and its contents to the apache group. 
 4. To add group write permissions and to set the group ID on future subdirectories, change the directory permissions of /var/www and its subdirectories.
-5. To add group write permissions, recursively change the file permissions of /var/www and its subdirectories. 
+5. To add group write permissions, recursively change the file permissions of /var/www and its subdirectories.  
 
-To secure web server (Optional), 
-Install support for HTTPS (HTTP Secure), which protects your data with SSL/TLS encryption. 
+To secure web server (Optional),  
+Install support for HTTPS (HTTP Secure), which protects your data with SSL/TLS encryption.  
 
 Step 2: Test LAMP Server  
 To test the LAMP server,  
