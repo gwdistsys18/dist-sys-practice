@@ -659,6 +659,8 @@ Step 6: Clean Up. To avoid accruing additional Amazon Simple Storage Service cha
 
 [Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
 
+Time: 45min
+
 From the video, what I learned that SageMaker is geared toward data scientists, online training models, publishing models, and tools for applications. It is clearly positioned to be used by data scientists or developers under the guidance, so it is called the Sage Maker.
 
 ![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/v2-2ed3ac89d22b7210c4b6a704bfdb4679_hd.jpg?raw=true)
@@ -671,7 +673,41 @@ Essentially SageMaker is based on a distributed platform, so performance is much
 
 ****
 
-[]()
+[AWS Tutorial: AWS SageMaker](https://docs.aws.amazon.com/zh_cn/sagemaker/latest/dg/whatis.html)
+
+Time: 70min
+
+Workflow:
+
+* Create an administrator user
+
+* Create S3 bucket for storing data.
+
+* Create a SageMaker notebook instance and open the Jupyter dashboard.
+
+* In the notebook, loaded the dataset and display one of the image in the dataset.
+
+* There are two ways to Transform the dataset.
+
+* Train the model with an algorithm.
+
+* Validate the model with sending the requests.
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/workflow.png?raw=true)
+
+After finish this tutorial, it's not hard to find that Amazon SageMaker has three main components:
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/loop.png?raw=true)
+
+* Authoring: Zero set up to host the Jupyter Notebook IDE for data exploration, cleaning and pre-processing. You can run these on a generic instance type or a GPU-driven instance.
+
+* Model training: distributed model building, training and validation services. You can use the built-in universal supervised and unsupervised learning algorithms and frameworks, or create your own training using Docker containers. Training can be extended to dozens of instances to support faster model building. The training data is read from S3 and the model artifacts are placed in S3. Model artifacts are data-related model parameters, not code that allows you to reason from the model. This separation of concerns makes it easy to deploy Amazon SageMaker-trained models to other platforms, such as IoT devices.
+
+* Model Hosting: Model hosting services and HTTPs endpoints call your model to get real-time inferences. These endpoints can be extended to support traffic and allow you to perform A/B testing on multiple models simultaneously. Again, you can build these endpoints using the built-in SDK or provide your own configuration using a Docker image.
+
+Each of these components can be used independently, making it easy to use Amazon SageMaker to fill in gaps in existing pipelines. In other words, there are some very powerful features when you use the server.
+
+****
 
 
 
