@@ -2,7 +2,8 @@
 * Resources: [CS 6421 Distributed Systems - Fall 2018, provided by @Prof. Tim Wood](https://gwdistsys18.github.io/)
 
 <a name="menu"></a>
-# Docker and Containers (Intermediate)
+# Docker and Containers 
+***(Intermediate Round2)***
 1. [Containers](#containers)  
     * [Containers Introduction](#whatcontainer)
     * [VMs vs Containers](#containervsvm)
@@ -16,7 +17,7 @@
     * [Break a Monolith Application into Microservices](#breakservice)
     
 # BIG DATA AND MACHINE LEARNING (Intermediate)
-
+***(Intermediate Round1)***
 1. [Hadoop Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
 3. [Introduction to Amazon Simple Storage Service](#s3)
