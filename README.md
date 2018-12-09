@@ -234,3 +234,7 @@ To prepare the LAMP server,
 To set file permissions, 
 1. Add user to the apache group.
 2. Log out and then log back in again to pick up the new group, and then verify your membership.
+3. Change the group ownership of /var/www and its contents to the apache group. 
+4. To add group write permissions and to set the group ID on future subdirectories, change the directory permissions of /var/www and its subdirectories.
+5. To add group write permissions, recursively change the file permissions of /var/www and its subdirectories. 
+
