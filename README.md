@@ -18,6 +18,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The two (simple) privileged levels on Intel-based systems are ring 0 for the kernel and ring 3 for applications
   * Xen, an open-source VM architecture, has a small hypervisor running in ring 0
   * VMs have allowed old operating systems to run faster
+* AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2 (took ~50 minutes)
+  * Set up an EC2 instance with security group allowing HTTP and HTTPS connections from anywhere
+  * Installed Apache, MariaDB, and PHP
+  * Launched the web server and verified that a PHP info page appeared
+  * Set up and started MariaDB
+  * Set up and logged into phpMyAdmin
+  ![](php-my-admin.png)
   
 
 ## Area 2: Big Data and Machine Learning
