@@ -210,4 +210,5 @@ Serverless applications don’t require you to provision, scale, and manage any 
 11. DynamoDB， is used to manage NoSQL Database.
 12. Lambda.
 13. Kinesis can dilivery stream to S3. So that S3 can use to store data.
-14. Athena, query data in S3
+14. Athena, query data in S3.
+15. In bulid this app, we use a lot of Amazon service and link them together
