@@ -241,8 +241,7 @@ CMD ["node","index.js"]
 + Use ```docker stack deploy --compose-file=docker-stack.yml voting_stack``` to deploy all of the services (or tasks).
 + It is very convenient for us to make a replicate of one service. Just use the service scaling command. ```docker service scale voting_stack_vote=5``` 
 + There are several visual result we can get. (voting UI and Swarm visualization)
-![voting](/src/voting.png)
-![Swarm_vi](/src/Swarm_vi.png)
+![voting](/src/voting.png) ![Swarm_vi](/src/Swarm_vi.png)
 
 
 #### 4.3 [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)
