@@ -471,6 +471,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ![](./workflow2.png)
 
+> **AWS Tutorial: AWS SageMaker (60 min)**
+
+* Keys :
+
+    - 
+
 
 
 
