@@ -226,7 +226,7 @@ Step 1: Prepare the LAMP Server
 Prerequisites  
 Have already launched a new instance using Amazon Linux 2, with a public DNS name that is reachable from the internet. Must also have configured security group to allow SSH (port 22), HTTP (port 80), and HTTPS (port 443) connections.  
 
-To prepare the LAMP server,  
+To prepare the LAMP server,
 1. Connect to the instance. 
 2. Esure that all of software packages are up to date, perform a quick software update on the instance. 
 3. Install the lamp-mariadb10.2-php7.2 and php7.2 Amazon Linux Extras repositories to get the latest versions of the LAMP MariaDB and PHP packages for Amazon Linux 2. 
@@ -236,7 +236,7 @@ To prepare the LAMP server,
 7. Add a security rule to allow inbound HTTP (port 80) connections to the instance if it has not been done. By default, a launch-wizard-N security group was set up for the instance during initialization. This group contains a single rule to allow SSH connections. 
 8. Test the web server. 
 
-To set file permissions,  
+To set file permissions,
 1. Add user to the apache group.
 2. Log out and then log back in again to pick up the new group, and then verify your membership.
 3. Change the group ownership of /var/www and its contents to the apache group. 
@@ -247,13 +247,13 @@ To secure web server (Optional),
 Install support for HTTPS (HTTP Secure), which protects your data with SSL/TLS encryption.  
 
 Step 2: Test LAMP Server  
-To test the LAMP server,  
+To test the LAMP server,
 1. Create a PHP file in the Apache document root.
 2. In a web browser, type the URL of the file just created. This URL is the public DNS address of instance followed by a forward slash and the file name.
 3. Delete the phpinfo.php file.  
 
 Step 3: Secure the Database Server  
-To secure the MariaDB server, 
+To secure the MariaDB server,
 1. Start the MariaDB server.
 2. Run mysql_secure_installation.  
 
@@ -292,6 +292,6 @@ Most supported cloud storage service
 Price  
 S3 Standard  
 First 50 TB/ month	$0.023 / GB  
-Next 450 TB/ month	$0.022 / GB	 
+Next 450 TB/ month	$0.022 / GB  
 Over 500 TB/ month	$0.021 / GB  
 
