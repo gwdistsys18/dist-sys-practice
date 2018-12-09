@@ -607,6 +607,8 @@ Traditional big data solutions are not desirable when the amount of data rises a
 
 ****
 
+*Machine Learning Models*:
+
 [QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)
 
 Time: 60min
@@ -709,24 +711,35 @@ Each of these components can be used independently, making it easy to use Amazon
 
 ****
 
+*Bring it all together*:
 
+[Build a Serverless Real-Time Data Processing App]()
 
+Time: 150min
 
+This workshop is broken up into four modules. 1. Build a data stream. 2. Aggregate data. 3. Process streaming data. 4. Store & query data
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-09%2004.38.46.png?raw=true)
 
+* Module 1: Build a data stream (Kinesis, Cognito)
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-09%2003.23.17.png?raw=true)
 
+* Module 2: Aggregate data (Kinesis Data Analytics)
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-09%2003.59.08.png?raw=true)
 
+* Module 3: Process streaming data (DynamoDB, Lambda)
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-09%2004.33.27.png?raw=true)
 
+* Module 4: Store & query data (Kinesis Data Firehose, Athena)
 
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-09%2004.49.29.png?raw=true)
 
+In this project, I learned how to build a serverless app to process real-time data streams and built infrastructure for a fictional ride-sharing company. In this case, I enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs.
 
-
-
-
-
+What I think after this project: Serverless architectures are available to developers in an easy-to-use form of product, allowing developers to have highly flexible, highly available services without having to think about the next level of architecture, focusing on business logic. So cool.
 
 ****
 
