@@ -227,11 +227,23 @@ CMD ["node","index.js"]
 + To configure NAT for external connectivity, we need to start a new container based on NGINX image. And make sure it maps port 8080 on all container ins running inside the `web1` container 
 + I have initialized a new Swarm and make two nodes part of it using command ```docker swarm init --advertise-addr $(hostname -i)``` and the ```docker swarm join ...``` command which the former command generates. ![swarm](/src/swarm.png)
 + After got the Swarm working, we can create a new overlay network using ```docker network create -d overlay <name>```
-+ Then create a service using ```docker service create --name <name> --network <network name> --replicate 2 ubuntu sleep infinity```. As we create two replicates, we will see two service running on two nodes. ![service](service.png)
-+ We can open a shell in the container 1 to ping container 2 to see the connectivity. [ping_2](/src/ping_2.png)
-+ We can also test the connectivity between containers and the service we have created. [ping_3](/src/ping_3.png)
++ Then create a service using ```docker service create --name <name> --network <network name> --replicate 2 ubuntu sleep infinity```. As we create two replicates, we will see two service running on two nodes. ![service](/src/service.png)
++ We can open a shell in the container 1 to ping container 2 to see the connectivity. ![ping_2](/src/ping_2.png)
++ We can also test the connectivity between containers and the service we have created. ![ping3](/src/ping3.png)
 
 #### 4.2 [Lab: Swarm Mode Introduction](https://training.play-with-docker.com/ops-s1-swarm-intro/)
++ Docker Compose and Swarm Mode
+> + Compose: is used to control multiple containers on a single system. Basically is a text file which describes the application.
+> + Swarm Mode: Tells Docker you will run many Docker engines and you want to coordinate between them. 
++ Initialize Swarm using ```docker swarm init --advertise-addr $(hostname -i)```. (manager) It will automatically generates a docker swarm join command which could be used in other containers. (worker)
++ We are going to run a voting application to test the Swarm environment we have.
++ Stack is a group of service that are deployed together. Each individual service could be made up of one or multiple containers. (tasks)
++ Use ```docker stack deploy --compose-file=docker-stack.yml voting_stack``` to deploy all of the services (or tasks).
++ It is very convenient for us to make a replicate of one service. Just use the service scaling command. ```docker service scale voting_stack_vote=5``` 
++ There are several visual result we can get. 
+> 1. The voting UI ![voting](/src/voting.png)
+> 2. The Swarm visualization ![Swarm_vi](/src/Swarm_vi.png)
+
 
 #### 4.3 [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)
 
