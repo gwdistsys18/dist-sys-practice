@@ -240,10 +240,8 @@ CMD ["node","index.js"]
 + Stack is a group of service that are deployed together. Each individual service could be made up of one or multiple containers. (tasks)
 + Use ```docker stack deploy --compose-file=docker-stack.yml voting_stack``` to deploy all of the services (or tasks).
 + It is very convenient for us to make a replicate of one service. Just use the service scaling command. ```docker service scale voting_stack_vote=5``` 
-+ There are several visual result we can get. 
-+ 1. The voting UI 
++ There are several visual result we can get. (voting UI and Swarm visualization)
 ![voting](/src/voting.png)
-+ 2. The Swarm visualization 
 ![Swarm_vi](/src/Swarm_vi.png)
 
 
