@@ -52,7 +52,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * The example code gets the bucket and key from the record for the event, downloads the file, resizes the image, and uploads it to the target bucket
   * The test took 891.68 ms and used up to 50 MB
   * Monitoring shows the invocations count, duration, errors, throttles, and more
-  * The CLoudWatch Logs can be used to view print statements from the functions
+  * The CloudWatch Logs can be used to view print statements from the functions
+* QwikLab: Intro to Amazon API Gateway (took ~15 minutes)
+  * Amazon API Gateway and AWS Lambda help with implementing a microservice architecture
+  * Many organizations have an API-first strategy where they provide a standardized API for every service with the assumption that there is a potential of other applications using it
+  * A resource is a URL endpoint and path
+  * A backend target points to where the code for the API runs
+  * A method consists of a resource path and an HTTP verb
+  * Created a Lambda function and created an API Gateway as a trigger
+  * Tested the API using built-in testing feature and a web page that automatically displays result of a request
 * AWS Tutorial: Build a Serverless Web Application (took ~80 minutes)
   * The first step is to host a static website using S3
   * Next, used Cognito to create a user pool for user sign-up and authentication
