@@ -16,6 +16,11 @@
     * [Docker Swarm vs Kubernetes](#swarmkuber)
     * [Break a Monolith Application into Microservices](#breakservice)
 
+# Cloud Web Application
+### (Beginner Round2)
+1. [Launch a VM](#launchvm)
+2. [Intro to S3](#wps3)
+
 # Technical Report
 [My SVM and Sagemaker](#mysagemaker)
 > Create notebook instance
@@ -35,14 +40,11 @@
 9. [Build a Serverless Real-Time Data Processing APP](#app)
 10. [Conclusion for the Unicorn project](#unicorn)
 
-# Cloud Web Application
-### (Beginner)
-1. [Launch a VM](#launchvm)
-2. [Intro to S3](#intros3)
+
 
 # Cloud Web Application
 
-<a name ="launch"></a>
+<a name ="launchvm"></a>
 ### Launch a VM
 [Back to Menu](#menu)
 > Foreword: In this section, I will use AWS EC2 to build a VM Instance, keep it's Keypair and link to it.
