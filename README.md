@@ -657,7 +657,21 @@ Step 6: Clean Up. To avoid accruing additional Amazon Simple Storage Service cha
 
 ****
 
+[Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
 
+From the video, what I learned that SageMaker is geared toward data scientists, online training models, publishing models, and tools for applications. It is clearly positioned to be used by data scientists or developers under the guidance, so it is called the Sage Maker.
+
+![](https://github.com/haoduoding/dist-sys-practice/blob/master/lab%20screenshots/v2-2ed3ac89d22b7210c4b6a704bfdb4679_hd.jpg?raw=true)
+
+SageMaker connects applications, especially unstructured video, speech, and linguistic text-related applications, based on infrastructure and algorithms.
+
+SageMaker is very sensible to focus on the training model and release model, let the data scientist do the programming work to be targeted, rather than forcing a very versatile model, but found that it can not be applied.
+
+Essentially SageMaker is based on a distributed platform, so performance is much more powerful than stand-alone performance. When the amount of data is huge, you should also imitate it. The bottom layer is implemented by TensorFlow, MXNet or Spark. The upper layer is abstracted into model initialization, parameters, training and deployment.
+
+****
+
+[]()
 
 
 
