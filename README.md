@@ -308,6 +308,7 @@ Delete the table.
 * [AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/cn/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card) (30 min)  
 
 Deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB.  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/webapp.png)  
 Launch a Node.js web application environment using AWS Elastic Beanstalk and Amazon DynamoDB.  
 Deploy a web application using AWS Elastic Beanstalk.  
 Receive email notifications with Amazon Simple Notification Service (SNS).  
