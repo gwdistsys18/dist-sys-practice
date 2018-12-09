@@ -163,7 +163,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	- <https://medium.com/containermind/how-to-create-a-kubernetes-cluster-on-aws-in-few-minutes-89dda10354f4>
 	
 
- 12. Bring it all together
+### Bring it all together
 	- This module goes through putting a monolith application in a container
 	then deploying that container
 	- This module then breaks the monolith into microservices without any
@@ -231,3 +231,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	leg work, although the policy generator that amazon provides
 	is quite useful.
 
+### Intermediate
+
+### Bring it all Together
+
+## Area 3 Big Data and Machine Learning
+### Beginner
