@@ -1,6 +1,6 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
-
+## Round 1
 ## Docker and Containers
 > **why docker**
 
@@ -257,3 +257,124 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Create a bucket policy. A bucket policy is a set of permission associated with Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
 
 * Explore versioning. Versioning is a means of keeping multiple variants of an object in the same bucket. Can be used to preserve, retrieve, and restore every version of every object stored in Amazon S3 bucket.
+
+
+## Round 2
+
+## Big Data and Machine Learning
+
+> Beginner Level
+
+> **Video: Hadoop Intro**
+
+![](./hadoop.png)
+
+* Distributed systems : used to deal with the data explosion
+
+* Hadoop is a framework that allows for distributed processing of large dataset across clusters of commodity computers using simple programming models
+
+* Economical, reliable, scalable, and flexible
+
+* Traditional systems have data going to a program, while with Hadoop the program goes to the data
+
+* Hadoop has 12 components:
+
+    - HDFS (Hadoop Distirbuted File System) : a storage layer for Hadoop
+    
+    - HBase : a NoSQL database that stores data in HDFS
+    
+    - Sqoop : transfers data between Hadoop and relational database servers
+    
+    - Flume : ingests streaming data
+    
+    - Spark : a cluster computing framework
+    
+    - Hadoop MapReduce : the original processing engine but is losing ground to Spark
+    
+    - Pig : a dataflow system primarily used for analytics that converts pig script to Map-Reduce code
+    
+    - Impala : a high-performance SQL engine with low latency
+    
+    - Hive : similar to Impala but is good for data processing
+    
+    - Cloudera Search : enables non-technical users to search and explore data
+    
+    - Oozie : a workflow or coodination system used to manage Hadoop jobs
+    
+    - Hue (Hadoop User Experience) : a web interface for Hadoop
+    
+* These components help with the four stages of big data processing: ingest, processing, analyze, and access
+
+![](./workflow.png)
+
+> **QwikLab: Analyze Big Data with Hadoop**
+
+* Applications installed by default on **EMR** cluster
+    
+    - EMR ： a managed service that makes Apache Hadoop and Sparkit process vast amounts of data fast, easy, and cost-effective. Supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.
+
+* The default EMR cluster configuration includes 
+
+    - Apache Hadoop 
+    
+    - Ganglia : performance monitor
+    
+    - Apache Tez : framework for creating a complex directied acyclic graph of tasks 
+    
+    - Hive : data warehouse and analytics package
+    
+    - Hue : GUI
+    
+    - Pig : converts Pig Latin to Tez jobs
+    
+* Amazon CloudFront : speeds up web content distribution through worldwide network of edge location data centers
+
+> **QwikLab: Intro to S3(5 min)**
+
+* Done before.
+
+* Add-on : Objects in S3 are private by default. 
+
+> **QwikLab: Intro to Amazon Redshift(30 min)**
+
+* Amazon Redshift : a fast, fully managed data warehouse that makes it simple and cost-effective to analyze data using standard SQL and existing Business Intelligence (BI) tools.
+
+* pgweb : a web-based utility for connecting to SQL databases and running quries.
+
+* Important steps :
+
+    -  1. Lanuch an Amazon Redshift Cluster
+    
+        - !  Cluster Database Properties: Contains information on the Endpoint, which is the DNS address of the cluster, and the port number on which the database accepts connections. These are required when you want to create SQL connections. It also lets you know whether the cluster has a public IP address that can be accessed from the public internet. The JDBC URL and ODBC URL contain the URLs to connect to the cluster via a java database connection or an Oracle database connection client.
+    
+    - 2. Launch Pgweb to Communicate with Redshift Cluster
+    
+    - 3. Create a Table
+    
+    - 4. Load Sample Data from Amazon S3
+    
+    - 5. Query data
+    
+> **Video: Short AWS Machine Learning Overview (5 min)**
+
+* Machine learning stack:
+    
+    - Framework and Interfaces: used by companies with experts who build and train ML models
+
+    - ML Platforms: make it easy to build, train, tune, and deploy models without expertise
+
+    - Application Services: APIs for computer vision, speech processing, etc.
+    
+> **AWS Tutorial: Analyze Big Data with Hadoop (60 min)**
+
+* Important steps (can be submitted to a cluster when it is set up, or run on the command line after connecting to the master node) :
+
+    - Created an S3 bucket and an EC2 key pair
+
+    - Launched an EMR cluster
+
+    - Allowed SSH connections to cluster
+    
+The script also analyzes CloudFront log files and determines the number of requests for each OS 
+
+
