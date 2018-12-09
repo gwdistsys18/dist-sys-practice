@@ -222,8 +222,15 @@ Ability to run legacy operating system like Windows NT4
 * [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html) (40 min) 
 
 To prepare the LAMP server, 
-1. Connect to your instance. 
-2. Esure that all of your software packages are up to date, perform a quick software update on your instance. 
+1. Connect to the instance. 
+2. Esure that all of software packages are up to date, perform a quick software update on the instance. 
 3. Install the lamp-mariadb10.2-php7.2 and php7.2 Amazon Linux Extras repositories to get the latest versions of the LAMP MariaDB and PHP packages for Amazon Linux 2. 
 4. Use the yum install command to install multiple software packages and all related dependencies at the same time. 
-5. 
+5. Start the Apache web server. 
+6. Use the systemctl command to configure the Apache web server to start at each system boot. 
+7. Add a security rule to allow inbound HTTP (port 80) connections to the instance if it has not been done. By default, a launch-wizard-N security group was set up for the instance during initialization. This group contains a single rule to allow SSH connections. 
+8. Test the web server. 
+
+To set file permissions, 
+1. Add user to the apache group.
+2. Log out and then log back in again to pick up the new group, and then verify your membership.
