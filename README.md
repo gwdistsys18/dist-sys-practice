@@ -25,7 +25,13 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Set up and started MariaDB
   * Set up and logged into phpMyAdmin
   ![](php-my-admin.png)
-  
+* S3 vs. EC2 Comparison (took ~20 minutes)
+  * Using S3, it's easy to upload static content and make it publicly accessible
+  * However, S3 can't run code, but EC2 can
+  * Someone [kept track of costs](https://medium.com/@bezdelev/cost-breakdown-for-a-static-website-on-aws-after-18-months-in-production-d97a932d2d25) for a static website using S3, CloudFront, and Lambda, and it was less than a dollar per month after the first month
+  * An EC2 t2.micro instance costs $0.0116 per hour, which would be around $8 to $9 per month. There are also charges for sending out more than 1 GB of data per month
+  * EC2 servers must be set up with the correct amount of memory and storage for the website and may need to be adjusted to improve performance, while S3 optimizes performance automatically
+
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
