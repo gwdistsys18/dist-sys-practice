@@ -175,4 +175,32 @@ We use ML model which generate from datasource to predict future data. More data
 It is similiar with previous part(QwikLab: Intro to Amazon Machine Learning). Just use the different datasource.
 
 ##Amazon SageMaker
-Amazon SageMaker is a fully managed machine learning service.
+
+Time:75min
+
+
+Amazon SageMaker is a fully managed machine learning service. SageMaker is clearly positioned to connect applications, especially unstructured video image, voice, and language text related applications.
+Sagemaker is used to free data scientists from pre-processing.
+Data scientists using sagemaker need only know a few models, and the use of interfaces.
+
+
+##Bring it all together:Build a Serverless Real-Time Data Processing App
+
+###Overview
+Serverless applications don’t require you to provision, scale, and manage any servers. You can build them for nearly any type of application or backend service, and everything required to run and scale your application with high availability is handled for you.
+
+> 1. Build a data stream
+> 2. Aggregate data
+> 3. Process streaming data
+> 4. Store & query data
+
+![](https://d1.awsstatic.com/serverless/Lambda%20Resources%20images/Architecture_0.ca60f70f01876f7a4bc96686bc90adcf791039f7.png)
+
+1. We use new service: Amazon Cloud9.
+2. AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. 
+3. First create an environmnet. Then we can use Amazon lambda. Looks like codeanywhere.
+4. Cloud-based, it is important so I repeat it.
+5. New service, Kinesis. Kinesis is work with data stream in real-time.
+6. Kinesis can collect data stream. It uses as monitor or dectactor.
+7. Cognito, Amazon service, is used to sychronized data.
+8. IAM, Identity and Access Management. Use this to create a policy.
