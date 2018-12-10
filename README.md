@@ -98,7 +98,7 @@ terminating your cluster terminates the associated Amazon EC2 instances and stop
 There is more information on how to plan and configure clusters in your custom way, set up the security, manage clusters and trouble shoot cluster if it is performing in a wrong way.
 
 <a name="QwikLab-Intro-to-Amazon-Machine-Learning"></a>
-## [QwikLab: Intro to Amazon Machine Learning]
+## [QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)
 
 Time : it takes me 75 minutes. 
 
@@ -109,8 +109,7 @@ The lab tutorial consists of several parts:
 * Evaluate an ML model: the Amazon Machine Learning service evaluate the model automatically as part of the model creation process; it takes 70 percent of the data source to train the model and 30 percent to evaluate it. 
 * Generate predictions from ML model: batch mode and real-time mode are two ways to generate predictions from ML model; batch mode is asynchronous while the real-time mode is real time.
 
-<a name="AWS-Tutorial-Build-a-Machine-Learning-Model"></a>
-## [AWS Tutorial: Build a Machine Learning Model]
+## [AWS Tutorial: Build a Machine Learning Model](https://aws.amazon.com/getting-started/projects/build-machine-learning-model/?trk=gs_card)
 
 Time: it takes me 50 minutes. It is about using Amazon ML to Predict Responses to a Marketing Offer:
 * Step 1: Prepare Your Data: In machine learning, you typically obtain the data and ensure that it is well formatted before starting the training process; we use customer purchase history to predict if this customer will subscribe to my new product
@@ -120,7 +119,7 @@ Time: it takes me 50 minutes. It is about using Amazon ML to Predict Responses t
 * Step 5: Use the ML Model to Generate Predictions
 
 <a name="VideoTutorialOverviewofAWSSageMaker"></a>
-[Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
+## [Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
 
 Time:it takes me 40 minutes
 
@@ -133,7 +132,7 @@ Step 4: Clean up
 Step 5: Additional Considerations
 
 <a name="BuildaServerlessReal-TimeDataProcessingApp"></a>
-[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)
+## [Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)
 
 Time: it takes 150 minutes, 
 
