@@ -11,6 +11,10 @@ Fourtunately, Amazon provides us a solution SageMaker combining all of these tec
 
 ## SageMaker Procedure
 Amazon SageMaker is a fully managed service for machine learning which includes the processes of data preparing, model training and model deployment. 
+* Build (data preparing): SageMaker supports Jupyter notebook and allows you to transform data and connect to other AWS services such as S3 in this part. 
+* Train (tune): In machine learning, after constructing the model, we also need to get the optimize hyperparameter with the works such as SVM or Adaboost. SageMaker provides the One-click distributed training with built in model and can train the parameters in large scale wchich will improve the speed and accuracy (more iteration).
+* Deployment: It is an amazing Endpoint job which allows individual such as me, a student, to show my own work on the website. The algorithms and models such as map generator or image recoginition model can be built on the website and may be used for commericial work in the future with SageMaker.
+
 
 
 ## Research Procedure
