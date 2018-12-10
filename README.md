@@ -739,5 +739,56 @@ Ingest -> Processing -> Analyze -> Access
 
 ![haddop_workflow](hadoop_workflow.png)
 
+[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+
+For this Tutorial, we use an S3 to backup our data.
+
+Additionally, we used an EMR cluster. To launch it, we use the
+eleasticmapreduce instance. We launched it using Cluster mode with Core
+Hadoop application wich includes Haddop 2.85 with Ganglia 3.7.2, Hive
+2.3.3, HUE 4.2.0, Mahout 0.13.0, Pig 0.17.0 and Tez 0.8.4
+
+We used a Hive script that:
+- Creates a Hive table schema named cloudfront_logs
+- Uses the built-in regular expression serializer/deserializer (RegEx SerDe) to parse the input data and apply the table schema.
+- Runs a HiveQL query against cloudfront_logs table and writes the quesry results to the amazon S3 specified location
+
+This script calculates the total number of requests per operating system
+over a specified time frame. The script uses HiveQl, which is a SQL-like
+scripting language for data warehousing and analysis.
+
+Script:
+
+```
+-- Summary: This sample shows you how to analyze CloudFront logs stored in S3 using Hive
+
+-- Create table using sample data in S3.  Note: you can replace this S3 path with your own.
+CREATE EXTERNAL TABLE IF NOT EXISTS cloudfront_logs (
+  DateObject Date,
+  Time STRING,
+  Location STRING,
+  Bytes INT,
+  RequestIP STRING,
+  Method STRING,
+  Host STRING,
+  Uri STRING,
+  Status INT,
+  Referrer STRING,
+  OS String,
+  Browser String,
+  BrowserVersion String
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+  "input.regex" = "^(?!#)([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+([^ ]+)\\s+[^\(]+[\(]([^\;]+).*\%20([^\/]+)[\/](.*)$"
+) LOCATION '${INPUT}/cloudfront/data';
+
+-- Total requests per operating system for a given time frame
+INSERT OVERWRITE DIRECTORY '${OUTPUT}/os_requests/' SELECT os, COUNT(*) count FROM cloudfront_logs WHERE dateobject BETWEEN '2014-07-05' AND '2014-08-05' GROUP BY os;
+```
+
+The output file shows the number of requests per OS
+
+![results](EMR_results.txt)
 
 ## [Blogpost](https://sebastian2696.github.io/dist-sys-practice)
