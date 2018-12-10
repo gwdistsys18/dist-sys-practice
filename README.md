@@ -75,7 +75,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
   * Added the URL to the config file
   * Confirmed that the web page could use the API
   ![](wile-rydes-serverless-app.png)
-* AWS Tutorial: Build a Modern Web Application (took ~40 minutes so far)
+* AWS Tutorial: Build a Modern Web Application (took ~140 minutes)
   * Module 1: Build a Static Website
     * Set up a Cloud9 environment and cloned repo for the website
     * Created bucket on command line using `aws s3 mb s3://mod-app-bucket` where `mod-app-bucket` was the bucket name
@@ -88,7 +88,23 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     * Pushed the image to the Amazon Elastic Container Registry (ECR)
     * Created a cluster in Amazon Elastic Container Service (ECS) and a log group for it
     * Registered an ECS task definition to declare set of containers with resources and configuration
-    
+    * Set up a network load balancer (NLB) to allow a single DNS to be tied to the elastically scaling service
+      * This included creating an NLB target group and creating a load balancer listener
+    * Created the ECS service for the containers to run and register with the load balancer, and added the NLB URL to the index.html script
+    * Set up an AWS CodePipeline to automatically deploy changes that are pushed to master using AWS CodeCommit
+      * Pipeline steps are source, build, and deploy
+    ![](code-pipeline.png)
+  * Module 3: Store Mysfit Information
+    * Added a DynamoDB table to store data and replaced the data source on the website to get data from the table
+  * Module 4: Setup User Registration
+    * Created an AWS Cognito user pool and user pool client
+    * Created a RESTful API in front of the Flask service using Amazon API Gateway with the Swagger framework
+  * Module 5: Capture User Behavior
+    * Created a streaming service with a Lambda function, an S3 bucket, and a Kinesis Firehose to track user clicks
+    * Used CloudFormation to create the full stack
+### Project Summary
+![](modern-app-architecture.png)
+This application created a web site that displayed data from a table, allowed users to register, and tracked user clicks. The website's static content was hosted on S3, while the data was stored in DynamoDB and accessed using an API created by API Gateway. A network load balancer was in front of the API. Cognito was used to manage user authentication as in the previous tutorial. Meanwhile, another API sending data to an Amazon Kinesis Data Firehose which streamed it to a Lambda function and then stored it in an S3 bucket was used to record user clicks. As the application was developed, Amazon CodeCommit and CodePipeline were used to manage the process of deploying new code automatically.
 
 ## Area 2: Big Data and Machine Learning
 * Video: Hadoop Intro (took ~15 minutes)
