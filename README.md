@@ -380,7 +380,57 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	and media changes.
 
 ### Bring it all Together
-1. Step at a time: 
+	Build a Modern Web Application
+1. Build a Static Website
+	- This website will use an AWS S3 bucket to host it's static content
+	- Amazon Cloud 9 is an in browser IDE helpful for writing and debugging
+	code in the browser. 
+	- Amazon S3 buckets are configured to hold data but not specifically
+	website data. This means before you can host a website on an S3 instance
+	it must be configured.
+	- The configuration for an S3 includes setting up the registered DNS
+	name of the bucket as well as establish the appropriate bucket policy
+	- Bucket policies are a form of access control. In the case of a website
+	the idea of access control comes down to which users can see what content
+2. Host Application on a Web Server
+	- This website will have a modern microservices backend this means
+	that instead of a monolithic application it will be distributed to
+	various nodes in a cluster probably with a load balancer to hand out
+	the work to be done.
+	- AWS Fargate is a deployment option of Amazon ECS which stands for
+	Elastic Container Service.
+	- Fargate abstracts the details of managing a cluster by providing
+	a load balancer and a cluster of nodes.
+	- Fargate is ideal of PaaS, mobile and web platforms because it is
+	optimized to service long running processes like microservices
+	- A Fargate ECS will scale automatically and completely abstracts
+	cluster management and configuration. This allows the application
+	developer not to get cought up in the weeds of configuration
+	- A serverless architecture can be delivered in a variety of ways
+	one of which being Fargate another popular method is using Amazon
+	Lambda functions. These serve better to act as microservices for
+	a data or event driver architecture.
+	- Amazon VPC stands for Virtual Private Cloud this is fully 
+	customizable isolated portion of the cloud to host services in.
+	- Amazon CloudFormation Templates serve to collect network and
+	security in a bundle to be deployed and synchronized together.
+		* Amazon VPC
+		* Two NAT Gateways
+		* DynamoDB VPC Endpoint
+		* Security Groups
+		* IAM Roles
+	- Listed above are the core parts of a CloudFormation Template
+	these serve as the networking backbone of the application as
+	well as provide some security inherint in AWS systems.
+	- Flask is a micro web framework written in Python and used in
+	this example to help provide the API definitions for the app.
+	- A CI/CD pipeline allows for Continuous Integrating and
+	Continuous Delivery.
+	- This means that when updates are made to the code base in this
+	case the Flask app they are push and distributed to the rest of
+	the system without having to manually update every piece.
+3. Store System Information
+	- 
 
 ## Area 3 Big Data and Machine Learning
 ### Beginner
@@ -452,6 +502,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		* The available Data Processing frameworks are the same the
 		two available for Hadoop like map reduce and spark
 
+#Blog Post
 
 
 
