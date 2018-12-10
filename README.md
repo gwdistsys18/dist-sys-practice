@@ -2,7 +2,7 @@ Notes Contents
 =================
 
   * [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
-     * [ Video: Hadoop Intro](#hadoopIntro)
+     * [ Video: Hadoop Intro](#introduction)
      * [ AWS Tutorial: Analyze Big Data with Hadoop](#Analyze-Big-Data-with-Hadoop)
      * [QwikLab: Intro to S3](#Intro-to-S3)
      * [4. Docker Architecture](#4-docker-architecture)
@@ -40,7 +40,7 @@ Notes Contents
 <a name="#bigDataAndMachineLearning"></a>
 ## Big Data and Machine Learning (Beginner level + Intermediate Level)
 
-<a name="#hadoopIntro"></a>
+<a name="Introduction"></a>
 ## [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
 
 Time: it takes 35 minutes to learn it. 
