@@ -83,3 +83,6 @@ Management is divided into data management and resource management.
 * Computation engine layer  
 * Service layer  
 The service layer is the programming API details of the underlying engine, providing a more abstract access model for business people, such as Pig, Hive, and so on.  
+
+## References
+Wikipedia entry: Apache Hadoop, Apache HBase, Apache Hive
