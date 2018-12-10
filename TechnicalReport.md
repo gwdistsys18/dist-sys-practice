@@ -23,7 +23,7 @@ Fortunately, Amazon provides us a solution SageMaker combining all of these tech
 ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6myInstance.PNG)
 * After instance created, you can choose the built-in notebook environment such as the Sparkmagic for streaming data processing or my most love one, the conda tensorflow which work very well in the convolutional neural network training.
 ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6sparkenv.PNG)  ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6tensorenv.PNG)
-* Now we can edit and build our own machine learning model on Jupyter Notebook (build in SageMaker notebook). The highlight of it I believe is that I do not need to worry about the problem of environment setting (due to Amazon familiars with their machine, they are more easy to apply environment on their hardware than us) and many open-source algorithm is built by amazon machine learning experts which can be easily modified and directly used on the SageMaker Notebook Instance.
+* Now we can edit and build our own machine learning model on Jupyter Notebook (build in SageMaker notebook). The highlight of it I believe is that I do not need to worry about the problem of environment setting (due to Amazon familiars with their machine, they are more easier to apply environment on their hardware than us) and many open-source algorithm is built by amazon machine learning experts which can be easily modified and directly used on the SageMaker Notebook Instance.
 ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6notebookedit.PNG)
 > Train the model built in the Jupyter Notebook Instance.
 * After training, we will get the model as follow. I am a little bit disappoint in this part since there is no to much difference with the training process on my own laptop. However, Amazon Segamaker will provide the log file of training to you which is helpful (in this model, it provides the xgboost prunning details for the decision tree model).
@@ -45,4 +45,5 @@ Fortunately, Amazon provides us a solution SageMaker combining all of these tech
 ## Future Development
 
 ## Summary
+- SageMaker is an amazing work due to it's easy operation and high performance. When I applied the xgboost model from data preoprocessing to training to deploying, I only took several one-click works with the prebuilt python codes. It is very meaningful to data scientist because in most situation they need more chances to test their thought, their algorithm and model. There is no standard line in machine learning, trying more means perform better at most of the time. Moreover, The super high performance for some instance such as "ml.p3" is also essential since it means you don't need to wait. Even the price per hour is high, you spend less time and it can help you validate your "inspiration" immediately.
 > In a view of a 
