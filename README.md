@@ -232,12 +232,159 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	is quite useful.
 
 ### Intermediate
+1. Video: Virtualization - 10 min
+	- Virtualization is what allows to processing time to be bought and
+	soled like in cloud computing and distributed computing.
+	- IBM created a virtual machine to support more OSes on their desktops
+	- VMWare: Software Virtualizaiton that helps to isolate crashes in apps
+	to provide redundancy in the case of a crash.
+	- The idea of rings are used to separate the level of privilege in an os.
+	- When an OS running in user space attempts to execute a privileged operation
+	this is cought by some sort of VM management portion of the base os that
+	can serve to emulate the operation and serve what the OS in user space
+	accepts as a response to the call that was made and cought.
+	- Some ISAs are designed to be virtualized but x86 is not which makes
+	the ability to virtualize x86 machines even more impressive.
+	- The Xen hypervisior is smaller than a standard VM monitor.
+	- An OS operating in domain 0 executes privileged instruction for the
+	guest OS but is not technically a part of the hypervisor which is what
+	allows the HV to be so small.
+	- Software emulation of instructions is not fast and has an overhead
+	for the protection switches that happen.
+	- Virtualization support now exists in Intel processors so HW can take
+	some of the work away from the software helping to improve performance
+	of the virtual machine.
+	- This helps companies that can't or won't update the OS that they use
+	but want to use new hardware or unsupported software.
+
+2. Install a LAMP Web Server on Amazon Linux 2 - 30 min
+	- LAMP stands for Linux, Apache, MySQL, and PHP
+	- Installing and running is a simple as setting up an AWS Linux2 instance
+	and installing a LAMP Maria DB
+	- By default MariaDB comes installed with some features that are great
+	for testing but should be removed to ensure a secure systems when this
+	eventually moves to production.
+
+3. S3 VS. EC2 VM - 30 min
+	- S3 advantages are that it was built for storage. The instance exists
+	to host and deliver web content. This means in terms of complexity it
+	would take more effort to turn an EC2 instance into an acceptable server.
+	- Setting up an S3 is comparable to setting up an EC2 but when an S3
+	is done being setup it is ready to provide fast media hosting, the same
+	cannot be said about the EC2 more work is required to have even close
+	to the support and speed of the S3.
+	- This comparison comes down to the complexity of setup, the serving
+	of web content that is media heavy an S3 is gonna be the ideal choice.
+	- If the website that you want to setup requires some involvement in
+	the configuration of the VM or additional packages to be installed
+	then maybe the EC2 is an easier choice, it's much more flexible than
+	the S3.
+
+4. Introduction to DynamoDB - 20 min
+	- DynamoDB is a fully managed noSQL database that can be used for a
+	variety of applications.
+	- This service from Amazon is managed at the level of tables not
+	entire instances like S3 or EC2
+	- Creating a table is as simple as entering fields and selecting
+	a primary key which is crucial to identifying a tuple in a relational
+	database.
+	- In dynamoDB tuples are referred to as items and tables can have
+	any number of items in them
+	- The concept of a sortkey exists in DynamoDB and if an item has
+	a sortkey is must be provided upon insert of that item.
+	- The sortkey is a field separate from the primary key used to
+	sort the items in a table.
+	- DynamoDB has two way to find items in a table scan and query:
+		* Query: Uses a primary key and occasionally the sortkey to
+		find a tuple. This is usually very fast.
+
+5. Deploy a Scalable Node.js Web App - 60 min
+	- AWS has it's own JavaScript Node.js SDK this allows for easy
+	integration to existing AWS services like a DynamoDB
+	- An application running on AWS elastic beanstalk can use either
+	a DynamoDB table within it's runtime environment or an external
+	table also hosted by AWS.
+	- Amazon's Elastic Beanstalk environment can be configured to
+	support application that aren't Node.js
+	- An Elastic Beanstalk Environment is comprised of the following:
+		* A standard EC2 with configuration to run a specific kind of 
+		web application
+		* Instance Security Group this limits access to port 80
+		* Load Balancer this is used to distribute incoming requests
+		* Loab Balancer Security Group, this is used to limit load
+		balancer access to port 80
+		* Auto Scaling Group, this monitors the need for rebuilding
+		or adding additional instances to the EC2
+		* S3 bucket used for storing application related data
+		* CloudWatch Alarms, monitor load on instances and notify
+		the manager if load is too high or low on any give instance
+		* CloudFormation stack, management tool for distributing
+		configuration changes amongst instances related to the elastic
+		beanstalk.
+	- The above mentioned auto scaling group and the CloudWatch alarms
+	work together to scale the application only when the CloudWatch
+	alarms detect the need for scaling. 
+	- Updating the application to link it to a DynamoDB table is as
+	simple as updating the application configuration file and letting
+	the CloudFormation stack to the rest.
+
+6. Intro to AWS Lambda - 30 min
+	- Lambdas are event driven meaning they only execute code when
+	an event has been recieved.
+	- Using the simple example of a serverless image thumbnail application
+		* First an image is uploaded to an S3 bucket
+		* The bucket then serves an object created event to the lambda
+		* The lambda then fetches the object using the event to id it
+		* The image is finall rendered by the lambda function
+	- Lambdas have extensive logging support varying from duration of
+	execution to the numbers of throttles that occured.
+
+7. Introduction to Amazon API Gateway - 40 min
+	- What is a microservices architecture
+		* Developing an application as a suite of small services that
+		all have their own processing and communicate through light
+		weight mechanisms
+		* These managable lightweight services are easy to improve
+		and scale as needed. Instead of scaling the entire application
+		scale as needed.
+	- API stands for Application Programming Interface
+		* A set of defined ways to interact with a system using
+		things that resemble function calls.
+	- RESTful APIs 
+		* Allows for a stateless server. This lends itself really
+		well to the idea of a lambda function using API calls as events
+	- Amazon API Gateway, allows us to map GET, PUT, and POST functions
+	to a backend within AWS in this case Lambda functions.
+
+8. Build a Serverless Web Application - 120 min
+	- In this tutorial we use an S3 bucket to host our web app. The
+	data hosted on the S3 will eventually be available upon requests
+	made to the Amazon API Gateway.
+	- Amazon Cognito is a tool to manage acces to an application or
+	specific media or pages on an AWS instance. This is what we use
+	to allow uses to create a login with a password.
+	- The S3 bucket configuration needs to be updated to support
+	the user group created by all of the prebaked sign up sheet
+	from Amazon Cognito
+	- Next the backend is built to be serverless using AWS Lambda
+	functions to service all calls made to the system. In this case
+	all calls to the API will serve as events for the lambdas
+	- The first thing a Lambda does upon receiving an event is
+	store it in the related table for events in DynamoDB
+	- Next after testing Lambda function making sure they spin
+	when asked and do what was requested the API needs to link
+	the calls made to the backend itself.
+	- The Amazon API Gateway helps us to map the pre-existing
+	components to eachother, calls to the API will trigger
+	lambda function execution as well as S3 page delivery
+	and media changes.
 
 ### Bring it all Together
+1. Step at a time: 
 
 ## Area 3 Big Data and Machine Learning
 ### Beginner
-1. Hadoop Intro
+1. Hadoop Intro - 20 min
 	- Data is growing so rapidly that our previous solutions for handling
 	more data no longer work.
 	- The idea of distributed systems helps to improve the solution from
@@ -286,7 +433,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		* Analyze: Pig, Hive and  Impala
 		* Access: Hue or Cloudera Search
 
-2. Analyze Big Data with Hadoop
+2. Analyze Big Data with Hadoop - 45 min
 	- Amazon EMR: Is a platform to help support big data processing
 	services like Hadoop.
 		* Consist of EC2 instances organized in a cluster
