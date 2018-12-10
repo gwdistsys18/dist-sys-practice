@@ -20,8 +20,13 @@ Fourtunately, Amazon provides us a solution SageMaker combining all of these tec
 ![](myinstance)
 * After instance created, you can choose the built in notebook environment such as the Sparkmagic for streaming data processing or my most love one, the conda tensorflow which work very well in the convolutional neural network training.
 ![](sparkenv)  ![](tensorenv)
-* Now we can edit and build our own machine learning model on Jupyter Notebook (build in SageMaker notebook). The highlight of it I believe is that I do not need worry about the problem of environment setting (due to amazon familiar to their machine, they are more easy to apply environment on their hardware than us) and many open-source algorithm is built by amazon machine learning experts which can be easily modified and directly used on the SageMaker Notebook Instance.
+* Now we can edit and build our own machine learning model on Jupyter Notebook (build in SageMaker notebook). The highlight of it I believe is that I do not need to worry about the problem of environment setting (due to Amazon familiars with their machine, they are more easy to apply environment on their hardware than us) and many open-source algorithm is built by amazon machine learning experts which can be easily modified and directly used on the SageMaker Notebook Instance.
 ![](notebookedit)
+> Train the model built in the Jupyter Notebook Instance.
+* After training, we get the model as follow. I am a little bit dispoint in this part since there is no to much difference with the training process on my own laptop. However, Amazon Segamaker will provide the log file of training to you which is helpful.
+* The trained model is also saved in the instance  
+![](mymodel)
+
 
 
 ## Research result
