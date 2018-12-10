@@ -5,8 +5,7 @@
 	- [Docker Documentation](https://docs.docker.com/)
 
 <a name="menu"></a>
-# Docker and Containers 
-### (Intermediate Round2)
+## Docker and Containers (Intermediate Round2)
 1. [Containers](#containers)  
     * [Containers Introduction](#whatcontainer)
     * [VMs vs Containers](#containervsvm)
@@ -19,16 +18,14 @@
     * [Docker Swarm vs Kubernetes](#swarmkuber)
     * [Break a Monolith Application into Microservices](#breakservice)
 
-# Cloud Web Application
-### (Beginner Round2)
+## Cloud Web Application (Beginner Round2)
 1. [Launch a VM](#launchvm)
 2. [Intro to S3](#wps3)
 
-# Technical Report
+## Technical Report
 [My SVM and Sagemaker](#mysagemaker)
 
-# BIG DATA AND MACHINE LEARNING
-### (Intermediate Round1)
+## BIG DATA AND MACHINE LEARNING (Intermediate Round1)
 1. [Hadoop Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
 3. [Introduction to Amazon Simple Storage Service](#s3)
