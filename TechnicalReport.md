@@ -39,8 +39,13 @@ Fortunately, Amazon provides us a solution SageMaker combining all of these tech
 * This is the endpoint details
 ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6endpointdetails.PNG)
 
-## More concept
-> 
+## Special topic: Using the tf.estimator
+> SageMaker support Google TensorFlow very well with the ```sagemaker.tensorflow.TensorFlow``` estimator class. You can use the ```fit ``` API to train your deep neural network model and ```deploy``` API to deploy the resulting model on Amazon SageMaker.
+* When the Sagemaker Instance is training model, several other parts of AWS services are workin at the same time:
+  1. The Docker image which contains the TensorFlow framework will be load by SageMaker.
+  2. S3 bucket will provide the training data as an object to the SageMaker container's file system.
+  3. tf.estimator will use the ```DNNClassifier``` API to constructs a neural network model.
+* The remaining parts of Deployment is the same as the previous section.
 
 ## Future Development
 
