@@ -286,7 +286,24 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		* Analyze: Pig, Hive and  Impala
 		* Access: Hue or Cloudera Search
 
-
+2. Analyze Big Data with Hadoop
+	- Amazon EMR: Is a platform to help support big data processing
+	services like Hadoop.
+		* Consist of EC2 instances organized in a cluster
+		* There are master nodes, core nodes, and task noes.
+		* The master node is responsible for distributing work to
+		be done by the the worker nodes.
+		* Core nodes store data using HDFS
+		* Task Nodes do not use HDFS and are optional
+	- Creating an Amazon EMR Cluster
+		* EMR is designed to serve as a platform for distributed big
+		data processing.
+		* EMR Clusters are reliable and scalable, leveraging AWS easily
+		scalable architecure.
+		* Using EMR you can select multiple FS backends including HDFS
+		as well as Amazon's own distributed FS
+		* The available Data Processing frameworks are the same the
+		two available for Hadoop like map reduce and spark
 
 
 
