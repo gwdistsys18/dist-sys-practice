@@ -37,7 +37,7 @@ Notes Contents
         * [2.3 Create a bucket policy](#23-create-a-bucket-policy)
         * [2.4 Versioning](#24-versioning)
 
-<a name="#bigDataAndMachineLearning"></a>
+<a name="bigDataAndMachineLearning"></a>
 ## Big Data and Machine Learning (Beginner level + Intermediate Level)
 
 <a name="Introduction"></a>
