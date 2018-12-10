@@ -39,16 +39,16 @@ Official explanation: A distributed database is a logically unified database com
 The basic characteristics of distributed databases include: physical distribution, logical integrity, and site autonomy. Other features that can be derived from these three basic characteristics are: data distribution transparency, control mechanism combining concentration and autonomy, appropriate data redundancy, and distribution of transaction management. The distributed database is divided into heterogeneous distributed database and isomorphic distributed database according to the similarities and differences of the data model of the database management system in each site. According to the type of control system, it is divided into global control centralized type, global control distributed type and global control variable type.  
 
 ## Hadoop , HDFS, HBase, Hive
-My conclusion:  
-Hadoop is a distributed system infrastructure framework. Based on this framework, the development of distributed applications leverages the power of clustered high-speed computing and storage. This is similar to the development of parallel programs based on NVIDIA's CUDA parallel architecture which leverages the parallel computing power of the GPU.  
+__My conclusion__:  
+__Hadoop__ is a distributed system infrastructure framework. Based on this framework, the development of distributed applications leverages the power of clustered high-speed computing and storage. This is similar to the development of parallel programs based on NVIDIA's CUDA parallel architecture which leverages the parallel computing power of the GPU.  
 
-HDFS is the file system of Hadoop. Based on HDFS, you can manipulate files, such as create, delete, edit, rename, and so on.  
+__HDFS__ is the file system of Hadoop. Based on HDFS, you can manipulate files, such as create, delete, edit, rename, and so on.  
 
-Hbase: A database system based on the Hadoop architecture. It is not a relational database. In addition, HBase is based on column rather than row based schema.  
+__Hbase__: A database system based on the Hadoop architecture. It is not a relational database. In addition, HBase is based on column rather than row based schema.  
 
-Hive: A high-level language based on Hbase. Similar to SQL —— Computer language for accessing and processing relational databases.  
+__Hive__: A high-level language based on Hbase. Similar to SQL —— Computer language for accessing and processing relational databases.  
 
-Wiki explanation: 
+__Wiki explanation__: 
 Apache Hadoop is a collection of open-source software utilities that facilitate using a network of many computers to solve problems involving massive amounts of data and computation. It provides a software framework for distributed storage and processing of big data using the MapReduce programming model. Originally designed for computer clusters built from commodity hardware — still the common use — it has also found use on clusters of higher-end hardware. All the modules in Hadoop are designed with a fundamental assumption that hardware failures are common occurrences and should be automatically handled by the framework.  
 
 The core of Apache Hadoop consists of a storage part, known as Hadoop Distributed File System (HDFS), and a processing part which is a MapReduce programming model. Hadoop splits files into large blocks and distributes them across nodes in a cluster. It then transfers packaged code into nodes to process the data in parallel. This approach takes advantage of data locality, where nodes manipulate the data they have access to. This allows the dataset to be processed faster and more efficiently than it would be in a more conventional supercomputer architecture that relies on a parallel file system where computation and data are distributed via high-speed networking.  
@@ -68,7 +68,7 @@ HBase features compression, in-memory operation, and Bloom filters on a per-colu
 
 Apache Hive is a data warehouse software project built on top of Apache Hadoop for providing data query and analysis. Hive gives an SQL-like interface to query data stored in various databases and file systems that integrate with Hadoop. Traditional SQL queries must be implemented in the MapReduce Java API to execute SQL applications and queries over distributed data. Hive provides the necessary SQL abstraction to integrate SQL-like queries (HiveQL) into the underlying Java without the need to implement queries in the low-level Java API.  
 
-Hadoop Architecture:  
+__Hadoop Architecture__:  
 Hadoop evolved from a three-tier structure of 1.0 to a current four-tier architecture after its 2.0 version changed resource management from MapReduce to a generic framework.  
 1. Bottom layer —— storage layer, file system HDFS
 2. Middle layer —— resource and data management, YARN and Sentry
