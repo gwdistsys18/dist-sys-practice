@@ -23,11 +23,27 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	- [Beginner Level](https://github.com/jzhzj/dist-sys-practice#beginner-level-1)
 		- [Launch a VM](https://github.com/jzhzj/dist-sys-practice#aws-tutorial-launch-a-vm)
 		- [Intro to S3](https://github.com/jzhzj/dist-sys-practice#qwilab-intro-to-s3)
+	- [Intermediate Level]()
+		- [Virtualization]()
+		- [Install a LAMP Web Server on Amazon Linux 2]()
+		- [S3 vs EC2]()
+		- [Intro to DynamoDB]()
+		- [Deploy a Scalable Node.js Web App]()
+		- [Intro to AWS Lambda]()
+		- [Intro to Amazon API Gateway]()
+		- [Build a Serverless Web Application]()
+		- [Build a Modern Web Application]()
+- [Big data]()
+	- [Beginner Level]()
+		- [Hadoop Intro]()
+		- [Analyze Big Data with Hadoop]()
+- [Technical Report](https://jzhzj.github.io/Introduction-to-Distributed-Systems/)
 
 
   
 ## Docker Container
 ### Beginner Level
+
 #### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)  
 Time: 15 min   
 
@@ -59,8 +75,9 @@ Notes:
 	Even though two containers share the same image, these two instances are separated from each other. No matter what happens in an instance, it won't affect other instances. 
 
 ### Intermediate Level
-#### Containers:
-##### [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)  
+__Containers:__
+
+#### [Video: What are Containers?](https://www.youtube.com/watch?v=EnJ7qX9fkcU)  
 Time: 30 min  
   
 1. Image Layering  
@@ -78,7 +95,7 @@ Time: 30 min
 7. Registry  
 	A registry is a thing that contains images. You can pull and push from the registry at will.
   
-##### [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)  
+#### [Video: VMs Versus Containers](https://www.youtube.com/watch?v=L1ie8negCjc)  
 Time: 15 min. 
 
 1. Where VM lives  
@@ -86,7 +103,7 @@ Time: 15 min.
 2. Where Docker Container lives  
 	Docker container lives between the OS and your app. The OS can only have the minimum stuffs, but the container has all the OS dependencies for the app running in this container.  
 	
-##### [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)  
+#### [Lab: Docker Intro](https://training.play-with-docker.com/beginner-linux/)  
 Time: 50 min  
 
 1. When you already start a container, and you want to execute command, use `docker container exec -it <Command>`
@@ -106,7 +123,7 @@ Be sure to include period (.) at the end of the command.
 	Next: `docker image push <Image name:Version>`  
 	Finally: You can check your newly-pushed Docker images at `https://hb.docker.com/r/<your docker id>/`
   
-##### [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)  
+#### [Lab: Doing more with Docker Images](https://training.play-with-docker.com/ops-s1-images/)  
 Time: 1 hr. 
 
 1. To restart an stopped container  
@@ -139,7 +156,7 @@ Time: 1 hr.
 	- Dockerfile - A text file that contains all the commands, in order, needed to build a given image. The [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) page lists the various commands and format details for Dockerfiles.
 	- Volumes - A special Docker container layer that allows data to persist and be shared separately from the container itself. Think of volumes as a way to abstract and manage your persistent data separately from the application itself.
 
-##### [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)  
+#### [Video: VMs Versus Containers Deep Dive](https://www.youtube.com/watch?v=PoiXuVnSxfE)  
 Time: 15 min  
 
 1. Size  
@@ -149,10 +166,10 @@ Time: 15 min
 	There is almost no way for attackers to hack the host running a VM from the processes running inside the VM. However, since the docker containers using the same kernel, it's much easier to attack the host from the process inside a container if there are bugs inside of the kernel.
 3. Boot time  
 	The boot time for processes in both techniques are almost the same, let's say 500 ms. The time for start up the kenel of VM can be up to 3 or 4 seconds, while there is almost no time taken to boot a container. There is only two steps to start up a container: one is a kernel operation which is setting up the process sandbox and the other one is starting up the application itself.
+  
+__Networking and Orchestration:__
 
-#### Networking and Orchestration:
-
-##### [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)  
+#### [Lab: Docker Networking](https://training.play-with-docker.com/docker-networking-hol/)  
 Time:  1 hr 30 min
 
 1. NAT  
@@ -172,7 +189,7 @@ ubuntu sleep infinity`
 
 	>NOTE: All docker container run an embedded DNS server at 127.0.0.11:53  
 
-##### [Lab: Swarm Mode Introduction]()  
+#### [Lab: Swarm Mode Introduction]()  
 Time: 1 hr 20 min  
 
 1. Initialize your swarm  
@@ -196,19 +213,19 @@ Time: 1 hr 20 min
 	- Tasks: Atomic unit of a _service_ and scheduling in Docker. One container instance per task.  
 	- Service: A _stack_ component, including a container image, number of replicas (tasks), ports, and update policy.
 
-##### [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)  
+#### [Video: Kubernetes vs Swarm](https://www.youtube.com/watch?v=L8xuFG49Fac)  
 Time: 6 min  
 
 - Swarm is a built-in Orchestration System for manipulating your container on a cluster of host, while Kubernetes is developed by Google.
 - These days Kubernetes is more popular, since Kubernetes has far more features than Swarm.
 
-##### [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)  
+#### [Video: Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)  
 Time: 7 min  
 
 - Kubernetes needs a .yaml file to initialize the Orchestration.
 - Kubernetes like Swarm, it is smart enought to schedule tasks to multiple workers. Even if a worker's gone some time, Kubernetes can reschedule the tasks to other workers.
 
-##### [Kubernetes](https://kubernetes.io)  
+#### [Kubernetes](https://kubernetes.io)  
 Time: 1 hr 30 min  
 
 - The Kubernetes Master is a collection of three processes that run on a single node in your cluster, which is designated as the master node. Those processes are: kube-apiserver, kube-controller-manager and kube-scheduler.
@@ -216,9 +233,9 @@ Time: 1 hr 30 min
 	- kubelet, which communicates with the Kubernetes Master.
 	- kube-proxy, a network proxy which reflects Kubernetes networking services on each node.
 
-#### Bring it all together:
+__Bring it all together:__
 
-##### [Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them](https://github.com/jzhzj/dist-sys-practice#install-docker-on-a-cluster-of-ec2-vms-and-use-kubernetes-to-orchestrate-them)  
+#### [Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them](https://github.com/jzhzj/dist-sys-practice#install-docker-on-a-cluster-of-ec2-vms-and-use-kubernetes-to-orchestrate-them)  
 Time: 4 hr    
   
 1. Start EC2 instances on AWS  
@@ -267,7 +284,7 @@ Time: 4 hr
 	![Imgur](https://i.imgur.com/WRe2vtn.png)  
 	Now, the `STATUS` of nodes is `Ready`, which means the cluster is ready to work.
 
-##### [AWS Tutorial: Break a Monolith Application into Microservices]()
+#### [AWS Tutorial: Break a Monolith Application into Microservices]()
 
 ## Cloud Web Application
 ### Beginner Level  
@@ -288,3 +305,125 @@ Time: 35 min
 4. Learned how to make objects public.
 5. Learned how to create a bucket policy.
 6. Learned how to explore versioning.
+  
+### Intermediate Level  
+__Virtual Machine, Websites, and Databases:__  
+
+#### [Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk)  
+Time: 20 min  
+Nowadays, many processors are essentially designed to be easy to be virtualizable. With virtualization technology, we can run legacy code on legacy operating systems since some company depends on old programs which do not support modern processors. Also, we can run lots of virtual machines on a single physical machine, which allow cloud provider to sell small pieces of computing/storage resource to different customers.
+
+#### [Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)  
+Time: 90 min  
+In this tutorial, the steps for initiating EC2 instance is pretty much similar to previous procedures practiced privously for Dockers and Kubernetes.  
+Something tricky I learned during this tutorial is that you don't have to type `sudo` every time for commands. You just type `sudo passwd` to assign new password to root account, `su root` to change account to root user, then you can run commands withouot typing `sudo` with root authority.
+
+#### [S3 vs EC2]()  
+Time: 30 min  
+Amazon S3 is a "simple storage service" offered by AWS that provides object storage through a web service interface. However, EC2 is a central paart of Amazon's cloud-computing platform, AWS, which allows users to rent virtual computers on which to run their own computer applications.  
+S3 can provide data security will an EC2 cannot since S3 may maintain multiple replicas of your data while EC2 can only have one copy.  
+As for the functionality, S3 is designed to provide storage services while EC2 is not. S3 can provide multiple functionalities to storage services such as access management, version control, and so on.  
+If you only use EC2 as a storage, then you are probably wasting it computing resource.
+
+#### [Intro to DynamoDB](https://awseducate.qwiklabs.com/focuses/23?parent=catalog)    
+Time: 19 min  
+
+- For DynamoDB, there is no limit to the number of items you can store in a table.
+- Partition Key is just like Primary Key in a RDB.
+- Different from a RDB, an item in DynamoDB, a NoSQL database, can have different attributes.  
+- There are two ways to query a DynamoDB table: _Query_ and _Scan_.
+
+#### [Deploy a Scalable Node.js Web App](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-dynamodb-tutorial.html?refid=gs_card)  
+Time: 60 min  
+
+In this tutorial I learned how to deploy a high-availability web app using AWS Beanstalk and Amazon DynamoDB. With AWS Beanstalk, you can easily deploy EC2 instances, security groups, load balancers, auto scaling groups, S3 buckets, and so on, which pretty much liberates labours you have to do to build your web app. Moreover, this decouples the code from the infrastructure, developers can only care about the code, operators only deploy code to the platform.
+  
+__Serverless and Edge Computing:__  
+
+#### [Intro to AWS Lambda]()  
+Time: 30 min  
+AWS Lambda is quite a powerful functionality that it handles all the details about how to initiate instances, how to build your programs, how to start the containers that contain your programs. All the procedures are triggered automatically. This is quite a convenience to programmer/enterprise.
+
+#### [Intro to Amazon API Gateway]()  
+Time: 20 min  
+
+> API Gateway is a managed service provided by AWS that makes creating, deploying and maintaining APIs easy. The lab creates a Lambda function and triggers it by accessing API Gateway endpoint url. The lab also introduced the best practices of building a RESTful API and the use of micro-service.  
+
+API Gateway includes features to:  
+
+- Transform the body and headers of incoming API requests to match backend systems
+- Transform the body and headers of the outgoing API responses to match API requirements
+- Control API access via Amazon Identity and Access Management
+- Create and apply API keys for third-party development
+- Enable Amazon CloudWatch integration for API monitoring
+- Cache API responses via Amazon CloudFront for faster response times
+- Deploy an API to multiple stages, allowing easy differentiation between development, test, production as well as versioning
+- Connect custom domains to an API
+- Define models to help standardize your API request and response transformations. 
+
+This tutorial is somehow similar to AWS Lambda tutorial. The only difference is that the trigger event is an API Gateway.
+
+#### [Build a Serverless Web Application]()  
+Time: 120 min  
+
+In this tutorial, I created a simple serverless web application that enables users to request unicorn rides from the Wild Rydes fleet. After doing this in practice, I have integrated the knowledges about AWS Lambda, Amazon API Gateway, Amazon S3, Amazon DynamoDB, and so on.
+
+This whole application structure consists of the following components:  
+
+- Static Web Hosting  
+	Amazon S3 hosts static web resources including HTML, CSS, JavaScript, and image files which are loaded in the user's browser.
+- User Management  
+	Amazon Cognito provides user management and authentication functions to secure the backend API.
+- Serverless Backend  
+	Amazon DynamoDB provides a persistence layer where data can be stored by the API's Lambda function.
+- RESTful API  
+	JavaScript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway.  
+	
+
+__Bring it together:__  
+
+#### [Build a Modern Web Application]()  
+Time: 150 min  
+> Modern applications isolate business logic, optimize reuse and iteration, and remove overhead everywhere possible. Modern apps are built using services that enable you to focus on writing code while automating infrastructure maintenance tasks.
+
+In this tutorial, I learned how to build a modern web application that each component is highly decoupled with other components, which provides high scalability.  
+
+Modules that are used implementing Mythical Mysfits:  
+
+- Create Static Website  
+	Build a static website, using Amazon Simple Storage Service (S3) that serves static content (images, static text, etc.) for your website.  
+- Build Dynamic Website  
+	Host your application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.  
+- Store Mysfit Data  
+	Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.  
+- Add User Registration  
+	Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.  
+- Capture User Clicks  
+	Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose.   
+  
+## Big Data and Machine Learning  
+### Beginner Level  
+
+#### [Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)  
+Time: 20 min  
+
+After 2000, the data produced by human grows rapidly. A bigger computer can not handle such monolithic data. The solution to manage this ever-growing data is distributed system.  
+
+Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models.  
+
+The four key characteristics of Hadoop are economical, reliable, scalable and flexible.  
+
+Hadoop is comprised of the following 12 components: _Hadoop distributed file system, HBase, Sqoop, Flume, Spark, Hadoop MapRduce, Pig, Impala, Hive, Cloudera Search, Oozie,_ and _Hue_.  
+
+There are four stages of big data processing: _Ingest, Processing, Analyze,_ and _Access_.
+
+#### [Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)  
+Time: 60 min  
+
+> Amazon EMR is a managed service that makes it fast, easy, and cost-effective to run Apache Hadoop and Spark to process vast amounts of data. Amazon EMR also supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.  
+
+In this project, I deployed a Hadoop cluster using Amazon EMR. I defined the schema and created a table for sample log data stored in Amazon S3. I launched  processed the sample log data with a HiveQL script.  
+
+This tutorial give me a more clear understanding of the Hadoop framework. Hadoop is a collection of open-source software utilities that facilitate using a network of many computers to solve problems involving massive amounts of data and computation. It provides a software framework for distributed storage and processing of big data using the MapReduce programming model. All the modules in Hadoop are designed with a fundamental assumption that hardware failures are common occurrences and should be automatically handled by the framework.  
+
+# Link to [Technical Report](https://jzhzj.github.io/Introduction-to-Distributed-Systems/)
