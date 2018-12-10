@@ -1,11 +1,57 @@
+Notes Contents
+=================
+
+  * [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
+     * [ Video: Hadoop Intro](#hadoopIntro)
+     * [ AWS Tutorial: Analyze Big Data with Hadoop](#Analyze-Big-Data-with-Hadoop)
+     * [3. What is docker](#3-what-is-docker)
+     * [4. Docker Architecture](#4-docker-architecture)
+        * [4.1 Client](#41-client)
+        * [4.2 Docker Host](#42-docker-host)
+        * [4.3 Registry](#43-registry)
+     * [5. Docker Command Line](#5-docker-command-line)
+     * [6. Docker image](#6-docker-image)
+        * [6.1 Image creation from a container](#61-image-creation-from-a-container)
+        * [6.2 Image creation using a Dockerfile](#62-image-creation-using-a-dockerfile)
+           * [docker file](#docker-file)
+     * [7. Docker networking](#7-docker-networking)
+        * [7.1 Network drivers](#71-network-drivers)
+        * [7.2 Bridge networks](#72-bridge-networks)
+           * [Manage a user-defined bridge](#manage-a-user-defined-bridge)
+           * [Connect a container to a user-defined bridge](#connect-a-container-to-a-user-defined-bridge)
+           * [Enable forwarding from Docker containers to the outside world](#enable-forwarding-from-docker-containers-to-the-outside-world)
+        * [7.3 Overlay networks](#73-overlay-networks)
+           * [Create an overlay network](#create-an-overlay-network)
+           * [Create a service](#create-a-service)
+        * [7.4 Access from outside](#74-access-from-outside)
+     * [8. Swarm Mode Introduction for IT Pros](#8-swarm-mode-introduction-for-it-pros)
+        * [8.1 Docker Compose and Docker Swarm Mode](#81-docker-compose-and-docker-swarm-mode)
+        * [8.2 Swarm](#82-swarm)
+        * [8.3 Initialize a new Swarm](#83-initialize-a-new-swarm)
+        * [8.4 Show Swarm Members](#84-show-swarm-members)
+     * [9. Kubernetes](#9-kubernetes)
+  * [Cloud Web Apps](#cloud-web-apps)
+     * [1.Launch a linux VM](#1launch-a-linux-vm)
+        * [1.1 Launch an Amazon EC2 Instance](#11-launch-an-amazon-ec2-instance)
+        * [1.2 Configure your Instance](#12-configure-your-instance)
+        * [1.3 Download key pair to securely access your Linux instance using SSH](#13-download-key-pair-to-securely-access-your-linux-instance-using-ssh)
+        * [1.4 Connect to your Instance](#14-connect-to-your-instance)
+     * [2. Amazon Simple Storage Service(S3)](#2-amazon-simple-storage-services3)
+        * [2.1 Create a bucket](#21-create-a-bucket)
+        * [2.2 Upload an object](#22-upload-an-object)
+        * [2.3 Create a bucket policy](#23-create-a-bucket-policy)
+        * [2.4 Versioning](#24-versioning)
+<a name = "#bigDataAndMachineLearning"></a>
 ## Big Data and Machine Learning (Beginner level + Intermediate Level)
 
+<a name = "#hadoopIntro"></a>
 ## [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)
 
 Time: it takes 35 minutes to learn it. 
 
 * The video tutorial gives basic ideas of Hadoop framework. After 2000, the solution which uses the computation power provided by available computers to process data could not help. In recent years, there is an incredible explosion in the volume of data. IBM reported that 2.5 billion gigabytes of data was generated every day in 2012. 40000 search queries were done on Google every second. Therefore, we need computers with larger memories and faster processors or other more advanced solutions. The idea distributed system is using multiple computers to do the processing work which has much better performance. There are also challenges for this. There are high chances of failure since a distributed system uses multiple computers. There is also limit on bandwidth. Because it is difficult to synchronize data and process, the programming complexity is also high. The solution is Hadoop. Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models. The four key characters of Hadoop are economical, scalable, reliable and flexible. Compared to traditional DBMS, Hadoop distributes the data to multiple systems and later runs the computation wherever the data is located. The Hadoop has an ecosystem which is evolved from its three core components, data processing, resource management and Hadoop distributed file system. It is now comprised of 12 components including Hadoop distributed file system, HBase, scoop, flume, spark, Hadoop MapReduce, Pig, Impala, Hive, Cloudera Search, Oozie, Hue.  
 
+<a name = "#Analyze-Big-Data-with-Hadoop"></a>
 ## [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
 
 Time: it takes me more than one hour to learn and write up a summary. 
