@@ -305,7 +305,7 @@ Modify an existing item.
 Query the table.  
 Delete the table.  
 
-* [AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/cn/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card) (30 min)  
+* [AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/cn/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card) (40 min)  
 
 Deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB.  
 ![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/webapp.png)  
@@ -313,3 +313,80 @@ Launch a Node.js web application environment using AWS Elastic Beanstalk and Ama
 Deploy a web application using AWS Elastic Beanstalk.  
 Receive email notifications with Amazon Simple Notification Service (SNS).  
 
+#### Serverless and Edge Computing
+* [QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog) (25 min)  
+
+AWS Lambda is a compute service that runs code in response to events and automatically manages the compute resources, making it easy to build applications that respond quickly to new information. The lab provides a basic explanation of AWS Lambda.  
+
+Create the Amazon S3 Buckets.  
+Create an AWS Lambda Function.  
+Test Function.  
+Monitoring and Logging.  
+
+* [QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog) (20 min)  
+
+Create a simple FAQ micro-service.  
+The micro-service will return a JSON object containing a random question and answer pair using an Amazon API Gateway endpoint that invokes an AWS Lambda function.  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/microservice.png)  
+Create a Lambda Function.  
+Test the Lambda function.  
+
+* [AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (100 min)  
+
+Create a simple serverless web application that enables users to request unicorn rides from the Wild Rydes fleet.  
+The application architecture uses AWS Lambda, Amazon API Gateway, Amazon S3, Amazon DynamoDB, and Amazon Cognito.  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/architecture.png)  
+
+Static Web Hosting  
+Amazon S3 hosts static web resources including HTML, CSS, JavaScript, and image files which are loaded in the user's browser.  
+Select a Region.  
+Create an S3 Bucket.  
+Upload Content.  
+Add a Bucket Policy to Allow Public Reads.  
+Enable Website Hosting.  
+Validate the Implementation.  
+
+User Management  
+Amazon Cognito provides user management and authentication functions to secure the backend API.  
+Create an Amazon Cognito User Pool.  
+Add an App to User Pool.  
+Update the config.js File in Website Bucket.  
+Test the Implementation.  
+
+Serverless Backend  
+Amazon DynamoDB provides a persistence layer where data can be stored by the API's Lambda function.  
+Create an Amazon DynamoDB Table.  
+Create an IAM Role for Your Lambda function.  
+Create a Lambda Function for Handling Requests.  
+Test the Implementation.  
+
+RESTful API  
+JavaScript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway.  
+Create a New REST API.  
+Create a Cognito User Pools Authorizer.  
+Create a new resource and method.  
+Deploy the API.  
+Update the Website Config.  
+Validate the implementation.  
+
+Resource Cleanup  
+Delete Amazon S3 bucket  
+Delete Amazon Cognito user pool  
+Delete serverless backend  
+Delete REST API  
+Delete CloudWatch Log  
+
+#### Bring it together
+* [AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card) (150 min)  
+
+Build a modern application on AWS. Modern applications isolate business logic, optimize reuse and iteration, and remove overhead everywhere possible.  
+The application architecture diagrams provide a structural representation of the services that make up Mythical Mysfits and how these services interact with each other.  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/modernapp.png)  
+
+Create Static Website  
+Build a static website, using Amazon Simple Storage Service (S3) that serves static content (images, static text, etc.) for the website.  
+
+Build Dynamic Website Host your application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.
+Store Mysfit Data Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.
+Add User Registration Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.
+Capture User Clicks Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose. 
