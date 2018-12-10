@@ -2,7 +2,7 @@
 
 Time Spent:  40 min
 ### Step 1. Sign-up for AWS
-*You could use your only personal account to register and you could also choose to set up IAM user for better management
+* You could use your only personal account to register and you could also choose to set up IAM user for better management
 
 ### Step 2. Launch an Amazon EC2 Instance
 	### a. Enter the Amazon EC2 Console
