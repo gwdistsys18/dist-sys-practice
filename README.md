@@ -104,4 +104,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Cognito can be used for user verification by sending out email with verification code
 * Having issue when deploying the API Gateway. The lambda function cannot get proper request. This is tutorial is another example for outdated + having issue
 11. AWS Tutorial: Build a Modern Web Application
-* The load-balancer: Expose the single DNS to public to increase the scalability and provide fault recovery (also provide some protection for running services). All traffic heading to the two public subnet will go through the LB first.
+* The load-balancer: Expose the single DNS to public to increase the scalability and provide fault recovery (also provide some protection for running services). All traffic heading to the two public subnet will go through the LB first. In this project, it sits behind the API gateway
+* (JS related) When setting the endpoint as the ELB DNS, include the "http://" prefix, otherwise the content will not be loaded into the webpage.
+* Codepipeline can be used to automatically build and deploy the service according to the changes
+
