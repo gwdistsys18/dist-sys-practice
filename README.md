@@ -1,5 +1,6 @@
 # Distributed Systems Practice
-Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
+Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)  
+
 @[TOC]
 ## Docker and Countainers
 ### Beginner Level
