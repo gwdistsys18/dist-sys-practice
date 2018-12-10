@@ -298,18 +298,125 @@ write a connection between two microservices.
 ## Big Data and Machine Learning
 > Include notes here about each of the links  
   
--Video: Hadoop Intro(https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)   
+### Video: Hadoop Intro(https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be)   
 After 2000, data grew quickly, data process needs large memory and fast processors.  
 possible solution for growing data: multiple machine(distributed system), challenges of distributed system  
 high chances of system failures, limit bandwith, high programming complexity.  
 Hadoop: allows for distributed processing of large data sets across clusters of commodity computers.  
 four features of hadoop: economical, reliable, scalable and flexible.  
 
--QwikLab: Analyze Big Data with Hadoop(https://awseducate.qwiklabs.com/focuses/19?parent=catalog)   
+### QwikLab: Analyze Big Data with Hadoop(https://awseducate.qwiklabs.com/focuses/19?parent=catalog)   
 Amazon EMR is a managed service that makes it fast, easy, and cost-effective  
 to run Apache Hadoop and Spark to process vast amounts of data. Amazon EMR also supports powerful and proven Hadoop tools  
 such as Presto, Hive, Pig, HBase, and more.
 know how to use and create an Amazon S3 bucket  
 know how to launch an Amazon EMR cluster  
 
+>>Intermediate Level  
 
+### QwikLab: Intro to S3(https://awseducate.qwiklabs.com/focuses/30?parent=catalog)(35min)  
+know what is Amazon S3 service.
+learn how to create a bucket
+learn how to upload an object to the bucket  
+learn how to make object public  
+learn how to create a bucket policy  
+learn how to explore versioning  
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/create%20bucket.png)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/public%20picture.png)
+
+### QwikLab: Intro to Amazon Redshift(https://awseducate.qwiklabs.com/focuses/28?parent=catalog)(35min)  
+Amazon Redshift is a fast, scalable data warehouse that makes it simple and cost-effective  
+to analyze all your data across your data warehouse and data lake. 
+learn how to Launch an Amazon Redshift Cluster
+learn how to Launch Pgweb to Communicate with your Redshift Cluster
+learn how to Create a Table
+learn how to Load Sample Data from Amazon S3
+learn how to Query Data
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/launch%20Redshift.png)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/endpoint.jpg)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/SQL%20command.png)
+
+### Video: Short AWS Machine Learning Overview(https://www.youtube.com/watch?v=soG1B4jMl2s)(2min)  
+Three layers to the machine learning stack:  
+first layer:frameworks layer building and trainning your own machine learing models.  
+second layer:platform layer helps to address the problem.  
+third layer:Application services layer use API to add machine learnning services to their applications.  
+
+### QwikLab: Intro to Amazon Machine Learning(https://awseducate.qwiklabs.com/focuses/27?parent=catalog)(40min)
+Amazon Machine Learning provides visualization tools and wizards that  
+guide you through the process of creating machine learning (ML) models  
+without having to learn complex ML algorithms and technology. Once your models are ready,  
+Amazon Machine Learning makes it easy to obtain predictions for your application using simple APIs,  
+without having to implement custom prediction generation code, or manage any infrastructure.
+learn how to Upload Training Data
+learn how to Create a Datasource
+learn how to Create an ML Model from the Datasource
+learn how to Evaluate an ML Model
+learn how to Generate Predictions From Your ML Model
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/upload%20data.jpg)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/ML%20verify.jpg)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/train%20model.jpg)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/ML%20performance.png)
+
+### QwikLab: Intro to DynamoDB(https://awseducate.qwiklabs.com/focuses/23?parent=catalog)(20min)
+Amazon DynamoDB is a key-value and document database that delivers single-digit  
+millisecond performance at any scale. It's a fully managed, multiregion, multimaster database with  
+built-in security, backup and restore, and in-memory caching for internet-scale applications.  
+DynamoDB can handle more than 10 trillion requests per day and support peaks of more than 20 million requests per second.
+learn how to Create a New Table
+learn how to Add Data
+learn how to Modify an Existing Item
+learn how to Query the Table
+learn how to Delete the Table
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/Edit%20item.jpg)
+
+### QwikLab: Intro to AWS Lambda(https://awseducate.qwiklabs.com/focuses/36?parent=catalog)(30min)
+AWS Lambda lets you run code without provisioning or managing servers.  
+You pay only for the compute time you consume - there is no charge when your code is not running.
+With Lambda, you can run code for virtually any type of application or backend service -  
+all with zero administration. Just upload your code and Lambda takes care of everything required  
+to run and scale your code with high availability. You can set up your code to automatically trigger  
+from other AWS services or call it directly from any web or mobile app.
+learn how to Create an AWS Lambda Function
+learn how to Test Your Function
+learn how to Monitoring and Logging
+
+### QwikLab: Intro to Amazon API Gateway(https://awseducate.qwiklabs.com/focuses/21?parent=catalog)(50min)
+Amazon API Gateway is a fully managed service that makes it easy for developers to create,  
+publish, maintain, monitor, and secure APIs at any scale. With a few clicks in the AWS Management Console,  
+you can create an API that acts as a “front door” for applications to access data, business logic,  
+or functionality from your backend services, such as workloads running on Amazon Elastic Compute Cloud  
+(Amazon EC2), code running on AWS Lambda, or any web application.
+API Gateway handles all the tasks involved in accepting and processing up to hundreds of  
+thousands of concurrent API calls, including traffic management, authorization and access control,  
+monitoring, and API version management. API Gateway has no minimum fees or startup costs.  
+You pay only for the API calls you receive and the amount of data transferred out and,  
+with the API Gateway tiered pricing model, you can reduce your cost as your API usage scales.
+learn how to Create a Lambda Function
+learn how to Test the Lambda function
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/code.png)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/create%20function.jpg)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/API%20endpoint.png)
+
+
+## Cloud Web Apps
+> Include notes here about each of the links  
+  
+### AWS Tutorial: Launch a VM(https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)(30min)
+Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud.  
+AWS calls these virtual machines 'instances'. 
+learn what is Amazon EC2
+learn how to use Amazon EC2
+  
+### QwikLab: Intro to S3(https://awseducate.qwiklabs.com/focuses/30?parent=catalog)(35min)  
+know what is Amazon S3 service.
+learn how to create a bucket
+learn how to upload an object to the bucket  
+learn how to make object public  
+learn how to create a bucket policy  
+learn how to explore versioning  
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/create%20bucket.png)
+![GitHub](https://github.com/XianquanLiao/dist-sys-practice/blob/master/public%20picture.png)  
+
+## Technical Report  
+https://github.com/XianquanLiao/Blog.github.io  
