@@ -48,9 +48,10 @@ Fortunately, Amazon provides us a solution SageMaker combining all of these tech
 * The remaining parts of Deployment is the same as the previous section.
 
 ## Special topic 2: Amazon SageMaker Inference Pipelines
-> SageMaker Inference Pipelines is high related to my Round 2 topic: containers and microservices. This pipeline allows containers to be deployed in an inference pipeline that are co-located on the same EC2 instance.
+> SageMaker Inference Pipeline is high related to my Round 2 topic: containers and microservices. This pipeline allows containers to be deployed in an inference pipeline that are co-located on the same EC2 instance.
 * Although we may use multi services in the deployment of our machine learning model. We can still get a low lattency performance with this technique since you specify the order in which the containers are executed when creating the inference pipeline model. You can also update this endpoint process by redeploying later. 
 
+* Here is an example for the [Inference Pipeline](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/advanced_functionality/inference_pipeline_sparkml_xgboost_abalone/inference_pipeline_sparkml_xgboost_abalone.ipynb)
 ## Future Development
 
 ## Summary
