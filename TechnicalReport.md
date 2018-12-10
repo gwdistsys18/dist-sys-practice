@@ -18,7 +18,8 @@ Fourtunately, Amazon provides us a solution SageMaker combining all of these tec
 ## SageMaker Procedure
 > The data preprocessing parts such as labeling are well defined by Amazon SageMaker. Nevertheless, it is more like a repetition labour work such as human image classification, handwork bounding box drawing and so on.  
 
-> Create a Jupyter Notebook Instance   
+> Create a Jupyter Notebook Instance
+
 ![](myinstance)
 * After instance created, you can choose the built in notebook environment such as the Sparkmagic for streaming data processing or my most love one, the conda tensorflow which work very well in the convolutional neural network training.
 ![](sparkenv)  ![](tensorenv)
