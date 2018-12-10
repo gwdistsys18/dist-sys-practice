@@ -385,6 +385,8 @@ The application architecture diagrams provide a structural representation of the
 
 Create Static Website  
 Build a static website, using Amazon Simple Storage Service (S3) that serves static content (images, static text, etc.) for the website.  
+Create A New AWS Cloud9 Environment.  
+Create An S3 Bucket And Configure It For Website Hosting.  
 
 Build Dynamic Website  
 Host the application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.  
