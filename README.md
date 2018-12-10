@@ -1,8 +1,6 @@
-# Distributed Systems Practice
-Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
-
-## Area 1
-> Include notes here about each of the links
-
-## Area 2
-> Include notes here about each of the links
+### Aggregation Version (Recommend): 
+### [Round2+Tech_Report+Round1](https://github.com/unlimitediw/dist-sys-practice/blob/master/Round2%2BTech_Report%2BRound1.md)
+**************************
+### [Round 2 Version](https://github.com/unlimitediw/dist-sys-practice/blob/master/Round2.md)
+### [Technical Report](https://github.com/unlimitediw/dist-sys-practice/blob/master/Technical_Report.md)
+### [Round 1 Version](https://github.com/unlimitediw/dist-sys-practice/blob/master/Round1.md)
