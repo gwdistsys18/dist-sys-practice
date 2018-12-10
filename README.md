@@ -4,11 +4,8 @@ Notes Contents
   * [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
      * [ Video: Hadoop Intro](#hadoopIntro)
      * [ AWS Tutorial: Analyze Big Data with Hadoop](#Analyze-Big-Data-with-Hadoop)
-     * [3. What is docker](#3-what-is-docker)
+     * [QwikLab: Intro to S3](#Intro-to-S3)
      * [4. Docker Architecture](#4-docker-architecture)
-        * [4.1 Client](#41-client)
-        * [4.2 Docker Host](#42-docker-host)
-        * [4.3 Registry](#43-registry)
      * [5. Docker Command Line](#5-docker-command-line)
      * [6. Docker image](#6-docker-image)
         * [6.1 Image creation from a container](#61-image-creation-from-a-container)
@@ -41,6 +38,7 @@ Notes Contents
         * [2.2 Upload an object](#22-upload-an-object)
         * [2.3 Create a bucket policy](#23-create-a-bucket-policy)
         * [2.4 Versioning](#24-versioning)
+
 <a name = "#bigDataAndMachineLearning"></a>
 ## Big Data and Machine Learning (Beginner level + Intermediate Level)
 
@@ -58,6 +56,7 @@ Time: it takes me more than one hour to learn and write up a summary.
 
 * I have acquired how to create Amazon S3 bucket store my log files and output data, Launch a fully functional Hadoop cluster using Amazon EMR, define the schema, create a table for sample log data stored in Amazon S3, analyze the data using a HiveQL script and write the results back to Amazon S3. It is interesting to learn.
 
+<a name = "#Intro-to-S3"></a>
 ## [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
 Time:  it takes 50 minutes. 
