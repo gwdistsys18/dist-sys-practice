@@ -1,0 +1,3 @@
+:%s/\/fonts\//\/dist-sys-practice\/fonts\//g
+:%s/\/img\//\/dist-sys-practice\/img\//g
+:wq

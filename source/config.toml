@@ -1,0 +1,43 @@
+baseURL = "https://sebastian2696.github.io/dist-sys-practice/"
+languageCode = "en-us"
+title = "Distributive Systems Blog Post"
+theme = "hugo-lamp"
+googleAnalytics = "UA-XXX-X"          # Google Analytics UA number
+
+[params]
+  subtitle = "An easy read ?"
+  author = "Sebastian Foubert"
+  logo = "/img/avatar.jpg"
+  description = "A light responsive Hugo AMP theme for blogger"
+  paginate = 10
+
+  # Publisher
+  ## adsensePublisher = "ca-pub-XXX"    # Required if you want to include Google Adsense
+  adsenseSlot = "XXX"                   # Required slot to display ads
+  adsenseSlotSticky = "XXX"             # Enables sticky ads feature, value maybe the same with adsenseSlot, remove if you don't want display sticky ads
+
+  # SEO configs
+  seotitle = "Distributibe Systems"
+  googleSiteVerification = "google_site_verification_code"    # Google Webmaster
+  msValidate = "bing_site_verification_code"                  # Bing Webmaster
+
+  # Social networks
+  email = "sebastian2696@gmail.com"
+  github = "sebastian2696"
+#  twitter = ""
+  linkedin = "sebastian-velasquez-foubert"
+#  facebook = "facebook_username"
+#  google = "googleplus_id_number"
+#  instagram = "instagram_username"
+#  youtube = "youtube_username"
+#  dribbble = "dribbble_username"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+  name = "Post"
+[[menu.main]]
+  weight = 1
+  identifier = "post"
+  url = "/post/"
