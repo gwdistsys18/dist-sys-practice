@@ -59,4 +59,5 @@ The Hadoop distributed file system (HDFS) is a distributed, scalable, and portab
 3. Job tracker  
 4. Data Node  
 5. Task Tracker  
+
 Top three are Master Services/Demons/Nodes and bottom two are Slave Services. Master Services can communicate with each other and in the same way Slave services can communicate with each other. Name Node is a master node and Data node is its corresponding Slave node and can talk with each other.  
