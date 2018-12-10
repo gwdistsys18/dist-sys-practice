@@ -429,3 +429,57 @@ Workshop Clean-Up
 ## Big Data and Machine Learning
 ### Beginner Level
 * [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) (20 min)  
+
+Hadoop is a framework that allows for the distributed processing of large data sets across clusters of commodity computers using simple programming models. It is inspired by a technical document published by Google.  
+
+The 4 key characteristics of Hadoop  
+Economical: Ordinary computers can be used for data processing.  
+Reliable: Stores copies of data on different machines and is resistant to hardware failure.  
+Scalable: Can follow both horizontal and vertical scaling.  
+Flexible: Can store as much of the data and decide to use it later.  
+
+In Hadoop, the program goes to the data not vice-versa. It initially distributes the data to multiple systems and later runs the computation wherever the data is located.  
+
+The components of the Hadoop ecosystem  
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/hadoop.png)  
+
+4 stages of Big Data Processing  
+Ingest  
+Processing  
+Analyze  
+Access  
+
+* [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card) (60 min)  
+
+Deploy a fully functional Hadoop cluster, ready to analyze log data in just a few minutes.  
+Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data.  
+
+Create an Amazon S3 Bucket.  
+Launch the Sample Amazon EMR Cluster.  
+Allow SSH Connections to the Cluster From Client.  
+Process Data By Running The Hive Script as a Step.  
+Terminate the Cluster and Delete the Bucket.  
+
+Use Amazon EMR Notebooks to create and open Jupyter notebooks with the Amazon EMR console.  
+An EMR notebook is a "serverless" Jupyter notebook.  
+Can use an EMR notebook with Amazon EMR clusters running Apache Spark to remotely run queries and code.  
+
+Before launch a cluster, make choices about system based on the data that are being processed and the requirements for cost, speed, capacity, availability, security, and manageability.  
+
+Amazon EMR provides several features to help secure cluster resources and data.  
+AWS Identity and Access Management (IAM) policies  
+IAM roles for EMRFS requests to Amazon S3  
+IAM roles  
+Kerberos  
+Secure Socket Shell (SSH)  
+Data encryption  
+Security groups  
+Security configurations  
+
+Monitor and manage the cluster after launch it.
+Amazon EMR provides several tools which can be used to connect to and control the cluster.  
+
+An issue in any of these parts can cause the cluster to fail or take longer than expected to complete. There are several tools can be used to gather information about the cluster to help determine what went wrong.  
+
+Write Applications that Launch and Manage Clusters.  
+Can access the functionality provided by the Amazon EMR API by calling wrapper functions in one of the AWS SDKs.
