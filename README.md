@@ -49,14 +49,14 @@ Time: it takes 35 minutes to learn it.
 
 * The video tutorial gives basic ideas of Hadoop framework. After 2000, the solution which uses the computation power provided by available computers to process data could not help. In recent years, there is an incredible explosion in the volume of data. IBM reported that 2.5 billion gigabytes of data was generated every day in 2012. 40000 search queries were done on Google every second. Therefore, we need computers with larger memories and faster processors or other more advanced solutions. The idea distributed system is using multiple computers to do the processing work which has much better performance. There are also challenges for this. There are high chances of failure since a distributed system uses multiple computers. There is also limit on bandwidth. Because it is difficult to synchronize data and process, the programming complexity is also high. The solution is Hadoop. Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models. The four key characters of Hadoop are economical, scalable, reliable and flexible. Compared to traditional DBMS, Hadoop distributes the data to multiple systems and later runs the computation wherever the data is located. The Hadoop has an ecosystem which is evolved from its three core components, data processing, resource management and Hadoop distributed file system. It is now comprised of 12 components including Hadoop distributed file system, HBase, scoop, flume, spark, Hadoop MapReduce, Pig, Impala, Hive, Cloudera Search, Oozie, Hue.  
 
-<a name = "#Analyze-Big-Data-with-Hadoop"></a>
+<a name="#Analyze-Big-Data-with-Hadoop"></a>
 ## [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
 
 Time: it takes me more than one hour to learn and write up a summary. 
 
 * I have acquired how to create Amazon S3 bucket store my log files and output data, Launch a fully functional Hadoop cluster using Amazon EMR, define the schema, create a table for sample log data stored in Amazon S3, analyze the data using a HiveQL script and write the results back to Amazon S3. It is interesting to learn.
 
-<a name = "#Intro-to-S3"></a>
+<a name="#Intro-to-S3"></a>
 ## [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
 Time:  it takes 50 minutes. 
