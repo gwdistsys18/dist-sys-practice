@@ -62,6 +62,10 @@ The encrypted users passwords are stored in a file named SAM under c:\Windows\sy
 
 Before the next step I need to introduce the IDE Controller of Virtual Box. Usually the hard dist is built into the virtual machine and when a user accesses it, it presents as "real" storage of the machine. The idea of accessing the SAM file without going through the windows operating system is to attach the windows virtual machine to the kali linux as a hard drive. 
 
+I downloaded kali-linux iso and I went to storage in settings of Windows 7 virtual machine.  settings -> General -> Basic, change the Version to Other Windows (64 bit). And then I went to Settings -> Storage where I can set up the attibutes of IDE Controller. Set kali-linux as the IDE Primary Master and set the windows 7 as IDE Primary Slave.
+
+I opened the windows 7 virtual machine and it appeared as the interface of kali-linux. Now the hard disk of the Windows 7 virtual machine is a part of the hard disk of kali linux. I located the SAM file in media/root/Windows 7/Windows/systems32/cinfig.
+
 I used the terminal of kali linux to run pwdump on the SAM file and put the output in a txt tile named WinHash.txt. 
 
 ```pwdump SYSTEM SAM > /root/Desktop/WinHash.txt```
@@ -136,6 +140,7 @@ Checked the result once it was finished.
 ## Why docker? (20min)
 Docker is fast
 -	Implementing and maintaining a software is faster on Docker
+
 Docker can be adopted quickly
 -	Every system, software and function runs the same way on Docker as on its original environment therefore no code changing is needed while transferring them to Docker
 Docker has saved software developers and maintainers a lot of time because it is fast and it saves a lot of work during the life cycle of software developing.
@@ -326,3 +331,22 @@ Tools and Technology:
 
 ![Structure Diagram](https://github.com/XuMo1995/dist-sys-practice/blob/master/Structure.png)
 
+- use AWS cloud9 as IDE and clone the project to it
+- Amazon S3 -- we host the website in an S3 bucket and use bucket policy to handle authentication
+- AWS Fargate -- we use container to build microservice backend
+	- control and flexibility
+	- minimize maintainance
+- Network Load Balancer -- listener, balancer, target group
+	- it handles connection requests
+	- distribute traffic to target groups
+	- connects users and AWS Fargate
+	- connects internet and the service of the application
+- AWS code services
+	- developers write program in cloud 9 and push code to AWS codecommit
+	- AWS codepipeline pulls changes from codecommit
+	- build project in CodeBuild
+	- deploy in AWS Fargate
+- AWS DynamoDB -- NoSQL database service that stores data
+- AWS API Gateway -- between user interface and Network Load Balancer to handle user authentication
+- AWS Lambda -- collects real-time user requests 
+- AWS Kinesis Data Firehouse -- takes data records and puts them in S3 bucket
