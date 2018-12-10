@@ -14,17 +14,13 @@ Notes Contents
      * [Video Tutorial: Overview of AWS SageMaker](#VideoTutorialOverviewofAWSSageMaker)
      * [Build a Serverless Real-Time Data Processing App](#BuildaServerlessReal-TimeDataProcessingApp)
      
-  * [Cloud Web Apps](#cloud-web-apps)
-     * [1.Launch a linux VM](#1launch-a-linux-vm)
-        * [1.1 Launch an Amazon EC2 Instance](#11-launch-an-amazon-ec2-instance)
-        * [1.2 Configure your Instance](#12-configure-your-instance)
-        * [1.3 Download key pair to securely access your Linux instance using SSH](#13-download-key-pair-to-securely-access-your-linux-instance-using-ssh)
-        * [1.4 Connect to your Instance](#14-connect-to-your-instance)
-     * [2. Amazon Simple Storage Service(S3)](#2-amazon-simple-storage-services3)
-        * [2.1 Create a bucket](#21-create-a-bucket)
-        * [2.2 Upload an object](#22-upload-an-object)
-        * [2.3 Create a bucket policy](#23-create-a-bucket-policy)
-        * [2.4 Versioning](#24-versioning)
+  * [Cloud Web Apps(Beginner level + Intermediate Level)](#cloud-web-apps)
+     * [AWS Tutorial: Launch a VM](#AWS-Tutorial-Launch-a-VM)
+     * [Video: Virtualization](#VideoVirtualization)
+     * [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](#AWSTutorialInstallaLAMPWebServeronAmazonLinux2)
+     * [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](#AWSTutorialInstallaLAMPWebServeronAmazonLinux2)
+
+
 
 <a name="bigDataAndMachineLearning"></a>
 ## Big Data and Machine Learning (Beginner level + Intermediate Level)
@@ -146,8 +142,8 @@ For QwikLab: Intro to S3, it takes 50 minutes. In this lab, I learned:
 •	Use bucket versioning to get access the picture with same name but uploaded at different time by changing the bucket policy
 The bucket is a really useful service and the versioning feature is quite cool.
 
-
-
+## Cloud Web Apps(Beginner level + Intermediate Level)
+<a name="AWS-Tutorial-launch-a-VM"></a>
 ## [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
 
 Time Spent:  40 min
@@ -156,7 +152,7 @@ Time Spent:  40 min
 * You could use your only personal account to register and you could also choose to set up IAM user for better management
 
 ### 2. Launch an Amazon EC2 Instance
-	### a. Enter the Amazon EC2 Console
+	a. Enter the Amazon EC2 Console
       Open the AWS Management Console, so you can keep this step-by-step guide open. When the screen loads, enter your user          name and password to get started. Then type EC2 in the search bar and select Amazon EC2 to open the service console.
 	
 b. Launch an Instance
@@ -176,8 +172,10 @@ d. On the next screen you will be asked to choose an existing key pair or create
 Select Create a new key pair and give it the name MyKeyPair. Next click the Download Key Pair button.
 After you download the MyKeyPair key, you will want to store your key in a secure location. If you lose your key, you won't be able to access your instance. If someone else gets access to your key, they will be able to access your instance.
 Windows users: We recommend saving your key pair in your user directory in a sub-directory called .ssh (ex. C:\user\{yourusername}\.ssh\MyKeyPair.pem).
+
 Tip: You can't use Windows Explorer to create a folder with a name that begins with a period unless you also end the folder name with a period. After you enter the name (.ssh.), the final period is removed automatically.
 Mac/Linux users: We recommend saving your key pair in the .ssh sub-directory from your home directory (ex. ~/.ssh/MyKeyPair.pem).
+
 Tip: On MacOS, the key pair is downloaded to your Downloads directory by default. To move the key pair into the .ssh sub-directory, enter the following command in a terminal window: mv ~/Downloads/MyKeyPair.pem ~/.ssh/MyKeyPair.pem
 After you have stored your key pair, click Launch Instance to start your Linux instance.
 e. Click View Instances on the next screen to view your instances and see the status of the instance you have just started.
@@ -187,10 +185,10 @@ f. In a few minutes, the Instance State column on your instance will change to "
 ### 4. Connect to your Instance
 After launching your instance, it's time to connect to it using SSH.
 Mac/Linux user: Select Mac / Linux below to see instructions for opening a terminal window.
-•	Windows
+*	Windows
  
-•	Mac
-•	a. Your Mac or Linux computer most likely includes an SSH client by default. You can check for an SSH client by typing ssh at the command line. If your computer doesn't recognize the command, the OpenSSH project provides a free implementation of the full suite of SSH tools that you can download.
+*	Mac
+*	a. Your Mac or Linux computer most likely includes an SSH client by default. You can check for an SSH client by typing ssh at the command line. If your computer doesn't recognize the command, the OpenSSH project provides a free implementation of the full suite of SSH tools that you can download.
 Mac users: Open a terminal window first. Then press enter to open the terminal window.
 Linux users: Open a terminal window.
 b. Use the chmod command to make sure your private key file is not publicly viewable by entering the following command to restrict permissions to your private SSH key:
@@ -214,7 +212,8 @@ a. Back on the EC2 Console, select the box next to the instance you created. The
 b. You will be asked to confirm your termination - select Yes, Terminate.
 Note: This process can take several seconds to complete.  Once your instance has been terminated, the Instance State will change to terminated on your EC2 Console.
 
-[Video: Virtualization] https://www.youtube.com/watch?v=GIdVRB5yNsk
+<a name = "VideoVirtualization"></a>
+[Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk)
 
 Cloud computing is booming thus we need virtualization to meet the needs. Virtualization first emerged in the 1970s and brought out by IBM since there were different computer with different systems. 
 
@@ -226,6 +225,7 @@ The Intel realized they have to do the virtualization itself thus the VT technol
 
 In summary, the cloud computing companies just utilizes the software virtualization of the processors and other hardware resources they have to rent it the customer and gives the results they want back.
 
+<a name = "AWSTutorialInstallaLAMPWebServeronAmazonLinux2"></a>
 ## [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
 
 Time: 80 minutes
@@ -658,12 +658,9 @@ This is commonly used to deviate between versions, as well as development vs pro
     - Replace keys and values with an empty JSON object
     - Save, run and check logs
 
-
-
 [AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card)
 
-> We will build a simple serverless (AWS Lambda) web application that enables users to request unicorn rides from the Wild Rydes fleet. 
-The application will present users with an HTML based user interface for indicating the location 
+> In this lab I  build a simple serverless (AWS Lambda) web application that enables users to request unicorn rides from the Wild Rydes fleet. The application present users with an HTML based user interface for indicating the location 
 where they would like to be picked up and will interface on the backend with a RESTful web service 
 to submit the request and dispatch a nearby unicorn. 
 The application will also provide facilities for users to register with the service and log in before requesting rides.
