@@ -39,13 +39,17 @@ Fortunately, Amazon provides us a solution SageMaker combining all of these tech
 * This is the endpoint details
 ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6endpointdetails.PNG)
 
-## Special topic: Using the tf.estimator
+## Special topic 1: Using the tf.estimator
 > SageMaker support Google TensorFlow very well with the ```sagemaker.tensorflow.TensorFlow``` estimator class. You can use the ```fit ``` API to train your deep neural network model and ```deploy``` API to deploy the resulting model on Amazon SageMaker.
 * When the Sagemaker Instance is training model, several other parts of AWS services are workin at the same time:
   1. The Docker image which contains the TensorFlow framework will be load by SageMaker.
   2. S3 bucket will provide the training data as an object to the SageMaker container's file system.
   3. tf.estimator will use the ```DNNClassifier``` API to constructs a neural network model.
 * The remaining parts of Deployment is the same as the previous section.
+
+## Special topic 2: Amazon SageMaker Inference Pipelines
+> SageMaker Inference Pipelines is high related to my Round 2 topic: containers and microservices. This pipeline allows containers to be deployed in an inference pipeline that are co-located on the same EC2 instance.
+* Although we may use multi services in the deployment of our machine learning model. We can still get a low lattency performance with this technique since you specify the order in which the containers are executed when creating the inference pipeline model. You can also update this endpoint process by redeploying later. 
 
 ## Future Development
 
