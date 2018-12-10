@@ -1,10 +1,10 @@
 ## [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
 
 Time Spent:  40 min
-### Step 1. Sign-up for AWS
+### 1. Sign-up for AWS
 * You could use your only personal account to register and you could also choose to set up IAM user for better management
 
-### Step 2. Launch an Amazon EC2 Instance
+### 2. Launch an Amazon EC2 Instance
 	### a. Enter the Amazon EC2 Console
       Open the AWS Management Console, so you can keep this step-by-step guide open. When the screen loads, enter your user          name and password to get started. Then type EC2 in the search bar and select Amazon EC2 to open the service console.
 	
@@ -12,7 +12,7 @@ b. Launch an Instance
 Select Launch Instance to create and configure your virtual machine.
 
  
-### Step 3. Configure your Instance
+### 3. Configure your Instance
   You are now in the EC2 Launch Instance Wizard, which will help you configure and launch your instance.
  #### a. In this screen, you are shown options to choose an Amazon Machine Image (AMI). AMIs are preconfigured server     templates you can use to launch an instance. Each AMI includes an operating system, and can also include applications and application servers. For this tutorial, find Amazon Linux AMI and click Select.
 
@@ -33,7 +33,7 @@ e. Click View Instances on the next screen to view your instances and see the st
 f. In a few minutes, the Instance State column on your instance will change to "running" and a Public IP address will be shown. You can refresh these Instance State columns by pressing the refresh button on the right just above the table. Copy the Public IP address of your AWS instance, so you can use it when we connect to the instance using SSH in Step 4.
 
   
-### Step 4. Connect to your Instance
+### 4. Connect to your Instance
 After launching your instance, it's time to connect to it using SSH.
 Mac/Linux user: Select Mac / Linux below to see instructions for opening a terminal window.
 •	Windows
@@ -57,7 +57,7 @@ d. You'll see a response similar to the following:
 Warning: Permanently added 'ec2-198-51-100-1.compute-1.amazonaws.com' (RSA) to the list of known hosts.
 You should then see the welcome screen for your instance and you are now connected to your AWS Linux virtual machine in the cloud.
 
-### Step 5. Terminate Your Instance
+### 5. Terminate Your Instance
 You can easily terminate the instance from the EC2 console. In fact, it is a best practice to terminate instances you are no longer using so you don’t keep getting charged for them.
 a. Back on the EC2 Console, select the box next to the instance you created. Then click the Actions button, navigate to Instance State, and click Terminate.
 b. You will be asked to confirm your termination - select Yes, Terminate.
@@ -78,7 +78,7 @@ In summary, the cloud computing companies just utilizes the software virtualizat
 [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
 Time: 80 minutes
 
-### Step 1: Prepare the LAMP Server
+### 1: Prepare the LAMP Server
 	Prerequisites:
 *Create an IAM User: 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-an-iam-user
