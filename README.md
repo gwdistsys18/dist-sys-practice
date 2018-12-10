@@ -1,7 +1,7 @@
 Notes Contents
 =================
 
-  * [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
+  [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
      * [ Video: Hadoop Intro](#hadoopIntro)
      * [ AWS Tutorial: Analyze Big Data with Hadoop](#Analyze-Big-Data-with-Hadoop)
      * [QwikLab: Intro to S3](#Intro-to-S3)
