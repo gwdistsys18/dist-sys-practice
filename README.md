@@ -807,7 +807,7 @@ where those records will be processed by serverless __AWS Lambda__ functions and
 
 ## Learning Notes
 
-### [Module 1: IDE Setup and Static Website Hosting](https://github.com/aws-samples/aws-modern-application-workshop/tree/python/module-1)
+### Module 1: IDE Setup and Static Website Hosting
 
 - AWS Cloud9 IDE ships with a _t2.micro_ EC2 instance for free tier, the whole environment resembles _CodeAnywhere_ we
 have used for project 1 
@@ -838,8 +838,7 @@ have used for project 1
 
 - Visit static website [s3 index](http://mythical-bucket-warren.s3-website-us-east-1.amazonaws.com/)
 
-### [Module 2: Creating a Service with AWS Fargate](https://github.com/aws-samples/aws-modern-application-workshop/tree/python/module-2)
-
+### Module 2: Creating a Service with AWS Fargate
 AWS Fargate is a deployment option in Amazon ECS that allows you to deploy containers without having to manage any clusters or servers. 
 For our Mythical Mysfits backend, we will use Python and create a Flask app in a Docker container behind a Network Load Balancer. 
 These will form the microservice backend for the frontend website to integrate with.
@@ -934,7 +933,7 @@ load balancer to retrieve data
 
 ![access_lb](access_lb.png)
 
-### [Module 3 - Adding a Data Tier with Amazon DynamoDB](https://github.com/aws-samples/aws-modern-application-workshop/tree/python/module-3)
+### Module 3 - Adding a Data Tier with Amazon DynamoDB
 
 Rather than have all of the Mysfits be stored in a static JSON file, 
 we will store them in a database to make the websites future more extensible and scalable.
@@ -958,7 +957,7 @@ aws dynamodb batch-write-item
 - Visit website [s3 index](http://mythical-bucket-warren.s3-website-us-east-1.amazonaws.com/) again, website now displays
 data from DynamoDB.
 
-### [Module 4: Adding User and API features with Amazon API Gateway and AWS Cognito](https://github.com/aws-samples/aws-modern-application-workshop/tree/python/module-4)
+### Module 4: Adding User and API features with Amazon API Gateway and AWS Cognito
 
 To make sure that only registered users are authorized to like or adopt mysfits on the website, 
 we will deploy an REST API with Amazon API Gateway to sit in front of our NLB. 
@@ -998,7 +997,7 @@ we will deploy an REST API with Amazon API Gateway to sit in front of our NLB.
     
     Switch API endpoint to API Gateway from NLB, see [API gateway health check](https://jigpafa4ti.execute-api.us-east-1.amazonaws.com/prod/mysfits)
 
-### [Module 5: Capturing User Behavior](https://github.com/aws-samples/aws-modern-application-workshop/tree/python/module-5)
+### Module 5: Capturing User Behavior
 To help us gather more insights of user activity, 
 we will implement the ability for the website frontend to submit a tiny request, 
 each time a mysfit profile is clicked by a user, 
