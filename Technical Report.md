@@ -31,7 +31,7 @@ Hierarchical applications can be partitioned by number of layers, and informatio
 * Three-tier application: The most commonly used three-tier application structure includes a user service layer (presentation layer), a business service layer and a data service layer. The business logic layer is separated from the user interface and data source. Distributed applications are usually divided into three or more layers due to the functional limitations of a two-tier application(i.e. the client/server architecture). Each layer of components performs a specific type of processing.  
 
 ### Distributed Database
-In my view： 
+My conclusion： 
 Distributed database consists of multiple databases (called sites) that are distributed in different places geographically which are connected based on a computer network. The distributed DBMS is used to manage each site in a unified manner, and each site is logically unified. It seems to be managing data on a single site based on the transparency of data distribution. The advantages are fault tolerance and increased access speed.  
 
 Official explanation: A distributed database is a logically unified database composed of a plurality of physically dispersed database units connected by a computer network. Each connected database unit is called a site or node. A distributed database has a unified database management system for management, called a distributed database management system.  
@@ -39,7 +39,7 @@ Official explanation: A distributed database is a logically unified database com
 The basic characteristics of distributed databases include: physical distribution, logical integrity, and site autonomy. Other features that can be derived from these three basic characteristics are: data distribution transparency, control mechanism combining concentration and autonomy, appropriate data redundancy, and distribution of transaction management. The distributed database is divided into heterogeneous distributed database and isomorphic distributed database according to the similarities and differences of the data model of the database management system in each site. According to the type of control system, it is divided into global control centralized type, global control distributed type and global control variable type.  
 
 ## Hadoop , HDFS, HBase, Hive
-In my view:  
+My conclusion:  
 Hadoop is a distributed system infrastructure framework. Based on this framework, the development of distributed applications leverages the power of clustered high-speed computing and storage. This is similar to the development of parallel programs based on NVIDIA's CUDA parallel architecture which leverages the parallel computing power of the GPU.  
 
 HDFS is the file system of Hadoop. Based on HDFS, you can manipulate files, such as create, delete, edit, rename, and so on.  
@@ -61,3 +61,23 @@ The Hadoop distributed file system (HDFS) is a distributed, scalable, and portab
 5. Task Tracker  
 
 Top three are Master Services/Demons/Nodes and bottom two are Slave Services. Master Services can communicate with each other and in the same way Slave services can communicate with each other. Name Node is a master node and Data node is its corresponding Slave node and can talk with each other.  
+
+HBase is an open-source, non-relational, distributed database modeled after Google's Bigtable and written in Java. It is developed as part of Apache Software Foundation's Apache Hadoop project and runs on top of HDFS (Hadoop Distributed File System), providing Bigtable-like capabilities for Hadoop. That is, it provides a fault-tolerant way of storing large quantities of sparse data (small amounts of information caught within a large collection of empty or unimportant data, such as finding the 50 largest items in a group of 2 billion records, or finding the non-zero items representing less than 0.1% of a huge collection).  
+
+HBase features compression, in-memory operation, and Bloom filters on a per-column basis as outlined in the original Bigtable paper. Tables in HBase can serve as the input and output for MapReduce jobs run in Hadoop, and may be accessed through the Java API but also through REST, Avro or Thrift gateway APIs. HBase is a column-oriented key-value data store and has been idolized widely because of its lineage with Hadoop and HDFS. HBase runs on top of HDFS and is well-suited for faster read and write operations on large datasets with high throughput and low input/output latency.  
+
+Apache Hive is a data warehouse software project built on top of Apache Hadoop for providing data query and analysis. Hive gives an SQL-like interface to query data stored in various databases and file systems that integrate with Hadoop. Traditional SQL queries must be implemented in the MapReduce Java API to execute SQL applications and queries over distributed data. Hive provides the necessary SQL abstraction to integrate SQL-like queries (HiveQL) into the underlying Java without the need to implement queries in the low-level Java API.  
+
+Hadoop Architecture:  
+Hadoop evolved from a three-tier structure of 1.0 to a current four-tier architecture after its 2.0 version changed resource management from MapReduce to a generic framework.  
+1. Bottom layer —— storage layer, file system HDFS
+2. Middle layer —— resource and data management, YARN and Sentry
+3. Upper layer —— MapReduce, Impala, Spark and other computing engines
+4. Top layer —— advanced packaging tools based on MapReduce, Spark and other computing engines, e.g. Hive, Pig, Mahout, etc.  
+
+![image](https://github.com/thcyang/dist-sys-practice/blob/master/screenshot/hadoop4tier.png)  
+* Storage layer  
+HDFS has become the standard for big data disk storage, and it is used for online storage of massive log files.  
+* Management layer  
+Management is divided into data management and resource management.  
+* Computation engine layer  
