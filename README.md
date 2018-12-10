@@ -390,13 +390,42 @@ Create An S3 Bucket And Configure It For Website Hosting.
 
 Build Dynamic Website  
 Host the application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.  
+Setup Core Infrastructure.  
+Deploy A Service With AWS Fargate.  
+Automate Deployments using AWS Code Services.  
 
 Store Mysfit Data  
 Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.  
+Create A DynamoDB Table.  
+Add Items To The DynamoDB Table.  
+Copy The Updated Flask Service Code.  
+Update The Website Content in S3.  
 
 Add User Registration  
 Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.  
+Create The Cognito User Pool.  
+Create A Cognito User Pool Client.  
+Create An API Gateway VPC Link.  
+Create The REST API Using Swagger.  
+Deploy The API.  
+Update the Flask Service Backend.  
+Update The Mythical Mysfits Website In S3.  
 
 Capture User Clicks  
 Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose.  
+Create A New CodeCommit Repository.  
+Copy The Streaming Service Code Base.  
+Use Pip To Intall Lambda Function Dependencies.  
+Update The Lambda Function Code.  
+Push Your Code Into CodeCommit.  
+Create An S3 Bucket For Lambda Function Code Packages.  
+Use The SAM CLI To Package Your Code For Lambda.  
+Deploy The Stack Using AWS CloudFormation.  
+Update The Website Content.  
+Push The New Site Version to S3.  
 
+Workshop Clean-Up  
+
+## Big Data and Machine Learning
+### Beginner Level
+* [Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) (20 min)  
