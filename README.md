@@ -502,7 +502,57 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 		* The available Data Processing frameworks are the same the
 		two available for Hadoop like map reduce and spark
 
-#Blog Post
+## Blog Post
+### Containers: Why do we have them? What can I put in them? How do I make one?
+	- What is virtualization in brief
+		* Virtualization is emulating hardware for an operating system.
+		Originally it was designed to allow OSes to run on HW they wouldn't
+		typically support. Virtualization is done at both the hardware and
+		software levels. An operating running in a virtual machine is 
+		typically referred to as a guest os. When the guest OS makes calls
+		down to the hardware instead of allowing the hardware to answer
+		the call is caught and handled buy some sort of manager. In many
+		cases this is referred to as the VMM or VM manager. The VMM is
+		responsible for fielding these calls made by the guest os and
+		responding to them in a way that the guest OS expects. 
+	- how do containers do this differently 
+		* Containers are slightly different than virtual machines in that
+		they all need to run on the same kernel. A kernel in this case is
+		similar to the VMM it will handle the interaction with the hardware
+		abstracting away all of the system calls. Using a virtual machine
+		the kernel being run on is almost irrelevant. A linux kernel can
+		run a windows vm and a windows kernel can support a linux vm. This
+		interoperability is why VMs are used in some cases. The flexibility
+		provided by a VM is ideal for many companies and applications.
+		There are some drawbacks to this flexibility and ability to have
+		an extremely custom system and the most prevalent is the time to
+		boot. A VM running on a non native environment like linux running
+		on windows will be slow to boot and in some cases slow to run.
+		This is where docker comes in. Docker provides the ability to
+		spin up containers far faster than any other VM. This comes with
+		the tradeoff of less customization. A docker container can only
+		run on a kernel of the same type. A type like windows or linux.
+		Windows containers are capable of running on a windows kernel
+		and linux containers are capable of running on a linux kernel.
+		Docker claims to provide support for linux containers on a
+		Windows kernel but this is just a wrapper around preexistting 
+		kernel features in linux. Docker sacrifices some customization
+		options and configurations for fast boot and fast use.
+		Below are some diagrams comparing VMs to Containers:
+		FIXME DIAGRAMS
+	- What can you use a container for with examples
+		* Containers are used for a variety of reasons but many companies
+		have adopted them and now rely on them for everyday use. The
+		examples on Dockers website help to highlight some of the reasons
+		to switch to docker and provide some examles of companies that
+		have made the switch.
+		* ADP
+		* GSK
+		* PayPal
+	
+	- How do I setup a basic docker application
+	- 
+
 
 
 
