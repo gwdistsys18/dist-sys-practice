@@ -386,7 +386,15 @@ The application architecture diagrams provide a structural representation of the
 Create Static Website  
 Build a static website, using Amazon Simple Storage Service (S3) that serves static content (images, static text, etc.) for the website.  
 
-Build Dynamic Website Host your application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.
-Store Mysfit Data Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.
-Add User Registration Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.
-Capture User Clicks Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose. 
+Build Dynamic Website  
+Host the application logic on a web server, using an API backend microservice deployed as a container through AWS Fargate.  
+
+Store Mysfit Data  
+Externalize all of the mysfit data and persist it with a managed NoSQL database provided by Amazon DynamoDB.  
+
+Add User Registration  
+Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through AWS API Gateway and its integration with Amazon Cognito.  
+
+Capture User Clicks  
+Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using AWS Lambda and Amazon Kinesis Firehose.  
+
