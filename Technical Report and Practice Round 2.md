@@ -62,13 +62,6 @@ The encrypted users passwords are stored in a file named SAM under c:\Windows\sy
 
 Before the next step I need to introduce the IDE Controller of Virtual Box. Usually the hard dist is built into the virtual machine and when a user accesses it, it presents as "real" storage of the machine. The idea of accessing the SAM file without going through the windows operating system is to attach the windows virtual machine to the kali linux as a hard drive. 
 
-I downloaded Download kali-linux iso and I went to storage in settings of Windows 7 virtual machine.  settings -> General -> Basic, change the Version to Other Windows (64 bit). And then I went to Settings -> Storage where I can set up the attibutes of IDE Controller. Set kali-linux as the IDE Primary Master and set the windows 7 as IDE Primary Slave. 
-
-![Change windows version]()
-
-
-I opened the windows 7 virtual machine and it appeared as the interface of kali-linux. Now the hard disk of the Windows 7 virtual machine is a part of the hard disk of kali linux. I located the SAM file in media/root/Windows 7/Windows/systems32/cinfig. 
-
 I used the terminal of kali linux to run pwdump on the SAM file and put the output in a txt tile named WinHash.txt. 
 
 ```pwdump SYSTEM SAM > /root/Desktop/WinHash.txt```
@@ -105,13 +98,19 @@ First I uploaded the WinHash.txt to the ubuntu virtual machine.
 
 ```scp -I XuMoKeyPair.pem WinHash.txt ubuntu@ec2-54-1-72-1-37.compute_1.amazonaws.com:WinHash.txt```
 
+![upload the file](https://github.com/XuMo1995/dist-sys-practice/blob/master/Technical%20Report/upload%20the%20file%20to%20EC2.png)
+
 Then I connected to the virtual machine.
 
 ```ssh -I “XuMoKeyPair.pem” ubuntu@ec2-54-172-1-37.compute-1.amazonaws.com```
 
+![connect](https://github.com/XuMo1995/dist-sys-practice/blob/master/Technical%20Report/connect%20to%20EC2.png)
+
 I installed john the ripper with apt-get.
 
 ```sudo apt-get install john```
+
+![install john](https://github.com/XuMo1995/dist-sys-practice/blob/master/Technical%20Report/install%20john.png)
 
 After john the ripper was installed properly I started cracking the password. 
 
@@ -121,6 +120,7 @@ Checked the result once it was finished.
 
 ```john WinHash.txt --show```
 
+![cracked passwords](https://github.com/XuMo1995/dist-sys-practice/blob/master/Technical%20Report/show%20result.png)
 
 
 
