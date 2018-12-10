@@ -26,10 +26,18 @@ Fourtunately, Amazon provides us a solution SageMaker combining all of these tec
 * Now we can edit and build our own machine learning model on Jupyter Notebook (build in SageMaker notebook). The highlight of it I believe is that I do not need to worry about the problem of environment setting (due to Amazon familiars with their machine, they are more easy to apply environment on their hardware than us) and many open-source algorithm is built by amazon machine learning experts which can be easily modified and directly used on the SageMaker Notebook Instance.
 ![](notebookedit)
 > Train the model built in the Jupyter Notebook Instance.
-* After training, we will get the model as follow. I am a little bit disappoint in this part since there is no to much difference with the training process on my own laptop. However, Amazon Segamaker will provide the log file of training to you which is helpful.
+* After training, we will get the model as follow. I am a little bit disappoint in this part since there is no to much difference with the training process on my own laptop. However, Amazon Segamaker will provide the log file of training to you which is helpful (in this model, it provides the xgboost prunning details for the decision tree model).
+![](sagemakertrain)
 * The trained model is also saved in the instance  
 ![](mymodel)
 
+> Create the Endpoint
+* Create the endpoint by the API ```sm.create_endpoint(EndpointName = endpoint_name, EndpointConfigName = endpoint_config_name)```
+* Deploy the model by  ```xgb_predictor = xgb.deploy(initial_instance_count=1, instance_type='ml.t2.medium')```
+* After this, we can find the endpoint at the Endpoint configuration section
+![](endpointConfigure)
+* This is the endpoint details
+![](endpointDetails)
 
 
 ## Research result
