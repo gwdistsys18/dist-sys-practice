@@ -1,5 +1,14 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
+
+## Topics:
+
+* 1. Docker and Containers
+
+* 2. Big Data and Machine Learning
+
+* 3. Cloud Web Applications
+
 ## Round 1
 ## Docker and Containers
 > **why docker**
@@ -262,8 +271,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## Round 2
 
 ## Big Data and Machine Learning
-
-> Beginner Level
 
 > **Video: Hadoop Intro**
 
