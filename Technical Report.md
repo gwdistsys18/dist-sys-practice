@@ -3,7 +3,7 @@
 "Distributed Systems", "Distributed Computing", "Distributed Algorithms". So what is the specific meaning of "distributied" here? In a narrow sense, it means that multiple PCs are geographically distributed in different places.  
 
 ## Distributed Systems
-Distributed system: A group of computers (called nodes) that can run independently. Each node uses a computer network for information transfer to achieve a common "target or task."  
+_Distributed system_: A group of computers (called nodes) that can run independently. Each node uses a computer network for information transfer to achieve a common "target or task."  
 
 Distributed program: A computer program that runs on a distributed system.  
 
