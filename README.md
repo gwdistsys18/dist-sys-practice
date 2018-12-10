@@ -475,7 +475,52 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 * Keys :
 
-    - 
+    - Sagemaker is a fully maanged ML platform that provides an interface to load data, train a model, and make it accessible to other applications
+    
+    - AWS Sagemaker algorithms prefer data in RecordIO Protobuf format. They provide some useful libraries to make this conversion seamless from something like a Numpy nd array.
+
+    - Just follow the steps.
+    
+> **Build a Serverless Real-Time Data Processing App (2 hour)**
+
+* Overview :
+
+    - First, the producer sent its data to an Amazon Kinesis stream, which could be directly accessed by a dashboard for viewing on a map. 
+    
+    - After that, a SQL query in Kinesis Data Analytics analyzed the data and sent aggregate statistics out another Kinesis stream every minute. 
+    
+    - A Lambda function was then used to take the data from this stream and save it in a DynamoDB table as it arrived via an S3 bucket. 
+    
+    - Meanwhile, a Kinesis Data Firehose was used to put the stream data into an S3 bucket which was then queried to be put into an Athena table.
+
+![](./application-arch.png)
+
+* Build a data stream
+    
+    -Create a stream in Kinesis and write to and read from the stream to track Wild Rydes unicorns on the live map. In this module you'll also create an Amazon Cognito identity pool to grant live map access to your stream.
+    
+![](./shadowfax.png)
+    
+* Aggregate data
+
+    - Build a Kinesis Data Analytics application to read from the stream and aggregate metrics like unicorn health and distance traveled each minute.
+
+![](./aggregate.png)
+    
+* Process streaming data
+    
+    - Persist aggregate data from the application to a backend database stored in DynamoDB and run queries against those data.
+
+![](./lambda.png)
+
+* Store & query data
+
+    - Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, you'll run SQL queries against the raw data for ad-hoc analyses. 
+
+![](./table.png)
+
+
+
 
 
 
