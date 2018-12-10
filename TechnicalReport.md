@@ -1,6 +1,6 @@
 # Build a Machine Learning Model by SageMaker
 
-> Today I will talk about Amazon Sagemaker - a fully-managed machine learning service and will mainly focus on two point: why we need it and how it works.
+> Today I will talk about Amazon Sagemaker - a fully-managed machine learning service (announced in Nov 2017) and will mainly focus on two point: why we need it and how it works.
 
 ## What I care most?
 Machine learning is a method of data analysis that automates analytical model building and it is become more and more popular in recent years. Nowadays, even my own laptop can build and train some simple machine learning models such as MLP and SVM. However, when dealing with deep neural networks, real time straming processing or large bunch of data, it will kill lots of time and make my laptop crashed.  
@@ -20,24 +20,24 @@ Fourtunately, Amazon provides us a solution SageMaker combining all of these tec
 
 > Create a Jupyter Notebook Instance
 
-![](myinstance)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6myInstance.PNG)
 * After instance created, you can choose the built in notebook environment such as the Sparkmagic for streaming data processing or my most love one, the conda tensorflow which work very well in the convolutional neural network training.
-![](sparkenv)  ![](tensorenv)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6sparkenv.PNG)  ![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6tensorenv.PNG)
 * Now we can edit and build our own machine learning model on Jupyter Notebook (build in SageMaker notebook). The highlight of it I believe is that I do not need to worry about the problem of environment setting (due to Amazon familiars with their machine, they are more easy to apply environment on their hardware than us) and many open-source algorithm is built by amazon machine learning experts which can be easily modified and directly used on the SageMaker Notebook Instance.
-![](notebookedit)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6notebookedit.PNG)
 > Train the model built in the Jupyter Notebook Instance.
 * After training, we will get the model as follow. I am a little bit disappoint in this part since there is no to much difference with the training process on my own laptop. However, Amazon Segamaker will provide the log file of training to you which is helpful (in this model, it provides the xgboost prunning details for the decision tree model).
-![](sagemakertrain)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6sagemaker_train.PNG)
 * The trained model is also saved in the instance  
-![](mymodel)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6mymodel.PNG)
 
 > Create the Endpoint
 * Create the endpoint by the API ```sm.create_endpoint(EndpointName = endpoint_name, EndpointConfigName = endpoint_config_name)```
 * Deploy the model by  ```xgb_predictor = xgb.deploy(initial_instance_count=1, instance_type='ml.t2.medium')```
 * After this, we can find the endpoint at the Endpoint configuration section
-![](endpointConfigure)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6endpointConfig.PNG)
 * This is the endpoint details
-![](endpointDetails)
+![](https://github.com/unlimitediw/DistributedSystemLearn/blob/master/Image/6endpointdetails.PNG)
 
 
 ## Research result
