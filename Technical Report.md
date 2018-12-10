@@ -24,4 +24,7 @@ Distributed file systems have the ability to perform remote file access, and man
 3. Distributed Programming and Compiler Interpretation System
 Distributed programming language is used to write distributed programs that run on distributed computer systems. A distributed program consists of several program modules that can be executed independently, and they are executed simultaneously on multiple computers in a distributed processing system. It has three characteristics compared to a centralized programming language: distribution, communication, and robustness.  
 
+Hierarchical applications can be partitioned by number of layers, and information can be transferred from the data layer (usually stored in the database) to the presentation layer (displayed on the client). Usually each layer runs in a different system than the other layers, or in different process spaces in the same system. Layering benefits: Reduce the complexity of the entire application; enable applications to scale better and keep up with the needs of enterprise development.  
 
+* Two-tier application: 
+Typical architecture, a client PC (front end) and a web server (backend) with a database. Logically based on the physical location of them. Usually the client contains most of the business logic. As the database and stored procedures evolve, the SQL language allows business logic to be stored and executed in the database server.
