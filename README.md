@@ -107,4 +107,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * The load-balancer: Expose the single DNS to public to increase the scalability and provide fault recovery (also provide some protection for running services). All traffic heading to the two public subnet will go through the LB first. In this project, it sits behind the API gateway
 * (JS related) When setting the endpoint as the ELB DNS, include the "http://" prefix, otherwise the content will not be loaded into the webpage.
 * Codepipeline can be used to automatically build and deploy the service according to the changes
-
+* The traffic will first go through API Gateway, which determine the type of request (auth / get). The gateway pass it to either Cognito (For user authentication) or load-balancer. 
+* During the cleanup, it is important to clean up the dependencies before removing a component. The wrong order will cause a failure on deletion
+![Screenshot 4](images/screen4.png)
+![Screenshot 5](images/screen5.png)
