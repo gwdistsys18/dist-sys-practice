@@ -1,6 +1,7 @@
 ## [AWS Tutorial: Launch a VM](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)
 
 Time Spent:  40 min
+
 ### 1. Sign-up for AWS
 * You could use your only personal account to register and you could also choose to set up IAM user for better management
 
@@ -75,11 +76,12 @@ The Intel realized they have to do the virtualization itself thus the VT technol
 
 In summary, the cloud computing companies just utilizes the software virtualization of the processors and other hardware resources they have to rent it the customer and gives the results they want back.
 
-[AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
+## [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
+
 Time: 80 minutes
 
 ### 1: Prepare the LAMP Server
-	Prerequisites:
+#### Prerequisites:
 *Create an IAM User: 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-an-iam-user
 
