@@ -1,15 +1,13 @@
 Notes Contents
 =================
 
-  [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
+  * [Big Data and Machine Learning -（Beginner level + Intermediate Level)](#bigDataAndMachineLearning)
      * [ Video: Hadoop Intro](#hadoopIntro)
      * [ AWS Tutorial: Analyze Big Data with Hadoop](#Analyze-Big-Data-with-Hadoop)
      * [QwikLab: Intro to S3](#Intro-to-S3)
      * [4. Docker Architecture](#4-docker-architecture)
      * [5. Docker Command Line](#5-docker-command-line)
      * [6. Docker image](#6-docker-image)
-        * [6.1 Image creation from a container](#61-image-creation-from-a-container)
-        * [6.2 Image creation using a Dockerfile](#62-image-creation-using-a-dockerfile)
            * [docker file](#docker-file)
      * [7. Docker networking](#7-docker-networking)
         * [7.1 Network drivers](#71-network-drivers)
