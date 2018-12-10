@@ -6,13 +6,13 @@ Time: it takes 35 minutes to learn it.
 
 * The video tutorial gives basic ideas of Hadoop framework. After 2000, the solution which uses the computation power provided by available computers to process data could not help. In recent years, there is an incredible explosion in the volume of data. IBM reported that 2.5 billion gigabytes of data was generated every day in 2012. 40000 search queries were done on Google every second. Therefore, we need computers with larger memories and faster processors or other more advanced solutions. The idea distributed system is using multiple computers to do the processing work which has much better performance. There are also challenges for this. There are high chances of failure since a distributed system uses multiple computers. There is also limit on bandwidth. Because it is difficult to synchronize data and process, the programming complexity is also high. The solution is Hadoop. Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models. The four key characters of Hadoop are economical, scalable, reliable and flexible. Compared to traditional DBMS, Hadoop distributes the data to multiple systems and later runs the computation wherever the data is located. The Hadoop has an ecosystem which is evolved from its three core components, data processing, resource management and Hadoop distributed file system. It is now comprised of 12 components including Hadoop distributed file system, HBase, scoop, flume, spark, Hadoop MapReduce, Pig, Impala, Hive, Cloudera Search, Oozie, Hue.  
 
-[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+## [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
 
 Time: it takes me more than one hour to learn and write up a summary. 
 
 * I have acquired how to create Amazon S3 bucket store my log files and output data, Launch a fully functional Hadoop cluster using Amazon EMR, define the schema, create a table for sample log data stored in Amazon S3, analyze the data using a HiveQL script and write the results back to Amazon S3. It is interesting to learn.
 
-[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+## [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
 Time:  it takes 50 minutes. 
 
@@ -25,7 +25,7 @@ Time:  it takes 50 minutes.
 
 	* The bucket is a really useful service and the versioning feature is quite cool.
 
-[QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
+## [QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
 
 Time: it takes me 60 minutes. In this lab, it covers
 
@@ -35,19 +35,19 @@ Time: it takes me 60 minutes. In this lab, it covers
 *  Run queries against data stored in Amazon Redshift: we could use SQL to query the data we need.
 
 
-[Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
+## [Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
 
 Time: it takes me 10 minutes
 
 * it talks about the Machine learning on AWS. Machine learning has three layers, framework interfaces for expert, ML platforms for developers and data scientists and application services for machine learning API calls in the application. Amazon Deep Learning AMI is for the frameworks layer and Zillow uses it. Amazon SageMaker is a good for ML platform layer. 
 
-[Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
+## [Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
 
 Time: it takes me 35 minutes. 
 
 * The AWS SageMaker has four parts, including the notebook instance, jobs, models and endpoints. Notebook instance is about using algorithms to create model via training jobs. Training jobs are instances to train the model. We create models for hosting from job outputs, or import externally trained models into Amazon SageMaker. Endpoints are for developers to use the SageMaker in production. The tutor elaborate on xgboost, kmeans, scikit . He talks about setting up the training parameters. We can train it on single or multiple instances. Then we import models into hosts. The last step is build endpoint configuration and create endpoint for developers to call.
 
-[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+## [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
 
 it takes me 80 minutes. I followed the following steps to finish the tutorial:
 
@@ -60,7 +60,7 @@ it takes me 80 minutes. I followed the following steps to finish the tutorial:
 terminating your cluster terminates the associated Amazon EC2 instances and stops the accrual of Amazon EMR charges. Amazon EMR preserves metadata information about completed clusters for your reference, at no charge, for two months. The console does not provide a way to delete terminated clusters so that they aren't viewable in the console. Terminated clusters are removed from the cluster when the metadata is removed
 There is more information on how to plan and configure clusters in your custom way, set up the security, manage clusters and trouble shoot cluster if it is performing in a wrong way.
 
-[QwikLab: Intro to Amazon Machine Learning]
+## [QwikLab: Intro to Amazon Machine Learning]
 
 Time : it takes me 75 minutes. 
 
