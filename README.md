@@ -18,8 +18,10 @@ Notes Contents
      * [AWS Tutorial: Launch a VM](#AWS-Tutorial-Launch-a-VM)
      * [Video: Virtualization](#VideoVirtualization)
      * [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](#AWSTutorialInstallaLAMPWebServeronAmazonLinux2)
-     * [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](#AWSTutorialInstallaLAMPWebServeronAmazonLinux2)
-
+     * [AWS Tutorial: Deploy a Scalable Node.js Web App](#AWSTutorialDeployaScalableNodejsWebApp)
+     * [QwikLab: Intro to DynamoDB](#QwikLabIntrotoDynamoDB)
+     * [QwikLab: Intro to AWS Lambda](#QwikLabIntrotoAWSLambda)
+     * [QwikLab: Intro to Amazon API Gateway](#QwikLabIntrotoAmazonAPIGateway)
 
 
 <a name="bigDataAndMachineLearning"></a>
@@ -331,8 +333,7 @@ yum info package_name
 You can verify that httpd is on by running the following command:
 [ec2-user ~]$ sudo systemctl is-enabled httpd
 7.	Add a security rule to allow inbound HTTP (port 80) connections to your instance if you have not already done so. By default, a launch-wizard-N security group was set up for your instance during initialization. This group contains a single rule to allow SSH connections.
-8.	Test your web server. In a web browser, type the public DNS address (or the public IP address) of your instance. If there is no content in /var/www/html, you should see the Apache test page. You can get the public DNS for your instance using the Amazon EC2 console (check the Public DNS column; if this column is hidden, chooseShow/Hide Columns (the gear-shaped icon) and choose Public DNS).  
-
+8.	Test your web server. In a web browser, type the public DNS address (or the public IP address) of your instance. If there is no content in /var/www/html, you should see the Apache test page. You can get the public DNS for your instance using the Amazon EC2 console (check the Public DNS column; if this column is hidden, chooseShow/Hide Columns (the gear-shaped icon) and choose Public DNS). 
 
 Apache httpd serves files that are kept in a directory called the Apache document root. The Amazon Linux Apache document root is /var/www/html, which by default is owned by root.
 
@@ -428,7 +429,9 @@ If the httpd process is not running, repeat the steps described in To prepare th
 •	Check the firewall configuration
 If you are unable to see the Apache test page, check that the security group you are using contains a rule to allow HTTP (port 80) traffic. For information about adding an HTTP rule to your security group, see Adding Rules to a Security Group.
 
-* QwikLab: Intro to DynamoDB: https://awseducate.qwiklabs.com/focuses/23?parent=catalog
+<a name ="QwikLabIntrotoDynamoDB"></a>
+[QwikLab: Intro to DynamoDB](https://awseducate.qwiklabs.com/focuses/23?parent=catalog)
+
 Time spent: 30 min
 Introduction: Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and supports both document and key-value data models. This lab is for creating a table in Amazon DynamoDB to store information about a music library and execute some queries and finally delete the table.
 
@@ -447,8 +450,8 @@ I learned that there are two ways to query a DynamoDB table, one is Query and an
 
 Task 5: Delete the table.
 
-fengexian
 
+<a name ="AWSTutorialDeployaScalableNodejsWebApp"></a>
 [AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card)
 
 <img src=""> add image
@@ -522,7 +525,7 @@ the table created by this configuration file will be deleted
 - Choose __Actions__, and then choose __Terminate Environment__
 - Delete DynamoDB table __nodejs-tutorial__
 
-
+<a name ="QwikLabIntrotoAWSLambda"></a>
 [QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog)
 
 > AWS Lambda is a compute service that runs your code in response to events and automatically manages the compute resources for you, making it easy to build applications that respond quickly to new information. 
@@ -573,8 +576,8 @@ thumbnail in output bucket
     - Dead Letter Errors: Failures when sending messages to the Dead Letter Queue.
 - __Amazon CloudWatch Logs__ have detailed log messages in stream
 
-
-- [QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog)
+<a name ="QwikLabIntrotoAmazonAPIGateway"></a>
+[QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog)
 
 > API Gateway is a managed service provided by AWS that makes creating, deploying and maintaining APIs easy.
 The lab creates a Lambda function and triggers it by accessing API Gateway endpoint url.
@@ -658,6 +661,7 @@ This is commonly used to deviate between versions, as well as development vs pro
     - Replace keys and values with an empty JSON object
     - Save, run and check logs
 
+<a name ="AWSTutorialBuildaServerlessWebApplication"></a>
 [AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card)
 
 > In this lab I  build a simple serverless (AWS Lambda) web application that enables users to request unicorn rides from the Wild Rydes fleet. The application present users with an HTML based user interface for indicating the location 
