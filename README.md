@@ -274,3 +274,5 @@ CMD ["node","index.js"]
 + I have to wait for some time until the node are started. After the nodes are started, we can use ```kubectl get node``` to see the information of all nodes.
 ![kos_validate](/src/kos_validate.png)
 ![kubectl](/src/kubectl.png)
+
+##[blog](https://wenyuanshao.github.io/wenyuanshao_blog.github.io/)
