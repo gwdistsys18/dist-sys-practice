@@ -789,7 +789,7 @@ It will be secured using the Amazon Cognito user pool you created in the previou
 ![request](request_unicorn.png)
 
 <a name ="AWSTutorialBuildaModernWebApplication"></a>
-[AWS Tutorial: Build a Modern Web Application] (https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)
+[AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card)
 
 > Due to the web application builds up with a rather complex architecture, the CD/CI configuration
 is not included, please refer to Module 2 tutorial. This article mainly focuses on implementing the features of app
