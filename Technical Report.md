@@ -12,10 +12,8 @@ __Distributed Computing__: Use distributed system solutions to compute problems.
 Distinguish distributed computing  parallel computing: The commonality is that large tasks are divided into small tasks.  
 
 Differences:  
-
-Distributed computing: Based on multiple PCs, each PC completes a different part of the same task. The task is decomposed and the smaller tasks are independent of each other. The results between the nodes hardly affect each other, and the real-time requirements are not very high.  
-
-Parallel computing: Based on the same PC, use the multicore of the CPU to accomplish a task together.  
+* Distributed computing: Based on multiple PCs, each PC completes a different part of the same task. The task is decomposed and the smaller tasks are independent of each other. The results between the nodes hardly affect each other, and the real-time requirements are not very high.  
+* Parallel computing: Based on the same PC, use the multicore of the CPU to accomplish a task together.  
 
 1. Distributed Operating System  
 Responsible for managing distributed processing system resources and controlling distributed program operations. It differs from centralized operating systems in terms of resource management, process communication, and system architecture.  
