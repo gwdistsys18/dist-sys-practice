@@ -31,7 +31,7 @@ Hierarchical applications can be partitioned by number of layers, and informatio
 * Three-tier application: The most commonly used three-tier application structure includes a user service layer (presentation layer), a business service layer and a data service layer. The business logic layer is separated from the user interface and data source. Distributed applications are usually divided into three or more layers due to the functional limitations of a two-tier application(i.e. the client/server architecture). Each layer of components performs a specific type of processing.  
 
 ### Distributed Database
-My conclusion： 
+My conclusion:  
 Distributed database consists of multiple databases (called sites) that are distributed in different places geographically which are connected based on a computer network. The distributed DBMS is used to manage each site in a unified manner, and each site is logically unified. It seems to be managing data on a single site based on the transparency of data distribution. The advantages are fault tolerance and increased access speed.  
 
 Official explanation: A distributed database is a logically unified database composed of a plurality of physically dispersed database units connected by a computer network. Each connected database unit is called a site or node. A distributed database has a unified database management system for management, called a distributed database management system.  
