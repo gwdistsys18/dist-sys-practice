@@ -482,4 +482,7 @@ Amazon EMR provides several tools which can be used to connect to and control th
 An issue in any of these parts can cause the cluster to fail or take longer than expected to complete. There are several tools can be used to gather information about the cluster to help determine what went wrong.  
 
 Write Applications that Launch and Manage Clusters.  
-Can access the functionality provided by the Amazon EMR API by calling wrapper functions in one of the AWS SDKs.
+Can access the functionality provided by the Amazon EMR API by calling wrapper functions in one of the AWS SDKs.  
+
+## Technical Report
+* [Technical Report](https://github.com/thcyang/dist-sys-practice/blob/master/Technical%20Report.md)
