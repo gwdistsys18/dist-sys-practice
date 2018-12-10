@@ -8,22 +8,12 @@ Notes Contents
      * [QwikLab: Intro to Amazon Redshift](#Intro-to-Amazon-Redshift)
      * [Video: Short AWS Machine Learning Overview](#Short-AWS-Machine-Learning-Overview)
      * [Video Tutorial: Overview of AWS SageMaker](#Overview-of-AWS-SageMaker)
-     * [7. Docker networking](#7-docker-networking)
-        * [7.1 Network drivers](#71-network-drivers)
-        * [7.2 Bridge networks](#72-bridge-networks)
-           * [Manage a user-defined bridge](#manage-a-user-defined-bridge)
-           * [Connect a container to a user-defined bridge](#connect-a-container-to-a-user-defined-bridge)
-           * [Enable forwarding from Docker containers to the outside world](#enable-forwarding-from-docker-containers-to-the-outside-world)
-        * [7.3 Overlay networks](#73-overlay-networks)
-           * [Create an overlay network](#create-an-overlay-network)
-           * [Create a service](#create-a-service)
-        * [7.4 Access from outside](#74-access-from-outside)
-     * [8. Swarm Mode Introduction for IT Pros](#8-swarm-mode-introduction-for-it-pros)
-        * [8.1 Docker Compose and Docker Swarm Mode](#81-docker-compose-and-docker-swarm-mode)
-        * [8.2 Swarm](#82-swarm)
-        * [8.3 Initialize a new Swarm](#83-initialize-a-new-swarm)
-        * [8.4 Show Swarm Members](#84-show-swarm-members)
-     * [9. Kubernetes](#9-kubernetes)
+     * [AWS Tutorial: Analyze Big Data with Hadoop](#AWS-Tutorial-Analyze-Big-Data-with-Hadoop)
+     * [QwikLab: Intro to Amazon Machine Learning](#QwikLab-Intro-to-Amazon-Machine-Learning)
+     * [AWS Tutorial: Build a Machine Learning Model](#AWS-Tutorial-Build-a-Machine-Learning-Model)
+     * [Video Tutorial: Overview of AWS SageMaker](#VideoTutorialOverviewofAWSSageMaker)
+     * [Build a Serverless Real-Time Data Processing App](#BuildaServerlessReal-TimeDataProcessingApp)
+     
   * [Cloud Web Apps](#cloud-web-apps)
      * [1.Launch a linux VM](#1launch-a-linux-vm)
         * [1.1 Launch an Amazon EC2 Instance](#11-launch-an-amazon-ec2-instance)
@@ -84,18 +74,21 @@ Time: it takes me 10 minutes
 
 * it talks about the Machine learning on AWS. Machine learning has three layers, framework interfaces for expert, ML platforms for developers and data scientists and application services for machine learning API calls in the application. Amazon Deep Learning AMI is for the frameworks layer and Zillow uses it. Amazon SageMaker is a good for ML platform layer. 
 
-<a name="Overview-of AWS-SageMaker"></a>
+<a name="Overview-of-AWS-SageMaker"></a>
 ## [Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
 
 Time: it takes me 35 minutes. 
 
 * The AWS SageMaker has four parts, including the notebook instance, jobs, models and endpoints. Notebook instance is about using algorithms to create model via training jobs. Training jobs are instances to train the model. We create models for hosting from job outputs, or import externally trained models into Amazon SageMaker. Endpoints are for developers to use the SageMaker in production. The tutor elaborate on xgboost, kmeans, scikit . He talks about setting up the training parameters. We can train it on single or multiple instances. Then we import models into hosts. The last step is build endpoint configuration and create endpoint for developers to call.
 
+<a name="AWS-Tutorial-Analyze-Big-Data-with-Hadoop"></a>
 ## [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
 
-it takes me 80 minutes. I followed the following steps to finish the tutorial:
+Time: it takes me 80 minutes.
 
-* Step 1: Set Up Prerequisites: you have to have a personal AWS account; create an Amazon S3 Bucket and folder to store the output data from a Hive query; create an Amazon EC2 Key Pair to to connect to the nodes in your cluster over a secure channel using the Secure Shell (SSH) protocol.
+I followed the following steps to finish the tutorial:
+
+* 1: Set Up Prerequisites: you have to have a personal AWS account; create an Amazon S3 Bucket and folder to store the output data from a Hive query; create an Amazon EC2 Key Pair to to connect to the nodes in your cluster over a secure channel using the Secure Shell (SSH) protocol.
 * 2: Launch The Cluster: user launches sample Amazon EMR cluster by using Quick Options in the Amazon EMR console and leaving most options to their default values; Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. By using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads. Additionally, you can use Amazon EMR to transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB.
 * 3: Allow SSH Connections to the Cluster From Your Client: Security groups act as virtual firewalls to control inbound and outbound traffic to your cluster. The default Amazon EMR-managed security groups associated with cluster instances do not allow inbound SSH connections as a security precaution. To connect to cluster nodes using SSH so that you can use the command line and view web interfaces that are hosted on the cluster, you need to add inbound rules that allow SSH traffic from trusted clients.
 * 4: Run a Hive Script to Process Data: The sample data is a series of Amazon CloudFront access log files; The sample script calculates the total number of requests per operating system over a specified time frame. The script uses HiveQL, which is a SQL-like scripting language for data warehousing and analysis
@@ -104,6 +97,7 @@ it takes me 80 minutes. I followed the following steps to finish the tutorial:
 terminating your cluster terminates the associated Amazon EC2 instances and stops the accrual of Amazon EMR charges. Amazon EMR preserves metadata information about completed clusters for your reference, at no charge, for two months. The console does not provide a way to delete terminated clusters so that they aren't viewable in the console. Terminated clusters are removed from the cluster when the metadata is removed
 There is more information on how to plan and configure clusters in your custom way, set up the security, manage clusters and trouble shoot cluster if it is performing in a wrong way.
 
+<a name="QwikLab-Intro-to-Amazon-Machine-Learning"></a>
 ## [QwikLab: Intro to Amazon Machine Learning]
 
 Time : it takes me 75 minutes. 
@@ -115,14 +109,22 @@ The lab tutorial consists of several parts:
 * Evaluate an ML model: the Amazon Machine Learning service evaluate the model automatically as part of the model creation process; it takes 70 percent of the data source to train the model and 30 percent to evaluate it. 
 * Generate predictions from ML model: batch mode and real-time mode are two ways to generate predictions from ML model; batch mode is asynchronous while the real-time mode is real time.
 
-For AWS Tutorial: Build a Machine Learning Model, it takes me 50 minutes. It is about using Amazon ML to Predict Responses to a Marketing Offer:
+<a name="AWS-Tutorial-Build-a-Machine-Learning-Model"></a>
+## [AWS Tutorial: Build a Machine Learning Model]
+
+Time: it takes me 50 minutes. It is about using Amazon ML to Predict Responses to a Marketing Offer:
 * Step 1: Prepare Your Data: In machine learning, you typically obtain the data and ensure that it is well formatted before starting the training process; we use customer purchase history to predict if this customer will subscribe to my new product
 * Step 2: Create a Training Datasource using the Amazon S3 service
 * Step 3: Create an ML Model: After you've created the training datasource, you use it to create an ML model, train the model, and then evaluate the results
 * Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold
 * Step 5: Use the ML Model to Generate Predictions
 
-For Video Tutorial: Overview of AWS SageMaker, it takes me 40 minutes: The AWS SageMaker has four parts, including the notebook instance, jobs, models and endpoints. Notebook instance is about using algorithms to create model via training jobs. Training jobs are instances to train the model. We create models for hosting from job outputs, or import externally trained models into Amazon SageMaker. Endpoints are for developers to use the SageMaker in production. The tutor elaborate on xgboost, kmeans, scikit . He talks about setting up the training parameters. We can train it on single or multiple instances. Then we import models into hosts. The last step is build endpoint configuration and create endpoint for developers to call
+<a name="VideoTutorialOverviewofAWSSageMaker"></a>
+[Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
+
+Time:it takes me 40 minutes
+
+The AWS SageMaker has four parts, including the notebook instance, jobs, models and endpoints. Notebook instance is about using algorithms to create model via training jobs. Training jobs are instances to train the model. We create models for hosting from job outputs, or import externally trained models into Amazon SageMaker. Endpoints are for developers to use the SageMaker in production. The tutor elaborate on xgboost, kmeans, scikit . He talks about setting up the training parameters. We can train it on single or multiple instances. Then we import models into hosts. The last step is build endpoint configuration and create endpoint for developers to call
 For AWS Tutorial: AWS SageMaker, it takes me 80 minutes. 
 Step 1: Setting Up
 Step 2: Create an Amazon SageMaker Notebook Instance
@@ -130,7 +132,10 @@ Step 3: Train and Deploy a Model
 Step 4: Clean up
 Step 5: Additional Considerations
 
-For Build a Serverless Real-Time Data Processing App, it takes 150 minutes, 
+<a name="BuildaServerlessReal-TimeDataProcessingApp"></a>
+[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)
+
+Time: it takes 150 minutes, 
 
 Cloud web application
 For QwikLab: Intro to S3, it takes 50 minutes. In this lab, I learned:
