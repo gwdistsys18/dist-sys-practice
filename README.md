@@ -12,7 +12,7 @@ Time: it takes me more than one hour to learn and write up a summary.
 
 * I have acquired how to create Amazon S3 bucket store my log files and output data, Launch a fully functional Hadoop cluster using Amazon EMR, define the schema, create a table for sample log data stored in Amazon S3, analyze the data using a HiveQL script and write the results back to Amazon S3. It is interesting to learn.
 
-[QwikLab: Intro to S3]
+[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
 Time:  it takes 50 minutes. 
 
@@ -25,22 +25,32 @@ Time:  it takes 50 minutes.
 
 	* The bucket is a really useful service and the versioning feature is quite cool.
 
-For QwikLab: Intro to Amazon Redshift, it takes me 60 minutes. In this lab, it covers
-* Launch a Redshift cluster: a cluster is a fully managed data warehouse that consists of a set of compute nodes; when launching a cluster, you have to specify the node type which determines the CPU, RAM, storage capacity and storage drive type.
-* Connect an SQL client called Pgweb to the Amazon Redshift cluster: we can write and run queries in Pgweb and also view the database information and structure.
-* Load sample data from an S3 bucket into the Amazon Redshift cluster which will hold the data for querying.
-* Run queries against data stored in Amazon Redshift: we could use SQL to query the data we need.
+[QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
+
+Time: it takes me 60 minutes. In this lab, it covers
+
+*  Launch a Redshift cluster: a cluster is a fully managed data warehouse that consists of a set of compute nodes; when launching a cluster, you have to specify the node type which determines the CPU, RAM, storage capacity and storage drive type.
+*  Connect an SQL client called Pgweb to the Amazon Redshift cluster: we can write and run queries in Pgweb and also view the database information and structure.
+*  Load sample data from an S3 bucket into the Amazon Redshift cluster which will hold the data for querying.
+*  Run queries against data stored in Amazon Redshift: we could use SQL to query the data we need.
 
 
-In regard to Video: Short AWS Machine Learning Overview, it takes me 10 minutes. it talks about the Machine learning on AWS. Machine learning has three layers, framework interfaces for expert, ML platforms for developers and data scientists and application services for machine learning API calls in the application. Amazon Deep Learning AMI is for the frameworks layer and Zillow uses it. Amazon SageMaker is a good for ML platform layer. 
+[Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
 
-[Overview of AWS SageMaker]
+Time: it takes me 10 minutes
+
+* it talks about the Machine learning on AWS. Machine learning has three layers, framework interfaces for expert, ML platforms for developers and data scientists and application services for machine learning API calls in the application. Amazon Deep Learning AMI is for the frameworks layer and Zillow uses it. Amazon SageMaker is a good for ML platform layer. 
+
+[Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
 
 Time: it takes me 35 minutes. 
 
 * The AWS SageMaker has four parts, including the notebook instance, jobs, models and endpoints. Notebook instance is about using algorithms to create model via training jobs. Training jobs are instances to train the model. We create models for hosting from job outputs, or import externally trained models into Amazon SageMaker. Endpoints are for developers to use the SageMaker in production. The tutor elaborate on xgboost, kmeans, scikit . He talks about setting up the training parameters. We can train it on single or multiple instances. Then we import models into hosts. The last step is build endpoint configuration and create endpoint for developers to call.
 
-For AWS Tutorial: Analyze Big Data with Hadoop, it takes me 80 minutes. I followed the following steps to finish the tutorial:
+[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+
+it takes me 80 minutes. I followed the following steps to finish the tutorial:
+
 * Step 1: Set Up Prerequisites: you have to have a personal AWS account; create an Amazon S3 Bucket and folder to store the output data from a Hive query; create an Amazon EC2 Key Pair to to connect to the nodes in your cluster over a secure channel using the Secure Shell (SSH) protocol.
 * 2: Launch The Cluster: user launches sample Amazon EMR cluster by using Quick Options in the Amazon EMR console and leaving most options to their default values; Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. By using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads. Additionally, you can use Amazon EMR to transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB.
 * 3: Allow SSH Connections to the Cluster From Your Client: Security groups act as virtual firewalls to control inbound and outbound traffic to your cluster. The default Amazon EMR-managed security groups associated with cluster instances do not allow inbound SSH connections as a security precaution. To connect to cluster nodes using SSH so that you can use the command line and view web interfaces that are hosted on the cluster, you need to add inbound rules that allow SSH traffic from trusted clients.
