@@ -1,6 +1,10 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+
+# Blog
+[Bonjour: Zero-Configuration Networking](https://jacktedo.github.io/docs/)
+
 # Table of contents
 - [Docker Container](https://github.com/JackTedo/dist-sys-practice/#docker-container)  
 	- [Beginner Level: Docker Container](https://github.com/JackTedo/dist-sys-practice/#beginner-level-docker-container)
