@@ -306,5 +306,5 @@ Implementation: Create a New REST API -> Create a Cognito User Pools Authorizer 
 
 Tools and Technology: 
 
-![Structure Diagram](link-to-image)
+![Structure Diagram](https://github.com/XuMo1995/dist-sys-practice/blob/master/Structure.png)
 
