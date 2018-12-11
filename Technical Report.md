@@ -21,4 +21,7 @@ There are many benefits of using the MapReduce.It provides multiple programming 
 ### Introduction to Apache Spark
 Spark was originally developed at UC Berkeley AMPLab in 2009, later than MapReduce. In 2013, Spark was donated to the Apache Software Foundation thus it is called Apache Spark now. It is an open source, unified analytics engine and is mostly widely used by corporations around the world.
 
-It has a variety of good features. It is suitable for dealing with a wide range of circumstances. It includes libraries for SQL called Spark SQL, machine learning called MLib, graph computation called GraphX and stream processing called Spark Streaming. Multiple programming languages are also supported by Spark including Java, Python, Scala,  R and so on.
+It has a variety of good features. It is suitable for dealing with a wide range of circumstances. It includes libraries for SQL called Spark SQL, machine learning called MLib, graph computation called GraphX and stream processing called Spark Streaming. Multiple programming languages are also supported by Spark including Java, Python, Scala,  R and so on. In addition, one of the unique aspects of Apache Spark is its unique "in-memory" technology that allows it to be an extremely good data processing system. In this technology, Spark loads all of the data to the internal memory of the system and then unloads it on the disk later. This way, a user can save a part of the processed data on the internal memory and leave the remaining on the disk. 
+<div align=center>
+<img src = "https://github.com/gowarrior/dist-sys-practice/blob/master/technical-report/3.png" >
+</div>
