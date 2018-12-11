@@ -1034,27 +1034,14 @@ aws cloudformation delete-stack --stack-name STACK-NAME-HERE
 ### [Video: Why Docker?]((https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23))
 
 Time Spent: 20 min
-
-	* This video talked about the trend of advancements in computer science
-	it acknowledged that Docker and containerization in general is a
-	trend that many people are moving towards because it is easy to set up
-	and the speed associated with spinning up a new container.
+* This video talked about the trend of advancements in computer science it acknowledged that Docker and containerization in general is a trend that many people are moving towards because it is easy to set up and the speed associated with spinning up a new container.
 
 <a name ="LabDevOpsDockerBeginnersGuide"></a>
 ### [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
 
 Time Spent : 60 min
 
-	* This tutorial started with a few simple commands and explained what
-	docker is doing when those commands are run.
-	* This tutorial then uses a lightweight version of linux to run some
-	more basic commands in while continuing to explain Docker infrastructure
-	further.
-	* The tutorial explains a lot on differences between VMs and containers. Primarily the focus is on
-	the speed with which a contianer can be spun up and killed. Fast
-	enough to run a single command and get an output within a reasonable
-	amount of time.
-	* Security is inforced through the separate instances of contianers.
-	although n contiars can be run using the same instance they all have
-	isolation ensure because they are executing in different contexts
-	while sharing the same image.
+* This tutorial started with a few simple commands and explained what docker is doing when those commands are run.
+* This tutorial then uses a lightweight version of linux to run somemore basic commands in while continuing to explain Docker infrastructure further.
+* The tutorial explains a lot on differences between VMs and containers. Primarily the focus is on the speed with which a contianer can be spun up and killed. Fast enough to run a single command and get an output within a reasonable amount of time.
+* Security is inforced through the separate instances of contianers. although n contiars can be run using the same instance they all have isolation ensure because they are executing in different contexts while sharing the same image.
