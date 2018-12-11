@@ -24,7 +24,12 @@ Notes Contents
      * [QwikLab: Intro to Amazon API Gateway](#QwikLabIntrotoAmazonAPIGateway)
      * [AWS Tutorial: Build a Serverless Web Application](#AWSTutorialBuildaServerlessWebApplication)
      * [AWS Tutorial: Build a Modern Web Application](#AWSTutorialBuildaModernWebApplication)
-          
+  
+  * [Docker and Container(Beginner Level)](DockerandContainerBeginnerLevel)
+     * [Video: Why Docker?](#VideoWhyDocker?)
+     * [Lab: DevOps Docker Beginners Guide](#LabDevOpsDockerBeginnersGuide)
+
+
 
 <a name="bigDataAndMachineLearning"></a>
 ## Big Data and Machine Learning (Beginner level + Intermediate Level)
@@ -738,7 +743,6 @@ you should see
 
 Amazon DynamoDB provides a persistence layer where data can be stored by the API's Lambda function.
 
-![backend](https://d1.awsstatic.com/Test%20Images/Kate%20Test%20Images/Serverless_Web_App_LP_assets-04.094e0479bc43ee7ecbbd1f7cc37ab90b83fe5e73.png)
 
 - Create DynamoDB table with name __Rides__, and __RideId__ for partition key
 - Create an IAM role for Your Lambda function, name it _WildRydesLambda_
@@ -931,7 +935,6 @@ __AWS Fargate__ allows you to specify that your containers be deployed to a clus
 - Visit website [s3 index](http://mythical-bucket-warren.s3-website-us-east-1.amazonaws.com/) again, website is accessing
 load balancer to retrieve data
 
-![access_lb](access_lb.png)
 
 ### Module 3 - Adding a Data Tier with Amazon DynamoDB
 
@@ -1024,10 +1027,11 @@ Clean up the workshop to avoid additional charging
 ```bash
 aws cloudformation delete-stack --stack-name STACK-NAME-HERE
 ```
-
+<a name ="DockerandContainersBeginnerLevel"></a>
 ## Docker and Containers(Beginner Level)
 
-Video: Why Docker?
+<a name ="VideoWhyDocker?"></a>
+### [Video: Why Docker?]((https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23))
 
 Time Spent: 20 min
 	* This video talked about the trend of advancements in computer science
@@ -1035,7 +1039,8 @@ Time Spent: 20 min
 	trend that many people are moving towards because it is easy to set up
 	and the speed associated with spinning up a new container.
 
-2. DevOps Docker Beginners Guide 
+<a name ="LabDevOpsDockerBeginnersGuide"></a>
+### [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
 
 Time Spent : 60 min
 	* This tutorial started with a few simple commands and explained what
