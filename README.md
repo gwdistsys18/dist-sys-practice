@@ -617,6 +617,45 @@ to the slow down faced by VMs on boot.
 		isolation provides a fast enough platform to interact with
 		users that's also extremely secure.
 4. How Do I Setup a Basic Docker Container?
+	- For this short tutorial the goal will be to setup a docker
+	contianer and to run a simple interactive linux distro. This
+	introductory tutorial is similar to Dockers hosted one but
+	you can do it from your own machine. 
+	- Prerequisites:
+		* Have a Docker username
+		* Have Docker installed
+		* Understand how to run commands on linux
+	- Step 1:
+	The first step is to check if our connection to Docker is
+	up and running. 
+	Run the command:
+	```docker container run alpine hostname
+	```	
+	The Docker command perfix `docker container run` are used
+	to execute a single command in the specified container.
+	The `alpine` specifies that we want to use the special
+	docker verison of alpine linux. The last portion of the
+	command is the actual command to be run on the container
+	try it again but with `ls -a` the output should look
+	similar to when you run ls -a on your machine(maybe with
+	less files).
+	- Step 2:
+	Next run the command:
+	```docker container run --interactive --tty --rm ubuntu bash
+	```	
+	This command starts an interactive container, any commands
+	that you run now will be inside of the contianer. 
+		* `--interactive` makes the command interactive
+		* `--tty` allocates pseudo-tty
+		* `--rm` cleans up the container after it's done executing
+
+![alt text][logo1]
+
+[logo1]: ./ops-basics-hello-world.svg "Docker Diagram Tutorial: First Alpine Linux Container"
+
+	
+
+
 	
 	 
 
