@@ -1031,7 +1031,7 @@ aws cloudformation delete-stack --stack-name STACK-NAME-HERE
 ## Docker and Containers(Beginner Level)
 
 <a name ="VideoWhyDocker?"></a>
-### [Video: Why Docker?]((https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23))
+### [Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23)
 
 Time Spent: 20 min
 * This video talked about the trend of advancements in computer science it acknowledged that Docker and containerization in general is a trend that many people are moving towards because it is easy to set up and the speed associated with spinning up a new container.
