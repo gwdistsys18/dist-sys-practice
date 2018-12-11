@@ -629,7 +629,8 @@ to the slow down faced by VMs on boot.
 	The first step is to check if our connection to Docker is
 	up and running. 
 	Run the command:
-	```docker container run alpine hostname
+	```
+	docker container run alpine hostname
 	```	
 	The Docker command perfix `docker container run` are used
 	to execute a single command in the specified container.
@@ -641,7 +642,8 @@ to the slow down faced by VMs on boot.
 	less files).
 	- Step 2:
 	Next run the command:
-	```docker container run --interactive --tty --rm ubuntu bash
+	```
+	docker container run --interactive --tty --rm ubuntu bash
 	```	
 	This command starts an interactive container, any commands
 	that you run now will be inside of the contianer. 
