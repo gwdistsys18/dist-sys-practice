@@ -30,6 +30,7 @@ It has a variety of good features. It is suitable for dealing with a wide range 
 <div align=center>
 <img src = "https://github.com/gowarrior/dist-sys-practice/blob/master/technical-report/4.png" >
 </div>
+
 * Hadoop MapReduce is better for linear processing of a large amount of datasets and it is economical if you do not need the outcome immediately; Apache Spark is known for fast huge data processing, iterative processing, near real-time processing, graph processing, machine learning, and joining datasets. It looks like Apache Spark is a more modern solution and have more cutting-edge function that corporation needs.
 
 * When it comes to Fault Tolerance, we find that they both provide good solution for fault handling but using different approches. It shows that MapReduce has slight better fault tolerance.
