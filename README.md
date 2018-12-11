@@ -655,10 +655,10 @@ to the slow down faced by VMs on boot.
 
 [logo1]: ./ops-basics-hello-world.svg "Docker Diagram Tutorial: First Alpine Linux Container"
 
-	This diagram and the suggested commands are from two docker
-	tutorials: 
-	(Docker for Beginners)[https://training.play-with-docker.com/ops-s1-hello/] 
-	(First Alpine Linux Containers)[https://training.play-with-docker.com/beginner-linux/#Task_1]	
+This diagram and the suggested commands are from two docker
+tutorials: 
+[Docker for Beginners](https://training.play-with-docker.com/ops-s1-hello/) 
+[First Alpine Linux Containers](https://training.play-with-docker.com/beginner-linux/#Task_1)	
 
 
 	
