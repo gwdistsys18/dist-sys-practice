@@ -1034,6 +1034,7 @@ aws cloudformation delete-stack --stack-name STACK-NAME-HERE
 ### [Video: Why Docker?]((https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23))
 
 Time Spent: 20 min
+
 	* This video talked about the trend of advancements in computer science
 	it acknowledged that Docker and containerization in general is a
 	trend that many people are moving towards because it is easy to set up
@@ -1043,6 +1044,7 @@ Time Spent: 20 min
 ### [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/)
 
 Time Spent : 60 min
+
 	* This tutorial started with a few simple commands and explained what
 	docker is doing when those commands are run.
 	* This tutorial then uses a lightweight version of linux to run some
