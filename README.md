@@ -593,13 +593,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 [logo]: ./vm_vs_container.png "Virtual Machine's VS. Container"
 
-	This diagram outlines a crucial difference between containers
-	and VMs and that's what's actually spun up and running as part
-	of the instance. A docker image contains only the libraries and
-	the applications. A Virtual Machine Image contains the entire
-	guest os as well as the libraries and the applications.	This
-	difference in size is what leads to the slow down faced by VMs
-	on boot.
+This diagram outlines a crucial difference between containers and VMs 
+and that's what's actually spun up and running as part of the instance. 
+A docker image contains only the libraries and the applications. A 
+Virtual Machine Image contains the entire guest os as well as the 
+libraries and the applications.	This difference in size is what leads 
+to the slow down faced by VMs on boot.
 
 3. What can you use a container for?
 	- Containers are used for a variety of reasons but many companies
