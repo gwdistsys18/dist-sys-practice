@@ -430,7 +430,55 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	case the Flask app they are push and distributed to the rest of
 	the system without having to manually update every piece.
 3. Store System Information
-	- 
+	- This step requires building an Amazon DynamoDB. This will be
+	easier to do now that the CI/CD pipeline is established. It will
+	allow us to make changes to the system and have them distributed
+	automatically throughout instead of having to manually update
+	each component.
+	- Originally the content was populated base on data in a static
+	JSON file. Now after establish a new DynamoDB table we can update
+	the Flask application to read from this table instead of the static
+	JSON.
+	- Now that the application is not accessing a file from the S3
+	bucket it will need to make a request to receive the data that
+	it will serve. 
+	- This request to the DynamoDB page is made through an Amazon
+	SDK called boto3. It's basically a python library that can access
+	AWS services.
+4. User Registration
+	- This component of the web application will rely heavily on
+	Amazon's cognito service and user pool access control.
+	- In order to allow users to create accounts the outward API
+	of the Flask app needs to be exteneded. This is still a RESTful
+	API and will leverage the Amazon API Gateway to handle calls
+	made to it.
+	- Swagger will be helpful in this scenario. It is a framework
+	that will aid in describing the API in the form of a JSON.
+	- Updating these security roles in the main website cannot be
+	done auto matically and require some code to be changed. This
+	requires some small updates to the app in the S3 bucket.
+5. Capture User Behavior
+	- This component will help to learn more about user interaction
+	with the application but does not require any down time or updates
+	to the application itself. It can serve as a microservice that
+	remains completely decoupled from the primary application.
+	- This service is only really useful when a user is actively
+	interacting with a site. These interactions translate really
+	well into events.
+	- Lambdas are the perfect tool to utilize when addressing an
+	events based system or serivce.
+	- The Lambda can help to analyze and parse the data being
+	received from the user but it can't record these actions or
+	create the events that trigger it to begin processing.
+	- The tool we use to track events and trigger lambdas is
+	called Kinesis Firehose. 
+	- Kinesis Firehose is an analytics streaming service available
+	on a majority of AWS provided services like S3 and Amazon
+	Redshift Data Warehouse clusters. 
+	- The data streaming from the Kinesis Firehose connected to
+	the S3 bucket we're using to host our website will trigger the
+	lambda functions to collect and parse the interaction data
+	from the user.
 
 ## Area 3 Big Data and Machine Learning
 ### Beginner
@@ -504,7 +552,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 ## Blog Post
 ### Containers: Why do we have them? What can I put in them? How do I make one?
-1. What is virtualization in brief
+1. What is Virtualization?
 	- Virtualization is emulating hardware for an operating system.
 	Originally it was designed to allow OSes to run on HW they wouldn't
 	typically support. Virtualization is done at both the hardware and
@@ -515,7 +563,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	cases this is referred to as the VMM or VM manager. The VMM is
 	responsible for fielding these calls made by the guest os and
 	responding to them in a way that the guest OS expects. 
-2. How do containers do this differently 
+2. How do containers do this differently?
 	- Containers are slightly different than virtual machines in that
 	they all need to run on the same kernel. A kernel in this case is
 	similar to the VMM it will handle the interaction with the hardware
@@ -538,18 +586,39 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 	Windows kernel but this is just a wrapper around preexistting 
 	kernel features in linux. Docker sacrifices some customization
 	options and configurations for fast boot and fast use.
-	Below are some diagrams comparing VMs to Containers:
-	FIXME DIAGRAMS
-3. What can you use a container for with examples
+	
+	- Below are some diagrams comparing VMs to Containers:
+	
+![alt text][logo]
+
+[logo]: ./vm_vs_container.png "Virtual Machine's VS. Container"
+
+	This diagram outlines a crucial difference between containers
+	and VMs and that's what's actually spun up and running as part
+	of the instance. A docker image contains only the libraries and
+	the applications. A Virtual Machine Image contains the entire
+	guest os as well as the libraries and the applications.	This
+	difference in size is what leads to the slow down faced by VMs
+	on boot.
+
+3. What can you use a container for?
 	- Containers are used for a variety of reasons but many companies
 	have adopted them and now rely on them for everyday use. The
 	examples on Dockers website help to highlight some of the reasons
 	to switch to docker and provide some examles of companies that
 	have made the switch.
-		* ADP
-		* GSK
-		* PayPal
-	- How do I setup a basic docker application
+		* ADP: This company supports some old technology and has
+		access to various cloud architecture but wanted a unified
+		platoform to run their business. Docker containers can
+		support some outdate OSes as well as scale to whatever size
+		cloud a company can throw at it.
+		* GSK: This Company leverages the speed of Docker to help
+		improve it's speed of development of new drugs and cures.
+		* PayPal: This company values security highly so Dockers
+		isolation provides a fast enough platform to interact with
+		users that's also extremely secure.
+4. How Do I Setup a Basic Docker Container?
+	
 	 
 
 
